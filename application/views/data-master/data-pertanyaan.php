@@ -1,88 +1,79 @@
-<header class="mb-3">
-    <a href="#" class="burger-btn d-block d-xl-none">
-        <i class="bi bi-justify fs-3"></i>
-    </a>
-</header>
-<div class="page-heading">
-    <h3><?= $title ?></h3>
-</div>
-<div class="page-content">
-    <section class="row">
-		<?= $this->session->flashdata('message'); ?>
-		<?= form_error('pertanyaan','<div class="alert alert-danger" role="alert">','</div>'); ?>
-		<div class="row">
-			<div class="col-lg-6">
-				<div class="card">
-					<div class="card-header">
-						Pertanyaan 1
-					</div>
-					<div class="card-body">
-						<!-- <h5 class="card-title">Pertanyaan 1</h5> -->
-						<a href="" class="btn btn-primary mb-3 newPertanyaan1ModalButton" data-toggle="modal" data-target="#newPertanyaan1Modal">Add New Question</a>
-						<table class="table table-hover">
-							<thead>
-								<tr>
-									<th scope="col">#</th>
-									<th scope="col">Question</th>
-									<th scope="col">Action</th>
-								</tr>
-							</thead>
-							<tbody>
-								<?php $no=1; ?>
-								<?php foreach ($pertanyaan_1 as $key): ?>
-									<tr>
-										<th scope="row"><?= $no ?></th>
-										<td><?= $key['pertanyaan'] ?></td>
-										<td>
-											<a href="<?= base_url("DataMaster/updatePertanyaan/1/$key[id]"); ?>" class="badge bg-success updatePertanyaan1ModalButton" data-toggle="modal" data-target="#newPertanyaan1Modal" data-id="<?=$key['id']?>">Edit</a>
-											<a href="<?= base_url("DataMaster/deletePertanyaan/1/$key[id]"); ?>" class="badge bg-danger" onclick="return confirm('Are you sure?');">Delete</a>
-										</td>
-									</tr>
-									<?php $no++; ?>
-								<?php endforeach ?>
-							</tbody>
-						</table>
-					</div>
+
+<section class="row">
+	<?= $this->session->flashdata('message'); ?>
+	<?= form_error('pertanyaan','<div class="alert alert-danger" role="alert">','</div>'); ?>
+	<div class="row">
+		<div class="col-lg-6">
+			<div class="card">
+				<div class="card-header">
+					Pertanyaan 1
 				</div>
-			</div>
-			<div class="col-lg-6">
-				<div class="card">
-					<div class="card-header">
-						Pertanyaan 2
-					</div>
-					<div class="card-body">
-						<!-- <h5 class="card-title">Pertanyaan 2</h5> -->
-						<a href="" class="btn btn-info mb-3 newPertanyaan2ModalButton" data-toggle="modal" data-target="#newPertanyaan2Modal">Add New Question</a>
-						<table class="table table-hover">
-							<thead>
+				<div class="card-body">
+					<!-- <h5 class="card-title">Pertanyaan 1</h5> -->
+					<a href="" class="btn btn-primary mb-3 newPertanyaan1ModalButton" data-toggle="modal" data-target="#newPertanyaan1Modal">Add New Question</a>
+					<table class="table table-hover">
+						<thead>
+							<tr>
+								<th scope="col">#</th>
+								<th scope="col">Question</th>
+								<th scope="col">Action</th>
+							</tr>
+						</thead>
+						<tbody>
+							<?php $no=1; ?>
+							<?php foreach ($pertanyaan_1 as $key): ?>
 								<tr>
-									<th scope="col">#</th>
-									<th scope="col">Question</th>
-									<th scope="col">Action</th>
+									<th scope="row"><?= $no ?></th>
+									<td><?= $key['pertanyaan'] ?></td>
+									<td>
+										<a href="<?= base_url("DataMaster/updatePertanyaan/1/$key[id]"); ?>" class="badge bg-success updatePertanyaan1ModalButton" data-toggle="modal" data-target="#newPertanyaan1Modal" data-id="<?=$key['id']?>">Edit</a>
+										<a href="<?= base_url("DataMaster/deletePertanyaan/1/$key[id]"); ?>" class="badge bg-danger" onclick="return confirm('Are you sure?');">Delete</a>
+									</td>
 								</tr>
-							</thead>
-							<tbody>
-								<?php $no=1; ?>
-								<?php foreach ($pertanyaan_2 as $key): ?>
-									<tr>
-										<th scope="row"><?= $no ?></th>
-										<td><?= $key['pertanyaan'] ?></td>
-										<td>
-											<a href="<?= base_url("DataMaster/updatePertanyaan/2/$key[id]"); ?>" class="badge bg-success updatePertanyaan2ModalButton" data-toggle="modal" data-target="#newPertanyaan2Modal" data-id="<?=$key['id']?>">Edit</a>
-											<a href="<?= base_url("DataMaster/deletePertanyaan/2/$key[id]"); ?>" class="badge bg-danger" onclick="return confirm('Are you sure?');">Delete</a>
-										</td>
-									</tr>
-									<?php $no++; ?>
-								<?php endforeach ?>
-							</tbody>
-						</table>
-					</div>
+								<?php $no++; ?>
+							<?php endforeach ?>
+						</tbody>
+					</table>
 				</div>
 			</div>
 		</div>
-	</section>
-	<!-- /.container-fluid -->
-</div>
+		<div class="col-lg-6">
+			<div class="card">
+				<div class="card-header">
+					Pertanyaan 2
+				</div>
+				<div class="card-body">
+					<!-- <h5 class="card-title">Pertanyaan 2</h5> -->
+					<a href="" class="btn btn-info mb-3 newPertanyaan2ModalButton" data-toggle="modal" data-target="#newPertanyaan2Modal">Add New Question</a>
+					<table class="table table-hover">
+						<thead>
+							<tr>
+								<th scope="col">#</th>
+								<th scope="col">Question</th>
+								<th scope="col">Action</th>
+							</tr>
+						</thead>
+						<tbody>
+							<?php $no=1; ?>
+							<?php foreach ($pertanyaan_2 as $key): ?>
+								<tr>
+									<th scope="row"><?= $no ?></th>
+									<td><?= $key['pertanyaan'] ?></td>
+									<td>
+										<a href="<?= base_url("DataMaster/updatePertanyaan/2/$key[id]"); ?>" class="badge bg-success updatePertanyaan2ModalButton" data-toggle="modal" data-target="#newPertanyaan2Modal" data-id="<?=$key['id']?>">Edit</a>
+										<a href="<?= base_url("DataMaster/deletePertanyaan/2/$key[id]"); ?>" class="badge bg-danger" onclick="return confirm('Are you sure?');">Delete</a>
+									</td>
+								</tr>
+								<?php $no++; ?>
+							<?php endforeach ?>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- /.container-fluid -->
 <!-- End of Main Content -->
 <!-- Modal -->
 <div class="modal fade" id="newPertanyaan1Modal" tabindex="-1" aria-labelledby="newPertanyaan1ModalLabel" aria-hidden="true">

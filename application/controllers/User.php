@@ -26,10 +26,8 @@ class User extends CI_Controller {
 	public function edit()
 	{
 		$data['title'] = "Edit Profile";
-		$this->db->join('agama', 'agama.id_agama = user.religion_id');
 		$data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 		$this->form_validation->set_rules('name', 'Full Name', 'trim|required');
-		$data['agama'] = $this->db->get('agama')->result_array();
 		if ($this->form_validation->run() ==  false) {
 			$this->load->view('layouts/header', $data);
 			$this->load->view('layouts/sidebar', $data);
@@ -66,7 +64,6 @@ class User extends CI_Controller {
 				'place_of_birth' => $this->input->post('place_of_birth'),
 				'birthday' => $this->input->post('birthday'),
 				'phone_number' => $this->input->post('phone_number'),
-				'religion_id' => $this->input->post('religion_id'),
 				'address' => $this->input->post('address')
 			];
 			$this->db->where('email', $email);

@@ -71,18 +71,6 @@
                     </div>
                     <?= form_error('address','<small class="text-danger pl-3">','</small>') ?>
                 </div>
-                <div class="form-group position-relative has-icon-left mb-4">
-                    <select class="form-control" name="religion_id" id="religion_id">
-                        <option value="">Select Religion</option>
-                        <?php foreach ($agama as $row): ?>
-                            <option value="<?= $row['id_agama'] ?>"><?= $row['agama'] ?></option>
-                        <?php endforeach ?>
-                    </select>
-                    <div class="form-control-icon">
-                        <i class="bi bi-shield-lock"></i>
-                    </div>
-                    <?= form_error('religion_id','<small class="text-danger pl-3">','</small>') ?>
-                </div>
                 <!-- <div class="form-group position-relative has-icon-left mb-4">
                     <select class="form-control" name="role_id" id="role_id">
                         <option value="">Select Role</option>

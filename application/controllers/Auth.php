@@ -64,10 +64,8 @@ class Auth extends CI_Controller {
 		$this->form_validation->set_rules('birthday','Birth Day', 'required|trim');
 		$this->form_validation->set_rules('phone_number','Phone Number', 'required|trim');
 		$this->form_validation->set_rules('address','Address', 'required|trim');
-		$this->form_validation->set_rules('religion_id','Religion', 'required|trim');
 		// 
 		$this->form_validation->set_rules('password2','Confrim Password', 'required|trim|matches[password1]');
-		$data['agama'] = $this->db->get('agama')->result_array();
 		if ($this->form_validation->run() == false) {
 			$data['title'] = 'User Registration';
 			$data['page'] = 'auth/registration';
@@ -82,7 +80,6 @@ class Auth extends CI_Controller {
 				'birthday' => htmlspecialchars($this->input->post('birthday', true)),
 				'phone_number' => htmlspecialchars($this->input->post('phone_number', true)),
 				'address' => htmlspecialchars($this->input->post('address', true)),
-				'religion_id' => htmlspecialchars($this->input->post('religion_id', true)),
 				'image' => 'default.svg',
 				'password' => password_hash($this->input->post('password1'), PASSWORD_DEFAULT),
 				// 'role_id' => htmlspecialchars($this->input->post('role_id', true)),

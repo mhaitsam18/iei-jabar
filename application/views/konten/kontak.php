@@ -1,57 +1,47 @@
-<header class="mb-3">
-    <a href="#" class="burger-btn d-block d-xl-none">
-        <i class="bi bi-justify fs-3"></i>
-    </a>
-</header>
-<div class="page-heading">
-    <h3><?= $title ?></h3>
-</div>
-<div class="page-content">
-    <section class="row">
-        <div class="flash-data" data-flashdata="<?= $this->session->flashdata('flash'); ?>" data-objek="Kontak"></div>
-        <?= $this->session->flashdata('message'); ?>
-        <?= form_error('nama_lengkap','<div class="alert alert-danger" role="alert">','</div>'); ?>
-        <?= form_error('jabatan','<div class="alert alert-danger" role="alert">','</div>'); ?>
-        <?= form_error('cabang','<div class="alert alert-danger" role="alert">','</div>'); ?>
-        <?= form_error('email','<div class="alert alert-danger" role="alert">','</div>'); ?>
-        <?= form_error('no_hp','<div class="alert alert-danger" role="alert">','</div>'); ?>
-        <div class="col-lg-12">
-            <a href="" class="btn btn-primary mb-3 newKontakModalButton" data-toggle="modal" data-target="#newKontakModal">Tambah Person Kontak baru</a>
-            <table class="table table-hover table-responsive" id="dataTable">
-                <thead>
+
+<section class="row">
+    <div class="flash-data" data-flashdata="<?= $this->session->flashdata('flash'); ?>" data-objek="Kontak"></div>
+    <?= $this->session->flashdata('message'); ?>
+    <?= form_error('nama_lengkap','<div class="alert alert-danger" role="alert">','</div>'); ?>
+    <?= form_error('jabatan','<div class="alert alert-danger" role="alert">','</div>'); ?>
+    <?= form_error('cabang','<div class="alert alert-danger" role="alert">','</div>'); ?>
+    <?= form_error('email','<div class="alert alert-danger" role="alert">','</div>'); ?>
+    <?= form_error('no_hp','<div class="alert alert-danger" role="alert">','</div>'); ?>
+    <div class="col-lg-12">
+        <a href="" class="btn btn-primary mb-3 newKontakModalButton" data-toggle="modal" data-target="#newKontakModal">Tambah Person Kontak baru</a>
+        <table class="table table-hover table-responsive" id="dataTable">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Nama Lengkap</th>
+                    <th scope="col">Jabatan</th>
+                    <th scope="col">Cabang</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Nomor Handphone</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php $no=1; ?>
+                <?php foreach ($kontak as $key): ?>
                     <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Nama Lengkap</th>
-                        <th scope="col">Jabatan</th>
-                        <th scope="col">Cabang</th>
-                        <th scope="col">Email</th>
-                        <th scope="col">Nomor Handphone</th>
-                        <th scope="col">Action</th>
+                        <th scope="row"><?= $no ?></th>
+                        <td><?= $key['nama_lengkap'] ?></td>
+                        <td><?= $key['jabatan'] ?></td>
+                        <td><?= $key['cabang'] ?></td>
+                        <td><?= $key['email'] ?></td>
+                        <td><?= $key['no_hp'] ?></td>
+                        <td>
+                            <a href="<?= base_url("Konten/updateKontak/$key[id]"); ?>" class="badge bg-success updateKontakModalButton" data-toggle="modal" data-target="#newKontakModal" data-id="<?=$key['id']?>">Edit</a>
+                            <a href="<?= base_url("Konten/deleteKontak/$key[id]"); ?>" class="badge bg-danger tombol-hapus" data-hapus="Kontak">Delete</a>
+                        </td>
                     </tr>
-                </thead>
-                <tbody>
-                    <?php $no=1; ?>
-                    <?php foreach ($kontak as $key): ?>
-                        <tr>
-                            <th scope="row"><?= $no ?></th>
-                            <td><?= $key['nama_lengkap'] ?></td>
-                            <td><?= $key['jabatan'] ?></td>
-                            <td><?= $key['cabang'] ?></td>
-                            <td><?= $key['email'] ?></td>
-                            <td><?= $key['no_hp'] ?></td>
-                            <td>
-                                <a href="<?= base_url("Konten/updateKontak/$key[id]"); ?>" class="badge bg-success updateKontakModalButton" data-toggle="modal" data-target="#newKontakModal" data-id="<?=$key['id']?>">Edit</a>
-                                <a href="<?= base_url("Konten/deleteKontak/$key[id]"); ?>" class="badge bg-danger tombol-hapus" data-hapus="Kontak">Delete</a>
-                            </td>
-                        </tr>
-                    <?php $no++; ?>
-                    <?php endforeach ?>
-                </tbody>
-            </table>
-        </div>
-    </section>
-</div>
-<!-- End of Main Content -->
+                <?php $no++; ?>
+                <?php endforeach ?>
+            </tbody>
+        </table>
+    </div>
+</section>
 <!-- Modal -->
 <div class="modal fade" id="newKontakModal" tabindex="-1" aria-labelledby="newKontakModalLabel" aria-hidden="true">
     <div class="modal-dialog">
