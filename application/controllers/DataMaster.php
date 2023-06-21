@@ -19,6 +19,7 @@ class DataMaster extends CI_Controller {
 		$data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 		$this->load->view('layouts/header', $data);
 		$this->load->view('layouts/sidebar', $data);
+		$this->load->view('layouts/topbar', $data);
 		$this->load->view('data-master/index', $data);
 		$this->load->view('layouts/footer');
 	}
@@ -34,6 +35,7 @@ class DataMaster extends CI_Controller {
 		if ($this->form_validation->run() == false) {
 			$this->load->view('layouts/header', $data);
 			$this->load->view('layouts/sidebar', $data);
+			$this->load->view('layouts/topbar', $data);
 			$this->load->view('data-master/data-konten', $data);
 			$this->load->view('layouts/footer');
 		} else{
@@ -94,6 +96,7 @@ class DataMaster extends CI_Controller {
 		if ($this->form_validation->run() == false) {
 			$this->load->view('layouts/header', $data);
 			$this->load->view('layouts/sidebar', $data);
+			$this->load->view('layouts/topbar', $data);
 			$this->load->view('data-master/data-dashboard', $data);
 			$this->load->view('layouts/footer');
 		} else{

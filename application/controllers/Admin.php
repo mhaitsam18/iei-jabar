@@ -141,6 +141,7 @@ class Admin extends CI_Controller {
 		$data['dashboard'] = $this->db->get('dashboard')->row_array();
 		$this->load->view('layouts/header', $data);
 		$this->load->view('layouts/sidebar', $data);
+		$this->load->view('layouts/topbar', $data);
 		$this->load->view('admin/index', $data);
 		$this->load->view('layouts/footer');
 	}
@@ -154,6 +155,7 @@ class Admin extends CI_Controller {
 		if ($this->form_validation->run() == false) {
 			$this->load->view('layouts/header', $data);
 			$this->load->view('layouts/sidebar', $data);
+			$this->load->view('layouts/topbar', $data);
 			$this->load->view('admin/role', $data);
 			$this->load->view('layouts/footer');
 		} else{
@@ -176,6 +178,7 @@ class Admin extends CI_Controller {
 		$data['user_data'] = $this->db->get()->result_array();
 		$this->load->view('layouts/header', $data);
 		$this->load->view('layouts/sidebar', $data);
+		$this->load->view('layouts/topbar', $data);
 		$this->load->view('admin/data-user', $data);
 		$this->load->view('layouts/footer');
 	}
@@ -203,6 +206,7 @@ class Admin extends CI_Controller {
 		$data['menu'] = $this->db->get('user_menu')->result_array();
 		$this->load->view('layouts/header', $data);
 		$this->load->view('layouts/sidebar', $data);
+		$this->load->view('layouts/topbar', $data);
 		$this->load->view('admin/role-access', $data);
 		$this->load->view('layouts/footer');
 	}

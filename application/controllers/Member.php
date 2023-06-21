@@ -20,6 +20,7 @@ class Member extends CI_Controller {
 		$data['dashboard'] = $this->db->get('dashboard')->row_array();
 		$this->load->view('layouts/header', $data);
 		$this->load->view('layouts/sidebar', $data);
+		$this->load->view('layouts/topbar', $data);
 		$this->load->view('member/index', $data);
 		$this->load->view('layouts/footer');
 	}
@@ -113,6 +114,7 @@ class Member extends CI_Controller {
 		$data['kategori'] = $this->db->get('kategori')->result_array();
 		$this->load->view('layouts/header', $data);
 		$this->load->view('layouts/sidebar', $data);
+		$this->load->view('layouts/topbar', $data);
 		$this->load->view('member/produk-janik-lampung', $data);
 		$this->load->view('layouts/footer');
 	}
@@ -251,6 +253,7 @@ class Member extends CI_Controller {
 		$data['kurir'] = $this->db->get('kurir')->result_array();
 		$this->load->view('layouts/header', $data);
 		$this->load->view('layouts/sidebar', $data);
+		$this->load->view('layouts/topbar', $data);
 		$this->load->view('member/keranjang', $data);
 		$this->load->view('layouts/footer');
 	}
@@ -264,6 +267,7 @@ class Member extends CI_Controller {
 		$data['checkout'] = $this->db->get_where('checkout', ['id_user' => $data['user']['id']])->result_array();
 		$this->load->view('layouts/header', $data);
 		$this->load->view('layouts/sidebar', $data);
+		$this->load->view('layouts/topbar', $data);
 		$this->load->view('member/pesanan-saya', $data);
 		$this->load->view('layouts/footer');
 	}
@@ -289,6 +293,7 @@ class Member extends CI_Controller {
 
 		$this->load->view('layouts/header', $data);
 		$this->load->view('layouts/sidebar', $data);
+		$this->load->view('layouts/topbar', $data);
 		$this->load->view('member/detail-pesanan', $data);
 		$this->load->view('layouts/footer');
 	}
@@ -322,6 +327,7 @@ class Member extends CI_Controller {
 		$data['form'] = 'uploadBuktiTransfer';
 		$this->load->view('layouts/header', $data);
 		$this->load->view('layouts/sidebar', $data);
+		$this->load->view('layouts/topbar', $data);
 		$this->load->view('member/pembayaran', $data);
 		$this->load->view('layouts/footer');
 	}
@@ -385,6 +391,7 @@ class Member extends CI_Controller {
 		$data['bukti_transfer'] = $this->db->get_where('bukti_transfer',$where)->result_array();
 		$this->load->view('layouts/header', $data);
 		$this->load->view('layouts/sidebar', $data);
+		$this->load->view('layouts/topbar', $data);
 		$this->load->view('member/riwayat-pembayaran', $data);
 		$this->load->view('layouts/footer');
 	}

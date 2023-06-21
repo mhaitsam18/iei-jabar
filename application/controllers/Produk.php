@@ -19,6 +19,7 @@ class Produk extends CI_Controller {
 		$data['dashboard'] = $this->db->get('dashboard')->row_array();
 		$this->load->view('layouts/header', $data);
 		$this->load->view('layouts/sidebar', $data);
+		$this->load->view('layouts/topbar', $data);
 		$this->load->view('produk/index', $data);
 		$this->load->view('layouts/footer');
 	}
@@ -42,6 +43,7 @@ class Produk extends CI_Controller {
 		if ($this->form_validation->run() == false) {
 			$this->load->view('layouts/header', $data);
 			$this->load->view('layouts/sidebar', $data);
+			$this->load->view('layouts/topbar', $data);
 			$this->load->view('produk/produk', $data);
 			$this->load->view('layouts/footer');
 		} else{
@@ -92,6 +94,7 @@ class Produk extends CI_Controller {
 		if ($this->form_validation->run() == false) {
 			$this->load->view('layouts/header', $data);
 			$this->load->view('layouts/sidebar', $data);
+			$this->load->view('layouts/topbar', $data);
 			$this->load->view('produk/inout-produk', $data);
 			$this->load->view('layouts/footer');
 		} else {
@@ -159,6 +162,7 @@ class Produk extends CI_Controller {
 		
 		$this->load->view('layouts/header', $data);
 		$this->load->view('layouts/sidebar', $data);
+		$this->load->view('layouts/topbar', $data);
 		$this->load->view('produk/produk-terjual', $data);
 		$this->load->view('layouts/footer');
 	}
@@ -345,6 +349,7 @@ class Produk extends CI_Controller {
 
 		$this->load->view('layouts/header', $data);
 		$this->load->view('layouts/sidebar', $data);
+		$this->load->view('layouts/topbar', $data);
 		$this->load->view('produk/laba-rugi', $data);
 		$this->load->view('layouts/footer');
 	}
@@ -430,6 +435,7 @@ class Produk extends CI_Controller {
 
 		$this->load->view('layouts/header', $data);
 		$this->load->view('layouts/sidebar', $data);
+		$this->load->view('layouts/topbar', $data);
 		$this->load->view('produk/pasokan', $data);
 		$this->load->view('layouts/footer');
 	}

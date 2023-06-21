@@ -19,6 +19,7 @@ class Lainnya extends CI_Controller {
 		$data['konten'] = $this->db->get_where('content', ['id' => 1])->row_array();
 		$this->load->view('layouts/header', $data);
 		$this->load->view('layouts/sidebar', $data);
+		$this->load->view('layouts/topbar', $data);
 		$this->load->view('lainnya/index', $data);
 		$this->load->view('layouts/footer');
 	}
@@ -30,6 +31,7 @@ class Lainnya extends CI_Controller {
 		$data['konten'] = $this->db->get_where('content', ['id' => 1])->row_array();
 		$this->load->view('layouts/header', $data);
 		$this->load->view('layouts/sidebar', $data);
+		$this->load->view('layouts/topbar', $data);
 		$this->load->view('lainnya/tentang', $data);
 		$this->load->view('layouts/footer');
 	}
@@ -41,6 +43,7 @@ class Lainnya extends CI_Controller {
 		$data['konten'] = $this->db->get_where('content', ['id' => 1])->row_array();
 		$this->load->view('layouts/header', $data);
 		$this->load->view('layouts/sidebar', $data);
+		$this->load->view('layouts/topbar', $data);
 		$this->load->view('lainnya/pengaturan', $data);
 		$this->load->view('layouts/footer');
 	}
@@ -52,6 +55,7 @@ class Lainnya extends CI_Controller {
 		$data['konten'] = $this->db->get_where('content', ['id' => 1])->row_array();
 		$this->load->view('layouts/header', $data);
 		$this->load->view('layouts/sidebar', $data);
+		$this->load->view('layouts/topbar', $data);
 		$this->load->view('lainnya/hubungi-kami', $data);
 		$this->load->view('layouts/footer');
 	}
@@ -63,6 +67,7 @@ class Lainnya extends CI_Controller {
 		$data['konten'] = $this->db->get_where('content', ['id' => 1])->row_array();
 		$this->load->view('layouts/header', $data);
 		$this->load->view('layouts/sidebar', $data);
+		$this->load->view('layouts/topbar', $data);
 		$this->load->view('lainnya/bantuan', $data);
 		$this->load->view('layouts/footer');
 	}
@@ -74,6 +79,7 @@ class Lainnya extends CI_Controller {
 		$data['konten'] = $this->db->get_where('content', ['id' => 1])->row_array();
 		$this->load->view('layouts/header', $data);
 		$this->load->view('layouts/sidebar', $data);
+		$this->load->view('layouts/topbar', $data);
 		$this->load->view('lainnya/faq', $data);
 		$this->load->view('layouts/footer');
 	}

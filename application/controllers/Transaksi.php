@@ -94,6 +94,7 @@ class Transaksi extends CI_Controller {
 		$data['kategori'] = $this->db->get('kategori')->result_array();
 		$this->load->view('layouts/header', $data);
 		$this->load->view('layouts/sidebar', $data);
+		$this->load->view('layouts/topbar', $data);
 		$this->load->view('transaksi/index', $data);
 		$this->load->view('layouts/footer');
 	}
@@ -195,6 +196,7 @@ class Transaksi extends CI_Controller {
 		$data['checkout'] = $this->db->get('checkout')->result_array();
 		$this->load->view('layouts/header', $data);
 		$this->load->view('layouts/sidebar', $data);
+		$this->load->view('layouts/topbar', $data);
 		$this->load->view('transaksi/pemesanan-online', $data);
 		$this->load->view('layouts/footer');
 	}
@@ -219,6 +221,7 @@ class Transaksi extends CI_Controller {
 		$data['bukti_transfer'] = $this->db->get_where('bukti_transfer',['id_checkout' => $id_checkout])->result_array();
 		$this->load->view('layouts/header', $data);
 		$this->load->view('layouts/sidebar', $data);
+		$this->load->view('layouts/topbar', $data);
 		$this->load->view('member/detail-pesanan', $data);
 		$this->load->view('layouts/footer');
 	}
@@ -234,6 +237,7 @@ class Transaksi extends CI_Controller {
 		$data['transaksi'] = $this->db->get('transaksi')->result_array();
 		$this->load->view('layouts/header', $data);
 		$this->load->view('layouts/sidebar', $data);
+		$this->load->view('layouts/topbar', $data);
 		$this->load->view('transaksi/pemesanan-offline', $data);
 		$this->load->view('layouts/footer');
 	}
@@ -249,6 +253,7 @@ class Transaksi extends CI_Controller {
 		$data['bukti_transfer'] = $this->db->get('bukti_transfer')->result_array();
 		$this->load->view('layouts/header', $data);
 		$this->load->view('layouts/sidebar', $data);
+		$this->load->view('layouts/topbar', $data);
 		$this->load->view('transaksi/pembayaran-online', $data);
 		$this->load->view('layouts/footer');
 	}
@@ -331,6 +336,7 @@ class Transaksi extends CI_Controller {
 		if ($this->form_validation->run() == false) {
 			$this->load->view('layouts/header', $data);
 			$this->load->view('layouts/sidebar', $data);
+			$this->load->view('layouts/topbar', $data);
 			$this->load->view('transaksi/beban', $data);
 			$this->load->view('layouts/footer');
 		} else{

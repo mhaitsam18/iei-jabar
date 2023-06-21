@@ -18,6 +18,7 @@ class User extends CI_Controller {
 		$data['dashboard'] = $this->db->get('dashboard')->row_array();
 		$this->load->view('layouts/header', $data);
 		$this->load->view('layouts/sidebar', $data);
+		$this->load->view('layouts/topbar', $data);
 		$this->load->view('user/index', $data);
 		$this->load->view('layouts/footer');
 	}
@@ -31,6 +32,7 @@ class User extends CI_Controller {
 		if ($this->form_validation->run() ==  false) {
 			$this->load->view('layouts/header', $data);
 			$this->load->view('layouts/sidebar', $data);
+			$this->load->view('layouts/topbar', $data);
 			$this->load->view('user/edit', $data);
 			$this->load->view('layouts/footer');
 		} else{
@@ -116,6 +118,7 @@ class User extends CI_Controller {
 		if ($this->form_validation->run() ==  false) {
 			$this->load->view('layouts/header', $data);
 			$this->load->view('layouts/sidebar', $data);
+			$this->load->view('layouts/topbar', $data);
 			$this->load->view('user/change_password', $data);
 			$this->load->view('layouts/footer');
 		} else{
@@ -159,6 +162,7 @@ class User extends CI_Controller {
 		if ($this->form_validation->run() ==  false) {
 			$this->load->view('layouts/header', $data);
 			$this->load->view('layouts/sidebar', $data);
+			$this->load->view('layouts/topbar', $data);
 			$this->load->view("user/keamanan", $data);
 			$this->load->view('layouts/footer');
 		} else{

@@ -21,6 +21,7 @@ class Menu extends CI_Controller {
 		if ($this->form_validation->run() == false) {
 			$this->load->view('layouts/header', $data);
 			$this->load->view('layouts/sidebar', $data);
+			$this->load->view('layouts/topbar', $data);
 			$this->load->view('menu/index', $data);
 			$this->load->view('layouts/footer');
 		} else{
@@ -44,6 +45,7 @@ class Menu extends CI_Controller {
 		if ($this->form_validation->run() == false) {
 			$this->load->view('layouts/header', $data);
 			$this->load->view('layouts/sidebar', $data);
+			$this->load->view('layouts/topbar', $data);
 			$this->load->view('menu/submenu', $data);
 			$this->load->view('layouts/footer');
 		} else{
