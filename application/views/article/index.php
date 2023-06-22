@@ -38,20 +38,30 @@
                                     <td><?= $row['title'] ?></td>
                                     <td><?= $row['name'] ?></td>
                                     <td><?= $row['title'] ?></td>
-                                    <td><?= $row['status'] ?></td>
                                     <td>
-                                        <a href="" class="text-dark">Detail</a>
-                                        <a href="" class="text-primary">Edit</a>
-                                        <a href="" class="text-Delete">Delete</a>
-                                        <div class="dropdown">
-                                            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                                status
-                                            </button>
-                                            <ul class="dropdown-menu">
-                                                <li><a class="dropdown-item" href="#">Draft</a></li>
-                                                <li><a class="dropdown-item" href="#">Publish</a></li>
-                                                <li><a class="dropdown-item" href="#">Unpublish</a></li>
-                                            </ul>
+                                        <?php if (!$row['published_at'] && $row['deleted_at']) : ?>
+                                            <span class="badge bg-danger">Unpublish</span>
+                                        <?php elseif (!$row['published_at']) : ?>
+                                            <span class="badge bg-primary">Draft</span>
+                                        <?php else : ?>
+                                            <span class="badge bg-success">Publish</span>
+                                        <?php endif; ?>
+                                    </td>
+                                    <td>
+                                        <div class="d-flex">
+                                            <a href="/Artikel/show" class="d-inline mx-1 text-dark">Detail</a>
+                                            <a href="/Artikel/edit/<?= $row['article_id'] ?>" class="d-inline mx-1 text-primary">Edit</a>
+                                            <a href="/Artikel/delete/<?= $row['article_id'] ?>" class="d-inline mx-1 text-danger">Delete</a>
+                                            <div class="d-inline mx-1 dropdown">
+                                                <button class="btn btn-sm btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                    status
+                                                </button>
+                                                <ul class="dropdown-menu">
+                                                    <li><a class="dropdown-item" href="#">Draft</a></li>
+                                                    <li><a class="dropdown-item" href="#">Publish</a></li>
+                                                    <li><a class="dropdown-item" href="#">Unpublish</a></li>
+                                                </ul>
+                                            </div>
                                         </div>
                                     </td>
                                 <?php endforeach; ?>

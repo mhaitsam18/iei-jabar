@@ -17,6 +17,7 @@ class Artikel extends CI_Controller
     {
         $data['title'] = "Data Artikel";
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        $this->db->select('*, articles.id as article_id');
         $this->db->join('user', 'user.id = articles.author_id');
         $data['artikel'] = $this->db->get('articles')->result_array();
         $this->load->view('layouts/header', $data);
@@ -34,10 +35,9 @@ class Artikel extends CI_Controller
         $this->form_validation->set_rules('title', 'title', 'trim|required');
         $this->form_validation->set_rules('excerpt', 'excerpt', 'trim|required');
         $this->form_validation->set_rules('content', 'content', 'trim|required');
-        $this->form_validation->set_rules('slug', 'slug', 'trim|required');
-        $this->form_validation->set_rules('author_id', 'author_id', 'trim|required');
-        $this->form_validation->set_rules('article_category_id', 'article_category_id', 'trim|required');
-        $this->form_validation->set_rules('article_type_id', 'article_type_id', 'trim|required');
+        $this->form_validation->set_rules('slug', 'slug', 'trim|required|is_unique[articles.slug]');
+        // $this->form_validation->set_rules('article_category_id', 'article_category_id', 'trim|required');
+        // $this->form_validation->set_rules('article_type_id', 'article_type_id', 'trim|required');
         if ($this->form_validation->run() == false) {
             $this->load->view('layouts/header', $data);
             $this->load->view('layouts/sidebar', $data);
@@ -45,12 +45,30 @@ class Artikel extends CI_Controller
             $this->load->view('article/create', $data);
             $this->load->view('layouts/footer');
         } else {
-            $this->db->insert('article', [
+            $upload_image = $_FILES['thumbnail']['name'];
+            if ($upload_image) {
+                $config['allowed_types'] = 'gif|jpg|png|svg|jpeg';
+                $config['upload_path'] = './assets/img/artikel';
+                $config['max_size']     = '180000';
+                $this->load->library('upload', $config);
+                if ($this->upload->do_upload('thumbnail')) {
+                    $nama_thumbnail = 'artikel/'.$this->upload->data('file_name');
+                }
+            } else {
+                $nama_thumbnail = 'artikel/'. $this->input->post('nama_thumbnail');
+            }
+            $published_at = null;
+            if ($this->input->post('published_at')) {
+                $published_at = date('Y-m-d H:i:s');
+            }
+            $this->db->insert('articles', [
                 'title' => $this->input->post('title'),
                 'excerpt' => $this->input->post('excerpt'),
                 'content' => $this->input->post('content'),
                 'slug' => $this->input->post('slug'),
-                'author_id' => $this->input->post('author_id'),
+                'thumbnail' => $nama_thumbnail,
+                'author_id' => $data['user']['id'],
+                'published_at' => $published_at,
                 'article_category_id' => $this->input->post('article_category_id'),
                 'article_type_id' => $this->input->post('article_type_id'),
             ]);
