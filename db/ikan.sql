@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 22, 2023 at 07:38 AM
+-- Generation Time: Jun 22, 2023 at 11:23 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.1.17
 
@@ -897,8 +897,8 @@ INSERT INTO `user_sub_menu` (`id`, `menu_id`, `title`, `url`, `icon`, `is_active
 (6, 1, 'Role Management', 'admin/role', 'users', 1),
 (7, 2, 'Change Password', 'user/changePassword', 'key', 1),
 (8, 1, 'Data User', 'admin/dataUser/', 'users', 1),
-(10, 14, 'Data Master', 'DataMaster/', 'list', 1),
-(20, 14, 'Data Dashboard', 'DataMaster/dashboard/', 'box', 1),
+(10, 14, 'Data Master', 'DataMaster/', 'list', 0),
+(20, 14, 'Data Dashboard', 'DataMaster/dashboard/', 'box', 0),
 (21, 14, 'Data Spesies', 'DataMaster/species', 'activity', 1),
 (22, 15, 'Tentang Aplikasi', 'Lainnya/tentang', 'box', 1),
 (23, 15, 'Pengaturan', 'Lainnya/pengaturan', 'box', 1),

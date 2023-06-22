@@ -72,6 +72,6 @@
                     </form>
                 </div>
             </div>
-        </div> <!-- row -->
-
-    </div>
+        </div>
+    </div> <!-- row -->
+</div>
