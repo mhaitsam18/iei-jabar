@@ -71,44 +71,44 @@
         </div>
     </div> <!-- row -->
 </div>
-    <!-- Modal -->
-    <div class="modal fade" id="newSubMenuModal" tabindex="-1" aria-labelledby="newSubMenuModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="newSubMenuModalLabel">Tambah sub menu baru</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <form action="<?= base_url('menu/subMenu/') ?>" method="post">
-                    <input type="hidden" name="id" id="id">
-                    <div class="modal-body">
-                        <div class="form-group">
-                            <input type="text" class="form-control" id="title" name="title" placeholder="SubMenu Title">
-                        </div>
-                        <div class="form-group">
-                            <select class="form-control" name="menu_id" id="menu_id">
-                                <option value="">Select Menu</option>
-                                <?php foreach ($menu as $m) : ?>
-                                    <option value="<?= $m['id'] ?>"><?= $m['menu'] ?></option>
-                                <?php endforeach ?>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <input type="text" class="form-control" id="url" name="url" placeholder="SubMenu URL">
-                        </div>
-                        <div class="form-group">
-                            <input type="text" class="form-control" id="icon" name="icon" placeholder="SubMenu Icon">
-                        </div>
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" id="is_active" name="is_active" value="1" checked>
-                            <label class="custom-control-label" for="is_active">Active?</label>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
-                        <button type="submit" class="btn btn-primary">Tambah</button>
-                    </div>
-                </form>
+<!-- Modal -->
+<div class="modal fade" id="newSubMenuModal" tabindex="-1" aria-labelledby="newSubMenuModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="newSubMenuModalLabel">Tambah sub menu baru</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
+            <form action="<?= base_url('menu/subMenu/') ?>" method="post">
+                <input type="hidden" name="id" id="id">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="title" name="title" placeholder="SubMenu Title">
+                    </div>
+                    <div class="form-group">
+                        <select class="form-control" name="menu_id" id="menu_id">
+                            <option value="">Select Menu</option>
+                            <?php foreach ($menu as $m) : ?>
+                                <option value="<?= $m['id'] ?>"><?= $m['menu'] ?></option>
+                            <?php endforeach ?>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="url" name="url" placeholder="SubMenu URL">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="icon" name="icon" placeholder="SubMenu Icon">
+                    </div>
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="is_active" name="is_active" value="1" checked>
+                        <label class="custom-control-label" for="is_active">Active?</label>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                    <button type="submit" class="btn btn-primary">Tambah</button>
+                </div>
+            </form>
         </div>
     </div>
+</div>

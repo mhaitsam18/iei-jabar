@@ -1,11 +1,12 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class DataMaster extends CI_Controller {
+class DataMaster extends CI_Controller
+{
 
 	public function __construct()
 	{
-		parent:: __construct();
+		parent::__construct();
 		is_logged_in();
 		$this->load->library('form_validation');
 		$this->load->model('DataMaster_model');
@@ -15,7 +16,7 @@ class DataMaster extends CI_Controller {
 	public function index()
 	{
 		$data['title'] = "Data Master";
-		$data['dataMaster'] = $this->db->get_where('user_sub_menu',['menu_id' => 14])->result_array();
+		$data['dataMaster'] = $this->db->get_where('user_sub_menu', ['menu_id' => 14])->result_array();
 		$data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 		$this->load->view('layouts/header', $data);
 		$this->load->view('layouts/sidebar', $data);
@@ -23,5 +24,4 @@ class DataMaster extends CI_Controller {
 		$this->load->view('data-master/index', $data);
 		$this->load->view('layouts/footer');
 	}
-	
 }
