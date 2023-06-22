@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 13, 2023 at 02:02 PM
--- Server version: 10.4.27-MariaDB
--- PHP Version: 8.1.12
+-- Generation Time: Jun 22, 2023 at 07:38 AM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.1.17
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -63,12 +63,58 @@ CREATE TABLE `articles` (
   `content` text NOT NULL,
   `slug` varchar(255) NOT NULL,
   `author_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `article_category_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `article_type_id` bigint(20) UNSIGNED DEFAULT NULL,
   `thumbnail` varchar(255) NOT NULL,
   `views` int(11) NOT NULL DEFAULT 0,
   `published_at` datetime DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT current_timestamp(),
-  `updated_at` timestamp NULL DEFAULT current_timestamp()
+  `updated_at` timestamp NULL DEFAULT current_timestamp(),
+  `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `articles`
+--
+
+INSERT INTO `articles` (`id`, `title`, `excerpt`, `content`, `slug`, `author_id`, `article_category_id`, `article_type_id`, `thumbnail`, `views`, `published_at`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, 'satu dua tiga tes tes', 'satu dua tiga tes tes', 'satu dua tiga tes tes', 'satu-dua-tiga-tes-tes', 9, NULL, NULL, 'artikel/', 0, NULL, '2023-06-22 01:22:54', '2023-06-22 01:22:54', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `article_type`
+--
+
+CREATE TABLE `article_type` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `type` varchar(255) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `article_type`
+--
+
+INSERT INTO `article_type` (`id`, `type`, `created_at`, `updated_at`) VALUES
+(1, 'Sejarah', '2023-06-21 19:00:09', '2023-06-21 19:00:09'),
+(2, 'Budidaya', '2023-06-21 19:00:09', '2023-06-21 19:00:09'),
+(3, 'Informasi', '2023-06-21 19:00:09', '2023-06-21 19:00:09');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `avatar`
+--
+
+CREATE TABLE `avatar` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `avatar` varchar(255) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -745,7 +791,9 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `username`, `name`, `email`, `gender`, `place_of_birth`, `birthday`, `phone_number`, `address`, `image`, `password`, `role_id`, `is_active`, `date_created`) VALUES
-(1, 'feby', 'Feby', 'feby@gmail.com', 'Perempuan', 'Bandung', '1999-02-18', '081214222446', 'Jl. Bandung ', 'default.png', '$2y$10$54Ajl0R.ArBF45hyXCsJZOnTdLzoegtv9nJbBRs3ICk1QBv1kS5yW', 1, 1, 1614472317);
+(1, 'feby', 'Feby', 'feby@gmail.com', 'Perempuan', 'Bandung', '1999-02-18', '081214222446', 'Jl. Bandung ', 'default.png', '$2y$10$54Ajl0R.ArBF45hyXCsJZOnTdLzoegtv9nJbBRs3ICk1QBv1kS5yW', 1, 1, 1614472317),
+(9, 'amel', 'Amel', 'amel@gmail.com', 'Perempuan', 'Bandung', '2002-06-12', '0821148321', 'Bandung', 'default.jpg', '$2y$10$54Ajl0R.ArBF45hyXCsJZOnTdLzoegtv9nJbBRs3ICk1QBv1kS5yW', 3, 1, 1614472317),
+(10, 'geby', 'Geby', 'geby@gmail.com', 'Perempuan', 'Bandung', '2002-06-12', '0128938123', 'Bandung', 'default.jpg', '$2y$10$54Ajl0R.ArBF45hyXCsJZOnTdLzoegtv9nJbBRs3ICk1QBv1kS5yW', 2, 1, 1614472317);
 
 -- --------------------------------------------------------
 
@@ -775,9 +823,7 @@ INSERT INTO `user_access_menu` (`id`, `role_id`, `menu_id`) VALUES
 (23, 3, 8),
 (24, 1, 8),
 (26, 1, 14),
-(27, 1, 15),
-(29, 2, 15),
-(31, 3, 15);
+(33, 3, 17);
 
 -- --------------------------------------------------------
 
@@ -800,7 +846,8 @@ INSERT INTO `user_menu` (`id`, `menu`, `active`) VALUES
 (2, 'User', 1),
 (3, 'Menu', 1),
 (14, 'DataMaster', 1),
-(15, 'Lainnya', 1);
+(15, 'Lainnya', 1),
+(17, 'Artikel', 1);
 
 -- --------------------------------------------------------
 
@@ -819,7 +866,8 @@ CREATE TABLE `user_role` (
 
 INSERT INTO `user_role` (`id`, `role`) VALUES
 (1, 'administrator'),
-(2, 'member');
+(2, 'member'),
+(3, 'adminartikel');
 
 -- --------------------------------------------------------
 
@@ -841,37 +889,39 @@ CREATE TABLE `user_sub_menu` (
 --
 
 INSERT INTO `user_sub_menu` (`id`, `menu_id`, `title`, `url`, `icon`, `is_active`) VALUES
-(1, 1, 'Dashboard', 'admin/', 'bi bi-grid-fill', 0),
-(2, 2, 'Dashboard', 'user/', 'bi bi-person-fill', 1),
-(3, 2, 'Edit Profile', 'user/edit', 'bi bi-person-lines-fill', 1),
-(4, 3, 'Menu Management', 'menu/', 'bi bi-list', 1),
-(5, 3, 'Submenu Management', 'menu/subMenu', 'bi bi-menu-app-fill', 1),
-(6, 1, 'Role Management', 'admin/role', 'bi bi-person-check-fill', 1),
-(7, 2, 'Change Password', 'user/changePassword', 'bi bi-key-fill', 1),
-(8, 1, 'Data User', 'admin/dataUser/', 'bi bi-people-fill', 0),
-(10, 14, 'Data Master', 'DataMaster/', 'bi bi-folder', 1),
-(20, 14, 'Data Dashboard', 'DataMaster/dashboard/', 'bi bi-speedometer2', 1),
-(21, 14, 'Data Spesies', 'DataMaster/species', 'bi bi-database-fill', 1),
-(22, 15, 'Tentang Aplikasi', 'Lainnya/tentang', 'bi bi-window', 1),
-(23, 15, 'Pengaturan', 'Lainnya/pengaturan', 'bi bi-gear-fill', 1),
-(24, 15, 'Hubungi Kami', 'Lainnya/hubungi', 'bi bi-person-rolodex', 1),
-(25, 15, 'Bantuan', 'Lainnya/bantuan', 'bi bi-info-circle-fill', 1),
-(26, 15, 'FAQ', 'Lainnya/faq', 'bi bi-question-circle-fill', 1),
-(27, 14, 'Data Genus', 'DataMaster/genus', 'bi bi-database-fill', 1),
-(28, 14, 'Data Famili', 'DataMaster/family', 'bi bi-database-fill', 1),
-(30, 14, 'Data Ordo', 'DataMaster/order', 'bi bi-database-fill', 1),
-(31, 14, 'Data Kelas', 'DataMaster/classify', 'bi bi-database-fill', 1),
-(41, 14, 'Data Filum', 'MasterData/phylum', 'bi bi-database-fill', 1),
-(42, 14, 'Data Kingdom', 'MasterData/kingdom', 'bi bi-database-fill', 1),
-(43, 14, 'Data Distribusi', 'MasterData/distribution', 'bi bi-database-fill', 1),
-(44, 14, 'Data Makanan\r\n', 'DataMaster/food', 'bi bi-database-fill', 1),
-(45, 14, 'Data Habitat', 'DataMaster/habitat', 'bi bi-database-fill', 1),
-(46, 14, 'Data Kepulauan', 'DataMaster/archipelago', 'bi bi-database-fill', 1),
-(47, 14, 'Data Provinsi\r\n', 'DataMaster/province', 'bi bi-database-fill', 1),
-(48, 14, 'Data Negara', 'DataMaster/country', 'bi bi-database-fill', 1),
-(49, 14, 'Data Benua', 'DataMaster/continent', 'bi bi-database-fill', 1),
-(50, 14, 'Data Jenis Ikan', 'DataMaster/fishType', 'bi bi-database-fill', 1),
-(51, 14, 'Data Kelimpahan', 'DataMaster/abundance', 'bi bi-database-fill', 1);
+(1, 1, 'Dashboard', 'admin/', 'box', 0),
+(2, 2, 'Dashboard', 'user/', 'box', 1),
+(3, 2, 'Edit Profile', 'user/edit', 'user', 1),
+(4, 3, 'Menu Management', 'menu/', 'list', 1),
+(5, 3, 'Submenu Management', 'menu/subMenu', 'list', 1),
+(6, 1, 'Role Management', 'admin/role', 'users', 1),
+(7, 2, 'Change Password', 'user/changePassword', 'key', 1),
+(8, 1, 'Data User', 'admin/dataUser/', 'users', 1),
+(10, 14, 'Data Master', 'DataMaster/', 'list', 1),
+(20, 14, 'Data Dashboard', 'DataMaster/dashboard/', 'box', 1),
+(21, 14, 'Data Spesies', 'DataMaster/species', 'activity', 1),
+(22, 15, 'Tentang Aplikasi', 'Lainnya/tentang', 'box', 1),
+(23, 15, 'Pengaturan', 'Lainnya/pengaturan', 'box', 1),
+(24, 15, 'Hubungi Kami', 'Lainnya/hubungi', 'box', 1),
+(25, 15, 'Bantuan', 'Lainnya/bantuan', 'box', 1),
+(26, 15, 'FAQ', 'Lainnya/faq', 'box', 1),
+(27, 14, 'Data Genus', 'DataMaster/genus', 'box', 1),
+(28, 14, 'Data Famili', 'DataMaster/family', 'box', 1),
+(30, 14, 'Data Ordo', 'DataMaster/order', 'box', 1),
+(31, 14, 'Data Kelas', 'DataMaster/classify', 'box', 1),
+(41, 14, 'Data Filum', 'MasterData/phylum', 'box', 1),
+(42, 14, 'Data Kingdom', 'MasterData/kingdom', 'box', 1),
+(43, 14, 'Data Distribusi', 'MasterData/distribution', 'box', 1),
+(44, 14, 'Data Makanan\r\n', 'DataMaster/food', 'box', 1),
+(45, 14, 'Data Habitat', 'DataMaster/habitat', 'box', 1),
+(46, 14, 'Data Kepulauan', 'DataMaster/archipelago', 'box', 1),
+(47, 14, 'Data Provinsi\r\n', 'DataMaster/province', 'box', 1),
+(48, 14, 'Data Negara', 'DataMaster/country', 'box', 1),
+(49, 14, 'Data Benua', 'DataMaster/continent', 'box', 1),
+(50, 14, 'Data Jenis Ikan', 'DataMaster/fishType', 'box', 1),
+(51, 14, 'Data Kelimpahan', 'DataMaster/abundance', 'box', 1),
+(52, 17, 'Data Artikel', 'Artikel/index', 'file', 1),
+(53, 17, 'Data Tipe Artikel', 'Artikel/tipeArtikel', 'file', 1);
 
 -- --------------------------------------------------------
 
@@ -941,6 +991,18 @@ ALTER TABLE `articles`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `articles_slug_unique` (`slug`),
   ADD KEY `articles_author_id_foreign` (`author_id`);
+
+--
+-- Indexes for table `article_type`
+--
+ALTER TABLE `article_type`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `avatar`
+--
+ALTER TABLE `avatar`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `classifies`
@@ -1200,6 +1262,18 @@ ALTER TABLE `archipelago`
 -- AUTO_INCREMENT for table `articles`
 --
 ALTER TABLE `articles`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `article_type`
+--
+ALTER TABLE `article_type`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `avatar`
+--
+ALTER TABLE `avatar`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
@@ -1386,31 +1460,31 @@ ALTER TABLE `superclass`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` bigint(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` bigint(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `user_access_menu`
 --
 ALTER TABLE `user_access_menu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT for table `user_menu`
 --
 ALTER TABLE `user_menu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `user_role`
 --
 ALTER TABLE `user_role`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `user_sub_menu`
 --
 ALTER TABLE `user_sub_menu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
 
 --
 -- AUTO_INCREMENT for table `user_token`
