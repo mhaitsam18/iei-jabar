@@ -49,9 +49,9 @@
                                     </td>
                                     <td>
                                         <div class="d-flex">
-                                            <a href="/Artikel/show" class="d-inline mx-1 text-dark">Detail</a>
-                                            <a href="/Artikel/edit/<?= $row['article_id'] ?>" class="d-inline mx-1 text-primary">Edit</a>
-                                            <a href="/Artikel/delete/<?= $row['article_id'] ?>" class="d-inline mx-1 text-danger">Delete</a>
+                                            <a href="<?= base_url() ?>/Artikel/show/<?= $row['article_id'] ?>" class="d-inline mx-1 text-dark">Detail</a>
+                                            <a href="<?= base_url() ?>/Artikel/edit/<?= $row['article_id'] ?>" class="d-inline mx-1 text-primary">Edit</a>
+                                            <a href="<?= base_url() ?>/Artikel/delete/<?= $row['article_id'] ?>" class="d-inline mx-1 text-danger">Delete</a>
                                             <div class="d-inline mx-1 dropdown">
                                                 <button class="btn btn-sm btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                                     status

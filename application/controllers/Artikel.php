@@ -27,10 +27,25 @@ class Artikel extends CI_Controller
         $this->load->view('layouts/footer');
     }
     
+    public function show($article_id = null)
+    {
+        $this->db->join('user', 'user.id = articles.author_id');
+        $data['article'] = $this->db->get_where('articles', ['id', $article_id])->row_array();
+        $data['title'] = $data['article']['title'];
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        
+        $this->load->view('layouts/header', $data);
+        $this->load->view('layouts/sidebar', $data);
+        $this->load->view('layouts/topbar', $data);
+        $this->load->view('article/show', $data);
+        $this->load->view('layouts/footer');
+    }
+    
     public function create()
     {
         $data['title'] = "Tambah Artikel";
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        $data['data_type'] = $this->db->get_where('article_type')->result();
     
         $this->form_validation->set_rules('title', 'title', 'trim|required');
         $this->form_validation->set_rules('excerpt', 'excerpt', 'trim|required');
@@ -45,8 +60,7 @@ class Artikel extends CI_Controller
             $this->load->view('article/create', $data);
             $this->load->view('layouts/footer');
         } else {
-            $upload_image = $_FILES['thumbnail']['name'];
-            if ($upload_image) {
+            if (isset($_FILES['thumbnail']['name'])) {
                 $config['allowed_types'] = 'gif|jpg|png|svg|jpeg';
                 $config['upload_path'] = './assets/img/artikel';
                 $config['max_size']     = '180000';
@@ -57,6 +71,8 @@ class Artikel extends CI_Controller
             } else {
                 $nama_thumbnail = 'artikel/'. $this->input->post('nama_thumbnail');
             }
+            echo $this->input->post('nama_thumbnail');
+            die;
             $published_at = null;
             if ($this->input->post('published_at')) {
                 $published_at = date('Y-m-d H:i:s');
