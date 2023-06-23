@@ -1,7 +1,8 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class DataMaster_model extends CI_Model {
+class DataMaster_model extends CI_Model
+{
 
 	public function getAgamaById($id)
 	{
@@ -27,5 +28,9 @@ class DataMaster_model extends CI_Model {
 	{
 		return $this->db->get_where('rekening', ['id_rekening' => $id])->row_array();
 	}
-	
+
+	public function getBenuaById($id)
+	{
+		return $this->db->get_where('continent', ['id' => $id])->row_array();
+	}
 }

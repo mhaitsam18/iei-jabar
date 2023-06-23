@@ -1,11 +1,12 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class Menu extends CI_Controller {
+class Menu extends CI_Controller
+{
 
 	public function __construct()
 	{
-		parent:: __construct();
+		parent::__construct();
 		is_logged_in();
 		$this->load->library('form_validation');
 		$this->load->model('Menu_model');
@@ -24,7 +25,7 @@ class Menu extends CI_Controller {
 			$this->load->view('layouts/topbar', $data);
 			$this->load->view('menu/index', $data);
 			$this->load->view('layouts/footer');
-		} else{
+		} else {
 			$this->db->insert('user_menu', ['menu' => $this->input->post('menu'), 'active' => $this->input->post('active')]);
 			$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
 				New Menu Added!
@@ -48,7 +49,7 @@ class Menu extends CI_Controller {
 			$this->load->view('layouts/topbar', $data);
 			$this->load->view('menu/submenu', $data);
 			$this->load->view('layouts/footer');
-		} else{
+		} else {
 			$data = [
 				'title' => $this->input->post('title'),
 				'menu_id' => $this->input->post('menu_id'),
@@ -62,19 +63,20 @@ class Menu extends CI_Controller {
 				</div>');
 			redirect('menu/subMenu/');
 		}
-		
 	}
 
-	public function getUpdateMenu(){
+	public function getUpdateMenu()
+	{
 		echo json_encode($this->Menu_model->getMenuById($this->input->post('id')));
 	}
-	public function updateMenu(){
+	public function updateMenu()
+	{
 		$this->form_validation->set_rules('menu', 'Menu', 'trim|required');
 		if ($this->form_validation->run() == false) {
 			redirect('menu/');
-		} else{
+		} else {
 			$data = array(
-				'menu' => $this->input->post('menu'), 
+				'menu' => $this->input->post('menu'),
 				'active' => $this->input->post('active')
 			);
 			$this->db->where('id', $this->input->post('id'));
@@ -86,18 +88,20 @@ class Menu extends CI_Controller {
 		}
 	}
 
-	public function getUpdateSubMenu(){
+	public function getUpdateSubMenu()
+	{
 		echo json_encode($this->Menu_model->getSubMenuById($this->input->post('id')));
 	}
-	
-	public function updateSubMenu(){
+
+	public function updateSubMenu()
+	{
 		$this->form_validation->set_rules('title', 'Title', 'trim|required');
 		$this->form_validation->set_rules('menu_id', 'Menu_id', 'trim|required');
 		$this->form_validation->set_rules('url', 'URL', 'trim|required');
 		$this->form_validation->set_rules('icon', 'Icon', 'trim|required');
 		if ($this->form_validation->run() == false) {
 			redirect('menu/subMenu');
-		} else{
+		} else {
 			$data = [
 				'title' => $this->input->post('title'),
 				'menu_id' => $this->input->post('menu_id'),
@@ -139,5 +143,4 @@ class Menu extends CI_Controller {
 			</div>');
 		redirect('menu/subMenu');
 	}
-	
 }
