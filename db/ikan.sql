@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 22, 2023 at 11:23 AM
+-- Generation Time: Jun 23, 2023 at 10:19 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.1.17
 
@@ -78,7 +78,7 @@ CREATE TABLE `articles` (
 --
 
 INSERT INTO `articles` (`id`, `title`, `excerpt`, `content`, `slug`, `author_id`, `article_category_id`, `article_type_id`, `thumbnail`, `views`, `published_at`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 'satu dua tiga tes tes', 'satu dua tiga tes tes', 'satu dua tiga tes tes', 'satu-dua-tiga-tes-tes', 9, NULL, NULL, 'artikel/', 0, NULL, '2023-06-22 01:22:54', '2023-06-22 01:22:54', NULL);
+(1, 'satu dua tiga tes tes', 'satu dua tiga tes tes', 'satu dua tiga tes tes', 'satu-dua-tiga-tes-tes', 9, NULL, 1, 'artikel/64951db378c71.png', 0, NULL, '2023-06-22 01:22:54', '2023-06-22 01:22:54', NULL);
 
 -- --------------------------------------------------------
 
@@ -124,7 +124,7 @@ CREATE TABLE `avatar` (
 
 CREATE TABLE `classifies` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `class` varchar(255) NOT NULL,
+  `classify` varchar(255) NOT NULL,
   `general_name` varchar(255) DEFAULT NULL,
   `phylum_id` bigint(20) UNSIGNED DEFAULT NULL,
   `subphylum_id` bigint(20) UNSIGNED DEFAULT NULL,
@@ -141,7 +141,7 @@ CREATE TABLE `classifies` (
 -- Dumping data for table `classifies`
 --
 
-INSERT INTO `classifies` (`id`, `class`, `general_name`, `phylum_id`, `subphylum_id`, `infraphylum_id`, `superclass_id`, `description`, `picture`, `species`, `created_at`, `update_at`) VALUES
+INSERT INTO `classifies` (`id`, `classify`, `general_name`, `phylum_id`, `subphylum_id`, `infraphylum_id`, `superclass_id`, `description`, `picture`, `species`, `created_at`, `update_at`) VALUES
 (1, 'Myxini', 'ikan seperti lintah laut', 9, 3, 1, 2, 'Ikan hag (bahasa Inggris: hagfish) adalah hewan serupa ikan yang memiliki tulang belakang (vertebra) semu. Hewan air ini dianggap sebagai bentuk ikan purba. Habitatnya adalah laut, sungai, dan danau.\r\n\r\nIkan hag tidak diklasifikasikan sebagai vertebrata karena tidak mempunyai tulang belakang (vertebra) sejati; juga tidak dapat dianggap avertebrata karena ia memiliki notokorda pada tahap awal perkembangan hidupnya dan tengkorak yang melindungi otaknya. Oleh para zoologiwan, remang dimasukkan ke dalam filum Chordata, klad Craniata, suprakelas Agnatha, kelas Myxini.', NULL, NULL, '2023-06-10 19:49:52', '2023-06-10 19:49:52'),
 (2, 'Petromyzontidae', 'Ikan Lamprey', 9, 3, 1, 2, 'Lamprey adalah garis keturunan purba dari ikan tak berahang dari ordo Petromyzontiformes, ditempatkan di superclass Cyclostomata. Lamprey dewasa dapat dicirikan dengan mulut penghisap yang bergigi seperti corong.', NULL, NULL, '2023-06-10 19:52:30', '2023-06-10 19:52:30'),
 (3, 'Petromyzontida', NULL, 9, 3, 1, 2, 'Hyperoartia or Petromyzontida is a disputed group of vertebrates that includes the modern lampreys and their fossil relatives. Examples of hyperoartians from early in their fossil record are Endeiolepis and Euphanerops (which possessed a calcified branchial basket), fish-like animals with hypocercal tails that lived during the Late Devonian Period. Some paleontologists still place these forms among the \"ostracoderms\" (jawless armored fishes) of the class Anaspida, but this is increasingly considered an artificial arrangement based on ancestral traits.', NULL, NULL, '2023-06-10 19:54:29', '2023-06-10 19:54:29'),
@@ -455,10 +455,10 @@ INSERT INTO `habitats` (`id`, `habitat`, `created_at`, `updated_at`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `infraphylums`
+-- Table structure for table `infraphylum`
 --
 
-CREATE TABLE `infraphylums` (
+CREATE TABLE `infraphylum` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `infraphylum` varchar(255) DEFAULT NULL,
   `local_name` varchar(255) DEFAULT NULL,
@@ -470,10 +470,10 @@ CREATE TABLE `infraphylums` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `infraphylums`
+-- Dumping data for table `infraphylum`
 --
 
-INSERT INTO `infraphylums` (`id`, `infraphylum`, `local_name`, `subphylum_id`, `description`, `picture`, `created_at`, `updated_at`) VALUES
+INSERT INTO `infraphylum` (`id`, `infraphylum`, `local_name`, `subphylum_id`, `description`, `picture`, `created_at`, `updated_at`) VALUES
 (1, 'incertae sedis', 'Tidak diketahui', 3, 'Incertae sedis (dalam bahasa Latin berarti \"penempatan tidak pasti\") adalah istilah yang digunakan untuk mendefinisikan kelompok taksonomi yang status kekerabatannya tidak diketahui.', NULL, '2023-06-10 19:34:24', '2023-06-10 19:34:24'),
 (2, 'Gnathostomata', NULL, 3, 'Gnathostomata (jepang: /ˌnæθoʊˈstɒmətə/) adalah kelompok vertebrata yang memiliki rahang. Istilah Gnathostomata diambil dari bahasa Yunani γνάθος (gnathos) \"rahang\" + στόμα (stoma) \"mulut\". Jenis Gnathostomata terdiri dari sekitar 60.000 spesies, atau sekitar 99% dari seluruh vertebrata. Gnathostome juga memiliki gigi, dan canalis semisirkularis horisontal di bagian dalam telinga, bersamaan dengan karakter anatomi fisik dan seluler seperti selubung mielin yang menyelubungi sel saraf. Selain itu gnathostomata juga memiliki sistem kekebalan tiruan.[2]', NULL, '2023-06-10 19:34:24', '2023-06-10 19:34:24');
 
@@ -497,8 +497,8 @@ CREATE TABLE `kingdoms` (
 --
 
 INSERT INTO `kingdoms` (`id`, `kingdom`, `description`, `picture`, `created_at`, `updated_at`) VALUES
-(1, 'Animalia', '', NULL, '2023-06-10 18:49:08', '2023-06-10 17:00:00'),
-(2, 'Plantae', '', NULL, '2023-06-10 17:00:00', '2023-06-10 18:49:44');
+(1, 'Animalia', '', 'kingdom/animalia.jpeg', '2023-06-10 18:49:08', '2023-06-10 17:00:00'),
+(2, 'Plantae', '', 'kingdom/plantae.png', '2023-06-10 17:00:00', '2023-06-10 18:49:44');
 
 -- --------------------------------------------------------
 
@@ -536,7 +536,7 @@ CREATE TABLE `local_name` (
 
 CREATE TABLE `order` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `ordo` varchar(255) NOT NULL,
+  `order` varchar(255) NOT NULL,
   `general_name` varchar(255) DEFAULT NULL,
   `classify_id` bigint(20) UNSIGNED DEFAULT NULL,
   `subclass_id` bigint(20) UNSIGNED DEFAULT NULL,
@@ -649,15 +649,15 @@ INSERT INTO `phylums` (`id`, `phylum`, `kingdom_id`, `description`, `picture`, `
 (6, 'Mollusca', 1, NULL, NULL, '2023-06-10 18:50:42', '2023-06-10 18:50:42'),
 (7, 'Arthropoda', 1, NULL, NULL, '2023-06-10 18:50:42', '2023-06-10 18:50:42'),
 (8, 'Echinodermata', 1, NULL, NULL, '2023-06-10 18:50:42', '2023-06-10 18:50:42'),
-(9, 'Chordata', 1, 'Filum Chordata adalah kelompok hewan, termasuk vertebrata dan beberapa binatang yang mirip invertebrata yang memiliki ciri-ciri yang serupa. Semua anggota kelompok ini, pada suatu saat dalam kehidupan mereka, memiliki notokorda, tali saraf dorsal berongga, celah faring (pharyngeal slits), endostyle, dan ekor berotot yang melewati anus. Vertebrata merupakan kelompok hewan yang memiliki tulang belakang. Dalam sistem klasifikasi, vertebrata merupakan subfilum dari filum Chordata. Chordata terbagi menjadi empat subfilum: Vertebrata, Urochordata, Cephalochordata, dan Hemichordata. Urochordata dan Cephalochordata tergolong invertebrata.', NULL, '2023-06-10 18:50:42', '2023-06-10 18:50:42');
+(9, 'Chordata', 1, 'Filum Chordata adalah kelompok hewan, termasuk vertebrata dan beberapa binatang yang mirip invertebrata yang memiliki ciri-ciri yang serupa. Semua anggota kelompok ini, pada suatu saat dalam kehidupan mereka, memiliki notokorda, tali saraf dorsal berongga, celah faring (pharyngeal slits), endostyle, dan ekor berotot yang melewati anus. Vertebrata merupakan kelompok hewan yang memiliki tulang belakang. Dalam sistem klasifikasi, vertebrata merupakan subfilum dari filum Chordata. Chordata terbagi menjadi empat subfilum: Vertebrata, Urochordata, Cephalochordata, dan Hemichordata. Urochordata dan Cephalochordata tergolong invertebrata.', 'phylum/chordata.jpg', '2023-06-10 18:50:42', '2023-06-10 18:50:42');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `provinsi`
+-- Table structure for table `province`
 --
 
-CREATE TABLE `provinsi` (
+CREATE TABLE `province` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `country_id` bigint(20) UNSIGNED DEFAULT NULL,
   `province` varchar(255) DEFAULT NULL,
@@ -712,10 +712,61 @@ INSERT INTO `subclass` (`id`, `subclass`, `general_name`, `classify_id`, `descri
 -- --------------------------------------------------------
 
 --
--- Table structure for table `subphylums`
+-- Table structure for table `subfamily`
 --
 
-CREATE TABLE `subphylums` (
+CREATE TABLE `subfamily` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `subfamily` varchar(255) DEFAULT NULL,
+  `general_name` varchar(255) DEFAULT NULL,
+  `family_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `description` text DEFAULT NULL,
+  `picture` varchar(255) DEFAULT NULL,
+  `craeted_at` timestamp NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `subgenus`
+--
+
+CREATE TABLE `subgenus` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `subgenus` varchar(255) DEFAULT NULL,
+  `general_name` varchar(255) DEFAULT NULL,
+  `genus_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `description` text DEFAULT NULL,
+  `picture` varchar(255) DEFAULT NULL,
+  `craeted_at` timestamp NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `suborder`
+--
+
+CREATE TABLE `suborder` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `suborder` varchar(255) DEFAULT NULL,
+  `general_name` varchar(255) DEFAULT NULL,
+  `order_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `description` text DEFAULT NULL,
+  `picture` varchar(255) DEFAULT NULL,
+  `craeted_at` timestamp NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `subphylum`
+--
+
+CREATE TABLE `subphylum` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `subphylum` varchar(255) DEFAULT NULL,
   `general_name` varchar(255) DEFAULT NULL,
@@ -727,13 +778,30 @@ CREATE TABLE `subphylums` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `subphylums`
+-- Dumping data for table `subphylum`
 --
 
-INSERT INTO `subphylums` (`id`, `subphylum`, `general_name`, `phylum_id`, `description`, `picture`, `created_at`, `updated_at`) VALUES
+INSERT INTO `subphylum` (`id`, `subphylum`, `general_name`, `phylum_id`, `description`, `picture`, `created_at`, `updated_at`) VALUES
 (1, 'Urochordata', 'Tunikata', 9, 'Urochordata merupakan sebuah subfilum dari chordata. Urochordata berasal dari bahasa latin (Uro: ekor, chorda: batang penyokong tubuh dalam). Yang paling menonjol adalah tunicates laut squirts (kelas Ascidiacea). Berbagai macam tumbuh di koloni. Sebagian besar dari tubuh yang diduduki insang yang sangat besar dengan berbagai tekak insang slits yang berfungsi sebagai saringan untuk makanan.', NULL, '2023-06-10 19:26:49', '2023-06-10 19:26:49'),
 (2, 'Cephalochordata', NULL, 9, 'Cephalochordata (dari bahasa Yunani: κεφαλή kephalé, \"kepala\" and χορδή khordé, \"chord\") adalah subfilum dari anggota hewan bertulang belakang yang termasuk dalam filum Chordata, Acraniata.[2] Bentuk tubuh seperti ikan tanpa sirip, pipih memanjang, transparan. Notokorda, saraf dorsal, dan celah faring berkembang bagus. Sistem sirkulasi tanpa jantung. Aliran darah dibagian ventral mengalir ke depan, sedangkan di sisi dorsal mengalir ke belakang. Memiliki alat peraba dimulutnya yang disebut sirus. Pada ujung anterior terdapat bintik mata dan pembau. Reproduksi secara seksual, memiliki kelamin terpisah dan mengalami fertilisasi eksternal. Biasanya hidup terkubur di bawah pasir perairan dangkal. Contohnya Branchiostoma sp. (amphioxus).', NULL, '2023-06-10 19:26:49', '2023-06-10 19:26:49'),
 (3, 'Vertebrata', 'Hewan bertulang belakang', 9, 'Vertebrata adalah subfilum dari Chordata, mencakup semua hewan yang memiliki tulang belakang yang tersusun dari vertebra. Vertebrata adalah subfilum terbesar dari Chordata. Ke dalam vertebrata dapat dimasukkan semua jenis ikan (kecuali remang, belut dan \"lintah laut\" atau hagfish), amfibia, reptil, burung, serta hewan menyusui (mamalia). Kecuali jenis-jenis ikan, vertebrata diketahui memiliki dua pasang tungkai.', NULL, '2023-06-10 19:26:49', '2023-06-10 19:26:49');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `subspecies`
+--
+
+CREATE TABLE `subspecies` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `subspecies` varchar(255) DEFAULT NULL,
+  `general_name` varchar(255) DEFAULT NULL,
+  `species_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `description` text DEFAULT NULL,
+  `picture` varchar(255) DEFAULT NULL,
+  `craeted_at` timestamp NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -909,9 +977,9 @@ INSERT INTO `user_sub_menu` (`id`, `menu_id`, `title`, `url`, `icon`, `is_active
 (28, 14, 'Data Famili', 'DataMaster/family', 'box', 1),
 (30, 14, 'Data Ordo', 'DataMaster/order', 'box', 1),
 (31, 14, 'Data Kelas', 'DataMaster/classify', 'box', 1),
-(41, 14, 'Data Filum', 'MasterData/phylum', 'box', 1),
-(42, 14, 'Data Kingdom', 'MasterData/kingdom', 'box', 1),
-(43, 14, 'Data Distribusi', 'MasterData/distribution', 'box', 1),
+(41, 14, 'Data Filum', 'DataMaster/phylum', 'box', 1),
+(42, 14, 'Data Kingdom', 'DataMaster/kingdom', 'box', 1),
+(43, 14, 'Data Distribusi', 'DataMaster/distribution', 'box', 1),
 (44, 14, 'Data Makanan\r\n', 'DataMaster/food', 'box', 1),
 (45, 14, 'Data Habitat', 'DataMaster/habitat', 'box', 1),
 (46, 14, 'Data Kepulauan', 'DataMaster/archipelago', 'box', 1),
@@ -1107,9 +1175,9 @@ ALTER TABLE `habitats`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `infraphylums`
+-- Indexes for table `infraphylum`
 --
-ALTER TABLE `infraphylums`
+ALTER TABLE `infraphylum`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -1173,9 +1241,9 @@ ALTER TABLE `phylums`
   ADD KEY `kingdom_id` (`kingdom_id`);
 
 --
--- Indexes for table `provinsi`
+-- Indexes for table `province`
 --
-ALTER TABLE `provinsi`
+ALTER TABLE `province`
   ADD PRIMARY KEY (`id`),
   ADD KEY `negara_id` (`country_id`);
 
@@ -1193,9 +1261,33 @@ ALTER TABLE `subclass`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `subphylums`
+-- Indexes for table `subfamily`
 --
-ALTER TABLE `subphylums`
+ALTER TABLE `subfamily`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `subgenus`
+--
+ALTER TABLE `subgenus`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `suborder`
+--
+ALTER TABLE `suborder`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `subphylum`
+--
+ALTER TABLE `subphylum`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `subspecies`
+--
+ALTER TABLE `subspecies`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -1367,9 +1459,9 @@ ALTER TABLE `habitats`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `infraphylums`
+-- AUTO_INCREMENT for table `infraphylum`
 --
-ALTER TABLE `infraphylums`
+ALTER TABLE `infraphylum`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
@@ -1427,9 +1519,9 @@ ALTER TABLE `phylums`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
--- AUTO_INCREMENT for table `provinsi`
+-- AUTO_INCREMENT for table `province`
 --
-ALTER TABLE `provinsi`
+ALTER TABLE `province`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
@@ -1445,10 +1537,34 @@ ALTER TABLE `subclass`
   MODIFY `id` bigint(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `subphylums`
+-- AUTO_INCREMENT for table `subfamily`
 --
-ALTER TABLE `subphylums`
+ALTER TABLE `subfamily`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `subgenus`
+--
+ALTER TABLE `subgenus`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `suborder`
+--
+ALTER TABLE `suborder`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `subphylum`
+--
+ALTER TABLE `subphylum`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `subspecies`
+--
+ALTER TABLE `subspecies`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `superclass`
@@ -1466,7 +1582,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `user_access_menu`
 --
 ALTER TABLE `user_access_menu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT for table `user_menu`
@@ -1501,7 +1617,7 @@ ALTER TABLE `user_token`
 --
 ALTER TABLE `archipelago`
   ADD CONSTRAINT `archipelago_ibfk_1` FOREIGN KEY (`distribution_id`) REFERENCES `distribution` (`id`),
-  ADD CONSTRAINT `archipelago_ibfk_2` FOREIGN KEY (`province_id`) REFERENCES `provinsi` (`id`);
+  ADD CONSTRAINT `archipelago_ibfk_2` FOREIGN KEY (`province_id`) REFERENCES `province` (`id`);
 
 --
 -- Constraints for table `articles`
@@ -1592,10 +1708,10 @@ ALTER TABLE `phylums`
   ADD CONSTRAINT `phylums_ibfk_1` FOREIGN KEY (`kingdom_id`) REFERENCES `kingdoms` (`id`);
 
 --
--- Constraints for table `provinsi`
+-- Constraints for table `province`
 --
-ALTER TABLE `provinsi`
-  ADD CONSTRAINT `provinsi_ibfk_1` FOREIGN KEY (`country_id`) REFERENCES `country` (`id`);
+ALTER TABLE `province`
+  ADD CONSTRAINT `province_ibfk_1` FOREIGN KEY (`country_id`) REFERENCES `country` (`id`);
 
 --
 -- Constraints for table `species`
