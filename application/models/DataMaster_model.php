@@ -53,4 +53,15 @@ class DataMaster_model extends CI_Model
 
 		return $query->result_array();
 	}
+
+	public function getKepulauan()
+	{
+		$this->db->select('*, provinsi.id as pr_id, archipelago.id as ar_id, distribution.id as d_id');
+		$this->db->from('archipelago');
+		$this->db->join('provinsi', 'archipelago.province_id = provinsi.id');
+		$this->db->join('distribution', 'archipelago.distribution_id = distribution.id');
+		$query = $this->db->get();
+
+		return $query->result_array();
+	}
 }
