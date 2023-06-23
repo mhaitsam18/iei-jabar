@@ -33,4 +33,14 @@ class DataMaster_model extends CI_Model
 	{
 		return $this->db->get_where('continent', ['id' => $id])->row_array();
 	}
+
+	public function getNegara()
+	{
+		$this->db->select('*, country.id as ct_id, continent.id as ctn_id');
+		$this->db->from('continent');
+		$this->db->join('country', 'continent.id = country.continent_id');
+		$query = $this->db->get();
+
+		return $query->result_array();
+	}
 }
