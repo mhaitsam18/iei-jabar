@@ -43,4 +43,14 @@ class DataMaster_model extends CI_Model
 
 		return $query->result_array();
 	}
+
+	public function getProvinsi()
+	{
+		$this->db->select('*, country.id as ct_id, provinsi.id as pr_id');
+		$this->db->from('provinsi');
+		$this->db->join('country', 'country.id = provinsi.country_id');
+		$query = $this->db->get();
+
+		return $query->result_array();
+	}
 }
