@@ -46,9 +46,9 @@ class DataMaster_model extends CI_Model
 
 	public function getProvinsi()
 	{
-		$this->db->select('*, country.id as ct_id, provinsi.id as pr_id');
-		$this->db->from('provinsi');
-		$this->db->join('country', 'country.id = provinsi.country_id');
+		$this->db->select('*, country.id as ct_id, province.id as pr_id');
+		$this->db->from('province');
+		$this->db->join('country', 'country.id = province.country_id');
 		$query = $this->db->get();
 
 		return $query->result_array();
@@ -56,9 +56,9 @@ class DataMaster_model extends CI_Model
 
 	public function getKepulauan()
 	{
-		$this->db->select('*, provinsi.id as pr_id, archipelago.id as ar_id, distribution.id as d_id');
+		$this->db->select('*, province.id as pr_id, archipelago.id as ar_id, distribution.id as d_id');
 		$this->db->from('archipelago');
-		$this->db->join('provinsi', 'archipelago.province_id = provinsi.id');
+		$this->db->join('province', 'archipelago.province_id = province.id');
 		$this->db->join('distribution', 'archipelago.distribution_id = distribution.id');
 		$query = $this->db->get();
 
