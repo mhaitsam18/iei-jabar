@@ -34,8 +34,8 @@
                                 </div>
                                 <div class="mb-3">
                                     <label for="thumbnail">Thumbnail</label>
-                                    <input type="file" class="form-control filepond" name="thumbnail" id="img-filepond" multiple data-allow-reorder="true" data-max-file-size="3MB" data-max-files="3">
-                                    <input type="hidden" name="nama_thumbnail" id="img-filepond">
+                                    <input type="file" class="form-control filepond" name="thumbnail" multiple data-allow-reorder="true" data-max-file-size="3MB" data-max-files="3">
+                                    <input type="hidden" name="nama_thumbnail" id="img-filepond" value="">
                                     <?= form_error('nama_thumbnail', '<small class="text-danger pl-3">', '</small>') ?>
                                 </div>
                                 <div class="mb-3">
