@@ -31,7 +31,7 @@ class Abundance extends CI_Controller
             $this->load->view('data-master/abundance', $data);
             $this->load->view('layouts/footer');
         } else {
-
+            // test
             if ($this->input->post('aksi') == "add") {
 
                 $data = [
