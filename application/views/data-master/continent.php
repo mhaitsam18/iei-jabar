@@ -48,7 +48,7 @@
 
                                             <a class="badge bg-success updateBenua" data-bs-toggle="modal" data-bs-target="#editCont" data-id="<?= $ct['id'] ?>" data-continent="<?= $ct['continent'] ?>">Ubah</a>
 
-                                            <a href="<?= base_url("DataMaster/continent/delete/$ct[id]"); ?>" class="badge bg-danger tombol-hapus" data-hapus="role">Delete</a>
+                                            <a href="<?= base_url("DataMaster/continent/delete/$ct[id]"); ?>" class="badge bg-danger tombol-hapus" data-hapus="role">Hapus</a>
                                         </td>
                                     </tr>
 

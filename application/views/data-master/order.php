@@ -62,7 +62,7 @@
 
                                             <a href="#" class="badge bg-success updateOrder" data-bs-toggle="modal" data-bs-target="#edit" data-id="<?= $order['id'] ?>" data-order="<?= $order['order'] ?>" data-general_name="<?= $order['general_name'] ?>" data-description="<?= $order['description'] ?>" data-picture="<?= $order['picture'] ?>" data-classify_id="<?= $order['classify_id'] ?>" data-subclass_id="<?= $order['subclass_id'] ?>">Ubah</a>
 
-                                            <a href="<?= base_url("DataMaster/order/delete/$order[id]"); ?>" class="badge bg-danger tombol-hapus" data-hapus="order">Delete</a>
+                                            <a href="<?= base_url("DataMaster/order/delete/$order[id]"); ?>" class="badge bg-danger tombol-hapus" data-hapus="order">Hapus</a>
                                         </td>
                                     </tr>
 

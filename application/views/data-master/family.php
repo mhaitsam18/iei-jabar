@@ -64,7 +64,7 @@
 
                                             <a href="#" class="badge bg-success updateFamily" data-bs-toggle="modal" data-bs-target="#edit" data-id="<?= $family['id'] ?>" data-family="<?= $family['family'] ?>" data-general_name="<?= $family['general_name'] ?>" data-description="<?= $family['description'] ?>" data-picture="<?= $family['picture'] ?>" data-order_id="<?= $family['order_id'] ?>" data-suborder_id="<?= $family['suborder_id'] ?>">Ubah</a>
 
-                                            <a href="<?= base_url("DataMaster/family/delete/$family[id]"); ?>" class="badge bg-danger tombol-hapus" data-hapus="family">Delete</a>
+                                            <a href="<?= base_url("DataMaster/family/delete/$family[id]"); ?>" class="badge bg-danger tombol-hapus" data-hapus="family">Hapus</a>
                                         </td>
                                     </tr>
 

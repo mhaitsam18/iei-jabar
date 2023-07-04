@@ -60,7 +60,7 @@ class Genus extends CI_Controller
 
                 $upload_picture = $_FILES['picture']['name'];
                 if ($upload_picture) {
-                    $config['allowed_types'] = 'gif|jpg|png|svg';
+                    $config['allowed_types'] = 'gif|jpg|png|svg|jpeg';
                     $config['upload_path'] = './assets/img/genus';
                     $config['max_size']     = '4096';
 
@@ -69,10 +69,10 @@ class Genus extends CI_Controller
                     $this->load->library('upload', $config);
                     if ($this->upload->do_upload('picture')) {
                         $new_picture = $this->upload->data('file_name');
-                        $this->db->set('picture', $new_picture);
+                        $this->db->set('picture', 'genus/' . $new_picture);
                     } else {
                         $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">' . $this->upload->display_errors() . '</div>');
-                        redirect('user');
+                        redirect($_SERVER['HTTP_REFERER']);
                     }
                 }
 

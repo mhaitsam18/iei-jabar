@@ -56,7 +56,7 @@
 
                                             <a class="badge bg-success updateCountry" data-bs-toggle="modal" data-bs-target="#editCont" data-id="<?= $ct['ar_id'] ?>" data-province="<?= $ct['pr_id'] ?>" data-distribution="<?= $ct['d_id'] ?>" data-archipelago="<?= $ct['archipelago'] ?>">Ubah</a>
 
-                                            <a href="<?= base_url("DataMaster/archipelago/delete/$ct[ar_id]"); ?>" class="badge bg-danger tombol-hapus" data-hapus="role">Delete</a>
+                                            <a href="<?= base_url("DataMaster/archipelago/delete/$ct[ar_id]"); ?>" class="badge bg-danger tombol-hapus" data-hapus="role">Hapus</a>
                                         </td>
                                     </tr>
 

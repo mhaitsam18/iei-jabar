@@ -68,7 +68,7 @@
 
                                             <a href="#" class="badge bg-success updatespecies" data-bs-toggle="modal" data-bs-target="#edit" data-id="<?= $species['id'] ?>" data-species="<?= $species['species'] ?>" data-general_name="<?= $species['general_name'] ?>" data-description="<?= $species['description'] ?>" data-picture="<?= $species['picture'] ?>" data-genus_id="<?= $species['genus_id'] ?>" data-subgenus_id="<?= $species['subgenus_id'] ?>">Ubah</a>
 
-                                            <a href="<?= base_url("DataMaster/species/delete/$species[id]"); ?>" class="badge bg-danger tombol-hapus" data-hapus="species">Delete</a>
+                                            <a href="<?= base_url("DataMaster/species/delete/$species[id]"); ?>" class="badge bg-danger tombol-hapus" data-hapus="species">Hapus</a>
                                         </td>
                                     </tr>
 

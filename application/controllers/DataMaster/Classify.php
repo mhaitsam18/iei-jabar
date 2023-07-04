@@ -16,7 +16,6 @@ class Classify extends CI_Controller
     public function index()
     {
         $data['title'] = "Data Master classify";
-        $data['dataMaster'] = $this->db->get_where('user_sub_menu', ['menu_id' => 14])->result_array();
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 
         $this->db->select('classifies.*, phylums.phylum, subphylum.subphylum, infraphylum.infraphylum, superclass.superclass, kingdoms.kingdom');
@@ -65,7 +64,7 @@ class Classify extends CI_Controller
 
                 $upload_picture = $_FILES['picture']['name'];
                 if ($upload_picture) {
-                    $config['allowed_types'] = 'gif|jpg|png|svg';
+                    $config['allowed_types'] = 'gif|jpg|png|svg|jpeg';
                     $config['upload_path'] = './assets/img/classify';
                     $config['max_size']     = '4096';
 
@@ -74,33 +73,29 @@ class Classify extends CI_Controller
                     $this->load->library('upload', $config);
                     if ($this->upload->do_upload('picture')) {
                         $new_picture = $this->upload->data('file_name');
-                        $this->db->set('picture', $new_picture);
+                        $this->db->set('picture', 'classify/'.$new_picture);
                     } else {
                         $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">' . $this->upload->display_errors() . '</div>');
-                        redirect('user');
+                        redirect($_SERVER['HTTP_REFERER']);
                     }
                 }
 
-                $data = array(
+                $data = [
                     'classify' => $this->input->post('classify'),
                     'general_name' => $this->input->post('general_name'),
                     'phylum_id' => $this->input->post('phylum_id'),
-                    'subphylyum_id' => $this->input->post('subphylyum_id'),
+                    'subphylum_id' => $this->input->post('subphylum_id'),
                     'infraphylum_id' => $this->input->post('infraphylum_id'),
                     'superclass_id' => $this->input->post('superclass_id'),
                     'description' => $this->input->post('description'),
                     'species' => $this->input->post('species')
-                );
-
+                ];
                 $this->db->where('id', $this->input->post('id'));
                 $this->db->update('classifies', $data);
                 $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
                 classify Updated!
                     </div>');
             }
-
-
-            // redirect('admin/role');
             redirect($_SERVER['HTTP_REFERER']);
         }
     }

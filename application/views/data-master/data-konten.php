@@ -30,7 +30,7 @@
                             <td><?= $key['last_updated'] ?></td>
                             <td>
                                 <a href="<?= base_url("DataMaster/updateKonten/$key[id]"); ?>" class="badge bg-success updateKontenModalButton" data-toggle="modal" data-target="#newKontenModal" data-id="<?= $key['id'] ?>">Edit</a>
-                                <a href="<?= base_url("DataMaster/deleteKonten/$key[id]"); ?>" class="badge bg-danger tombol-hapus" data-hapus="Konten">Delete</a>
+                                <a href="<?= base_url("DataMaster/deleteKonten/$key[id]"); ?>" class="badge bg-danger tombol-hapus" data-hapus="Konten">Hapus</a>
                             </td>
                         </tr>
                         <?php $no++; ?>

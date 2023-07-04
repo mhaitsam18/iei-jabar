@@ -54,7 +54,7 @@
 
                                             <a href="#" class="badge bg-success updatePhylum" data-bs-toggle="modal" data-bs-target="#edit" data-id="<?= $phylum['id'] ?>" data-phylum="<?= $phylum['phylum'] ?>" data-description="<?= $phylum['description'] ?>" data-picture="<?= $phylum['picture'] ?>" data-kingdom_id="<?= $phylum['kingdom_id'] ?>">Ubah</a>
 
-                                            <a href="<?= base_url("DataMaster/phylum/delete/$phylum[id]"); ?>" class="badge bg-danger tombol-hapus" data-hapus="phylum">Delete</a>
+                                            <a href="<?= base_url("DataMaster/phylum/delete/$phylum[id]"); ?>" class="badge bg-danger tombol-hapus" data-hapus="phylum">Hapus</a>
                                         </td>
                                     </tr>
 

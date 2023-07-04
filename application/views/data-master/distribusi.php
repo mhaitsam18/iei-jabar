@@ -55,7 +55,7 @@
                                             data-distribution="<?= $ct['distribution'] ?>">Ubah</a>
 
                                         <a href="<?= base_url("DataMaster/distribution/delete/$ct[id]"); ?>"
-                                            class="badge bg-danger tombol-hapus" data-hapus="role">Delete</a>
+                                            class="badge bg-danger tombol-hapus" data-hapus="role">Hapus</a>
                                     </td>
                                 </tr>
 

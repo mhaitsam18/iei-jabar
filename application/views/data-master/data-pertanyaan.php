@@ -27,7 +27,7 @@
 									<td><?= $key['pertanyaan'] ?></td>
 									<td>
 										<a href="<?= base_url("DataMaster/updatePertanyaan/1/$key[id]"); ?>" class="badge bg-success updatePertanyaan1ModalButton" data-toggle="modal" data-target="#newPertanyaan1Modal" data-id="<?=$key['id']?>">Edit</a>
-										<a href="<?= base_url("DataMaster/deletePertanyaan/1/$key[id]"); ?>" class="badge bg-danger" onclick="return confirm('Are you sure?');">Delete</a>
+										<a href="<?= base_url("DataMaster/deletePertanyaan/1/$key[id]"); ?>" class="badge bg-danger" onclick="return confirm('Are you sure?');">Hapus</a>
 									</td>
 								</tr>
 								<?php $no++; ?>
@@ -61,7 +61,7 @@
 									<td><?= $key['pertanyaan'] ?></td>
 									<td>
 										<a href="<?= base_url("DataMaster/updatePertanyaan/2/$key[id]"); ?>" class="badge bg-success updatePertanyaan2ModalButton" data-toggle="modal" data-target="#newPertanyaan2Modal" data-id="<?=$key['id']?>">Edit</a>
-										<a href="<?= base_url("DataMaster/deletePertanyaan/2/$key[id]"); ?>" class="badge bg-danger" onclick="return confirm('Are you sure?');">Delete</a>
+										<a href="<?= base_url("DataMaster/deletePertanyaan/2/$key[id]"); ?>" class="badge bg-danger" onclick="return confirm('Are you sure?');">Hapus</a>
 									</td>
 								</tr>
 								<?php $no++; ?>

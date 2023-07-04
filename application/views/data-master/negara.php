@@ -50,7 +50,7 @@
 
                                             <a class="badge bg-success updateCountry" data-bs-toggle="modal" data-bs-target="#editCont" data-id="<?= $ct['ct_id'] ?>" data-country="<?= $ct['country'] ?>" data-continent="<?= $ct['ctn_id'] ?>">Ubah</a>
 
-                                            <a href="<?= base_url("DataMaster/country/delete/$ct[ct_id]"); ?>" class="badge bg-danger tombol-hapus" data-hapus="role">Delete</a>
+                                            <a href="<?= base_url("DataMaster/country/delete/$ct[ct_id]"); ?>" class="badge bg-danger tombol-hapus" data-hapus="role">Hapus</a>
                                         </td>
                                     </tr>
 

@@ -66,7 +66,7 @@
 
                                             <a href="#" class="badge bg-success updateClassify" data-bs-toggle="modal" data-bs-target="#edit" data-id="<?= $classify['id'] ?>" data-classify="<?= $classify['classify'] ?>" data-general_name="<?= $classify['general_name'] ?>" data-species="<?= $classify['species'] ?>" data-description="<?= $classify['description'] ?>" data-picture="<?= $classify['picture'] ?>" data-phylum_id="<?= $classify['phylum_id'] ?>" data-superclass_id="<?= $classify['superclass_id'] ?>" data-subphylum_id="<?= $classify['subphylum_id'] ?>" data-infraphylum_id="<?= $classify['infraphylum_id'] ?>">Ubah</a>
 
-                                            <a href="<?= base_url("DataMaster/classify/delete/$classify[id]"); ?>" class="badge bg-danger tombol-hapus" data-hapus="classify">Delete</a>
+                                            <a href="<?= base_url("DataMaster/classify/delete/$classify[id]"); ?>" class="badge bg-danger tombol-hapus" data-hapus="classify">Hapus</a>
                                         </td>
                                     </tr>
 

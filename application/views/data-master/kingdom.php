@@ -52,7 +52,7 @@
 
                                             <a href="#" class="badge bg-success updateKingdom" data-bs-toggle="modal" data-bs-target="#edit" data-id="<?= $kingdom['id'] ?>" data-kingdom="<?= $kingdom['kingdom'] ?>" data-description=" <?= $kingdom['description'] ?>" data-picture="<?= $kingdom['picture'] ?>">Ubah</a>
 
-                                            <a href="<?= base_url("DataMaster/kingdom/delete/$kingdom[id]"); ?>" class="badge bg-danger tombol-hapus" data-hapus="kingdom">Delete</a>
+                                            <a href="<?= base_url("DataMaster/kingdom/delete/$kingdom[id]"); ?>" class="badge bg-danger tombol-hapus" data-hapus="kingdom">Hapus</a>
                                         </td>
                                     </tr>
 
