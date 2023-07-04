@@ -77,6 +77,10 @@
                                             <a href="#" class="badge bg-success updatefish" data-bs-toggle="modal" data-bs-target="#edit" data-id="<?= $fish['id'] ?>" data-scientif_name="<?= $fish['scientif_name'] ?>" data-general_name="<?= $fish['general_name'] ?>" data-synonim="<?= $fish['synonim'] ?>" data-image="<?= $fish['image'] ?>" data-species_id="<?= $fish['species_id'] ?>" data-subspecies_id="<?= $fish['subspecies_id'] ?>" data-fish_type_id="<?= $fish['fish_type_id'] ?>" data-abundance_id="<?= $fish['abundance_id'] ?>" data-length="<?= $fish['length'] ?>" data-weight="<?= $fish['weight'] ?>" data-information="<?= $fish['information'] ?>">Ubah</a>
 
                                             <a href="<?= base_url("DataMaster/fish/delete/$fish[id]"); ?>" class="badge bg-danger tombol-hapus" data-hapus="fish">Hapus</a>
+
+                                            <a href="<?= base_url("DataMaster/distribution/$fish[id]"); ?>" class="badge bg-primary">Lihat Distribusi</a>
+                                            <a href="<?= base_url("DataMaster/food/$fish[id]"); ?>" class="badge bg-warning">Lihat Makanan</a>
+                                            <a href="<?= base_url("DataMaster/habitat/$fish[id]"); ?>" class="badge bg-info">Lihat Habitat</a>
                                         </td>
                                     </tr>
 
@@ -114,7 +118,7 @@
                     <?php echo form_error('general_name', '<span class="text-danger">', '</span>'); ?>
                     <div class="mb-3">
                         <label for="species_id">Species</label>
-                        <select class="form-select" id="species_id" name="species_id">
+                        <select class="select2-add form-select" id="species_id" name="species_id" style="width: 100%; height: 200% !important;">
                             <option value="" selected disabled>Pilih species</option>
                             <?php foreach ($speciess as $species) : ?>
                                 <option value="<?= $species['id'] ?>"><?= $species['species'] ?></option>
@@ -124,7 +128,7 @@
                     <?php echo form_error('species_id', '<span class="text-danger">', '</span>'); ?>
                     <div class="mb-3">
                         <label for="subspecies_id">Subspecies</label>
-                        <select class="form-select" id="subspecies_id" name="subspecies_id">
+                        <select class="select2-add form-select" id="subspecies_id" name="subspecies_id">
                             <option value="" selected disabled>Pilih subspecies</option>
                             <?php foreach ($subspeciess as $subspecies) : ?>
                                 <option value="<?= $subspecies['id'] ?>"><?= $subspecies['subspecies'] ?></option>
@@ -231,7 +235,7 @@
                     <?php echo form_error('subspecies_id', '<span class="text-danger">', '</span>'); ?>
                     <div class="mb-3">
                         <label for="abundance_id">Kelimpahan</label>
-                        <select class="form-select" id="abundance_id" name="abundance_id">
+                        <select class="form-select select2-edit" id="abundance_id" name="abundance_id">
                             <option value="" selected disabled>Pilih Kelimpahan</option>
                             <?php foreach ($abundances as $abundance) : ?>
                                 <option value="<?= $abundance['id'] ?>"><?= $abundance['abundance'] ?></option>
@@ -242,7 +246,7 @@
 
                     <div class="mb-3">
                         <label for="fish_type_id">Tipe Ikan</label>
-                        <select class="form-select" id="fish_type_id" name="fish_type_id">
+                        <select class="form-select select2-edit" id="fish_type_id" name="fish_type_id">
                             <option value="" selected disabled>Pilih Tipe Ikan</option>
                             <?php foreach ($fish_types as $fish_type) : ?>
                                 <option value="<?= $fish_type['id'] ?>"><?= $fish_type['fish_type'] ?></option>
@@ -304,24 +308,54 @@
 <script>
     $(document).on("click", ".updatefish", function() {
         var id = $(this).data('id');
-        $(".modal-body  #id").val(id);
+        $(".modal-body #id").val(id);
 
-        var fish = $(this).data('fish');
-        $(".modal-body  #fish").val(fish);
+        var scientif_name = $(this).data('scientif_name');
+        $(".modal-body #scientif_name").val(scientif_name);
 
         var general_name = $(this).data('general_name');
-        $(".modal-body  #general_name").val(general_name);
+        $(".modal-body #general_name").val(general_name);
 
-        var genus_id = $(this).data('genus_id');
-        $(".modal-body  #genus_id").val(genus_id);
+        var synonim = $(this).data('synonim');
+        $(".modal-body #synonim").val(synonim);
 
-        var subgenus_id = $(this).data('subgenus_id');
-        $(".modal-body  #subgenus_id").val(subgenus_id);
+        var species_id = $(this).data('species_id');
+        $(".modal-body #species_id").val(species_id);
 
-        var description = $(this).data('description');
-        $(".modal-body  #description").val(description);
+        var subspecies_id = $(this).data('subspecies_id');
+        $(".modal-body #subspecies_id").val(subspecies_id);
+
+        var fish_type_id = $(this).data('fish_type_id');
+        $(".modal-body #fish_type_id").val(fish_type_id);
+
+        var abundance_id = $(this).data('abundance_id');
+        $(".modal-body #abundance_id").val(abundance_id);
+
+        var length = $(this).data('length');
+        $(".modal-body #length").val(length);
+
+        var weight = $(this).data('weight');
+        $(".modal-body #weight").val(weight);
+
+        var information = $(this).data('information');
+        $(".modal-body #information").val(information);
 
         var image = $(this).data('image');
         $(".img-preview").attr('src', '<?= base_url('assets/img/') ?>' + image);
+    });
+
+
+    // In your Javascript (external .js resource or <script> tag)
+    $(document).ready(function() {
+        $('.select2-add').select2({
+            dropdownParent: $('#tambahModal'),
+            theme: 'bootstrap',
+            tags: true
+        });
+        $('.select2-edit').select2({
+            dropdownParent: $('#edit'),
+            theme: 'bootstrap',
+            tags: true
+        });
     });
 </script>

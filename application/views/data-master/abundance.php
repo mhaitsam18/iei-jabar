@@ -33,7 +33,7 @@
                     <div class="flash-data" data-flashdata="<?= $this->session->flashdata('flash'); ?>" data-objek="Role"></div>
                     <?= $this->session->flashdata('message'); ?>
                     <div class="table-responsive" style="width: 100%;">
-                        <table class="table table-hover" id="dataTable">
+                        <table class="table table-hover" id="dataTableExample">
                             <thead>
                                 <tr>
                                     <th>#</th>
