@@ -102,7 +102,7 @@
                     <?php echo form_error('general_name', '<span class="text-danger">', '</span>'); ?>
                     <div class="mb-3">
                         <label for="order_id">Ordo</label>
-                        <select class="form-select" id="order_id" name="order_id">
+                        <select class="form-select select2-add" id="order_id" name="order_id">
                             <option value="" selected disabled>Pilih Ordo</option>
                             <?php foreach ($orders as $order) : ?>
                                 <option value="<?= $order['id'] ?>"><?= $order['order'] ?></option>
@@ -112,7 +112,7 @@
                     <?php echo form_error('order_id', '<span class="text-danger">', '</span>'); ?>
                     <div class="mb-3">
                         <label for="suborder_id">Subordo</label>
-                        <select class="form-select" id="suborder_id" name="suborder_id">
+                        <select class="form-select select2-add" id="suborder_id" name="suborder_id">
                             <option value="" selected disabled>Pilih Subordo</option>
                             <?php foreach ($suborders as $suborder) : ?>
                                 <option value="<?= $suborder['id'] ?>"><?= $suborder['suborder'] ?></option>
@@ -165,7 +165,7 @@
                     <?php echo form_error('general_name', '<span class="text-danger">', '</span>'); ?>
                     <div class="mb-3">
                         <label for="order_id">Ordo</label>
-                        <select class="form-select" id="order_id" name="order_id">
+                        <select class="form-select select2-edit" id="order_id" name="order_id">
                             <option value="" selected disabled>Pilih Ordo</option>
                             <?php foreach ($orders as $order) : ?>
                                 <option value="<?= $order['id'] ?>"><?= $order['order'] ?></option>
@@ -175,7 +175,7 @@
                     <?php echo form_error('order_id', '<span class="text-danger">', '</span>'); ?>
                     <div class="mb-3">
                         <label for="suborder_id">Subordo</label>
-                        <select class="form-select" id="suborder_id" name="suborder_id">
+                        <select class="form-select select2-edit" id="suborder_id" name="suborder_id">
                             <option value="" selected disabled>Pilih Subordo</option>
                             <?php foreach ($suborders as $suborder) : ?>
                                 <option value="<?= $suborder['id'] ?>"><?= $suborder['suborder'] ?></option>
@@ -221,8 +221,7 @@
             imgPreview.src = oFREvent.target.result;
         }
     }
-</script>
-<script>
+
     $(document).on("click", ".updateFamily", function() {
         var id = $(this).data('id');
         $(".modal-body  #id").val(id);
@@ -244,5 +243,20 @@
 
         var picture = $(this).data('picture');
         $(".img-preview").attr('src', '<?= base_url('assets/img/') ?>' + picture);
+    });
+
+
+    // In your Javascript (external .js resource or <script> tag)
+    $(document).ready(function() {
+        $('.select2-add').select2({
+            dropdownParent: $('#tambahModal'),
+            theme: 'bootstrap',
+            tags: true
+        });
+        $('.select2-edit').select2({
+            dropdownParent: $('#edit'),
+            theme: 'bootstrap',
+            tags: true
+        });
     });
 </script>

@@ -104,7 +104,7 @@
                     <?php echo form_error('general_name', '<span class="text-danger">', '</span>'); ?>
                     <div class="mb-3">
                         <label for="family_id">Famili</label>
-                        <select class="form-select" id="family_id" name="family_id">
+                        <select class="form-select select2-add" id="family_id" name="family_id">
                             <option value="" selected disabled>Pilih Famili</option>
                             <?php foreach ($families as $family) : ?>
                                 <option value="<?= $family['id'] ?>"><?= $family['family'] ?></option>
@@ -114,7 +114,7 @@
                     <?php echo form_error('family_id', '<span class="text-danger">', '</span>'); ?>
                     <div class="mb-3">
                         <label for="subfamily_id">Subfamili</label>
-                        <select class="form-select" id="subfamily_id" name="subfamily_id">
+                        <select class="form-select select2-add" id="subfamily_id" name="subfamily_id">
                             <option value="" selected disabled>Pilih Subfamili</option>
                             <?php foreach ($subfamilies as $subfamily) : ?>
                                 <option value="<?= $subfamily['id'] ?>"><?= $subfamily['suborder'] ?></option>
@@ -167,7 +167,7 @@
                     <?php echo form_error('general_name', '<span class="text-danger">', '</span>'); ?>
                     <div class="mb-3">
                         <label for="family_id">Famili</label>
-                        <select class="form-select" id="family_id" name="family_id">
+                        <select class="form-select select2-edit" id="family_id" name="family_id">
                             <option value="" selected disabled>Pilih Famili</option>
                             <?php foreach ($families as $family) : ?>
                                 <option value="<?= $family['id'] ?>"><?= $family['family'] ?></option>
@@ -177,7 +177,7 @@
                     <?php echo form_error('family_id', '<span class="text-danger">', '</span>'); ?>
                     <div class="mb-3">
                         <label for="subfamily_id">Subfamili</label>
-                        <select class="form-select" id="subfamily_id" name="subfamily_id">
+                        <select class="form-select select2-edit" id="subfamily_id" name="subfamily_id">
                             <option value="" selected disabled>Pilih Subfamili</option>
                             <?php foreach ($subfamilies as $subfamily) : ?>
                                 <option value="<?= $subfamily['id'] ?>"><?= $subfamily['suborder'] ?></option>
@@ -223,8 +223,7 @@
             imgPreview.src = oFREvent.target.result;
         }
     }
-</script>
-<script>
+
     $(document).on("click", ".updategenus", function() {
         var id = $(this).data('id');
         $(".modal-body  #id").val(id);
@@ -246,5 +245,20 @@
 
         var picture = $(this).data('picture');
         $(".img-preview").attr('src', '<?= base_url('assets/img/') ?>' + picture);
+    });
+
+
+    // In your Javascript (external .js resource or <script> tag)
+    $(document).ready(function() {
+        $('.select2-add').select2({
+            dropdownParent: $('#tambahModal'),
+            theme: 'bootstrap',
+            tags: true
+        });
+        $('.select2-edit').select2({
+            dropdownParent: $('#edit'),
+            theme: 'bootstrap',
+            tags: true
+        });
     });
 </script>

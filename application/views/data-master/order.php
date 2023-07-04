@@ -100,7 +100,7 @@
                     <?php echo form_error('general_name', '<span class="text-danger">', '</span>'); ?>
                     <div class="mb-3">
                         <label for="classify_id">Kelas</label>
-                        <select class="form-select" id="classify_id" name="classify_id">
+                        <select class="form-select select2-add" id="classify_id" name="classify_id">
                             <option value="" selected disabled>Pilih Kelas</option>
                             <?php foreach ($classifies as $classify) : ?>
                                 <option value="<?= $classify['id'] ?>"><?= $classify['classify'] ?></option>
@@ -110,7 +110,7 @@
                     <?php echo form_error('classify_id', '<span class="text-danger">', '</span>'); ?>
                     <div class="mb-3">
                         <label for="subclass_id">Subkelas</label>
-                        <select class="form-select" id="subclass_id" name="subclass_id">
+                        <select class="form-select select2-add" id="subclass_id" name="subclass_id">
                             <option value="" selected disabled>Pilih Subkelas</option>
                             <?php foreach ($subclassifies as $subclass) : ?>
                                 <option value="<?= $subclass['id'] ?>"><?= $subclass['subclass'] ?></option>
@@ -163,7 +163,7 @@
                     <?php echo form_error('general_name', '<span class="text-danger">', '</span>'); ?>
                     <div class="mb-3">
                         <label for="classify_id">Kelas</label>
-                        <select class="form-select" id="classify_id" name="classify_id">
+                        <select class="form-select select2-edit" id="classify_id" name="classify_id">
                             <option value="" selected disabled>Pilih Kelas</option>
                             <?php foreach ($classifies as $classify) : ?>
                                 <option value="<?= $classify['id'] ?>"><?= $classify['classify'] ?></option>
@@ -173,7 +173,7 @@
                     <?php echo form_error('classify_id', '<span class="text-danger">', '</span>'); ?>
                     <div class="mb-3">
                         <label for="subclass_id">Subkelas</label>
-                        <select class="form-select" id="subclass_id" name="subclass_id">
+                        <select class="form-select select2-edit" id="subclass_id" name="subclass_id">
                             <option value="" selected disabled>Pilih Subkelas</option>
                             <?php foreach ($subclassifies as $subclass) : ?>
                                 <option value="<?= $subclass['id'] ?>"><?= $subclass['subclass'] ?></option>
@@ -219,8 +219,7 @@
             imgPreview.src = oFREvent.target.result;
         }
     }
-</script>
-<script>
+    
     $(document).on("click", ".updateOrder", function() {
         var id = $(this).data('id');
         $(".modal-body  #id").val(id);
@@ -242,5 +241,20 @@
 
         var picture = $(this).data('picture');
         $(".img-preview").attr('src', '<?= base_url('assets/img/') ?>' + picture);
+    });
+
+
+    // In your Javascript (external .js resource or <script> tag)
+    $(document).ready(function() {
+        $('.select2-add').select2({
+            dropdownParent: $('#tambahModal'),
+            theme: 'bootstrap',
+            tags: true
+        });
+        $('.select2-edit').select2({
+            dropdownParent: $('#edit'),
+            theme: 'bootstrap',
+            tags: true
+        });
     });
 </script>

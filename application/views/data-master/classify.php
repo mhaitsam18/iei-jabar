@@ -109,7 +109,7 @@
                     <?php echo form_error('species', '<span class="text-danger">', '</span>'); ?>
                     <div class="mb-3">
                         <label for="phylum_id">Filum</label>
-                        <select class="form-select" id="phylum_id" name="phylum_id">
+                        <select class="form-select select2-add" id="phylum_id" name="phylum_id">
                             <option value="" selected disabled>Pilih Filum</option>
                             <?php foreach ($phylums as $phylum) : ?>
                                 <option value="<?= $phylum['id'] ?>"><?= $phylum['phylum'] ?></option>
@@ -119,7 +119,7 @@
                     <?php echo form_error('phylum_id', '<span class="text-danger">', '</span>'); ?>
                     <div class="mb-3">
                         <label for="subphylum_id">Subfilum</label>
-                        <select class="form-select" id="subphylum_id" name="subphylum_id">
+                        <select class="form-select select2-add" id="subphylum_id" name="subphylum_id">
                             <option value="" selected disabled>Pilih Subfilum</option>
                             <?php foreach ($subphylums as $subphylum) : ?>
                                 <option value="<?= $subphylum['id'] ?>"><?= $subphylum['subphylum'] ?></option>
@@ -129,7 +129,7 @@
                     <?php echo form_error('subphylum_id', '<span class="text-danger">', '</span>'); ?>
                     <div class="mb-3">
                         <label for="infraphylum_id">Infrafilum</label>
-                        <select class="form-select" id="infraphylum_id" name="infraphylum_id">
+                        <select class="form-select select2-add" id="infraphylum_id" name="infraphylum_id">
                             <option value="" selected disabled>Pilih Infrafilum</option>
                             <?php foreach ($infraphylums as $infraphylum) : ?>
                                 <option value="<?= $infraphylum['id'] ?>"><?= $infraphylum['infraphylum'] ?></option>
@@ -139,7 +139,7 @@
                     <?php echo form_error('infraphylum_id', '<span class="text-danger">', '</span>'); ?>
                     <div class="mb-3">
                         <label for="superclass_id">SuperKelas</label>
-                        <select class="form-select" id="superclass_id" name="superclass_id">
+                        <select class="form-select select2-add" id="superclass_id" name="superclass_id">
                             <option value="" selected disabled>Pilih SuperKelas</option>
                             <?php foreach ($superclassifies as $superclass) : ?>
                                 <option value="<?= $superclass['id'] ?>"><?= $superclass['superclass'] ?></option>
@@ -197,7 +197,7 @@
                     <?php echo form_error('species', '<span class="text-danger">', '</span>'); ?>
                     <div class="mb-3">
                         <label for="phylum_id">Filum</label>
-                        <select class="form-select" id="phylum_id" name="phylum_id">
+                        <select class="form-select select2-edit" id="phylum_id" name="phylum_id">
                             <option value="" selected disabled>Pilih Filum</option>
                             <?php foreach ($phylums as $phylum) : ?>
                                 <option value="<?= $phylum['id'] ?>"><?= $phylum['phylum'] ?></option>
@@ -207,7 +207,7 @@
                     <?php echo form_error('phylum_id', '<span class="text-danger">', '</span>'); ?>
                     <div class="mb-3">
                         <label for="subphylum_id">Subfilum</label>
-                        <select class="form-select" id="subphylum_id" name="subphylum_id">
+                        <select class="form-select select2-edit" id="subphylum_id" name="subphylum_id">
                             <option value="" selected disabled>Pilih Subfilum</option>
                             <?php foreach ($subphylums as $subphylum) : ?>
                                 <option value="<?= $subphylum['id'] ?>"><?= $subphylum['subphylum'] ?></option>
@@ -217,7 +217,7 @@
                     <?php echo form_error('subphylum_id', '<span class="text-danger">', '</span>'); ?>
                     <div class="mb-3">
                         <label for="infraphylum_id">Infrafilum</label>
-                        <select class="form-select" id="infraphylum_id" name="infraphylum_id">
+                        <select class="form-select select2-edit" id="infraphylum_id" name="infraphylum_id">
                             <option value="" selected disabled>Pilih Infrafilum</option>
                             <?php foreach ($infraphylums as $infraphylum) : ?>
                                 <option value="<?= $infraphylum['id'] ?>"><?= $infraphylum['infraphylum'] ?></option>
@@ -227,7 +227,7 @@
                     <?php echo form_error('infraphylum_id', '<span class="text-danger">', '</span>'); ?>
                     <div class="mb-3">
                         <label for="superclass_id">SuperKelas</label>
-                        <select class="form-select" id="superclass_id" name="superclass_id">
+                        <select class="form-select select2-edit" id="superclass_id" name="superclass_id">
                             <option value="" selected disabled>Pilih SuperKelas</option>
                             <?php foreach ($superclassifies as $superclass) : ?>
                                 <option value="<?= $superclass['id'] ?>"><?= $superclass['superclass'] ?></option>
@@ -273,8 +273,7 @@
             imgPreview.src = oFREvent.target.result;
         }
     }
-</script>
-<script>
+
     $(document).on("click", ".updateClassify", function() {
         var id = $(this).data('id');
         $(".modal-body  #id").val(id);
@@ -305,5 +304,20 @@
 
         var picture = $(this).data('picture');
         $(".img-preview").attr('src', '<?= base_url('assets/img/') ?>' + picture);
+    });
+
+
+    // In your Javascript (external .js resource or <script> tag)
+    $(document).ready(function() {
+        $('.select2-add').select2({
+            dropdownParent: $('#tambahModal'),
+            theme: 'bootstrap',
+            tags: true
+        });
+        $('.select2-edit').select2({
+            dropdownParent: $('#edit'),
+            theme: 'bootstrap',
+            tags: true
+        });
     });
 </script>

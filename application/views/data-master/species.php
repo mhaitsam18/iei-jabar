@@ -106,7 +106,7 @@
                     <?php echo form_error('general_name', '<span class="text-danger">', '</span>'); ?>
                     <div class="mb-3">
                         <label for="genus_id">Genus</label>
-                        <select class="form-select" id="genus_id" name="genus_id">
+                        <select class="form-select select2-add" id="genus_id" name="genus_id">
                             <option value="" selected disabled>Pilih Genus</option>
                             <?php foreach ($genera as $genus) : ?>
                                 <option value="<?= $genus['id'] ?>"><?= $genus['genus'] ?></option>
@@ -116,7 +116,7 @@
                     <?php echo form_error('genus_id', '<span class="text-danger">', '</span>'); ?>
                     <div class="mb-3">
                         <label for="subgenus_id">Subgenus</label>
-                        <select class="form-select" id="subgenus_id" name="subgenus_id">
+                        <select class="form-select select2-add" id="subgenus_id" name="subgenus_id">
                             <option value="" selected disabled>Pilih Subgenus</option>
                             <?php foreach ($subgenera as $subgenus) : ?>
                                 <option value="<?= $subgenus['id'] ?>"><?= $subgenus['subgenus'] ?></option>
@@ -169,7 +169,7 @@
                     <?php echo form_error('general_name', '<span class="text-danger">', '</span>'); ?>
                     <div class="mb-3">
                         <label for="genus_id">Genus</label>
-                        <select class="form-select" id="genus_id" name="genus_id">
+                        <select class="form-select select2-edit" id="genus_id" name="genus_id">
                             <option value="" selected disabled>Pilih Genus</option>
                             <?php foreach ($genera as $genus) : ?>
                                 <option value="<?= $genus['id'] ?>"><?= $genus['genus'] ?></option>
@@ -179,7 +179,7 @@
                     <?php echo form_error('genus_id', '<span class="text-danger">', '</span>'); ?>
                     <div class="mb-3">
                         <label for="subgenus_id">Subfamili</label>
-                        <select class="form-select" id="subgenus_id" name="subgenus_id">
+                        <select class="form-select select2-edit" id="subgenus_id" name="subgenus_id">
                             <option value="" selected disabled>Pilih Subfamili</option>
                             <?php foreach ($subgenera as $subgenus) : ?>
                                 <option value="<?= $subgenus['id'] ?>"><?= $subgenus['subgenus'] ?></option>
@@ -248,5 +248,20 @@
 
         var picture = $(this).data('picture');
         $(".img-preview").attr('src', '<?= base_url('assets/img/') ?>' + picture);
+    });
+
+
+    // In your Javascript (external .js resource or <script> tag)
+    $(document).ready(function() {
+        $('.select2-add').select2({
+            dropdownParent: $('#tambahModal'),
+            theme: 'bootstrap',
+            tags: true
+        });
+        $('.select2-edit').select2({
+            dropdownParent: $('#edit'),
+            theme: 'bootstrap',
+            tags: true
+        });
     });
 </script>
