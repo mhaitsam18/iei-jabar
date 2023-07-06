@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Classify extends CI_Controller
+class Class extends CI_Controller
 {
 
     public function __construct()
@@ -15,7 +15,7 @@ class Classify extends CI_Controller
 
     public function index()
     {
-        $data['title'] = "Data Master classify";
+        $data['title'] = "Data Kelas";
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 
         $this->db->select('classifies.*, phylums.phylum, subphylum.subphylum, infraphylum.infraphylum, superclass.superclass, kingdoms.kingdom');

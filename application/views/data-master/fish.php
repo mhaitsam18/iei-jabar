@@ -9,7 +9,6 @@
         <div class="col-12 col-xl-12 stretch-card">
             <div class="card">
                 <div class="card-body">
-                    <?= form_error('fish', '<div class="alert alert-danger" role="alert">', '</div>'); ?>
                     <div class="d-flex justify-content-between align-items-baseline mb-2">
                         <h6 class="card-title mb-0"><?= $title ?></h6>
                         <div class="dropdown mb-2">
@@ -137,6 +136,33 @@
                     </div>
                     <?php echo form_error('subspecies_id', '<span class="text-danger">', '</span>'); ?>
                     <div class="mb-3">
+                        <label for="food">Makanan</label>
+                        <select class="multiple-add form-select" id="food" name="food[]" data-placeholder="Pilih Makanan" multiple>
+                            <?php foreach ($foods as $food) : ?>
+                                <option value="<?= $food['id'] ?>"><?= $food['food'] ?></option>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
+                    <?php echo form_error('food', '<span class="text-danger">', '</span>'); ?>
+                    <div class="mb-3">
+                        <label for="habitat">Habitat</label>
+                        <select class="multiple-add form-select" id="habitat" name="habitat[]" data-placeholder="Pilih Habitat" multiple>
+                            <?php foreach ($habitats as $habitat) : ?>
+                                <option value="<?= $habitat['id'] ?>"><?= $habitat['habitat'] ?></option>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
+                    <?php echo form_error('habitat', '<span class="text-danger">', '</span>'); ?>
+                    <div class="mb-3">
+                        <label for="distribution">Distribusi</label>
+                        <select class="multiple-add form-select" id="distribution" name="distribution[]" data-placeholder="Pilih Distribusi" multiple>
+                            <?php foreach ($distributions as $distribution) : ?>
+                                <option value="<?= $distribution['id'] ?>"><?= $distribution['distribution'] ?></option>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
+                    <?php echo form_error('distribution', '<span class="text-danger">', '</span>'); ?>
+                    <div class="mb-3">
                         <label for="abundance_id">Kelimpahan</label>
                         <select class="form-select" id="abundance_id" name="abundance_id">
                             <option value="" selected disabled>Pilih Kelimpahan</option>
@@ -152,7 +178,7 @@
                         <select class="form-select" id="fish_type_id" name="fish_type_id">
                             <option value="" selected disabled>Pilih Tipe Ikan</option>
                             <?php foreach ($fish_types as $fish_type) : ?>
-                                <option value="<?= $fish_type['id'] ?>"><?= $fish_type['fish_type'] ?></option>
+                                <option value="<?= $fish_type['id'] ?>"><?= $fish_type['type'] ?></option>
                             <?php endforeach; ?>
                         </select>
                     </div>
@@ -355,6 +381,13 @@
         $('.select2-edit').select2({
             dropdownParent: $('#edit'),
             theme: 'bootstrap',
+            tags: true
+        });
+        $('.multiple-add').select2({
+            dropdownParent: $('#tambahModal'),
+            theme: "bootstrap",
+            placeholder: $(this).data('placeholder'),
+            closeOnSelect: false,
             tags: true
         });
     });

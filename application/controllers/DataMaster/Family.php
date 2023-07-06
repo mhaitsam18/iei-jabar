@@ -15,7 +15,7 @@ class Family extends CI_Controller
 
     public function index()
     {
-        $data['title'] = "Data Master family";
+        $data['title'] = "Data family";
         $data['dataMaster'] = $this->db->get_where('user_sub_menu', ['menu_id' => 14])->result_array();
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 

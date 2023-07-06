@@ -12,7 +12,6 @@
             <div class="card">
                 <div class="card-body">
 
-                    <?= form_error('genus', '<div class="alert alert-danger" role="alert">', '</div>'); ?>
 
                     <div class="d-flex justify-content-between align-items-baseline mb-2">
                         <h6 class="card-title mb-0"><?= $title ?></h6>

@@ -54,6 +54,8 @@
 <script src="<?= base_url() ?>/assets/js/ace.js"></script>
 <!-- End custom js for this page -->
 
+<script src="<?= base_url() ?>/assets/vendors/jquery-tags-input/jquery.tagsinput.min.js"></script>
+
 <script src="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.js"></script>
 <script src="https://unpkg.com/filepond-plugin-image-exif-orientation/dist/filepond-plugin-image-exif-orientation.js">
 </script>
@@ -70,6 +72,20 @@
 
 
 <script>
+    $(function() {
+        'use strict';
+
+        $('.tags-input').tagsInput({
+            'width': '100%',
+            'height': '75%',
+            'interactive': true,
+            'defaultText': 'Add More',
+            'removeWithBackspace': true,
+            'minChars': 0,
+            'maxChars': 20,
+            'placeholderColor': '#666666'
+        });
+    });
     const folder = $('.filepond').data('folder');
     FilePond.registerPlugin(
         FilePondPluginImagePreview,

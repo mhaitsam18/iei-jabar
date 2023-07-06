@@ -54,6 +54,7 @@ License: For each use you must have a valid license purchased only from above li
 	<!-- Plugin css for this page -->
 	<link rel="stylesheet" href="<?= base_url() ?>/assets/vendors/simplemde/simplemde.min.css">
 	<!-- End plugin css for this page -->
+	<link rel="stylesheet" href="<?= base_url() ?>/assets/vendors/jquery-tags-input/jquery.tagsinput.min.css">
 
 
 	<link href="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css" rel="stylesheet" />

@@ -34,6 +34,10 @@ class Fish extends CI_Controller
         $data['speciess'] = $this->db->get('species')->result_array();
         $data['abundances'] = $this->db->get('abundance')->result_array();
         $data['fish_types'] = $this->db->get('fish_type')->result_array();
+        
+        $data['foods'] = $this->db->get('food')->result_array();
+        $data['habitats'] = $this->db->get('habitats')->result_array();
+        $data['distribution s'] = $this->db->get('distribution')->result_array();
 
         $this->form_validation->set_rules('fish', 'fish', 'trim|required');
 

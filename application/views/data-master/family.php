@@ -25,7 +25,6 @@
                             </div>
                         </div>
                     </div>
-                    <?= form_error('family', '<div class="alert alert-danger" role="alert">', '</div>'); ?>
                     <div class="flash-data" data-flashdata="<?= $this->session->flashdata('flash'); ?>" data-objek="family"></div>
                     <?= $this->session->flashdata('message'); ?>
                     <div class="table-responsive">
