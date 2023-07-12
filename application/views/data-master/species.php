@@ -58,8 +58,8 @@
                                         <td><?= $species['subgenus'] ?></td>
                                         <td><?= $species['genus'] ?></td>
                                         <td><?= $species['family'] ?></td>
-                                        <td><?= $species['order'] ?></td>
-                                        <td><?= $species['classify'] ?></td>
+                                        <td><?= $species['ordo'] ?></td>
+                                        <td><?= $species['class'] ?></td>
                                         <td><?= $species['phylum'] ?></td>
                                         <td><?= $species['kingdom'] ?></td>
                                         <td><?= $species['description'] ?></td>

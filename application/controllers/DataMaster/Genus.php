@@ -19,12 +19,12 @@ class Genus extends CI_Controller
         $data['dataMaster'] = $this->db->get_where('user_sub_menu', ['menu_id' => 14])->result_array();
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 
-        $this->db->select('genus.*, subfamily.subfamily, families.family, order.order, class.classify, phylums.phylum, kingdoms.kingdom');
+        $this->db->select('genus.*, subfamily.subfamily, families.family, ordo.ordo, class.class, phylums.phylum, kingdoms.kingdom');
         $this->db->join('subfamily', 'genus.subfamily_id = subfamily.id', 'left');
 
         $this->db->join('families', 'genus.family_id = families.id', 'left');
-        $this->db->join('order', 'families.order_id = order.id', 'left');
-        $this->db->join('class', 'order.classify_id = class.id', 'left');
+        $this->db->join('ordo', 'families.ordo_id = ordo.id', 'left');
+        $this->db->join('class', 'ordo.class_id = class.id', 'left');
         $this->db->join('phylums', 'class.phylum_id = phylums.id', 'left');
         $this->db->join('kingdoms', 'phylums.kingdom_id = kingdoms.id', 'left');
         $data['genera'] = $this->db->get('genus')->result_array();

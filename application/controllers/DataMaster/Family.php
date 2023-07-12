@@ -19,17 +19,17 @@ class Family extends CI_Controller
         $data['dataMaster'] = $this->db->get_where('user_sub_menu', ['menu_id' => 14])->result_array();
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 
-        $this->db->select('families.*, order.order, suborder.suborder, classifies.classify, phylums.phylum, kingdoms.kingdom');
-        $this->db->join('suborder', 'families.suborder_id = suborder.id', 'left');
+        $this->db->select('families.*, ordo.ordo, subordo.subordo, class.class, phylums.phylum, kingdoms.kingdom');
+        $this->db->join('subordo', 'families.subordo_id = subordo.id', 'left');
 
-        $this->db->join('order', 'families.order_id = order.id', 'left');
-        $this->db->join('classifies', 'order.classify_id = classifies.id', 'left');
-        $this->db->join('phylums', 'classifies.phylum_id = phylums.id', 'left');
+        $this->db->join('ordo', 'families.ordo_id = ordo.id', 'left');
+        $this->db->join('class', 'ordo.class_id = class.id', 'left');
+        $this->db->join('phylums', 'class.phylum_id = phylums.id', 'left');
         $this->db->join('kingdoms', 'phylums.kingdom_id = kingdoms.id', 'left');
         $data['families'] = $this->db->get('families')->result_array();
 
-        $data['orders'] = $this->db->get('order')->result_array();
-        $data['suborders'] = $this->db->get('suborder')->result_array();
+        $data['ordos'] = $this->db->get('ordo')->result_array();
+        $data['subordos'] = $this->db->get('subordo')->result_array();
 
         $this->form_validation->set_rules('family', 'family', 'trim|required');
 
@@ -46,8 +46,8 @@ class Family extends CI_Controller
                 $this->db->insert('families', [
                     'family' => $this->input->post('family'),
                     'general_name' => $this->input->post('general_name'),
-                    'order_id' => $this->input->post('order_id'),
-                    'suborder_id' => $this->input->post('suborder_id'),
+                    'ordo_id' => $this->input->post('ordo_id'),
+                    'subordo_id' => $this->input->post('subordo_id'),
                     'description' => $this->input->post('description'),
                     'picture' => $this->input->post('picture')
                 ]);
@@ -78,8 +78,8 @@ class Family extends CI_Controller
                 $data = array(
                     'family' => $this->input->post('family'),
                     'general_name' => $this->input->post('general_name'),
-                    'order_id' => $this->input->post('order_id'),
-                    'suborder_id' => $this->input->post('suborder_id'),
+                    'ordo_id' => $this->input->post('ordo_id'),
+                    'subordo_id' => $this->input->post('subordo_id'),
                     'description' => $this->input->post('description'),
                 );
 

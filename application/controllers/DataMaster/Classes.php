@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Classies extends CI_Controller
+class Classes extends CI_Controller
 {
 
     public function __construct()
@@ -25,27 +25,27 @@ class Classies extends CI_Controller
         
         $this->db->join('phylums', 'class.phylum_id = phylums.id', 'left');
         $this->db->join('kingdoms', 'phylums.kingdom_id = kingdoms.id', 'left');
-        $data['class'] = $this->db->get('class')->result_array();
+        $data['classes'] = $this->db->get('class')->result_array();
         
         $data['phylums'] = $this->db->get('phylums')->result_array();
         $data['subphylums'] = $this->db->get('subphylum')->result_array();
         $data['infraphylums'] = $this->db->get('infraphylum')->result_array();
-        $data['superclassies'] = $this->db->get('superclass')->result_array();
+        $data['superclasses'] = $this->db->get('superclass')->result_array();
 
-        $this->form_validation->set_rules('classify', 'classify', 'trim|required');
+        $this->form_validation->set_rules('class', 'class', 'trim|required');
 
         if ($this->form_validation->run() == false) {
             // $this->index();
             $this->load->view('layouts/header', $data);
             $this->load->view('layouts/sidebar', $data);
             $this->load->view('layouts/topbar', $data);
-            $this->load->view('data-master/classify', $data);
+            $this->load->view('data-master/class', $data);
             $this->load->view('layouts/footer');
         } else {
 
             if ($this->input->post('aksi') == "add") {
                 $this->db->insert('class', [
-                    'classify' => $this->input->post('classify'),
+                    'class' => $this->input->post('class'),
                     'general_name' => $this->input->post('general_name'),
                     'phylum_id' => $this->input->post('phylum_id'),
                     'subphylyum_id' => $this->input->post('subphylyum_id'),
@@ -57,7 +57,7 @@ class Classies extends CI_Controller
                 ]);
 
                 $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
-                    New classify Added!
+                    New class Added!
                     </div>');
             } elseif ($this->input->post('aksi') == "update") {
 
@@ -65,7 +65,7 @@ class Classies extends CI_Controller
                 $upload_picture = $_FILES['picture']['name'];
                 if ($upload_picture) {
                     $config['allowed_types'] = 'gif|jpg|png|svg|jpeg';
-                    $config['upload_path'] = './assets/img/classify';
+                    $config['upload_path'] = './assets/img/class';
                     $config['max_size']     = '4096';
 
                     // Generate random file name
@@ -73,7 +73,7 @@ class Classies extends CI_Controller
                     $this->load->library('upload', $config);
                     if ($this->upload->do_upload('picture')) {
                         $new_picture = $this->upload->data('file_name');
-                        $this->db->set('picture', 'classify/'.$new_picture);
+                        $this->db->set('picture', 'class/'.$new_picture);
                     } else {
                         $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">' . $this->upload->display_errors() . '</div>');
                         redirect($_SERVER['HTTP_REFERER']);
@@ -81,7 +81,7 @@ class Classies extends CI_Controller
                 }
 
                 $data = [
-                    'classify' => $this->input->post('classify'),
+                    'class' => $this->input->post('class'),
                     'general_name' => $this->input->post('general_name'),
                     'phylum_id' => $this->input->post('phylum_id'),
                     'subphylum_id' => $this->input->post('subphylum_id'),
@@ -93,7 +93,7 @@ class Classies extends CI_Controller
                 $this->db->where('id', $this->input->post('id'));
                 $this->db->update('class', $data);
                 $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
-                classify Updated!
+                class Updated!
                     </div>');
             }
             redirect($_SERVER['HTTP_REFERER']);
@@ -105,7 +105,7 @@ class Classies extends CI_Controller
         $this->db->where('id', $id);
         $this->db->delete('class');
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
-        classify Deleted!
+        class Deleted!
 			</div>');
 
         redirect($_SERVER['HTTP_REFERER']);

@@ -12,7 +12,7 @@
             <div class="card">
                 <div class="card-body">
 
-                    <?= form_error('classify', '<div class="alert alert-danger" role="alert">', '</div>'); ?>
+                    <?= form_error('class', '<div class="alert alert-danger" role="alert">', '</div>'); ?>
 
                     <div class="d-flex justify-content-between align-items-baseline mb-2">
                         <h6 class="card-title mb-0"><?= $title ?></h6>
@@ -25,8 +25,8 @@
                             </div>
                         </div>
                     </div>
-                    <?= form_error('classify', '<div class="alert alert-danger" role="alert">', '</div>'); ?>
-                    <div class="flash-data" data-flashdata="<?= $this->session->flashdata('flash'); ?>" data-objek="classify"></div>
+                    <?= form_error('class', '<div class="alert alert-danger" role="alert">', '</div>'); ?>
+                    <div class="flash-data" data-flashdata="<?= $this->session->flashdata('flash'); ?>" data-objek="class"></div>
                     <?= $this->session->flashdata('message'); ?>
                     <div class="table-responsive">
                         <table class="table table-hover" id="dataTableExample">
@@ -48,25 +48,25 @@
                             </thead>
                             <tbody>
                                 <?php $no = 1; ?>
-                                <?php foreach ($classifies as $classify) : ?>
+                                <?php foreach ($classes as $class) : ?>
 
                                     <tr>
                                         <td><?= $no++ ?></td>
-                                        <td><?= $classify['classify'] ?></td>
-                                        <td><?= $classify['general_name'] ?></td>
-                                        <td><?= $classify['superclass'] ?></td>
-                                        <td><?= $classify['phylum'] ?></td>
-                                        <td><?= $classify['subphylum'] ?></td>
-                                        <td><?= $classify['infraphylum'] ?></td>
-                                        <td><?= $classify['kingdom'] ?></td>
-                                        <td><?= $classify['description'] ?></td>
-                                        <td><?= $classify['species'] ?></td>
-                                        <td><img src="<?= base_url('assets/img/' . $classify['picture']) ?>" class="img-thumbnail img-fluid"></td>
+                                        <td><?= $class['class'] ?></td>
+                                        <td><?= $class['general_name'] ?></td>
+                                        <td><?= $class['superclass'] ?></td>
+                                        <td><?= $class['phylum'] ?></td>
+                                        <td><?= $class['subphylum'] ?></td>
+                                        <td><?= $class['infraphylum'] ?></td>
+                                        <td><?= $class['kingdom'] ?></td>
+                                        <td><?= $class['description'] ?></td>
+                                        <td><?= $class['species'] ?></td>
+                                        <td><img src="<?= base_url('assets/img/' . $class['picture']) ?>" class="img-thumbnail img-fluid"></td>
                                         <td>
 
-                                            <a href="#" class="badge bg-success updateClassify" data-bs-toggle="modal" data-bs-target="#edit" data-id="<?= $classify['id'] ?>" data-classify="<?= $classify['classify'] ?>" data-general_name="<?= $classify['general_name'] ?>" data-species="<?= $classify['species'] ?>" data-description="<?= $classify['description'] ?>" data-picture="<?= $classify['picture'] ?>" data-phylum_id="<?= $classify['phylum_id'] ?>" data-superclass_id="<?= $classify['superclass_id'] ?>" data-subphylum_id="<?= $classify['subphylum_id'] ?>" data-infraphylum_id="<?= $classify['infraphylum_id'] ?>">Ubah</a>
+                                            <a href="#" class="badge bg-success updateclass" data-bs-toggle="modal" data-bs-target="#edit" data-id="<?= $class['id'] ?>" data-class="<?= $class['class'] ?>" data-general_name="<?= $class['general_name'] ?>" data-species="<?= $class['species'] ?>" data-description="<?= $class['description'] ?>" data-picture="<?= $class['picture'] ?>" data-phylum_id="<?= $class['phylum_id'] ?>" data-superclass_id="<?= $class['superclass_id'] ?>" data-subphylum_id="<?= $class['subphylum_id'] ?>" data-infraphylum_id="<?= $class['infraphylum_id'] ?>">Ubah</a>
 
-                                            <a href="<?= base_url("DataMaster/classify/delete/$classify[id]"); ?>" class="badge bg-danger tombol-hapus" data-hapus="classify">Hapus</a>
+                                            <a href="<?= base_url("DataMaster/class/delete/$class[id]"); ?>" class="badge bg-danger tombol-hapus" data-hapus="class">Hapus</a>
                                         </td>
                                     </tr>
 
@@ -89,14 +89,14 @@
                 <h1 class="modal-title fs-5" id="tambahModalLabel">Tambah Data Kelas</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form action="<?= base_url('DataMaster/classify') ?>" method="post" enctype="multipart/form-data">
+            <form action="<?= base_url('DataMaster/class') ?>" method="post" enctype="multipart/form-data">
                 <input type="hidden" name="aksi" value="add">
                 <div class="modal-body">
                     <div class="mb-3">
-                        <label for="classify">Nama Latin Kelas</label>
-                        <input type="text" class="form-control" id="classify" name="classify" placeholder="classify Name">
+                        <label for="class">Nama Latin Kelas</label>
+                        <input type="text" class="form-control" id="class" name="class" placeholder="class Name">
                     </div>
-                    <?php echo form_error('classify', '<span class="text-danger">', '</span>'); ?>
+                    <?php echo form_error('class', '<span class="text-danger">', '</span>'); ?>
                     <div class="mb-3">
                         <label for="general_name">Nama Umum</label>
                         <input type="text" class="form-control" id="general_name" name="general_name">
@@ -141,7 +141,7 @@
                         <label for="superclass_id">SuperKelas</label>
                         <select class="form-select select2-add" id="superclass_id" name="superclass_id">
                             <option value="" selected disabled>Pilih SuperKelas</option>
-                            <?php foreach ($superclassifies as $superclass) : ?>
+                            <?php foreach ($superclasses as $superclass) : ?>
                                 <option value="<?= $superclass['id'] ?>"><?= $superclass['superclass'] ?></option>
                             <?php endforeach; ?>
                         </select>
@@ -154,7 +154,7 @@
                     <?php echo form_error('description', '<span class="text-danger">', '</span>'); ?>
                     <div class="mb-3">
                         <label for="picture">Gambar</label>
-                        <input type="file" class="form-control filepond" name="file" multiple data-allow-reorder="true" data-max-file-size="3MB" data-max-files="3" data-folder="classify">
+                        <input type="file" class="form-control filepond" name="file" multiple data-allow-reorder="true" data-max-file-size="3MB" data-max-files="3" data-folder="class">
                         <input type="hidden" name="picture" id="img-filepond" value="">
                     </div>
                     <?php echo form_error('picture', '<span class="text-danger">', '</span>'); ?>
@@ -176,15 +176,15 @@
                 <h1 class="modal-title fs-5" id="editLabel">Edit Data Kelas</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form action="<?= base_url('DataMaster/classify') ?>" method="post" enctype="multipart/form-data">
+            <form action="<?= base_url('DataMaster/class') ?>" method="post" enctype="multipart/form-data">
                 <input type="hidden" name="aksi" value="update">
                 <div class="modal-body">
                     <input type="hidden" name="id" id="id">
                     <div class="mb-3">
-                        <label for="classify">Nama Latin Kelas</label>
-                        <input type="text" class="form-control" id="classify" name="classify" placeholder="classify Name">
+                        <label for="class">Nama Latin Kelas</label>
+                        <input type="text" class="form-control" id="class" name="class" placeholder="class Name">
                     </div>
-                    <?php echo form_error('classify', '<span class="text-danger">', '</span>'); ?>
+                    <?php echo form_error('class', '<span class="text-danger">', '</span>'); ?>
                     <div class="mb-3">
                         <label for="general_name">Nama Umum</label>
                         <input type="text" class="form-control" id="general_name" name="general_name">
@@ -229,7 +229,7 @@
                         <label for="superclass_id">SuperKelas</label>
                         <select class="form-select select2-edit" id="superclass_id" name="superclass_id">
                             <option value="" selected disabled>Pilih SuperKelas</option>
-                            <?php foreach ($superclassifies as $superclass) : ?>
+                            <?php foreach ($superclasses as $superclass) : ?>
                                 <option value="<?= $superclass['id'] ?>"><?= $superclass['superclass'] ?></option>
                             <?php endforeach; ?>
                         </select>
@@ -274,12 +274,12 @@
         }
     }
 
-    $(document).on("click", ".updateClassify", function() {
+    $(document).on("click", ".updateclass", function() {
         var id = $(this).data('id');
         $(".modal-body  #id").val(id);
 
-        var classify = $(this).data('classify');
-        $(".modal-body  #classify").val(classify);
+        var class = $(this).data('class');
+        $(".modal-body  #class").val(class);
 
         var general_name = $(this).data('general_name');
         $(".modal-body  #general_name").val(general_name);

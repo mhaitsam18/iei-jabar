@@ -19,16 +19,16 @@ class Ordo extends CI_Controller
         $data['dataMaster'] = $this->db->get_where('user_sub_menu', ['menu_id' => 14])->result_array();
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 
-        $this->db->select('ordo.*, classifies.classify, subclass.subclass, phylums.phylum, kingdoms.kingdom');
+        $this->db->select('ordo.*, class.class, subclass.subclass, phylums.phylum, kingdoms.kingdom');
         $this->db->join('subclass', 'ordo.subclass_id = subclass.id', 'left');
         
-        $this->db->join('classifies', 'ordo.classify_id = classifies.id', 'left');   
-        $this->db->join('phylums', 'classifies.phylum_id = phylums.id', 'left');
+        $this->db->join('class', 'ordo.class_id = class.id', 'left');   
+        $this->db->join('phylums', 'class.phylum_id = phylums.id', 'left');
         $this->db->join('kingdoms', 'phylums.kingdom_id = kingdoms.id', 'left');
         $data['ordos'] = $this->db->get('ordo')->result_array();
         
-        $data['classifies'] = $this->db->get('classifies')->result_array();
-        $data['subclassifies'] = $this->db->get('subclass')->result_array();
+        $data['classes'] = $this->db->get('class')->result_array();
+        $data['subclasses'] = $this->db->get('subclass')->result_array();
 
         $this->form_validation->set_rules('ordo', 'ordo', 'trim|required');
 
@@ -45,7 +45,7 @@ class Ordo extends CI_Controller
                 $this->db->insert('ordo', [
                     'ordo' => $this->input->post('ordo'),
                     'general_name' => $this->input->post('general_name'),
-                    'classify_id' => $this->input->post('classify_id'),
+                    'class_id' => $this->input->post('class_id'),
                     'subclass_id' => $this->input->post('subclass_id'),
                     'description' => $this->input->post('description'),
                     'picture' => $this->input->post('picture')
@@ -79,7 +79,7 @@ class Ordo extends CI_Controller
                 $data = array(
                     'ordo' => $this->input->post('ordo'),
                     'general_name' => $this->input->post('general_name'),
-                    'classify_id' => $this->input->post('classify_id'),
+                    'class_id' => $this->input->post('class_id'),
                     'subclass_id' => $this->input->post('subclass_id'),
                     'description' => $this->input->post('description'),
                 );

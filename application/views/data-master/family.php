@@ -52,16 +52,16 @@
                                         <td><?= $no++ ?></td>
                                         <td><?= $family['family'] ?></td>
                                         <td><?= $family['general_name'] ?></td>
-                                        <td><?= $family['suborder'] ?></td>
-                                        <td><?= $family['order'] ?></td>
-                                        <td><?= $family['classify'] ?></td>
+                                        <td><?= $family['subordo'] ?></td>
+                                        <td><?= $family['ordo'] ?></td>
+                                        <td><?= $family['class'] ?></td>
                                         <td><?= $family['phylum'] ?></td>
                                         <td><?= $family['kingdom'] ?></td>
                                         <td><?= $family['description'] ?></td>
                                         <td><img src="<?= base_url('assets/img/' . $family['picture']) ?>" class="img-thumbnail img-fluid"></td>
                                         <td>
 
-                                            <a href="#" class="badge bg-success updateFamily" data-bs-toggle="modal" data-bs-target="#edit" data-id="<?= $family['id'] ?>" data-family="<?= $family['family'] ?>" data-general_name="<?= $family['general_name'] ?>" data-description="<?= $family['description'] ?>" data-picture="<?= $family['picture'] ?>" data-order_id="<?= $family['order_id'] ?>" data-suborder_id="<?= $family['suborder_id'] ?>">Ubah</a>
+                                            <a href="#" class="badge bg-success updateFamily" data-bs-toggle="modal" data-bs-target="#edit" data-id="<?= $family['id'] ?>" data-family="<?= $family['family'] ?>" data-general_name="<?= $family['general_name'] ?>" data-description="<?= $family['description'] ?>" data-picture="<?= $family['picture'] ?>" data-ordo_id="<?= $family['ordo_id'] ?>" data-subordo_id="<?= $family['subordo_id'] ?>">Ubah</a>
 
                                             <a href="<?= base_url("DataMaster/family/delete/$family[id]"); ?>" class="badge bg-danger tombol-hapus" data-hapus="family">Hapus</a>
                                         </td>
@@ -100,25 +100,25 @@
                     </div>
                     <?php echo form_error('general_name', '<span class="text-danger">', '</span>'); ?>
                     <div class="mb-3">
-                        <label for="order_id">Ordo</label>
-                        <select class="form-select select2-add" id="order_id" name="order_id">
+                        <label for="ordo_id">Ordo</label>
+                        <select class="form-select select2-add" id="ordo_id" name="ordo_id">
                             <option value="" selected disabled>Pilih Ordo</option>
-                            <?php foreach ($orders as $order) : ?>
-                                <option value="<?= $order['id'] ?>"><?= $order['order'] ?></option>
+                            <?php foreach ($ordos as $ordo) : ?>
+                                <option value="<?= $ordo['id'] ?>"><?= $ordo['ordo'] ?></option>
                             <?php endforeach; ?>
                         </select>
                     </div>
-                    <?php echo form_error('order_id', '<span class="text-danger">', '</span>'); ?>
+                    <?php echo form_error('ordo_id', '<span class="text-danger">', '</span>'); ?>
                     <div class="mb-3">
-                        <label for="suborder_id">Subordo</label>
-                        <select class="form-select select2-add" id="suborder_id" name="suborder_id">
+                        <label for="subordo_id">Subordo</label>
+                        <select class="form-select select2-add" id="subordo_id" name="subordo_id">
                             <option value="" selected disabled>Pilih Subordo</option>
-                            <?php foreach ($suborders as $suborder) : ?>
-                                <option value="<?= $suborder['id'] ?>"><?= $suborder['suborder'] ?></option>
+                            <?php foreach ($subordos as $subordo) : ?>
+                                <option value="<?= $subordo['id'] ?>"><?= $subordo['subordo'] ?></option>
                             <?php endforeach; ?>
                         </select>
                     </div>
-                    <?php echo form_error('suborder_id', '<span class="text-danger">', '</span>'); ?>
+                    <?php echo form_error('subordo_id', '<span class="text-danger">', '</span>'); ?>
                     <div class="mb-3">
                         <label for="description">Deskripsi</label>
                         <textarea class="form-control" id="description" name="description"></textarea>
@@ -163,25 +163,25 @@
                     </div>
                     <?php echo form_error('general_name', '<span class="text-danger">', '</span>'); ?>
                     <div class="mb-3">
-                        <label for="order_id">Ordo</label>
-                        <select class="form-select select2-edit" id="order_id" name="order_id">
+                        <label for="ordo_id">Ordo</label>
+                        <select class="form-select select2-edit" id="ordo_id" name="ordo_id">
                             <option value="" selected disabled>Pilih Ordo</option>
-                            <?php foreach ($orders as $order) : ?>
-                                <option value="<?= $order['id'] ?>"><?= $order['order'] ?></option>
+                            <?php foreach ($ordos as $ordo) : ?>
+                                <option value="<?= $ordo['id'] ?>"><?= $ordo['ordo'] ?></option>
                             <?php endforeach; ?>
                         </select>
                     </div>
-                    <?php echo form_error('order_id', '<span class="text-danger">', '</span>'); ?>
+                    <?php echo form_error('ordo_id', '<span class="text-danger">', '</span>'); ?>
                     <div class="mb-3">
-                        <label for="suborder_id">Subordo</label>
-                        <select class="form-select select2-edit" id="suborder_id" name="suborder_id">
+                        <label for="subordo_id">Subordo</label>
+                        <select class="form-select select2-edit" id="subordo_id" name="subordo_id">
                             <option value="" selected disabled>Pilih Subordo</option>
-                            <?php foreach ($suborders as $suborder) : ?>
-                                <option value="<?= $suborder['id'] ?>"><?= $suborder['suborder'] ?></option>
+                            <?php foreach ($subordos as $subordo) : ?>
+                                <option value="<?= $subordo['id'] ?>"><?= $subordo['subordo'] ?></option>
                             <?php endforeach; ?>
                         </select>
                     </div>
-                    <?php echo form_error('suborder_id', '<span class="text-danger">', '</span>'); ?>
+                    <?php echo form_error('subordo_id', '<span class="text-danger">', '</span>'); ?>
                     <div class="mb-3">
                         <label for="description">Deskripsi</label>
                         <textarea class="form-control" id="description" name="description"></textarea>
@@ -231,11 +231,11 @@
         var general_name = $(this).data('general_name');
         $(".modal-body  #general_name").val(general_name);
 
-        var order_id = $(this).data('order_id');
-        $(".modal-body  #order_id").val(order_id);
+        var ordo_id = $(this).data('ordo_id');
+        $(".modal-body  #ordo_id").val(ordo_id);
 
-        var suborder_id = $(this).data('suborder_id');
-        $(".modal-body  #suborder_id").val(suborder_id);
+        var subordo_id = $(this).data('subordo_id');
+        $(".modal-body  #subordo_id").val(subordo_id);
 
         var description = $(this).data('description');
         $(".modal-body  #description").val(description);

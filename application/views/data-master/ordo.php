@@ -12,7 +12,7 @@
             <div class="card">
                 <div class="card-body">
 
-                    <?= form_error('order', '<div class="alert alert-danger" role="alert">', '</div>'); ?>
+                    <?= form_error('ordo', '<div class="alert alert-danger" role="alert">', '</div>'); ?>
 
                     <div class="d-flex justify-content-between align-items-baseline mb-2">
                         <h6 class="card-title mb-0"><?= $title ?></h6>
@@ -25,8 +25,8 @@
                             </div>
                         </div>
                     </div>
-                    <?= form_error('order', '<div class="alert alert-danger" role="alert">', '</div>'); ?>
-                    <div class="flash-data" data-flashdata="<?= $this->session->flashdata('flash'); ?>" data-objek="order"></div>
+                    <?= form_error('ordo', '<div class="alert alert-danger" role="alert">', '</div>'); ?>
+                    <div class="flash-data" data-flashdata="<?= $this->session->flashdata('flash'); ?>" data-objek="ordo"></div>
                     <?= $this->session->flashdata('message'); ?>
                     <div class="table-responsive">
                         <table class="table table-hover" id="dataTableExample">
@@ -46,23 +46,23 @@
                             </thead>
                             <tbody>
                                 <?php $no = 1; ?>
-                                <?php foreach ($orders as $order) : ?>
+                                <?php foreach ($ordos as $ordo) : ?>
 
                                     <tr>
                                         <td><?= $no++ ?></td>
-                                        <td><?= $order['order'] ?></td>
-                                        <td><?= $order['general_name'] ?></td>
-                                        <td><?= $order['subclass'] ?></td>
-                                        <td><?= $order['classify'] ?></td>
-                                        <td><?= $order['phylum'] ?></td>
-                                        <td><?= $order['kingdom'] ?></td>
-                                        <td><?= $order['description'] ?></td>
-                                        <td><img src="<?= base_url('assets/img/' . $order['picture']) ?>" class="img-thumbnail img-fluid"></td>
+                                        <td><?= $ordo['ordo'] ?></td>
+                                        <td><?= $ordo['general_name'] ?></td>
+                                        <td><?= $ordo['subclass'] ?></td>
+                                        <td><?= $ordo['class'] ?></td>
+                                        <td><?= $ordo['phylum'] ?></td>
+                                        <td><?= $ordo['kingdom'] ?></td>
+                                        <td><?= $ordo['description'] ?></td>
+                                        <td><img src="<?= base_url('assets/img/' . $ordo['picture']) ?>" class="img-thumbnail img-fluid"></td>
                                         <td>
 
-                                            <a href="#" class="badge bg-success updateOrder" data-bs-toggle="modal" data-bs-target="#edit" data-id="<?= $order['id'] ?>" data-order="<?= $order['order'] ?>" data-general_name="<?= $order['general_name'] ?>" data-description="<?= $order['description'] ?>" data-picture="<?= $order['picture'] ?>" data-classify_id="<?= $order['classify_id'] ?>" data-subclass_id="<?= $order['subclass_id'] ?>">Ubah</a>
+                                            <a href="#" class="badge bg-success updateordo" data-bs-toggle="modal" data-bs-target="#edit" data-id="<?= $ordo['id'] ?>" data-ordo="<?= $ordo['ordo'] ?>" data-general_name="<?= $ordo['general_name'] ?>" data-description="<?= $ordo['description'] ?>" data-picture="<?= $ordo['picture'] ?>" data-class_id="<?= $ordo['class_id'] ?>" data-subclass_id="<?= $ordo['subclass_id'] ?>">Ubah</a>
 
-                                            <a href="<?= base_url("DataMaster/order/delete/$order[id]"); ?>" class="badge bg-danger tombol-hapus" data-hapus="order">Hapus</a>
+                                            <a href="<?= base_url("DataMaster/ordo/delete/$ordo[id]"); ?>" class="badge bg-danger tombol-hapus" data-hapus="ordo">Hapus</a>
                                         </td>
                                     </tr>
 
@@ -85,34 +85,34 @@
                 <h1 class="modal-title fs-5" id="tambahModalLabel">Tambah Data Ordo</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form action="<?= base_url('DataMaster/order') ?>" method="post" enctype="multipart/form-data">
+            <form action="<?= base_url('DataMaster/ordo') ?>" method="post" enctype="multipart/form-data">
                 <input type="hidden" name="aksi" value="add">
                 <div class="modal-body">
                     <div class="mb-3">
-                        <label for="order">Nama Latin Ordo</label>
-                        <input type="text" class="form-control" id="order" name="order">
+                        <label for="ordo">Nama Latin Ordo</label>
+                        <input type="text" class="form-control" id="ordo" name="ordo">
                     </div>
-                    <?php echo form_error('order', '<span class="text-danger">', '</span>'); ?>
+                    <?php echo form_error('ordo', '<span class="text-danger">', '</span>'); ?>
                     <div class="mb-3">
                         <label for="general_name">Nama Umum</label>
                         <input type="text" class="form-control" id="general_name" name="general_name">
                     </div>
                     <?php echo form_error('general_name', '<span class="text-danger">', '</span>'); ?>
                     <div class="mb-3">
-                        <label for="classify_id">Kelas</label>
-                        <select class="form-select select2-add" id="classify_id" name="classify_id">
+                        <label for="class_id">Kelas</label>
+                        <select class="form-select select2-add" id="class_id" name="class_id">
                             <option value="" selected disabled>Pilih Kelas</option>
-                            <?php foreach ($classifies as $classify) : ?>
-                                <option value="<?= $classify['id'] ?>"><?= $classify['classify'] ?></option>
+                            <?php foreach ($classes as $class) : ?>
+                                <option value="<?= $class['id'] ?>"><?= $class['class'] ?></option>
                             <?php endforeach; ?>
                         </select>
                     </div>
-                    <?php echo form_error('classify_id', '<span class="text-danger">', '</span>'); ?>
+                    <?php echo form_error('class_id', '<span class="text-danger">', '</span>'); ?>
                     <div class="mb-3">
                         <label for="subclass_id">Subkelas</label>
                         <select class="form-select select2-add" id="subclass_id" name="subclass_id">
                             <option value="" selected disabled>Pilih Subkelas</option>
-                            <?php foreach ($subclassifies as $subclass) : ?>
+                            <?php foreach ($subclasses as $subclass) : ?>
                                 <option value="<?= $subclass['id'] ?>"><?= $subclass['subclass'] ?></option>
                             <?php endforeach; ?>
                         </select>
@@ -125,7 +125,7 @@
                     <?php echo form_error('description', '<span class="text-danger">', '</span>'); ?>
                     <div class="mb-3">
                         <label for="picture">Gambar</label>
-                        <input type="file" class="form-control filepond" name="file" multiple data-allow-reorder="true" data-max-file-size="3MB" data-max-files="3" data-folder="order">
+                        <input type="file" class="form-control filepond" name="file" multiple data-allow-reorder="true" data-max-file-size="3MB" data-max-files="3" data-folder="ordo">
                         <input type="hidden" name="picture" id="img-filepond" value="">
                     </div>
                     <?php echo form_error('picture', '<span class="text-danger">', '</span>'); ?>
@@ -147,35 +147,35 @@
                 <h1 class="modal-title fs-5" id="editLabel">Edit Data phylum</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form action="<?= base_url('DataMaster/order') ?>" method="post" enctype="multipart/form-data">
+            <form action="<?= base_url('DataMaster/ordo') ?>" method="post" enctype="multipart/form-data">
                 <input type="hidden" name="aksi" value="update">
                 <div class="modal-body">
                     <input type="hidden" name="id" id="id">
                     <div class="mb-3">
-                        <label for="order">Nama Latin Ordo</label>
-                        <input type="text" class="form-control" id="order" name="order">
+                        <label for="ordo">Nama Latin Ordo</label>
+                        <input type="text" class="form-control" id="ordo" name="ordo">
                     </div>
-                    <?php echo form_error('order', '<span class="text-danger">', '</span>'); ?>
+                    <?php echo form_error('ordo', '<span class="text-danger">', '</span>'); ?>
                     <div class="mb-3">
                         <label for="general_name">Nama Umum</label>
                         <input type="text" class="form-control" id="general_name" name="general_name">
                     </div>
                     <?php echo form_error('general_name', '<span class="text-danger">', '</span>'); ?>
                     <div class="mb-3">
-                        <label for="classify_id">Kelas</label>
-                        <select class="form-select select2-edit" id="classify_id" name="classify_id">
+                        <label for="class_id">Kelas</label>
+                        <select class="form-select select2-edit" id="class_id" name="class_id">
                             <option value="" selected disabled>Pilih Kelas</option>
-                            <?php foreach ($classifies as $classify) : ?>
-                                <option value="<?= $classify['id'] ?>"><?= $classify['classify'] ?></option>
+                            <?php foreach ($classes as $class) : ?>
+                                <option value="<?= $class['id'] ?>"><?= $class['class'] ?></option>
                             <?php endforeach; ?>
                         </select>
                     </div>
-                    <?php echo form_error('classify_id', '<span class="text-danger">', '</span>'); ?>
+                    <?php echo form_error('class_id', '<span class="text-danger">', '</span>'); ?>
                     <div class="mb-3">
                         <label for="subclass_id">Subkelas</label>
                         <select class="form-select select2-edit" id="subclass_id" name="subclass_id">
                             <option value="" selected disabled>Pilih Subkelas</option>
-                            <?php foreach ($subclassifies as $subclass) : ?>
+                            <?php foreach ($subclasses as $subclass) : ?>
                                 <option value="<?= $subclass['id'] ?>"><?= $subclass['subclass'] ?></option>
                             <?php endforeach; ?>
                         </select>
@@ -220,18 +220,18 @@
         }
     }
     
-    $(document).on("click", ".updateOrder", function() {
+    $(document).on("click", ".updateordo", function() {
         var id = $(this).data('id');
         $(".modal-body  #id").val(id);
 
-        var order = $(this).data('order');
-        $(".modal-body  #order").val(order);
+        var ordo = $(this).data('ordo');
+        $(".modal-body  #ordo").val(ordo);
 
         var general_name = $(this).data('general_name');
         $(".modal-body  #general_name").val(general_name);
 
-        var classify_id = $(this).data('classify_id');
-        $(".modal-body  #classify_id").val(classify_id);
+        var class_id = $(this).data('class_id');
+        $(".modal-body  #class_id").val(class_id);
 
         var subclass_id = $(this).data('subclass_id');
         $(".modal-body  #subclass_id").val(subclass_id);

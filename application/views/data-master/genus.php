@@ -55,8 +55,8 @@
                                         <td><?= $genus['general_name'] ?></td>
                                         <td><?= $genus['subfamily'] ?></td>
                                         <td><?= $genus['family'] ?></td>
-                                        <td><?= $genus['order'] ?></td>
-                                        <td><?= $genus['classify'] ?></td>
+                                        <td><?= $genus['ordo'] ?></td>
+                                        <td><?= $genus['class'] ?></td>
                                         <td><?= $genus['phylum'] ?></td>
                                         <td><?= $genus['kingdom'] ?></td>
                                         <td><?= $genus['description'] ?></td>
@@ -116,7 +116,7 @@
                         <select class="form-select select2-add" id="subfamily_id" name="subfamily_id">
                             <option value="" selected disabled>Pilih Subfamili</option>
                             <?php foreach ($subfamilies as $subfamily) : ?>
-                                <option value="<?= $subfamily['id'] ?>"><?= $subfamily['suborder'] ?></option>
+                                <option value="<?= $subfamily['id'] ?>"><?= $subfamily['subordo'] ?></option>
                             <?php endforeach; ?>
                         </select>
                     </div>
@@ -179,7 +179,7 @@
                         <select class="form-select select2-edit" id="subfamily_id" name="subfamily_id">
                             <option value="" selected disabled>Pilih Subfamili</option>
                             <?php foreach ($subfamilies as $subfamily) : ?>
-                                <option value="<?= $subfamily['id'] ?>"><?= $subfamily['suborder'] ?></option>
+                                <option value="<?= $subfamily['id'] ?>"><?= $subfamily['subordo'] ?></option>
                             <?php endforeach; ?>
                         </select>
                     </div>
