@@ -19,18 +19,18 @@ class Species extends CI_Controller
         $data['dataMaster'] = $this->db->get_where('user_sub_menu', ['menu_id' => 14])->result_array();
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 
-        $this->db->select('species.*, genera.genus, subgenus.subgenus, families.family, order.order, classifies.classify, phylums.phylum, kingdoms.kingdom');
+        $this->db->select('species.*, genus.genus, subgenus.subgenus, families.family, ordo.ordo, class.class, phylums.phylum, kingdoms.kingdom');
         $this->db->join('subgenus', 'species.subgenus_id = subgenus.id', 'left');
         
-        $this->db->join('genera', 'species.genus_id = genera.id', 'left');
-        $this->db->join('families', 'genera.family_id = families.id', 'left');
-        $this->db->join('order', 'families.order_id = order.id', 'left');
-        $this->db->join('classifies', 'order.classify_id = classifies.id', 'left');
-        $this->db->join('phylums', 'classifies.phylum_id = phylums.id', 'left');
+        $this->db->join('genus', 'species.genus_id = genus.id', 'left');
+        $this->db->join('families', 'genus.family_id = families.id', 'left');
+        $this->db->join('ordo', 'families.ordo_id = ordo.id', 'left');
+        $this->db->join('class', 'ordo.class_id = class.id', 'left');
+        $this->db->join('phylums', 'class.phylum_id = phylums.id', 'left');
         $this->db->join('kingdoms', 'phylums.kingdom_id = kingdoms.id', 'left');
         $data['speciess'] = $this->db->get('species')->result_array();
 
-        $data['genera'] = $this->db->get('genera')->result_array();
+        $data['genera'] = $this->db->get('genus')->result_array();
         $data['subgenera'] = $this->db->get('subgenus')->result_array();
 
         $this->form_validation->set_rules('species', 'species', 'trim|required');
@@ -47,7 +47,7 @@ class Species extends CI_Controller
             if ($this->input->post('aksi') == "add") {
                 $this->db->insert('species', [
                     'species' => $this->input->post('species'),
-                    'general_name' => $this->input->post('general_name'),
+                    'genusl_name' => $this->input->post('genusl_name'),
                     'genus_id' => $this->input->post('genus_id'),
                     'subgenus_id' => $this->input->post('subgenus_id'),
                     'description' => $this->input->post('description'),
@@ -65,7 +65,7 @@ class Species extends CI_Controller
                     $config['upload_path'] = './assets/img/species';
                     $config['max_size']     = '4096';
 
-                    // Generate random file name
+                    // genuste random file name
                     $config['file_name'] = uniqid();
                     $this->load->library('upload', $config);
                     if ($this->upload->do_upload('picture')) {
@@ -79,7 +79,7 @@ class Species extends CI_Controller
 
                 $data = array(
                     'species' => $this->input->post('species'),
-                    'general_name' => $this->input->post('general_name'),
+                    'genusl_name' => $this->input->post('genusl_name'),
                     'genus_id' => $this->input->post('genus_id'),
                     'subgenus_id' => $this->input->post('subgenus_id'),
                     'description' => $this->input->post('description'),

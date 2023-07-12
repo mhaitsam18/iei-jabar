@@ -18,14 +18,14 @@ class Fish extends CI_Controller
         $data['title'] = "Data Ikan";
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 
-        $this->db->select('fish.*, abundance.abundance, fish_type.type, species.species, subspecies.subspecies, genera.genus, families.family, order.order, classifies.classify, phylums.phylum, kingdoms.kingdom');
+        $this->db->select('fish.*, abundance.abundance, fish_type.type, species.species, subspecies.subspecies, genus.genus, families.family, ordo.ordo, class.class, phylums.phylum, kingdoms.kingdom');
         $this->db->join('species', 'fish.species_id = species.id', 'left');
         $this->db->join('subspecies', 'fish.subspecies_id = subspecies.id', 'left');
-        $this->db->join('genera', 'species.genus_id = genera.id', 'left');
-        $this->db->join('families', 'genera.family_id = families.id', 'left');
-        $this->db->join('order', 'families.order_id = order.id', 'left');
-        $this->db->join('classifies', 'order.classify_id = classifies.id', 'left');
-        $this->db->join('phylums', 'classifies.phylum_id = phylums.id', 'left');
+        $this->db->join('genus', 'species.genus_id = genus.id', 'left');
+        $this->db->join('families', 'genus.family_id = families.id', 'left');
+        $this->db->join('ordo', 'families.ordo_id = ordo.id', 'left');
+        $this->db->join('class', 'ordo.class_id = class.id', 'left');
+        $this->db->join('phylums', 'class.phylum_id = phylums.id', 'left');
         $this->db->join('kingdoms', 'phylums.kingdom_id = kingdoms.id', 'left');
         $this->db->join('fish_type', 'fish.fish_type_id = fish_type.id', 'left');
         $this->db->join('abundance', 'fish.abundance_id = abundance.id', 'left');
@@ -53,7 +53,7 @@ class Fish extends CI_Controller
             if ($this->input->post('aksi') == "add") {
                 $this->db->insert('fish', [
                     'scientific_name' => $this->input->post('scientific_name'),
-                    'general_name' => $this->input->post('general_name'),
+                    'genusl_name' => $this->input->post('genusl_name'),
                     'synonim' => $this->input->post('synonim'),
                     'species_id' => $this->input->post('species_id'),
                     'subspecies_id' => $this->input->post('subspecies_id'),
@@ -64,7 +64,7 @@ class Fish extends CI_Controller
                     'information' => $this->input->post('information'),
                     'image' => $this->input->post('image'),
                 ]);
-
+                $fish_id = $this->db->insert_id();
                 $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
                     New fish Added!
                     </div>');
@@ -76,7 +76,7 @@ class Fish extends CI_Controller
                     $config['upload_path'] = './assets/img/fish';
                     $config['max_size']     = '4096';
 
-                    // Generate random file name
+                    // genuste random file name
                     $config['file_name'] = uniqid();
                     $this->load->library('upload', $config);
                     if ($this->upload->do_upload('image')) {
@@ -90,7 +90,7 @@ class Fish extends CI_Controller
 
                 $data = array(
                     'scientific_name' => $this->input->post('scientific_name'),
-                    'general_name' => $this->input->post('general_name'),
+                    'genusl_name' => $this->input->post('genusl_name'),
                     'synonim' => $this->input->post('synonim'),
                     'species_id' => $this->input->post('species_id'),
                     'subspecies_id' => $this->input->post('subspecies_id'),

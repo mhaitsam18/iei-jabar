@@ -19,15 +19,15 @@ class Genus extends CI_Controller
         $data['dataMaster'] = $this->db->get_where('user_sub_menu', ['menu_id' => 14])->result_array();
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 
-        $this->db->select('genera.*, subfamily.subfamily, families.family, order.order, classifies.classify, phylums.phylum, kingdoms.kingdom');
-        $this->db->join('subfamily', 'genera.subfamily_id = subfamily.id', 'left');
+        $this->db->select('genus.*, subfamily.subfamily, families.family, order.order, class.classify, phylums.phylum, kingdoms.kingdom');
+        $this->db->join('subfamily', 'genus.subfamily_id = subfamily.id', 'left');
 
-        $this->db->join('families', 'genera.family_id = families.id', 'left');
+        $this->db->join('families', 'genus.family_id = families.id', 'left');
         $this->db->join('order', 'families.order_id = order.id', 'left');
-        $this->db->join('classifies', 'order.classify_id = classifies.id', 'left');
-        $this->db->join('phylums', 'classifies.phylum_id = phylums.id', 'left');
+        $this->db->join('class', 'order.classify_id = class.id', 'left');
+        $this->db->join('phylums', 'class.phylum_id = phylums.id', 'left');
         $this->db->join('kingdoms', 'phylums.kingdom_id = kingdoms.id', 'left');
-        $data['genera'] = $this->db->get('genera')->result_array();
+        $data['genera'] = $this->db->get('genus')->result_array();
 
         $data['families'] = $this->db->get('families')->result_array();
         $data['subfamilies'] = $this->db->get('subfamily')->result_array();
@@ -44,9 +44,9 @@ class Genus extends CI_Controller
         } else {
 
             if ($this->input->post('aksi') == "add") {
-                $this->db->insert('genera', [
+                $this->db->insert('genus', [
                     'genus' => $this->input->post('genus'),
-                    'general_name' => $this->input->post('general_name'),
+                    'genusl_name' => $this->input->post('genusl_name'),
                     'family_id' => $this->input->post('family_id'),
                     'subfamily_id' => $this->input->post('subfamily_id'),
                     'description' => $this->input->post('description'),
@@ -64,7 +64,7 @@ class Genus extends CI_Controller
                     $config['upload_path'] = './assets/img/genus';
                     $config['max_size']     = '4096';
 
-                    // Generate random file name
+                    // genuste random file name
                     $config['file_name'] = uniqid();
                     $this->load->library('upload', $config);
                     if ($this->upload->do_upload('picture')) {
@@ -78,14 +78,14 @@ class Genus extends CI_Controller
 
                 $data = array(
                     'genus' => $this->input->post('genus'),
-                    'general_name' => $this->input->post('general_name'),
+                    'genusl_name' => $this->input->post('genusl_name'),
                     'family_id' => $this->input->post('family_id'),
                     'subfamily_id' => $this->input->post('subfamily_id'),
                     'description' => $this->input->post('description'),
                 );
 
                 $this->db->where('id', $this->input->post('id'));
-                $this->db->update('genera', $data);
+                $this->db->update('genus', $data);
                 $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
                 genus Updated!
                     </div>');
@@ -100,7 +100,7 @@ class Genus extends CI_Controller
     public function delete($id)
     {
         $this->db->where('id', $id);
-        $this->db->delete('genera');
+        $this->db->delete('genus');
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
         genus Deleted!
 			</div>');

@@ -1,5 +1,22 @@
 <?php 
 
+function fishlike($fish_id, $user_id)
+{
+	$ci = get_instance();
+
+	$ci->db->where('fish_id', $fish_id);
+	$ci->db->where('user_id', $user_id);
+	$result = $ci->db->get('fish_like');
+
+	
+	if ($result->num_rows() > 0) {
+		return "btn-success";
+	} else {
+		return "btn-outline-success";
+	}
+	
+}
+
 function is_logged_in()
 {
 	$ci = get_instance();

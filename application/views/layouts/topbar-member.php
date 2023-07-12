@@ -235,33 +235,33 @@
         <div class="container">
             <ul class="nav page-navigation">
                 <li class="nav-item">
-                    <a class="text-light nav-link" href="dashboard.html">
+                    <a class="text-light nav-link" href="<?= base_url('member/home') ?>">
                         <i class="link-icon" data-feather="box"></i>
-                        <span class="menu-title">Beranda</span>
+                        <span class="menu-title">Home</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="text-light nav-link" href="dashboard.html">
+                    <a class="text-light nav-link" href="<?= base_url('member/fish') ?>">
                         <i class="link-icon" data-feather="box"></i>
-                        <span class="menu-title">Galeri Ikan</span>
+                        <span class="menu-title">Galery</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="text-light nav-link" href="dashboard.html">
+                    <a class="text-light nav-link" href="<?= base_url('member/article') ?>">
                         <i class="link-icon" data-feather="box"></i>
-                        <span class="menu-title">Artikel</span>
+                        <span class="menu-title">Article</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="text-light nav-link" href="dashboard.html">
+                    <a class="text-light nav-link" href="<?= base_url('member/aboutus') ?>">
                         <i class="link-icon" data-feather="box"></i>
-                        <span class="menu-title">Tentang Kami</span>
+                        <span class="menu-title">About Us</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="text-light nav-link" href="dashboard.html">
+                    <a class="text-light nav-link" href="<?= base_url('member/contactus') ?>">
                         <i class="link-icon" data-feather="box"></i>
-                        <span class="menu-title">Kontak</span>
+                        <span class="menu-title">Contact Us</span>
                     </a>
                 </li>
             </ul>

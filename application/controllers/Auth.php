@@ -209,11 +209,11 @@ class Auth extends CI_Controller {
 					];
 					$this->session->set_userdata($data);
 					if ($user['role_id'] == 1) {
-						redirect('admin');
+						redirect('admin/index');
 					} elseif($user['role_id'] == 2){
-						redirect('member');
+						redirect('member/home');
 					} else {
-						redirect('user');
+						redirect('user/index');
 					}
 				} else{
 					$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">

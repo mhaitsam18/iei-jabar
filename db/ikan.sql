@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 04, 2023 at 09:13 PM
+-- Generation Time: Jul 12, 2023 at 10:54 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.1.17
 
@@ -35,6 +35,21 @@ CREATE TABLE `abundance` (
   `updated_at` timestamp NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `abundance`
+--
+
+INSERT INTO `abundance` (`id`, `abundance`, `description`, `created_at`, `updated_at`) VALUES
+(1, 'Not Evaluated (NE)', 'Not Evaluated', '2023-07-12 06:21:21', '2023-07-12 06:21:21'),
+(2, 'Least Concern (LC)', 'Species or ecosystems that are not considered at risk of extinction in the near future due to their large populations, wide distribution, and limited threats.', '2023-07-12 06:21:21', '2023-07-12 06:21:21'),
+(3, 'Data Deficient (DD)', NULL, '2023-07-12 06:21:21', '2023-07-12 06:21:21'),
+(4, 'Near Threatened (NT)', NULL, '2023-07-12 06:21:21', '2023-07-12 06:21:21'),
+(5, 'Vulnerable', 'Species or ecosystems that face a high risk of extinction in the wild if the threatening factors continue.', '2023-07-12 06:21:21', '2023-07-12 06:21:21'),
+(6, 'Critically Endangered', 'Species or ecosystems that are at an extremely high risk of extinction in the wild, with very limited populations and facing imminent extinction without immediate and effective conservation actions.', '2023-07-12 06:21:21', '2023-07-12 06:21:21'),
+(7, 'Endangered', 'Species or ecosystems that face a very high risk of extinction in the wild if effective conservation measures are not taken.', '2023-07-12 06:21:21', '2023-07-12 06:21:21'),
+(8, 'Extinct in the Wild', 'Species that no longer exist in their natural habitats but are still maintained in captive populations or outside their natural habitats.', '2023-07-12 06:21:21', '2023-07-12 06:21:21'),
+(9, 'Extinct', 'Species that no longer exist in the wild or in captivity.', '2023-07-12 06:21:21', '2023-07-12 06:21:21');
+
 -- --------------------------------------------------------
 
 --
@@ -63,6 +78,7 @@ CREATE TABLE `articles` (
   `content` text NOT NULL,
   `slug` varchar(255) NOT NULL,
   `author_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `fish_id` bigint(20) UNSIGNED DEFAULT NULL,
   `article_category_id` bigint(20) UNSIGNED DEFAULT NULL,
   `article_type_id` bigint(20) UNSIGNED DEFAULT NULL,
   `thumbnail` varchar(255) NOT NULL,
@@ -77,8 +93,8 @@ CREATE TABLE `articles` (
 -- Dumping data for table `articles`
 --
 
-INSERT INTO `articles` (`id`, `title`, `excerpt`, `content`, `slug`, `author_id`, `article_category_id`, `article_type_id`, `thumbnail`, `views`, `published_at`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 'satu dua tiga tes tes', 'satu dua tiga tes tes', 'satu dua tiga tes tes', 'satu-dua-tiga-tes-tes', 9, NULL, 1, 'artikel/64951db378c71.png', 0, NULL, '2023-06-22 01:22:54', '2023-06-22 01:22:54', NULL);
+INSERT INTO `articles` (`id`, `title`, `excerpt`, `content`, `slug`, `author_id`, `fish_id`, `article_category_id`, `article_type_id`, `thumbnail`, `views`, `published_at`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, 'satu dua tiga tes tes', 'satu dua tiga tes tes', 'satu dua tiga tes tes', 'satu-dua-tiga-tes-tes', 9, NULL, NULL, 1, 'artikel/64951db378c71.png', 0, NULL, '2023-06-22 01:22:54', '2023-06-22 01:22:54', NULL);
 
 -- --------------------------------------------------------
 
@@ -119,12 +135,12 @@ CREATE TABLE `avatar` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `classifies`
+-- Table structure for table `class`
 --
 
-CREATE TABLE `classifies` (
+CREATE TABLE `class` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `classify` varchar(255) NOT NULL,
+  `class` varchar(255) NOT NULL,
   `general_name` varchar(255) DEFAULT NULL,
   `phylum_id` bigint(20) UNSIGNED DEFAULT NULL,
   `subphylum_id` bigint(20) UNSIGNED DEFAULT NULL,
@@ -138,11 +154,11 @@ CREATE TABLE `classifies` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `classifies`
+-- Dumping data for table `class`
 --
 
-INSERT INTO `classifies` (`id`, `classify`, `general_name`, `phylum_id`, `subphylum_id`, `infraphylum_id`, `superclass_id`, `description`, `picture`, `species`, `created_at`, `update_at`) VALUES
-(1, 'Myxini', 'ikan seperti lintah laut', 9, 3, 1, 2, 'Ikan hag (bahasa Inggris: hagfish) adalah hewan serupa ikan yang memiliki tulang belakang (vertebra) semu. Hewan air ini dianggap sebagai bentuk ikan purba. Habitatnya adalah laut, sungai, dan danau.\r\n\r\nIkan hag tidak diklasifikasikan sebagai vertebrata karena tidak mempunyai tulang belakang (vertebra) sejati; juga tidak dapat dianggap avertebrata karena ia memiliki notokorda pada tahap awal perkembangan hidupnya dan tengkorak yang melindungi otaknya. Oleh para zoologiwan, remang dimasukkan ke dalam filum Chordata, klad Craniata, suprakelas Agnatha, kelas Myxini.', 'classify/64a3f55888fac.jpeg', 200, '2023-06-10 19:49:52', '2023-06-10 19:49:52'),
+INSERT INTO `class` (`id`, `class`, `general_name`, `phylum_id`, `subphylum_id`, `infraphylum_id`, `superclass_id`, `description`, `picture`, `species`, `created_at`, `update_at`) VALUES
+(1, 'Myxini', 'ikan seperti lintah laut', 9, 3, 1, 2, 'Ikan hag (bahasa Inggris: hagfish) adalah hewan serupa ikan yang memiliki tulang belakang (vertebra) semu. Hewan air ini dianggap sebagai bentuk ikan purba. Habitatnya adalah laut, sungai, dan danau.\n\nIkan hag tidak diklasifikasikan sebagai vertebrata karena tidak mempunyai tulang belakang (vertebra) sejati; juga tidak dapat dianggap avertebrata karena ia memiliki notokorda pada tahap awal perkembangan hidupnya dan tengkorak yang melindungi otaknya. Oleh para zoologiwan, remang dimasukkan ke dalam filum Chordata, klad Craniata, suprakelas Agnatha, kelas Myxini.', 'classify/64a3f55888fac.jpeg', 200, '2023-06-10 19:49:52', '2023-06-10 19:49:52'),
 (2, 'Petromyzontidae', 'Ikan Lamprey', 9, 3, 1, 2, 'Lamprey adalah garis keturunan purba dari ikan tak berahang dari ordo Petromyzontiformes, ditempatkan di superclass Cyclostomata. Lamprey dewasa dapat dicirikan dengan mulut penghisap yang bergigi seperti corong.', 'classify/64a3f75277f80.jpeg', 0, '2023-06-10 19:52:30', '2023-06-10 19:52:30'),
 (3, 'Petromyzontida', '', 9, 3, 1, 2, 'Hyperoartia or Petromyzontida is a disputed group of vertebrates that includes the modern lampreys and their fossil relatives. Examples of hyperoartians from early in their fossil record are Endeiolepis and Euphanerops (which possessed a calcified branchial basket), fish-like animals with hypocercal tails that lived during the Late Devonian Period. Some paleontologists still place these forms among the ', 'classify/64a3f75d6c5b3.jpeg', 0, '2023-06-10 19:54:29', '2023-06-10 19:54:29'),
 (4, 'Conodonta', '', 9, 3, 1, 2, 'diklasifikasikan dalam kelas Conodonta. Selama bertahun-tahun, mereka hanya diketahui dari elemen oral mirip gigi yang ditemukan di pengasingan dan sekarang disebut elemen conodont. Pengetahuan mengenai jaringan halus masih terbatas.', 'classify/64a3f76b9ef63.jpeg', 0, '2023-06-10 19:56:27', '2023-06-10 19:56:27'),
@@ -262,8 +278,8 @@ CREATE TABLE `families` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `family` varchar(255) NOT NULL,
   `general_name` varchar(255) DEFAULT NULL,
-  `order_id` bigint(20) UNSIGNED DEFAULT NULL,
-  `suborder_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `ordo_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `subordo_id` bigint(20) UNSIGNED DEFAULT NULL,
   `description` text DEFAULT NULL,
   `picture` varchar(255) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT current_timestamp(),
@@ -293,6 +309,15 @@ CREATE TABLE `fish` (
   `updated_at` timestamp NULL DEFAULT current_timestamp(),
   `deleted_at` timestamp NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `fish`
+--
+
+INSERT INTO `fish` (`id`, `scientific_name`, `general_name`, `synonim`, `species_id`, `subspecies_id`, `fish_type_id`, `abundance_id`, `length`, `weight`, `information`, `image`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, 'Betta sp', 'Ikan Cupang', '', 1, NULL, NULL, 2, '', '', '', 'fish/cupang.jpg', NULL, '2023-07-12 06:11:31', '2023-07-12 06:11:31'),
+(2, 'Carrasius auratus', 'Ikan Koki', '', 2, NULL, NULL, 2, '', '', '', 'fish/koki.jpg', NULL, '2023-07-12 06:11:31', '2023-07-12 06:11:31'),
+(3, 'Symphysodon discus', 'Ikan Discus', '', 3, NULL, NULL, 2, '', '', '', 'fish/discus.jpg', NULL, '2023-07-12 06:11:31', '2023-07-12 06:11:31');
 
 -- --------------------------------------------------------
 
@@ -335,6 +360,27 @@ CREATE TABLE `fish_habitat` (
   `created_at` timestamp NULL DEFAULT current_timestamp(),
   `update_at` timestamp NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `fish_like`
+--
+
+CREATE TABLE `fish_like` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `fish_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `user_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `fish_like`
+--
+
+INSERT INTO `fish_like` (`id`, `fish_id`, `user_id`, `created_at`, `updated_at`) VALUES
+(4, 2, 10, '2023-07-12 07:54:41', '2023-07-12 07:54:41');
 
 -- --------------------------------------------------------
 
@@ -416,10 +462,10 @@ INSERT INTO `food` (`id`, `food`, `created_at`, `updated_at`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `genera`
+-- Table structure for table `genus`
 --
 
-CREATE TABLE `genera` (
+CREATE TABLE `genus` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `genus` varchar(255) NOT NULL,
   `general_name` varchar(255) DEFAULT NULL,
@@ -523,6 +569,7 @@ CREATE TABLE `local_name` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `fish_id` bigint(20) UNSIGNED DEFAULT NULL,
   `local_name` varchar(255) NOT NULL,
+  `area` varchar(255) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -530,14 +577,14 @@ CREATE TABLE `local_name` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `order`
+-- Table structure for table `ordo`
 --
 
-CREATE TABLE `order` (
+CREATE TABLE `ordo` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `order` varchar(255) NOT NULL,
+  `ordo` varchar(255) NOT NULL,
   `general_name` varchar(255) DEFAULT NULL,
-  `classify_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `class_id` bigint(20) UNSIGNED DEFAULT NULL,
   `subclass_id` bigint(20) UNSIGNED DEFAULT NULL,
   `description` text DEFAULT NULL,
   `picture` varchar(255) DEFAULT NULL,
@@ -646,7 +693,6 @@ INSERT INTO `phylums` (`id`, `phylum`, `kingdom_id`, `description`, `picture`, `
 (4, 'Nematoda', 1, NULL, NULL, '2023-06-10 18:50:42', '2023-06-10 18:50:42'),
 (5, 'Annelida', 1, NULL, NULL, '2023-06-10 18:50:42', '2023-06-10 18:50:42'),
 (6, 'Mollusca', 1, NULL, NULL, '2023-06-10 18:50:42', '2023-06-10 18:50:42'),
-(7, 'Arthropoda', 1, NULL, NULL, '2023-06-10 18:50:42', '2023-06-10 18:50:42'),
 (8, 'Echinodermata', 1, NULL, NULL, '2023-06-10 18:50:42', '2023-06-10 18:50:42'),
 (9, 'Chordata', 1, 'Filum Chordata adalah kelompok hewan, termasuk vertebrata dan beberapa binatang yang mirip invertebrata yang memiliki ciri-ciri yang serupa. Semua anggota kelompok ini, pada suatu saat dalam kehidupan mereka, memiliki notokorda, tali saraf dorsal berongga, celah faring (pharyngeal slits), endostyle, dan ekor berotot yang melewati anus. Vertebrata merupakan kelompok hewan yang memiliki tulang belakang. Dalam sistem klasifikasi, vertebrata merupakan subfilum dari filum Chordata. Chordata terbagi menjadi empat subfilum: Vertebrata, Urochordata, Cephalochordata, dan Hemichordata. Urochordata dan Cephalochordata tergolong invertebrata.', 'phylum/chordata.jpg', '2023-06-10 18:50:42', '2023-06-10 18:50:42');
 
@@ -682,6 +728,15 @@ CREATE TABLE `species` (
   `updated_at` timestamp NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `species`
+--
+
+INSERT INTO `species` (`id`, `species`, `general_name`, `genus_id`, `subgenus_id`, `description`, `picture`, `created_at`, `updated_at`) VALUES
+(1, 'Betta sp', NULL, NULL, NULL, NULL, NULL, '2023-07-12 06:13:02', '2023-07-12 06:13:02'),
+(2, 'Carrasius auratus', NULL, NULL, NULL, NULL, NULL, '2023-07-12 06:13:02', '2023-07-12 06:13:02'),
+(3, 'Symphysodon discus', NULL, NULL, NULL, NULL, NULL, '2023-07-12 06:13:02', '2023-07-12 06:13:02');
+
 -- --------------------------------------------------------
 
 --
@@ -692,7 +747,7 @@ CREATE TABLE `subclass` (
   `id` bigint(11) UNSIGNED NOT NULL,
   `subclass` varchar(255) DEFAULT NULL,
   `general_name` varchar(255) DEFAULT NULL,
-  `classify_id` bigint(11) UNSIGNED DEFAULT NULL,
+  `class_id` bigint(11) UNSIGNED DEFAULT NULL,
   `description` text DEFAULT NULL,
   `picture` varchar(255) DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
@@ -703,7 +758,7 @@ CREATE TABLE `subclass` (
 -- Dumping data for table `subclass`
 --
 
-INSERT INTO `subclass` (`id`, `subclass`, `general_name`, `classify_id`, `description`, `picture`, `created_at`, `updated_at`) VALUES
+INSERT INTO `subclass` (`id`, `subclass`, `general_name`, `class_id`, `description`, `picture`, `created_at`, `updated_at`) VALUES
 (1, 'Pteraspidomorphi', 'Ikan Tanpa Rahang', NULL, 'Pteraspidomorphi adalah kelas ikan tanpa rahang awal yang telah punah. Mereka telah lama dianggap sebagai kerabat dekat atau bahkan nenek moyang vertebrata berahang, tetapi beberapa karakteristik yang mereka miliki dengan yang terakhir sekarang dianggap sebagai sifat dasar untuk semua vertebrata.', NULL, '2023-06-11 03:18:16', '2023-06-11 03:18:16'),
 (2, 'Coelacanthimorpha', 'ikan bersirip lobus', 8, 'Coelacanth adalah kelompok kuno ikan bersirip lobus di kelas Actinistia. Sebagai sarcopterygian, mereka lebih dekat hubungannya dengan lungfish dan tetrapoda daripada ikan bersirip pari.', NULL, '2023-06-11 03:18:16', '2023-06-11 03:18:16'),
 (3, 'Dipnoi', 'Ikan lempung', 9, 'Ikan lempung adalah vertebrata rhipidistia dari ordo Dipnoi. Ikan lempung terkenal karena mempertahankan ciri-ciri nenek moyang dalam Osteichthyes, termasuk kemampuannya menghirup udara, dan struktur tubuh nenek moyang dalam Sarcopterygii, termasuk adanya sirip lobus dengan kerangka dalam yang telah berkembang dengan baik. Ikan lempung mewakili kerabat terdekat tetrapoda yang masih hidup.', NULL, '2023-06-11 03:18:16', '2023-06-11 03:18:16');
@@ -745,12 +800,12 @@ CREATE TABLE `subgenus` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `suborder`
+-- Table structure for table `subordo`
 --
 
-CREATE TABLE `suborder` (
+CREATE TABLE `subordo` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `suborder` varchar(255) DEFAULT NULL,
+  `subordo` varchar(255) DEFAULT NULL,
   `general_name` varchar(255) DEFAULT NULL,
   `order_id` bigint(20) UNSIGNED DEFAULT NULL,
   `description` text DEFAULT NULL,
@@ -1072,9 +1127,9 @@ ALTER TABLE `avatar`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `classifies`
+-- Indexes for table `class`
 --
-ALTER TABLE `classifies`
+ALTER TABLE `class`
   ADD PRIMARY KEY (`id`),
   ADD KEY `phylum_id` (`phylum_id`);
 
@@ -1115,7 +1170,7 @@ ALTER TABLE `distribution`
 --
 ALTER TABLE `families`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `order_id` (`order_id`);
+  ADD KEY `order_id` (`ordo_id`);
 
 --
 -- Indexes for table `fish`
@@ -1149,6 +1204,12 @@ ALTER TABLE `fish_habitat`
   ADD KEY `habitat_id` (`habitat_id`);
 
 --
+-- Indexes for table `fish_like`
+--
+ALTER TABLE `fish_like`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `fish_type`
 --
 ALTER TABLE `fish_type`
@@ -1161,9 +1222,9 @@ ALTER TABLE `food`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `genera`
+-- Indexes for table `genus`
 --
-ALTER TABLE `genera`
+ALTER TABLE `genus`
   ADD PRIMARY KEY (`id`),
   ADD KEY `family_id` (`family_id`);
 
@@ -1201,11 +1262,11 @@ ALTER TABLE `local_name`
   ADD KEY `fish_id` (`fish_id`);
 
 --
--- Indexes for table `order`
+-- Indexes for table `ordo`
 --
-ALTER TABLE `order`
+ALTER TABLE `ordo`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `classify_id` (`classify_id`);
+  ADD KEY `classify_id` (`class_id`);
 
 --
 -- Indexes for table `origin`
@@ -1272,9 +1333,9 @@ ALTER TABLE `subgenus`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `suborder`
+-- Indexes for table `subordo`
 --
-ALTER TABLE `suborder`
+ALTER TABLE `subordo`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -1341,7 +1402,7 @@ ALTER TABLE `user_token`
 -- AUTO_INCREMENT for table `abundance`
 --
 ALTER TABLE `abundance`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `archipelago`
@@ -1368,9 +1429,9 @@ ALTER TABLE `avatar`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `classifies`
+-- AUTO_INCREMENT for table `class`
 --
-ALTER TABLE `classifies`
+ALTER TABLE `class`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
@@ -1413,7 +1474,7 @@ ALTER TABLE `families`
 -- AUTO_INCREMENT for table `fish`
 --
 ALTER TABLE `fish`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `fish_distribution`
@@ -1434,6 +1495,12 @@ ALTER TABLE `fish_habitat`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `fish_like`
+--
+ALTER TABLE `fish_like`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
 -- AUTO_INCREMENT for table `fish_type`
 --
 ALTER TABLE `fish_type`
@@ -1446,9 +1513,9 @@ ALTER TABLE `food`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
--- AUTO_INCREMENT for table `genera`
+-- AUTO_INCREMENT for table `genus`
 --
-ALTER TABLE `genera`
+ALTER TABLE `genus`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
@@ -1482,9 +1549,9 @@ ALTER TABLE `local_name`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `order`
+-- AUTO_INCREMENT for table `ordo`
 --
-ALTER TABLE `order`
+ALTER TABLE `ordo`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
@@ -1527,7 +1594,7 @@ ALTER TABLE `province`
 -- AUTO_INCREMENT for table `species`
 --
 ALTER TABLE `species`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `subclass`
@@ -1548,9 +1615,9 @@ ALTER TABLE `subgenus`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `suborder`
+-- AUTO_INCREMENT for table `subordo`
 --
-ALTER TABLE `suborder`
+ALTER TABLE `subordo`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
@@ -1625,10 +1692,10 @@ ALTER TABLE `articles`
   ADD CONSTRAINT `articles_author_id_foreign` FOREIGN KEY (`author_id`) REFERENCES `user` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
 
 --
--- Constraints for table `classifies`
+-- Constraints for table `class`
 --
-ALTER TABLE `classifies`
-  ADD CONSTRAINT `classifies_ibfk_1` FOREIGN KEY (`phylum_id`) REFERENCES `phylums` (`id`);
+ALTER TABLE `class`
+  ADD CONSTRAINT `class_ibfk_1` FOREIGN KEY (`phylum_id`) REFERENCES `phylums` (`id`);
 
 --
 -- Constraints for table `country`
@@ -1640,7 +1707,7 @@ ALTER TABLE `country`
 -- Constraints for table `families`
 --
 ALTER TABLE `families`
-  ADD CONSTRAINT `families_ibfk_1` FOREIGN KEY (`order_id`) REFERENCES `order` (`id`);
+  ADD CONSTRAINT `families_ibfk_1` FOREIGN KEY (`ordo_id`) REFERENCES `ordo` (`id`);
 
 --
 -- Constraints for table `fish`
@@ -1670,10 +1737,10 @@ ALTER TABLE `fish_habitat`
   ADD CONSTRAINT `fish_habitat_ibfk_2` FOREIGN KEY (`habitat_id`) REFERENCES `habitats` (`id`);
 
 --
--- Constraints for table `genera`
+-- Constraints for table `genus`
 --
-ALTER TABLE `genera`
-  ADD CONSTRAINT `genera_ibfk_1` FOREIGN KEY (`family_id`) REFERENCES `families` (`id`);
+ALTER TABLE `genus`
+  ADD CONSTRAINT `genus_ibfk_1` FOREIGN KEY (`family_id`) REFERENCES `families` (`id`);
 
 --
 -- Constraints for table `likes`
@@ -1689,10 +1756,10 @@ ALTER TABLE `local_name`
   ADD CONSTRAINT `local_name_ibfk_1` FOREIGN KEY (`fish_id`) REFERENCES `fish` (`id`);
 
 --
--- Constraints for table `order`
+-- Constraints for table `ordo`
 --
-ALTER TABLE `order`
-  ADD CONSTRAINT `order_ibfk_1` FOREIGN KEY (`classify_id`) REFERENCES `classifies` (`id`);
+ALTER TABLE `ordo`
+  ADD CONSTRAINT `ordo_ibfk_1` FOREIGN KEY (`class_id`) REFERENCES `class` (`id`);
 
 --
 -- Constraints for table `origin`
@@ -1716,7 +1783,7 @@ ALTER TABLE `province`
 -- Constraints for table `species`
 --
 ALTER TABLE `species`
-  ADD CONSTRAINT `species_ibfk_1` FOREIGN KEY (`genus_id`) REFERENCES `genera` (`id`);
+  ADD CONSTRAINT `species_ibfk_1` FOREIGN KEY (`genus_id`) REFERENCES `genus` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
