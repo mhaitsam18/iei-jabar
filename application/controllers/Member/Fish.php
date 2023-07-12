@@ -41,9 +41,12 @@ class Fish extends CI_Controller
         $this->db->join('fish_type', 'fish.fish_type_id = fish_type.id', 'left');
         $this->db->join('abundance', 'fish.abundance_id = abundance.id', 'left');
         $data['fish'] = $this->db->get_where('fish', ['fish.id' => $fish_id])->row_array();
-        $data['foods'] = $this->db->get_where('fish_food', ['fish_id' => $fish_id])->row_array();
-        $data['distributions'] = $this->db->get_where('fish_distribution', ['fish_id' => $fish_id])->row_array();
-        $data['habitats'] = $this->db->get_where('fish_habitat', ['fish_id' => $fish_id])->row_array();
+        $data['foods'] = $this->db->get_where('fish_food', ['fish_id' => $fish_id])->result_array();
+        $data['distributions'] = $this->db->get_where('fish_distribution', ['fish_id' => $fish_id])->result_array();
+        $data['habitats'] = $this->db->get_where('fish_habitat', ['fish_id' => $fish_id])->result_array();
+        $data['local_names'] = $this->db->get_where('local_name', ['fish_id' => $fish_id])->result_array();
+        $data['origins'] = $this->db->get_where('origin', ['fish_id' => $fish_id])->result_array();
+        $data['articles'] = $this->db->get_where('articles', ['fish_id' => $fish_id])->result_array();
         $this->load->view('layouts/header-member', $data);
         $this->load->view('layouts/topbar-member', $data);
         $this->load->view('member/fish-detail', $data);

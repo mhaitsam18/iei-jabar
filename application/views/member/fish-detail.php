@@ -6,7 +6,7 @@
         <div class="d-flex align-items-center flex-wrap text-nowrap">
         </div>
     </div>
-    
+
     <div class="row">
         <div class="col-lg-4">
             <img src="<?= base_url('assets/img/' . $fish['image']) ?>" class="img-thumbnail w-100" alt="...">
@@ -24,6 +24,72 @@
                 <li>Fish Type : <?= $fish['type'] ?> </li>
                 <li>Abundance / Conservation : <?= $fish['abundance'] ?> </li>
             </ul>
+            <h6>Foods</h6>
+            <p>
+                <?php foreach ($foods as $food) : ?>
+                    <?= $food['food'] ?>,
+                <?php endforeach; ?>
+            </p>
+            <h6>Distributions</h6>
+            <ul>
+                <?php foreach ($distributions as $distribution) : ?>
+                    <li>
+                        <?= $distribution['distribution'] ?>,
+                        <?php
+                        $archipelagos = $this->db->get_where('archipelago', ['distribution_id' => $distribution['id']])->result_array();
+                        ?>
+                        <ul>
+                            <?php foreach ($archipelagos as $archipelago) : ?>
+                                <li><?= $archipelago['archipelago'] ?></li>
+                            <?php endforeach; ?>
+                        </ul>
+                    </li>
+                <?php endforeach; ?>
+            </ul>
+            <h6>Habitats</h6>
+            <p>
+                <?php foreach ($habitats as $habitat) : ?>
+                    <?= $habitat['habitat'] ?>,
+                <?php endforeach; ?>
+            </p>
+            <h6>Local Name</h6>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Local Name</th>
+                        <th>Area</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach ($local_names as $local_name) : ?>
+                        <tr>
+                            <td><?= $local_name['local_name'] ?></td>
+                            <td><?= $local_name['area'] ?></td>
+                        </tr>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-lg-12">
+            <h3>Related article</h3>
+            <div class="row">
+                <?php foreach ($articles as $article) : ?>
+                    <div class="card mb-3" style="max-width: 540px;">
+                        <div class="row g-0">
+                            <div class="col-md-4">
+                                <img src="<?= base_url('assets/img/' . $fish['thumbnail']) ?>" class="img-fluid rounded-start" alt="...">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h5 class="card-title"><?= $article['title'] ?></h5>
+                                    <p class="card-text"><?= $article['excerpt'] ?></p>
+                                    <p class="card-text"><a href="/member/article/show/<?= $article['id'] ?>" class="btn btn-primary">See More</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
+            </div>
         </div>
     </div>
 
