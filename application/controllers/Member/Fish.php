@@ -28,7 +28,22 @@ class Fish extends CI_Controller
     {
         $data['title'] = "Fish Gallery";
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
-        $data['fish'] = $this->db->get_where('fish', ['id' => $fish_id])->row_array();
+
+        $this->db->select('fish.*, abundance.abundance, fish_type.type, species.species, subspecies.subspecies, genus.genus, families.family, ordo.ordo, class.class, phylums.phylum, kingdoms.kingdom');
+        $this->db->join('species', 'fish.species_id = species.id', 'left');
+        $this->db->join('subspecies', 'fish.subspecies_id = subspecies.id', 'left');
+        $this->db->join('genus', 'species.genus_id = genus.id', 'left');
+        $this->db->join('families', 'genus.family_id = families.id', 'left');
+        $this->db->join('ordo', 'families.ordo_id = ordo.id', 'left');
+        $this->db->join('class', 'ordo.class_id = class.id', 'left');
+        $this->db->join('phylums', 'class.phylum_id = phylums.id', 'left');
+        $this->db->join('kingdoms', 'phylums.kingdom_id = kingdoms.id', 'left');
+        $this->db->join('fish_type', 'fish.fish_type_id = fish_type.id', 'left');
+        $this->db->join('abundance', 'fish.abundance_id = abundance.id', 'left');
+        $data['fish'] = $this->db->get_where('fish', ['fish.id' => $fish_id])->row_array();
+        $data['foods'] = $this->db->get_where('fish_food', ['fish_id' => $fish_id])->row_array();
+        $data['distributions'] = $this->db->get_where('fish_distribution', ['fish_id' => $fish_id])->row_array();
+        $data['habitats'] = $this->db->get_where('fish_habitat', ['fish_id' => $fish_id])->row_array();
         $this->load->view('layouts/header-member', $data);
         $this->load->view('layouts/topbar-member', $data);
         $this->load->view('member/fish-detail', $data);

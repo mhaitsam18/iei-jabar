@@ -12,7 +12,18 @@
             <img src="<?= base_url('assets/img/' . $fish['image']) ?>" class="img-thumbnail w-100" alt="...">
         </div>
         <div class="col-lg-6">
-            
+            <h4>Clasification</h4>
+            <ul>
+                <li>Kingdom : <?= $fish['kingdom'] ?> </li>
+                <li>Phylum : <?= $fish['phylum'] ?> </li>
+                <li>Class : <?= $fish['class'] ?> </li>
+                <li>Order : <?= $fish['ordo'] ?> </li>
+                <li>Family : <?= $fish['family'] ?> </li>
+                <li>Genus : <?= $fish['genus'] ?> </li>
+                <li>Species : <?= $fish['species'] ?> </li>
+                <li>Fish Type : <?= $fish['type'] ?> </li>
+                <li>Abundance / Conservation : <?= $fish['abundance'] ?> </li>
+            </ul>
         </div>
     </div>
 
