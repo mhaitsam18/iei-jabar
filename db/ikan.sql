@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 12, 2023 at 10:54 AM
+-- Generation Time: Jul 12, 2023 at 11:27 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.1.17
 
@@ -1019,31 +1019,26 @@ INSERT INTO `user_sub_menu` (`id`, `menu_id`, `title`, `url`, `icon`, `is_active
 (6, 1, 'Role Management', 'admin/role', 'users', 1),
 (7, 2, 'Change Password', 'user/changePassword', 'key', 1),
 (8, 1, 'Data User', 'admin/dataUser/', 'users', 1),
-(10, 14, 'Data Master', 'DataMaster/', 'list', 0),
-(20, 14, 'Data Ikan', 'DataMaster/fish/', 'box', 1),
-(21, 14, 'Data Spesies', 'DataMaster/species', 'activity', 1),
-(22, 15, 'Tentang Aplikasi', 'Lainnya/tentang', 'box', 1),
-(23, 15, 'Pengaturan', 'Lainnya/pengaturan', 'box', 1),
-(24, 15, 'Hubungi Kami', 'Lainnya/hubungi', 'box', 1),
-(25, 15, 'Bantuan', 'Lainnya/bantuan', 'box', 1),
-(26, 15, 'FAQ', 'Lainnya/faq', 'box', 1),
-(27, 14, 'Data Genus', 'DataMaster/genus', 'box', 1),
-(28, 14, 'Data Famili', 'DataMaster/family', 'box', 1),
-(30, 14, 'Data Ordo', 'DataMaster/order', 'box', 1),
-(31, 14, 'Data Kelas', 'DataMaster/classify', 'box', 1),
-(41, 14, 'Data Filum', 'DataMaster/phylum', 'box', 1),
-(42, 14, 'Data Kingdom', 'DataMaster/kingdom', 'box', 1),
-(43, 14, 'Data Distribusi', 'DataMaster/distribution', 'box', 1),
-(44, 14, 'Data Makanan\r\n', 'DataMaster/food', 'box', 1),
-(45, 14, 'Data Habitat', 'DataMaster/habitat', 'box', 1),
-(46, 14, 'Data Kepulauan', 'DataMaster/archipelago', 'box', 1),
-(47, 14, 'Data Provinsi\r\n', 'DataMaster/province', 'box', 1),
-(48, 14, 'Data Negara', 'DataMaster/country', 'box', 1),
-(49, 14, 'Data Benua', 'DataMaster/continent', 'box', 1),
-(50, 14, 'Data Jenis Ikan', 'DataMaster/fishType', 'box', 1),
-(51, 14, 'Data Kelimpahan', 'DataMaster/abundance', 'box', 1),
-(52, 17, 'Data Artikel', 'Artikel/index', 'file', 1),
-(53, 17, 'Data Tipe Artikel', 'Artikel/tipeArtikel', 'file', 1);
+(10, 14, 'Master Data', 'DataMaster/', 'list', 0),
+(20, 14, 'Fish', 'DataMaster/fish/', 'box', 1),
+(21, 14, 'Species', 'DataMaster/species', 'activity', 1),
+(27, 14, 'Genus', 'DataMaster/genus', 'box', 1),
+(28, 14, 'Family', 'DataMaster/family', 'box', 1),
+(30, 14, 'Ordo', 'DataMaster/ordo', 'box', 1),
+(31, 14, 'Class', 'DataMaster/classes', 'box', 1),
+(41, 14, 'Phylum', 'DataMaster/phylum', 'box', 1),
+(42, 14, 'Kingdom', 'DataMaster/kingdom', 'box', 1),
+(43, 14, 'Distribution', 'DataMaster/distribution', 'box', 1),
+(44, 14, 'Food', 'DataMaster/food', 'box', 1),
+(45, 14, 'Habitat', 'DataMaster/habitat', 'box', 1),
+(46, 14, 'Archipelago / Waters', 'DataMaster/archipelago', 'box', 1),
+(47, 14, 'Province', 'DataMaster/province', 'box', 1),
+(48, 14, 'Country', 'DataMaster/country', 'box', 1),
+(49, 14, 'Continent', 'DataMaster/continent', 'box', 1),
+(50, 14, 'Fish Type', 'DataMaster/fishType', 'box', 1),
+(51, 14, 'Abundance', 'DataMaster/abundance', 'box', 1),
+(52, 17, 'Article', 'Artikel/index', 'file', 1),
+(53, 17, 'Article Type', 'Artikel/tipeArtikel', 'file', 1);
 
 -- --------------------------------------------------------
 

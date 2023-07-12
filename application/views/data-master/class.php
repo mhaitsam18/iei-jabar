@@ -278,8 +278,8 @@
         var id = $(this).data('id');
         $(".modal-body  #id").val(id);
 
-        var class = $(this).data('class');
-        $(".modal-body  #class").val(class);
+        var classes = $(this).data('class');
+        $(".modal-body  #class").val(classes);
 
         var general_name = $(this).data('general_name');
         $(".modal-body  #general_name").val(general_name);
