@@ -61,8 +61,8 @@
                                         <td><?= $fish['subspecies'] ?></td>
                                         <td><?= $fish['genus'] ?></td>
                                         <td><?= $fish['family'] ?></td>
-                                        <td><?= $fish['order'] ?></td>
-                                        <td><?= $fish['classify'] ?></td>
+                                        <td><?= $fish['ordo'] ?></td>
+                                        <td><?= $fish['class'] ?></td>
                                         <td><?= $fish['phylum'] ?></td>
                                         <td><?= $fish['kingdom'] ?></td>
                                         <td><?= $fish['type'] ?></td>
