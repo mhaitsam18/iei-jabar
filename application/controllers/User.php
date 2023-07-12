@@ -15,7 +15,6 @@ class User extends CI_Controller {
 	{
 		$data['title'] = "Dashboard";
 		$data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
-		$data['dashboard'] = $this->db->get('dashboard')->row_array();
 		$this->load->view('layouts/header', $data);
 		$this->load->view('layouts/sidebar', $data);
 		$this->load->view('layouts/topbar', $data);

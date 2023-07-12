@@ -16,7 +16,6 @@ class Home extends CI_Controller {
 	{
 		$data['title'] = "Beranda";
 		$data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
-		$data['dashboard'] = $this->db->get('dashboard')->row_array();
 		$this->load->view('layouts/header-member', $data);
 		$this->load->view('layouts/topbar-member', $data);
 		$this->load->view('member/index', $data);
