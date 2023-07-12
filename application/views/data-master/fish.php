@@ -73,7 +73,7 @@
                                         <td><img src="<?= base_url('assets/img/' . $fish['image']) ?>" class="img-thumbnail img-fluid"></td>
                                         <td>
 
-                                            <a href="#" class="badge bg-success updatefish" data-bs-toggle="modal" data-bs-target="#edit" data-id="<?= $fish['id'] ?>" data-scientif_name="<?= $fish['scientif_name'] ?>" data-general_name="<?= $fish['general_name'] ?>" data-synonim="<?= $fish['synonim'] ?>" data-image="<?= $fish['image'] ?>" data-species_id="<?= $fish['species_id'] ?>" data-subspecies_id="<?= $fish['subspecies_id'] ?>" data-fish_type_id="<?= $fish['fish_type_id'] ?>" data-abundance_id="<?= $fish['abundance_id'] ?>" data-length="<?= $fish['length'] ?>" data-weight="<?= $fish['weight'] ?>" data-information="<?= $fish['information'] ?>">Ubah</a>
+                                            <a href="#" class="badge bg-success updatefish" data-bs-toggle="modal" data-bs-target="#edit" data-id="<?= $fish['id'] ?>" data-scientific_name="<?= $fish['scientific_name'] ?>" data-general_name="<?= $fish['general_name'] ?>" data-synonim="<?= $fish['synonim'] ?>" data-image="<?= $fish['image'] ?>" data-species_id="<?= $fish['species_id'] ?>" data-subspecies_id="<?= $fish['subspecies_id'] ?>" data-fish_type_id="<?= $fish['fish_type_id'] ?>" data-abundance_id="<?= $fish['abundance_id'] ?>" data-length="<?= $fish['length'] ?>" data-weight="<?= $fish['weight'] ?>" data-information="<?= $fish['information'] ?>">Ubah</a>
 
                                             <a href="<?= base_url("DataMaster/fish/delete/$fish[id]"); ?>" class="badge bg-danger tombol-hapus" data-hapus="fish">Hapus</a>
 
@@ -336,8 +336,8 @@
         var id = $(this).data('id');
         $(".modal-body #id").val(id);
 
-        var scientif_name = $(this).data('scientif_name');
-        $(".modal-body #scientif_name").val(scientif_name);
+        var scientific_name = $(this).data('scientific_name');
+        $(".modal-body #scientific_name").val(scientific_name);
 
         var general_name = $(this).data('general_name');
         $(".modal-body #general_name").val(general_name);
