@@ -36,7 +36,7 @@
                             <tbody>
                                 <?php foreach ($artikel as $row) : ?>
                                     <tr>
-                                        <td><?= $row['title'] ?></td>
+                                        <td><?= date('j F Y', strtotime($row['created_at'])) ?></td>
                                         <td><?= $row['name'] ?></td>
                                         <td><?= $row['title'] ?></td>
                                         <td>

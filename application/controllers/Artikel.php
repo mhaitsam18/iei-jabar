@@ -104,12 +104,15 @@ class Artikel extends CI_Controller
         $data['article_types'] = $this->db->get('article_type')->result();
         $data['article_categories'] = $this->db->get('article_category')->result();
         $data['fishs'] = $this->db->get('fish')->result();
-        $data['article'] = $this->db->get_where('articles', ['id' => $article_id])->row();
+        $article = $this->db->get_where('articles', ['id' => $article_id])->row();
+        $data['article'] = $article;
     
         $this->form_validation->set_rules('title', 'title', 'trim|required');
         $this->form_validation->set_rules('excerpt', 'excerpt', 'trim|required');
         $this->form_validation->set_rules('content', 'content', 'trim|required');
-        $this->form_validation->set_rules('slug', 'slug', 'trim|required|is_unique[articles.slug]');
+        if ($this->input->post('slug') != $article->slug) {
+            $this->form_validation->set_rules('slug', 'slug', 'trim|required|is_unique[articles.slug]');
+        }
         // $this->form_validation->set_rules('article_category_id', 'article_category_id', 'trim|required');
         // $this->form_validation->set_rules('article_type_id', 'article_type_id', 'trim|required');
         if ($this->form_validation->run() == false) {
