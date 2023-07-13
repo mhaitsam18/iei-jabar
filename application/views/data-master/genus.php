@@ -85,7 +85,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="tambahModalLabel">Tambah Data Famili/Keluarga</h1>
+                <h1 class="modal-title fs-5" id="tambahModalLabel">Tambah Data Genus</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <form action="<?= base_url('DataMaster/genus') ?>" method="post" enctype="multipart/form-data">
@@ -147,7 +147,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="editLabel">Edit Data phylum</h1>
+                <h1 class="modal-title fs-5" id="editLabel">Edit Data genus</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <form action="<?= base_url('DataMaster/genus') ?>" method="post" enctype="multipart/form-data">

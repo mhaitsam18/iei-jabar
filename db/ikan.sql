@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 13, 2023 at 07:10 AM
+-- Generation Time: Jul 13, 2023 at 07:37 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.1.17
 
@@ -100,12 +100,25 @@ INSERT INTO `articles` (`id`, `title`, `excerpt`, `content`, `slug`, `author_id`
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `article_category`
+--
+
+CREATE TABLE `article_category` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `article_category` varchar(255) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `article_type`
 --
 
 CREATE TABLE `article_type` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `type` varchar(255) DEFAULT NULL,
+  `article_type` varchar(255) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -114,7 +127,7 @@ CREATE TABLE `article_type` (
 -- Dumping data for table `article_type`
 --
 
-INSERT INTO `article_type` (`id`, `type`, `created_at`, `updated_at`) VALUES
+INSERT INTO `article_type` (`id`, `article_type`, `created_at`, `updated_at`) VALUES
 (1, 'Sejarah', '2023-06-21 19:00:09', '2023-06-21 19:00:09'),
 (2, 'Budidaya', '2023-06-21 19:00:09', '2023-06-21 19:00:09'),
 (3, 'Informasi', '2023-06-21 19:00:09', '2023-06-21 19:00:09');
@@ -839,7 +852,8 @@ INSERT INTO `user_access_menu` (`id`, `role_id`, `menu_id`) VALUES
 (23, 3, 8),
 (24, 1, 8),
 (26, 1, 14),
-(33, 3, 17);
+(33, 3, 17),
+(36, 3, 18);
 
 -- --------------------------------------------------------
 
@@ -863,7 +877,8 @@ INSERT INTO `user_menu` (`id`, `menu`, `active`) VALUES
 (3, 'Menu', 1),
 (14, 'DataMaster', 1),
 (15, 'Lainnya', 1),
-(17, 'Artikel', 1);
+(17, 'Artikel', 1),
+(18, 'Article', 0);
 
 -- --------------------------------------------------------
 
@@ -932,7 +947,8 @@ INSERT INTO `user_sub_menu` (`id`, `menu_id`, `title`, `url`, `icon`, `is_active
 (50, 14, 'Fish Type', 'DataMaster/fishType', 'box', 1),
 (51, 14, 'Abundance', 'DataMaster/abundance', 'box', 1),
 (52, 17, 'Article', 'Artikel/index', 'file', 1),
-(53, 17, 'Article Type', 'Artikel/tipeArtikel', 'file', 1);
+(53, 17, 'Article Type', 'Article/ArticleType', 'file', 1),
+(54, 17, 'Article Category', 'Article/ArticleCategory', 'file', 1);
 
 -- --------------------------------------------------------
 
@@ -1002,6 +1018,12 @@ ALTER TABLE `articles`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `articles_slug_unique` (`slug`),
   ADD KEY `articles_author_id_foreign` (`author_id`);
+
+--
+-- Indexes for table `article_category`
+--
+ALTER TABLE `article_category`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `article_type`
@@ -1276,6 +1298,12 @@ ALTER TABLE `articles`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
+-- AUTO_INCREMENT for table `article_category`
+--
+ALTER TABLE `article_category`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `article_type`
 --
 ALTER TABLE `article_type`
@@ -1477,13 +1505,13 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `user_access_menu`
 --
 ALTER TABLE `user_access_menu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT for table `user_menu`
 --
 ALTER TABLE `user_menu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `user_role`
@@ -1495,7 +1523,7 @@ ALTER TABLE `user_role`
 -- AUTO_INCREMENT for table `user_sub_menu`
 --
 ALTER TABLE `user_sub_menu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
 
 --
 -- AUTO_INCREMENT for table `user_token`
