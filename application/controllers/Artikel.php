@@ -155,5 +155,16 @@ class Artikel extends CI_Controller
             redirect('Artikel/index');
         }
     }
+
+    public function delete($id)
+    {
+        $this->db->where('id', $id);
+        $this->db->delete('articles');
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
+        Article Deleted!
+			</div>');
+
+        redirect($_SERVER['HTTP_REFERER']);
+    }
     
 }
