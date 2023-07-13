@@ -35,35 +35,37 @@
                             </thead>
                             <tbody>
                                 <?php foreach ($artikel as $row) : ?>
-                                    <td><?= $row['title'] ?></td>
-                                    <td><?= $row['name'] ?></td>
-                                    <td><?= $row['title'] ?></td>
-                                    <td>
-                                        <?php if (!$row['published_at'] && $row['deleted_at']) : ?>
-                                            <span class="badge bg-danger">Unpublish</span>
-                                        <?php elseif (!$row['published_at']) : ?>
-                                            <span class="badge bg-primary">Draft</span>
-                                        <?php else : ?>
-                                            <span class="badge bg-success">Publish</span>
-                                        <?php endif; ?>
-                                    </td>
-                                    <td>
-                                        <div class="d-flex">
-                                            <a href="<?= base_url() ?>/Artikel/show/<?= $row['article_id'] ?>" class="d-inline mx-1 text-dark">Detail</a>
-                                            <a href="<?= base_url() ?>/Artikel/edit/<?= $row['article_id'] ?>" class="d-inline mx-1 text-primary">Edit</a>
-                                            <a href="<?= base_url() ?>/Artikel/delete/<?= $row['article_id'] ?>" class="d-inline mx-1 text-danger">Delete</a>
-                                            <div class="d-inline mx-1 dropdown">
-                                                <button class="btn btn-sm btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                                    status
-                                                </button>
-                                                <ul class="dropdown-menu">
-                                                    <li><a class="dropdown-item" href="#">Draft</a></li>
-                                                    <li><a class="dropdown-item" href="#">Publish</a></li>
-                                                    <li><a class="dropdown-item" href="#">Unpublish</a></li>
-                                                </ul>
+                                    <tr>
+                                        <td><?= $row['title'] ?></td>
+                                        <td><?= $row['name'] ?></td>
+                                        <td><?= $row['title'] ?></td>
+                                        <td>
+                                            <?php if (!$row['published_at'] && $row['deleted_at']) : ?>
+                                                <span class="badge bg-danger">Unpublish</span>
+                                            <?php elseif (!$row['published_at']) : ?>
+                                                <span class="badge bg-primary">Draft</span>
+                                            <?php else : ?>
+                                                <span class="badge bg-success">Publish</span>
+                                            <?php endif; ?>
+                                        </td>
+                                        <td>
+                                            <div class="d-flex">
+                                                <a href="<?= base_url() ?>/Artikel/show/<?= $row['article_id'] ?>" class="d-inline mx-1 text-dark">Detail</a>
+                                                <a href="<?= base_url() ?>/Artikel/edit/<?= $row['article_id'] ?>" class="d-inline mx-1 text-primary">Edit</a>
+                                                <a href="<?= base_url() ?>/Artikel/delete/<?= $row['article_id'] ?>" class="d-inline mx-1 text-danger">Delete</a>
+                                                <div class="d-inline mx-1 dropdown">
+                                                    <button class="btn btn-sm btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                        status
+                                                    </button>
+                                                    <ul class="dropdown-menu">
+                                                        <li><a class="dropdown-item" href="#">Draft</a></li>
+                                                        <li><a class="dropdown-item" href="#">Publish</a></li>
+                                                        <li><a class="dropdown-item" href="#">Unpublish</a></li>
+                                                    </ul>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </td>
+                                        </td>
+                                    </tr>
                                 <?php endforeach; ?>
                             </tbody>
                         </table>

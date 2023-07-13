@@ -59,6 +59,17 @@
                                     <?= form_error('article_type_id', '<small class="text-danger pl-3">', '</small>') ?>
                                 </div>
                                 <div class="mb-3">
+                                    <label for="fish_id">Ikan</label>
+                                    <select class="form-select" name="fish_id" id="fish_id">
+                                        <option value="" selected disabled>Pilih Ikan</option>
+                                        <?php foreach ($fishs as $fish) : ?>
+                                            <option value="<?= $fish->id ?>"><?= $fish->general_name ?></option>
+                                        <?php endforeach; ?>
+                                    </select>
+                                    <small>Jika artikel berhubungan dengan Ikan tertentu</small>
+                                    <?= form_error('fish_id', '<small class="text-danger pl-3">', '</small>') ?>
+                                </div>
+                                <div class="mb-3">
                                     <div class="form-check">
                                         <input class="form-check-input" type="checkbox" value="1" name="published_at" id="published_at">
                                         <label class="form-check-label" for="published_at">

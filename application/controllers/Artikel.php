@@ -29,7 +29,7 @@ class Artikel extends CI_Controller
     
     public function show($article_id = null)
     {
-        $this->db->join('user', 'user.id = articles.author_id');
+        $this->db->join('user', 'user.id = articles.author_id', 'left');
         $data['article'] = $this->db->get_where('articles', ['id', $article_id])->row_array();
         $data['title'] = $data['article']['title'];
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
@@ -45,7 +45,8 @@ class Artikel extends CI_Controller
     {
         $data['title'] = "Tambah Artikel";
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
-        $data['data_type'] = $this->db->get_where('article_type')->result();
+        $data['data_type'] = $this->db->get('article_type')->result();
+        $data['fishs'] = $this->db->get('fish')->result();
     
         $this->form_validation->set_rules('title', 'title', 'trim|required');
         $this->form_validation->set_rules('excerpt', 'excerpt', 'trim|required');
@@ -71,8 +72,6 @@ class Artikel extends CI_Controller
             } else {
                 $nama_thumbnail = 'artikel/'. $this->input->post('nama_thumbnail');
             }
-            echo $this->input->post('nama_thumbnail');
-            die;
             $published_at = null;
             if ($this->input->post('published_at')) {
                 $published_at = date('Y-m-d H:i:s');
@@ -82,6 +81,7 @@ class Artikel extends CI_Controller
                 'excerpt' => $this->input->post('excerpt'),
                 'content' => $this->input->post('content'),
                 'slug' => $this->input->post('slug'),
+                'fish_id' => $this->input->post('fish_id'),
                 'thumbnail' => $nama_thumbnail,
                 'author_id' => $data['user']['id'],
                 'published_at' => $published_at,

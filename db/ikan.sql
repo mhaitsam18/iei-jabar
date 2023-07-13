@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 12, 2023 at 11:27 AM
+-- Generation Time: Jul 13, 2023 at 07:10 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.1.17
 
@@ -94,7 +94,8 @@ CREATE TABLE `articles` (
 --
 
 INSERT INTO `articles` (`id`, `title`, `excerpt`, `content`, `slug`, `author_id`, `fish_id`, `article_category_id`, `article_type_id`, `thumbnail`, `views`, `published_at`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 'satu dua tiga tes tes', 'satu dua tiga tes tes', 'satu dua tiga tes tes', 'satu-dua-tiga-tes-tes', 9, NULL, NULL, 1, 'artikel/64951db378c71.png', 0, NULL, '2023-06-22 01:22:54', '2023-06-22 01:22:54', NULL);
+(1, 'satu dua tiga tes tes', 'satu dua tiga tes tes', 'satu dua tiga tes tes', 'satu-dua-tiga-tes-tes', 9, NULL, NULL, 1, 'artikel/64951db378c71.png', 0, NULL, '2023-06-22 01:22:54', '2023-06-22 01:22:54', NULL),
+(2, 'tes', 'tes', 'tes', 'tes', 9, 2, NULL, 2, 'artikel/64af86c9d0703.png', 0, '2023-07-13 12:08:31', '2023-07-13 05:08:31', '2023-07-13 05:08:31', NULL);
 
 -- --------------------------------------------------------
 
@@ -184,31 +185,6 @@ INSERT INTO `class` (`id`, `class`, `general_name`, `phylum_id`, `subphylum_id`,
 -- --------------------------------------------------------
 
 --
--- Table structure for table `content`
---
-
-CREATE TABLE `content` (
-  `id` int(11) NOT NULL,
-  `header` varchar(255) NOT NULL,
-  `title` varchar(255) NOT NULL,
-  `content` text NOT NULL,
-  `footer` varchar(255) NOT NULL,
-  `last_updated` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
-
---
--- Dumping data for table `content`
---
-
-INSERT INTO `content` (`id`, `header`, `title`, `content`, `footer`, `last_updated`) VALUES
-(1, 'Illustration', '', '<p>Add some quality, svg illustrations to your project courtesy of <a\r\n                                            target=\"_blank\" rel=\"nofollow\" href=\"https://undraw.co/\">unDraw</a>, a\r\n                                        constantly updated collection of beautiful svg images that you can use\r\n                                        completely free and without attribution!</p>\r\n                                    <a target=\"_blank\" rel=\"nofollow\" href=\"https://undraw.co/\">Browse Illustrations on\r\n                                        unDraw &rarr;</a>', '', '2021-03-05 03:51:54'),
-(2, 'Development Approach', '', '<p>SB Admin 2 makes extensive use of Bootstrap 4 utility classes in order to reduce\r\n                                        CSS bloat and poor page performance. Custom CSS classes are used to create\r\n                                        custom components and custom utility classes.</p>\r\n                                    <p class=\"mb-0\">Before working with this theme, you should become familiar with the\r\n                                        Bootstrap framework, especially the utility classes.</p>', '', '2021-03-05 03:49:49'),
-(3, 'Illustration', '', '<p>Add some quality, svg illustrations to your project courtesy of <a\r\n                                            target=\"_blank\" rel=\"nofollow\" href=\"https://undraw.co/\">unDraw</a>, a\r\n                                        constantly updated collection of beautiful svg images that you can use\r\n                                        completely free and without attribution!</p>\r\n                                    <a target=\"_blank\" rel=\"nofollow\" href=\"https://undraw.co/\">Browse Illustrations on\r\n                                        unDraw &rarr;</a>', '', '2021-03-05 03:51:44'),
-(4, 'Development Approach', '', '<p>SB Admin 2 makes extensive use of Bootstrap 4 utility classes in order to reduce\r\n                                        CSS bloat and poor page performance. Custom CSS classes are used to create\r\n                                        custom components and custom utility classes.</p>\r\n                                    <p class=\"mb-0\">Before working with this theme, you should become familiar with the\r\n                                        Bootstrap framework, especially the utility classes.</p>', '', '2021-03-05 03:52:18');
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `continent`
 --
 
@@ -232,28 +208,6 @@ CREATE TABLE `country` (
   `created_at` timestamp NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `dashboard`
---
-
-CREATE TABLE `dashboard` (
-  `id` int(11) NOT NULL,
-  `header` varchar(255) NOT NULL,
-  `title` varchar(255) NOT NULL,
-  `content` text NOT NULL,
-  `footer` varchar(256) NOT NULL,
-  `icon` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
-
---
--- Dumping data for table `dashboard`
---
-
-INSERT INTO `dashboard` (`id`, `header`, `title`, `content`, `footer`, `icon`) VALUES
-(1, 'About Application', 'IEI Jawa Barat', '<b>iei-jabar.com</b> Data Ikan <br>\nAlamatnya Jl. Ciganitri No.69 B, Cipagalo, Kec. Bojongsoang, Bandung, Jawa Barat 40287', 'Feby', 'fas fa-paw');
 
 -- --------------------------------------------------------
 
@@ -315,9 +269,9 @@ CREATE TABLE `fish` (
 --
 
 INSERT INTO `fish` (`id`, `scientific_name`, `general_name`, `synonim`, `species_id`, `subspecies_id`, `fish_type_id`, `abundance_id`, `length`, `weight`, `information`, `image`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 'Betta sp', 'Ikan Cupang', '', 1, NULL, NULL, 2, '', '', '', 'fish/cupang.jpg', NULL, '2023-07-12 06:11:31', '2023-07-12 06:11:31'),
-(2, 'Carrasius auratus', 'Ikan Koki', '', 2, NULL, NULL, 2, '', '', '', 'fish/koki.jpg', NULL, '2023-07-12 06:11:31', '2023-07-12 06:11:31'),
-(3, 'Symphysodon discus', 'Ikan Discus', '', 3, NULL, NULL, 2, '', '', '', 'fish/discus.jpg', NULL, '2023-07-12 06:11:31', '2023-07-12 06:11:31');
+(1, 'Betta sp', 'Ikan Cupang', '', 1, NULL, 7, 2, '', '', '', 'fish/cupang.jpg', NULL, '2023-07-12 06:11:31', '2023-07-12 06:11:31'),
+(2, 'Carrasius auratus', 'Ikan Koki', '', 2, NULL, 7, 2, '', '', '', 'fish/koki.jpg', NULL, '2023-07-12 06:11:31', '2023-07-12 06:11:31'),
+(3, 'Symphysodon discus', 'Ikan Discus', '', 3, NULL, 7, 2, '', '', '', 'fish/discus.jpg', NULL, '2023-07-12 06:11:31', '2023-07-12 06:11:31');
 
 -- --------------------------------------------------------
 
@@ -605,66 +559,6 @@ CREATE TABLE `origin` (
   `created_at` timestamp NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `pertanyaan_1`
---
-
-CREATE TABLE `pertanyaan_1` (
-  `id` int(11) NOT NULL,
-  `pertanyaan` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
-
---
--- Dumping data for table `pertanyaan_1`
---
-
-INSERT INTO `pertanyaan_1` (`id`, `pertanyaan`) VALUES
-(1, 'Apa nama mobil Favorit kamu?'),
-(2, 'Siapa nama ibu kandung kamu?');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `pertanyaan_2`
---
-
-CREATE TABLE `pertanyaan_2` (
-  `id` int(11) NOT NULL,
-  `pertanyaan` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
-
---
--- Dumping data for table `pertanyaan_2`
---
-
-INSERT INTO `pertanyaan_2` (`id`, `pertanyaan`) VALUES
-(1, 'Apa warna favorit kamu?'),
-(2, 'Apa kutipan kata favorit kamu?');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `pertanyaan_keamanan`
---
-
-CREATE TABLE `pertanyaan_keamanan` (
-  `id` int(11) NOT NULL,
-  `id_user` int(11) NOT NULL,
-  `id_pertanyaan_1` int(11) NOT NULL,
-  `jawaban_1` varchar(255) NOT NULL,
-  `id_pertanyaan_2` int(11) NOT NULL,
-  `jawaban_2` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
-
---
--- Dumping data for table `pertanyaan_keamanan`
---
-
-INSERT INTO `pertanyaan_keamanan` (`id`, `id_user`, `id_pertanyaan_1`, `jawaban_1`, `id_pertanyaan_2`, `jawaban_2`) VALUES
-(1, 1, 1, 'Vios', 2, 'Menang');
 
 -- --------------------------------------------------------
 
@@ -1129,12 +1023,6 @@ ALTER TABLE `class`
   ADD KEY `phylum_id` (`phylum_id`);
 
 --
--- Indexes for table `content`
---
-ALTER TABLE `content`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indexes for table `continent`
 --
 ALTER TABLE `continent`
@@ -1147,12 +1035,6 @@ ALTER TABLE `country`
   ADD PRIMARY KEY (`id`),
   ADD KEY `distribution_id` (`continent_id`),
   ADD KEY `benua_id` (`continent_id`);
-
---
--- Indexes for table `dashboard`
---
-ALTER TABLE `dashboard`
-  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `distribution`
@@ -1269,24 +1151,6 @@ ALTER TABLE `ordo`
 ALTER TABLE `origin`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `fish_id` (`fish_id`);
-
---
--- Indexes for table `pertanyaan_1`
---
-ALTER TABLE `pertanyaan_1`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `pertanyaan_2`
---
-ALTER TABLE `pertanyaan_2`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `pertanyaan_keamanan`
---
-ALTER TABLE `pertanyaan_keamanan`
-  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `phylums`
@@ -1409,7 +1273,7 @@ ALTER TABLE `archipelago`
 -- AUTO_INCREMENT for table `articles`
 --
 ALTER TABLE `articles`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `article_type`
@@ -1430,12 +1294,6 @@ ALTER TABLE `class`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
--- AUTO_INCREMENT for table `content`
---
-ALTER TABLE `content`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
 -- AUTO_INCREMENT for table `continent`
 --
 ALTER TABLE `continent`
@@ -1446,12 +1304,6 @@ ALTER TABLE `continent`
 --
 ALTER TABLE `country`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `dashboard`
---
-ALTER TABLE `dashboard`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `distribution`
@@ -1554,24 +1406,6 @@ ALTER TABLE `ordo`
 --
 ALTER TABLE `origin`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `pertanyaan_1`
---
-ALTER TABLE `pertanyaan_1`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT for table `pertanyaan_2`
---
-ALTER TABLE `pertanyaan_2`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT for table `pertanyaan_keamanan`
---
-ALTER TABLE `pertanyaan_keamanan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `phylums`
