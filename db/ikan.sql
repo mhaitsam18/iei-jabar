@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 13, 2023 at 07:37 AM
+-- Generation Time: Jul 13, 2023 at 07:59 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.1.17
 
@@ -109,6 +109,13 @@ CREATE TABLE `article_category` (
   `created_at` timestamp NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `article_category`
+--
+
+INSERT INTO `article_category` (`id`, `article_category`, `created_at`, `updated_at`) VALUES
+(1, 'Ikan', '2023-07-13 05:39:08', '2023-07-13 05:39:08');
 
 -- --------------------------------------------------------
 
@@ -1301,7 +1308,7 @@ ALTER TABLE `articles`
 -- AUTO_INCREMENT for table `article_category`
 --
 ALTER TABLE `article_category`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `article_type`

@@ -19,7 +19,9 @@ class Artikel extends CI_Controller
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
         $this->db->select('*, articles.id as article_id');
         $this->db->join('user', 'user.id = articles.author_id');
-        $data['artikel'] = $this->db->get('articles')->result_array();
+        $data['artikel'] = $this->db->get_where('articles', [
+            'author_id' => $data['user']['id']
+        ])->result_array();
         $this->load->view('layouts/header', $data);
         $this->load->view('layouts/sidebar', $data);
         $this->load->view('layouts/topbar', $data);
@@ -30,7 +32,7 @@ class Artikel extends CI_Controller
     public function show($article_id = null)
     {
         $this->db->join('user', 'user.id = articles.author_id', 'left');
-        $data['article'] = $this->db->get_where('articles', ['id', $article_id])->row_array();
+        $data['article'] = $this->db->get_where('articles', ['id' => $article_id])->row_array();
         $data['title'] = $data['article']['title'];
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
         
@@ -100,8 +102,9 @@ class Artikel extends CI_Controller
         $data['title'] = "Edit Artikel";
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
         $data['article_types'] = $this->db->get('article_type')->result();
-        $data['article_categories'] = $this->db->get('article_type')->result();
+        $data['article_categories'] = $this->db->get('article_category')->result();
         $data['fishs'] = $this->db->get('fish')->result();
+        $data['article'] = $this->db->get_where('articles', ['id' => $article_id])->row();
     
         $this->form_validation->set_rules('title', 'title', 'trim|required');
         $this->form_validation->set_rules('excerpt', 'excerpt', 'trim|required');
@@ -113,7 +116,7 @@ class Artikel extends CI_Controller
             $this->load->view('layouts/header', $data);
             $this->load->view('layouts/sidebar', $data);
             $this->load->view('layouts/topbar', $data);
-            $this->load->view('article/create', $data);
+            $this->load->view('article/edit', $data);
             $this->load->view('layouts/footer');
         } else {
             if (isset($_FILES['thumbnail']['name'])) {
@@ -131,20 +134,20 @@ class Artikel extends CI_Controller
             if ($this->input->post('published_at')) {
                 $published_at = date('Y-m-d H:i:s');
             }
-            $this->db->insert('articles', [
+            $this->db->where('id', $article_id);
+            $this->db->update('articles', [
                 'title' => $this->input->post('title'),
                 'excerpt' => $this->input->post('excerpt'),
                 'content' => $this->input->post('content'),
                 'slug' => $this->input->post('slug'),
                 'fish_id' => $this->input->post('fish_id'),
                 'thumbnail' => $nama_thumbnail,
-                'author_id' => $data['user']['id'],
                 'published_at' => $published_at,
                 'article_category_id' => $this->input->post('article_category_id'),
                 'article_type_id' => $this->input->post('article_type_id'),
             ]);
             $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
-				Data Artikel berhasil ditambahkan!
+				Data Artikel berhasil diperbarui!
 				</div>');
             redirect('Artikel/index');
         }
