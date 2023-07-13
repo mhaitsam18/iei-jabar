@@ -31,10 +31,10 @@ class Artikel extends CI_Controller
     
     public function show($article_id = null)
     {
-        $this->db->join('user', 'user.id = articles.author_id', 'left');
-        $data['article'] = $this->db->get_where('articles', ['id' => $article_id])->row_array();
-        $data['title'] = $data['article']['title'];
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        $this->db->join('user', 'user.id = articles.author_id');
+        $data['article'] = $this->db->get_where('articles', ['articles.id' => $article_id])->row_array();
+        $data['title'] = $data['article']['title'];
         
         $this->load->view('layouts/header', $data);
         $this->load->view('layouts/sidebar', $data);
@@ -104,7 +104,7 @@ class Artikel extends CI_Controller
         $data['article_types'] = $this->db->get('article_type')->result();
         $data['article_categories'] = $this->db->get('article_category')->result();
         $data['fishs'] = $this->db->get('fish')->result();
-        $article = $this->db->get_where('articles', ['id' => $article_id])->row();
+        $article = $this->db->get_where('articles', ['articles.id' => $article_id])->row();
         $data['article'] = $article;
     
         $this->form_validation->set_rules('title', 'title', 'trim|required');
