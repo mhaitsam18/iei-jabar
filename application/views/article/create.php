@@ -42,8 +42,8 @@
                                     <label for="article_category_id">Kategori Artikel</label>
                                     <select class="form-select" name="article_category_id" id="article_category_id">
                                         <option value="" selected disabled>Pilih Kategori Artikel</option>
-                                        <?php foreach ($data_ikan as $ikan) : ?>
-                                            <option value="<?= $ikan->id ?>"><?= $ikan->scientific_name ?></option>
+                                        <?php foreach ($article_categories as $category) : ?>
+                                            <option value="<?= $category->id ?>"><?= $category->article_category ?></option>
                                         <?php endforeach; ?>
                                     </select>
                                     <?= form_error('article_category_id', '<small class="text-danger pl-3">', '</small>') ?>
@@ -52,8 +52,8 @@
                                     <label for="article_type_id">Tipe Artikel</label>
                                     <select class="form-select" name="article_type_id" id="article_type_id">
                                         <option value="" selected disabled>Pilih Tipe Artikel</option>
-                                        <?php foreach ($data_type as $type) : ?>
-                                            <option value="<?= $type->id ?>"><?= $type->type ?></option>
+                                        <?php foreach ($article_types as $type) : ?>
+                                            <option value="<?= $type->id ?>"><?= $type->article_type ?></option>
                                         <?php endforeach; ?>
                                     </select>
                                     <?= form_error('article_type_id', '<small class="text-danger pl-3">', '</small>') ?>
