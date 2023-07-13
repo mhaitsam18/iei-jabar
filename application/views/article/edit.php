@@ -10,7 +10,7 @@
         <div class="col-12 col-xl-12 stretch-card">
             <div class="card">
                 <div class="card-body">
-                    <form action="<?= base_url('Artikel/edit/'.$article->id) ?>" method="post" enctype="multipart/form-data">
+                    <form action="<?= base_url('Artikel/edit/' . $article->id) ?>" method="post" enctype="multipart/form-data">
                         <div class="row">
                             <div class="col-lg-9 col-sm-12">
                                 <textarea class="form-control" name="content" id="simpleMdeExample" rows="10"><?= set_value('content', $article->content) ?></textarea>
@@ -33,8 +33,11 @@
                                     <?= form_error('excerpt', '<small class="text-danger pl-3">', '</small>') ?>
                                 </div>
                                 <div class="mb-3">
+                                    <div class="col-sm-4 m-1">
+                                        <img src="<?= base_url('assets/img/'.set_value('nama_thumbnail', $article->thumbnail)) ?>" class="img-thumbnail img-preview">
+                                    </div>
                                     <label for="thumbnail">Thumbnail</label>
-                                    <input type="file" class="form-control filepond" name="thumbnail" multiple data-allow-reorder="true" data-max-file-size="3MB" data-max-files="3" data-folder="artikel">
+                                    <input type="file" class="form-control filepond" name="thumbnail" multiple data-allow-reorder="true" data-max-file-size="3MB" data-max-files="3" data-folder="artikel" onchange="previewImg()">
                                     <input type="hidden" name="nama_thumbnail" id="img-filepond" value="<?= set_value('nama_thumbnail', $article->thumbnail) ?>">
                                     <?= form_error('nama_thumbnail', '<small class="text-danger pl-3">', '</small>') ?>
                                 </div>
@@ -86,3 +89,16 @@
         </div>
     </div> <!-- row -->
 </div>
+<script>
+    function previewImg() {
+        const thumbnail = document.querySelector('.img-input');
+        const imgPreview = document.querySelector('.img-preview');
+        imgPreview.style.display = 'block';
+        const oFReader = new FileReader();
+        oFReader.readAsDataURL(thumbnail.files[0]);
+
+        oFReader.onload = function(oFREvent) {
+            imgPreview.src = oFREvent.target.result;
+        }
+    }
+</script>
