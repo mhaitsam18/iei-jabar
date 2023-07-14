@@ -87,10 +87,10 @@ class File extends CI_Controller {
 			return $error;
 		}
 	}
-	public function classify()
+	public function class()
 	{
 		if (!empty($_FILES['file']['name'])) {
-			$config['upload_path'] = './assets/img/classify/';
+			$config['upload_path'] = './assets/img/class/';
 			$config['allowed_types'] = 'jpg|jpeg|png';
 			$config['max_size'] = '4096';
 
@@ -100,7 +100,7 @@ class File extends CI_Controller {
 			$this->load->library('upload', $config);
 		}
 		if ($this->upload->do_upload('file')) {
-			$file_name = 'classify/'.$this->upload->data('file_name');
+			$file_name = 'class/'.$this->upload->data('file_name');
 			echo $file_name;
 		} else {
 			$error = $this->upload->display_errors();
@@ -108,10 +108,10 @@ class File extends CI_Controller {
 			return $error;
 		}
 	}
-	public function order()
+	public function ordo()
 	{
 		if (!empty($_FILES['file']['name'])) {
-			$config['upload_path'] = './assets/img/order/';
+			$config['upload_path'] = './assets/img/ordo/';
 			$config['allowed_types'] = 'jpg|jpeg|png';
 			$config['max_size'] = '4096';
 
@@ -121,7 +121,7 @@ class File extends CI_Controller {
 			$this->load->library('upload', $config);
 		}
 		if ($this->upload->do_upload('file')) {
-			$file_name = 'order/'.$this->upload->data('file_name');
+			$file_name = 'ordo/'.$this->upload->data('file_name');
 			echo $file_name;
 		} else {
 			$error = $this->upload->display_errors();

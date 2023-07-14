@@ -166,5 +166,10 @@ class Artikel extends CI_Controller
 
         redirect($_SERVER['HTTP_REFERER']);
     }
+
+    public function publish($article_id = null, $publish = null)
+    {
+        # code...
+    }
     
 }

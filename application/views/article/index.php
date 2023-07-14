@@ -58,9 +58,9 @@
                                                         status
                                                     </button>
                                                     <ul class="dropdown-menu">
-                                                        <li><a class="dropdown-item" href="#">Draft</a></li>
-                                                        <li><a class="dropdown-item" href="#">Publish</a></li>
-                                                        <li><a class="dropdown-item" href="#">Unpublish</a></li>
+                                                        <li><a class="dropdown-item" href="<?= base_url() ?>Artikel/publish/<?= $row['article_id'] ?>/draft">Draft</a></li>
+                                                        <li><a class="dropdown-item" href="<?= base_url() ?>Artikel/publish/<?= $row['article_id'] ?>/publish">Publish</a></li>
+                                                        <li><a class="dropdown-item" href="<?= base_url() ?>Artikel/publish/<?= $row['article_id'] ?>/unpublish">Unpublish</a></li>
                                                     </ul>
                                                 </div>
                                             </div>
