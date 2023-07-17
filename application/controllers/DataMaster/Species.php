@@ -16,11 +16,11 @@ class Species extends CI_Controller
     public function index()
     {
         $data['title'] = "Data Master species";
-        $data['dataMaster'] = $this->db->get_where('user_sub_menu', ['menu_id' => 14])->result_array();
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 
-        $this->db->select('species.*, genus.genus, subgenus.subgenus, families.family, ordo.ordo, class.class, phylums.phylum, kingdoms.kingdom');
-        $this->db->join('subgenus', 'species.subgenus_id = subgenus.id', 'left');
+        $this->db->select('species.*, genus.genus, families.family, ordo.ordo, class.class, phylums.phylum, kingdoms.kingdom');
+        // , subgenus.subgenus
+        // $this->db->join('subgenus', 'species.subgenus_id = subgenus.id', 'left');
         
         $this->db->join('genus', 'species.genus_id = genus.id', 'left');
         $this->db->join('families', 'genus.family_id = families.id', 'left');
@@ -28,10 +28,10 @@ class Species extends CI_Controller
         $this->db->join('class', 'ordo.class_id = class.id', 'left');
         $this->db->join('phylums', 'class.phylum_id = phylums.id', 'left');
         $this->db->join('kingdoms', 'phylums.kingdom_id = kingdoms.id', 'left');
-        $data['speciess'] = $this->db->get('species')->result_array();
+        $data['speciess'] = $this->db->get_where('species', ['species.id !=' => 0])->result_array();
 
         $data['genera'] = $this->db->get('genus')->result_array();
-        $data['subgenera'] = $this->db->get('subgenus')->result_array();
+        // $data['subgenera'] = $this->db->get('subgenus')->result_array();
 
         $this->form_validation->set_rules('species', 'species', 'trim|required');
 
@@ -49,7 +49,7 @@ class Species extends CI_Controller
                     'species' => $this->input->post('species'),
                     'genusl_name' => $this->input->post('genusl_name'),
                     'genus_id' => $this->input->post('genus_id'),
-                    'subgenus_id' => $this->input->post('subgenus_id'),
+                    // 'subgenus_id' => $this->input->post('subgenus_id'),
                     'description' => $this->input->post('description'),
                     'picture' => $this->input->post('picture')
                 ]);
@@ -81,7 +81,7 @@ class Species extends CI_Controller
                     'species' => $this->input->post('species'),
                     'genusl_name' => $this->input->post('genusl_name'),
                     'genus_id' => $this->input->post('genus_id'),
-                    'subgenus_id' => $this->input->post('subgenus_id'),
+                    // 'subgenus_id' => $this->input->post('subgenus_id'),
                     'description' => $this->input->post('description'),
                 );
 

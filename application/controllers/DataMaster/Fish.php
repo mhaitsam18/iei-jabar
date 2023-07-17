@@ -18,9 +18,10 @@ class Fish extends CI_Controller
         $data['title'] = "Data Ikan";
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 
-        $this->db->select('fish.*, abundance.abundance, fish_type.type, species.species, subspecies.subspecies, genus.genus, families.family, ordo.ordo, class.class, phylums.phylum, kingdoms.kingdom');
+        $this->db->select('fish.*, abundance.abundance, fish_type.type, species.species, genus.genus, families.family, ordo.ordo, class.class, phylums.phylum, kingdoms.kingdom');
         $this->db->join('species', 'fish.species_id = species.id', 'left');
-        $this->db->join('subspecies', 'fish.subspecies_id = subspecies.id', 'left');
+        // , subspecies.subspecies
+        // $this->db->join('subspecies', 'fish.subspecies_id = subspecies.id', 'left');
         $this->db->join('genus', 'species.genus_id = genus.id', 'left');
         $this->db->join('families', 'genus.family_id = families.id', 'left');
         $this->db->join('ordo', 'families.ordo_id = ordo.id', 'left');
@@ -29,8 +30,8 @@ class Fish extends CI_Controller
         $this->db->join('kingdoms', 'phylums.kingdom_id = kingdoms.id', 'left');
         $this->db->join('fish_type', 'fish.fish_type_id = fish_type.id', 'left');
         $this->db->join('abundance', 'fish.abundance_id = abundance.id', 'left');
-        $data['fishs'] = $this->db->get('fish')->result_array();
-        $data['subspeciess'] = $this->db->get('subspecies')->result_array();
+        $data['fishs'] = $this->db->get_where('fish', ['fish.id !=' => 0])->result_array();
+        // $data['subspeciess'] = $this->db->get('subspecies')->result_array();
         $data['speciess'] = $this->db->get('species')->result_array();
         $data['abundances'] = $this->db->get('abundance')->result_array();
         $data['fish_types'] = $this->db->get('fish_type')->result_array();
@@ -56,7 +57,7 @@ class Fish extends CI_Controller
                     'genusl_name' => $this->input->post('genusl_name'),
                     'synonim' => $this->input->post('synonim'),
                     'species_id' => $this->input->post('species_id'),
-                    'subspecies_id' => $this->input->post('subspecies_id'),
+                    // 'subspecies_id' => $this->input->post('subspecies_id'),
                     'fish_type_id' => $this->input->post('fish_type_id'),
                     'abundance_id' => $this->input->post('abundance_id'),
                     'length' => $this->input->post('length'),
@@ -93,7 +94,7 @@ class Fish extends CI_Controller
                     'genusl_name' => $this->input->post('genusl_name'),
                     'synonim' => $this->input->post('synonim'),
                     'species_id' => $this->input->post('species_id'),
-                    'subspecies_id' => $this->input->post('subspecies_id'),
+                    // 'subspecies_id' => $this->input->post('subspecies_id'),
                     'fish_type_id' => $this->input->post('fish_type_id'),
                     'abundance_id' => $this->input->post('abundance_id'),
                     'length' => $this->input->post('length'),

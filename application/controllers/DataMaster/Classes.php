@@ -18,19 +18,20 @@ class Classes extends CI_Controller
         $data['title'] = "Data Kelas";
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 
-        $this->db->select('class.*, phylums.phylum, subphylum.subphylum, infraphylum.infraphylum, superclass.superclass, kingdoms.kingdom');
-        $this->db->join('subphylum', 'class.subphylum_id = subphylum.id', 'left');
-        $this->db->join('infraphylum', 'class.infraphylum_id = infraphylum.id', 'left');
-        $this->db->join('superclass', 'class.superclass_id = superclass.id', 'left');
+        $this->db->select('class.*, phylums.phylum, kingdoms.kingdom');
+        //  subphylum.subphylum, infraphylum.infraphylum, superclass.superclass,
+        // $this->db->join('subphylum', 'class.subphylum_id = subphylum.id', 'left');
+        // $this->db->join('infraphylum', 'class.infraphylum_id = infraphylum.id', 'left');
+        // $this->db->join('superclass', 'class.superclass_id = superclass.id', 'left');
         
         $this->db->join('phylums', 'class.phylum_id = phylums.id', 'left');
         $this->db->join('kingdoms', 'phylums.kingdom_id = kingdoms.id', 'left');
-        $data['classes'] = $this->db->get('class')->result_array();
+        $data['classes'] = $this->db->get_where('class', ['class.id !=' => 0])->result_array();
         
         $data['phylums'] = $this->db->get('phylums')->result_array();
-        $data['subphylums'] = $this->db->get('subphylum')->result_array();
-        $data['infraphylums'] = $this->db->get('infraphylum')->result_array();
-        $data['superclasses'] = $this->db->get('superclass')->result_array();
+        // $data['subphylums'] = $this->db->get('subphylum')->result_array();
+        // $data['infraphylums'] = $this->db->get('infraphylum')->result_array();
+        // $data['superclasses'] = $this->db->get('superclass')->result_array();
 
         $this->form_validation->set_rules('class', 'class', 'trim|required');
 
@@ -48,9 +49,9 @@ class Classes extends CI_Controller
                     'class' => $this->input->post('class'),
                     'general_name' => $this->input->post('general_name'),
                     'phylum_id' => $this->input->post('phylum_id'),
-                    'subphylyum_id' => $this->input->post('subphylyum_id'),
-                    'infraphylum_id' => $this->input->post('infraphylum_id'),
-                    'superclass_id' => $this->input->post('superclass_id'),
+                    // 'subphylyum_id' => $this->input->post('subphylyum_id'),
+                    // 'infraphylum_id' => $this->input->post('infraphylum_id'),
+                    // 'superclass_id' => $this->input->post('superclass_id'),
                     'description' => $this->input->post('description'),
                     'picture' => $this->input->post('picture'),
                     'species' => $this->input->post('species')
@@ -84,9 +85,9 @@ class Classes extends CI_Controller
                     'class' => $this->input->post('class'),
                     'general_name' => $this->input->post('general_name'),
                     'phylum_id' => $this->input->post('phylum_id'),
-                    'subphylum_id' => $this->input->post('subphylum_id'),
-                    'infraphylum_id' => $this->input->post('infraphylum_id'),
-                    'superclass_id' => $this->input->post('superclass_id'),
+                    // 'subphylum_id' => $this->input->post('subphylum_id'),
+                    // 'infraphylum_id' => $this->input->post('infraphylum_id'),
+                    // 'superclass_id' => $this->input->post('superclass_id'),
                     'description' => $this->input->post('description'),
                     'species' => $this->input->post('species')
                 ];

@@ -16,21 +16,21 @@ class Genus extends CI_Controller
     public function index()
     {
         $data['title'] = "Data genus";
-        $data['dataMaster'] = $this->db->get_where('user_sub_menu', ['menu_id' => 14])->result_array();
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 
-        $this->db->select('genus.*, subfamily.subfamily, families.family, ordo.ordo, class.class, phylums.phylum, kingdoms.kingdom');
-        $this->db->join('subfamily', 'genus.subfamily_id = subfamily.id', 'left');
+        $this->db->select('genus.*, families.family, ordo.ordo, class.class, phylums.phylum, kingdoms.kingdom');
+        // , subfamily.subfamily
+        // $this->db->join('subfamily', 'genus.subfamily_id = subfamily.id', 'left');
 
         $this->db->join('families', 'genus.family_id = families.id', 'left');
         $this->db->join('ordo', 'families.ordo_id = ordo.id', 'left');
         $this->db->join('class', 'ordo.class_id = class.id', 'left');
         $this->db->join('phylums', 'class.phylum_id = phylums.id', 'left');
         $this->db->join('kingdoms', 'phylums.kingdom_id = kingdoms.id', 'left');
-        $data['genera'] = $this->db->get('genus')->result_array();
+        $data['genera'] = $this->db->get_where('genus', ['genus.id !=' => 0])->result_array();
 
         $data['families'] = $this->db->get('families')->result_array();
-        $data['subfamilies'] = $this->db->get('subfamily')->result_array();
+        // $data['subfamilies'] = $this->db->get('subfamily')->result_array();
 
         $this->form_validation->set_rules('genus', 'genus', 'trim|required');
 
@@ -48,7 +48,7 @@ class Genus extends CI_Controller
                     'genus' => $this->input->post('genus'),
                     'genusl_name' => $this->input->post('genusl_name'),
                     'family_id' => $this->input->post('family_id'),
-                    'subfamily_id' => $this->input->post('subfamily_id'),
+                    // 'subfamily_id' => $this->input->post('subfamily_id'),
                     'description' => $this->input->post('description'),
                     'picture' => $this->input->post('picture')
                 ]);
@@ -80,7 +80,7 @@ class Genus extends CI_Controller
                     'genus' => $this->input->post('genus'),
                     'genusl_name' => $this->input->post('genusl_name'),
                     'family_id' => $this->input->post('family_id'),
-                    'subfamily_id' => $this->input->post('subfamily_id'),
+                    // 'subfamily_id' => $this->input->post('subfamily_id'),
                     'description' => $this->input->post('description'),
                 );
 

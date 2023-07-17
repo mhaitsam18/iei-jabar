@@ -15,8 +15,7 @@ class Abundance extends CI_Controller
 
     public function index()
     {
-        $data['title'] = "Data Master Kelimpahan";
-        $data['dataMaster'] = $this->db->get_where('user_sub_menu', ['menu_id' => 14])->result_array();
+        $data['title'] = "Data Master Kelimpahan / Konservasi";
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
         $data['abundance'] = $this->db->order_by('id', 'desc')->get('abundance')->result_array();
 

@@ -34,7 +34,6 @@
                                     <th scope="col">#</th>
                                     <th scope="col">Nama Latin Genus</th>
                                     <th scope="col">Nama Umum</th>
-                                    <th scope="col">Subfamili</th>
                                     <th scope="col">Famili</th>
                                     <th scope="col">Ordo</th>
                                     <th scope="col">Kelas</th>
@@ -53,7 +52,6 @@
                                         <td><?= $no++ ?></td>
                                         <td><?= $genus['genus'] ?></td>
                                         <td><?= $genus['general_name'] ?></td>
-                                        <td><?= $genus['subfamily'] ?></td>
                                         <td><?= $genus['family'] ?></td>
                                         <td><?= $genus['ordo'] ?></td>
                                         <td><?= $genus['class'] ?></td>
@@ -63,7 +61,7 @@
                                         <td><img src="<?= base_url('assets/img/' . $genus['picture']) ?>" class="img-thumbnail img-fluid"></td>
                                         <td>
 
-                                            <a href="#" class="badge bg-success updategenus" data-bs-toggle="modal" data-bs-target="#edit" data-id="<?= $genus['id'] ?>" data-genus="<?= $genus['genus'] ?>" data-general_name="<?= $genus['general_name'] ?>" data-description="<?= $genus['description'] ?>" data-picture="<?= $genus['picture'] ?>" data-family_id="<?= $genus['family_id'] ?>" data-subfamily_id="<?= $genus['subfamily_id'] ?>">Ubah</a>
+                                            <a href="#" class="badge bg-success updategenus" data-bs-toggle="modal" data-bs-target="#edit" data-id="<?= $genus['id'] ?>" data-genus="<?= $genus['genus'] ?>" data-general_name="<?= $genus['general_name'] ?>" data-description="<?= $genus['description'] ?>" data-picture="<?= $genus['picture'] ?>" data-family_id="<?= $genus['family_id'] ?>">Ubah</a>
 
                                             <a href="<?= base_url("DataMaster/genus/delete/$genus[id]"); ?>" class="badge bg-danger tombol-hapus" data-hapus="genus">Hapus</a>
                                         </td>
@@ -111,16 +109,6 @@
                         </select>
                     </div>
                     <?php echo form_error('family_id', '<span class="text-danger">', '</span>'); ?>
-                    <div class="mb-3">
-                        <label for="subfamily_id">Subfamili</label>
-                        <select class="form-select select2-add" id="subfamily_id" name="subfamily_id">
-                            <option value="" selected disabled>Pilih Subfamili</option>
-                            <?php foreach ($subfamilies as $subfamily) : ?>
-                                <option value="<?= $subfamily['id'] ?>"><?= $subfamily['subordo'] ?></option>
-                            <?php endforeach; ?>
-                        </select>
-                    </div>
-                    <?php echo form_error('subfamily_id', '<span class="text-danger">', '</span>'); ?>
                     <div class="mb-3">
                         <label for="description">Deskripsi</label>
                         <textarea class="form-control" id="description" name="description"></textarea>
@@ -175,16 +163,6 @@
                     </div>
                     <?php echo form_error('family_id', '<span class="text-danger">', '</span>'); ?>
                     <div class="mb-3">
-                        <label for="subfamily_id">Subfamili</label>
-                        <select class="form-select select2-edit" id="subfamily_id" name="subfamily_id">
-                            <option value="" selected disabled>Pilih Subfamili</option>
-                            <?php foreach ($subfamilies as $subfamily) : ?>
-                                <option value="<?= $subfamily['id'] ?>"><?= $subfamily['subordo'] ?></option>
-                            <?php endforeach; ?>
-                        </select>
-                    </div>
-                    <?php echo form_error('subfamily_id', '<span class="text-danger">', '</span>'); ?>
-                    <div class="mb-3">
                         <label for="description">Deskripsi</label>
                         <textarea class="form-control" id="description" name="description"></textarea>
                     </div>
@@ -235,9 +213,6 @@
 
         var family_id = $(this).data('family_id');
         $(".modal-body  #family_id").val(family_id);
-
-        var subfamily_id = $(this).data('subfamily_id');
-        $(".modal-body  #subfamily_id").val(subfamily_id);
 
         var description = $(this).data('description');
         $(".modal-body  #description").val(description);

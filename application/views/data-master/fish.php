@@ -32,7 +32,6 @@
                                     <th scope="col">Nama Umum</th>
                                     <th scope="col">Sinonim</th>
                                     <th scope="col">Spesies</th>
-                                    <th scope="col">Subspesies</th>
                                     <th scope="col">Genus</th>
                                     <th scope="col">Famili</th>
                                     <th scope="col">Ordo</th>
@@ -58,7 +57,6 @@
                                         <td><?= $fish['general_name'] ?></td>
                                         <td><?= $fish['synonim'] ?></td>
                                         <td><?= $fish['species'] ?></td>
-                                        <td><?= $fish['subspecies'] ?></td>
                                         <td><?= $fish['genus'] ?></td>
                                         <td><?= $fish['family'] ?></td>
                                         <td><?= $fish['ordo'] ?></td>
@@ -73,7 +71,7 @@
                                         <td><img src="<?= base_url('assets/img/' . $fish['image']) ?>" class="img-thumbnail img-fluid"></td>
                                         <td>
 
-                                            <a href="#" class="badge bg-success updatefish" data-bs-toggle="modal" data-bs-target="#edit" data-id="<?= $fish['id'] ?>" data-scientific_name="<?= $fish['scientific_name'] ?>" data-general_name="<?= $fish['general_name'] ?>" data-synonim="<?= $fish['synonim'] ?>" data-image="<?= $fish['image'] ?>" data-species_id="<?= $fish['species_id'] ?>" data-subspecies_id="<?= $fish['subspecies_id'] ?>" data-fish_type_id="<?= $fish['fish_type_id'] ?>" data-abundance_id="<?= $fish['abundance_id'] ?>" data-length="<?= $fish['length'] ?>" data-weight="<?= $fish['weight'] ?>" data-information="<?= $fish['information'] ?>">Ubah</a>
+                                            <a href="#" class="badge bg-success updatefish" data-bs-toggle="modal" data-bs-target="#edit" data-id="<?= $fish['id'] ?>" data-scientific_name="<?= $fish['scientific_name'] ?>" data-general_name="<?= $fish['general_name'] ?>" data-synonim="<?= $fish['synonim'] ?>" data-image="<?= $fish['image'] ?>" data-species_id="<?= $fish['species_id'] ?>"  data-fish_type_id="<?= $fish['fish_type_id'] ?>" data-abundance_id="<?= $fish['abundance_id'] ?>" data-length="<?= $fish['length'] ?>" data-weight="<?= $fish['weight'] ?>" data-information="<?= $fish['information'] ?>">Ubah</a>
 
                                             <a href="<?= base_url("DataMaster/fish/delete/$fish[id]"); ?>" class="badge bg-danger tombol-hapus" data-hapus="fish">Hapus</a>
 
@@ -125,16 +123,6 @@
                         </select>
                     </div>
                     <?php echo form_error('species_id', '<span class="text-danger">', '</span>'); ?>
-                    <div class="mb-3">
-                        <label for="subspecies_id">Subspecies</label>
-                        <select class="select2-add form-select" id="subspecies_id" name="subspecies_id">
-                            <option value="" selected disabled>Pilih subspecies</option>
-                            <?php foreach ($subspeciess as $subspecies) : ?>
-                                <option value="<?= $subspecies['id'] ?>"><?= $subspecies['subspecies'] ?></option>
-                            <?php endforeach; ?>
-                        </select>
-                    </div>
-                    <?php echo form_error('subspecies_id', '<span class="text-danger">', '</span>'); ?>
                     <div class="mb-3">
                         <label for="food">Makanan</label>
                         <select class="multiple-add form-select" id="food" name="food[]" data-placeholder="Pilih Makanan" multiple>
@@ -250,16 +238,6 @@
                     </div>
                     <?php echo form_error('species_id', '<span class="text-danger">', '</span>'); ?>
                     <div class="mb-3">
-                        <label for="subspecies_id">Subspecies</label>
-                        <select class="form-select" id="subspecies_id" name="subspecies_id">
-                            <option value="" selected disabled>Pilih subspecies</option>
-                            <?php foreach ($subspeciess as $subspecies) : ?>
-                                <option value="<?= $subspecies['id'] ?>"><?= $subspecies['subspecies'] ?></option>
-                            <?php endforeach; ?>
-                        </select>
-                    </div>
-                    <?php echo form_error('subspecies_id', '<span class="text-danger">', '</span>'); ?>
-                    <div class="mb-3">
                         <label for="abundance_id">Kelimpahan</label>
                         <select class="form-select select2-edit" id="abundance_id" name="abundance_id">
                             <option value="" selected disabled>Pilih Kelimpahan</option>
@@ -347,9 +325,6 @@
 
         var species_id = $(this).data('species_id');
         $(".modal-body #species_id").val(species_id);
-
-        var subspecies_id = $(this).data('subspecies_id');
-        $(".modal-body #subspecies_id").val(subspecies_id);
 
         var fish_type_id = $(this).data('fish_type_id');
         $(".modal-body #fish_type_id").val(fish_type_id);

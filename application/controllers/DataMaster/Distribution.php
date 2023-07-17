@@ -16,7 +16,6 @@ class Distribution extends CI_Controller
     public function index()
     {
         $data['title'] = "Data Master Distribusi";
-        $data['dataMaster'] = $this->db->get_where('user_sub_menu', ['menu_id' => 14])->result_array();
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
         $data['distributions'] = $this->db->get('distribution')->result_array();
         $this->form_validation->set_rules('distribution', 'Distribution', 'trim|required');

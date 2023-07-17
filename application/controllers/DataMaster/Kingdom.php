@@ -16,9 +16,8 @@ class Kingdom extends CI_Controller
     public function index()
     {
         $data['title'] = "Data kingdom";
-        $data['dataMaster'] = $this->db->get_where('user_sub_menu', ['menu_id' => 14])->result_array();
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
-        $data['kingdoms'] = $this->db->get('kingdoms')->result_array();
+        $data['kingdoms'] = $this->db->get_where('kingdoms', ['kingdoms.id !=' => 0])->result_array();
 
         $this->form_validation->set_rules('kingdom', 'kingdom', 'trim|required');
 

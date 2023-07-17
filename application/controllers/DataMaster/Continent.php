@@ -16,7 +16,6 @@ class Continent extends CI_Controller
     public function index()
     {
         $data['title'] = "Data Master Benua";
-        $data['dataMaster'] = $this->db->get_where('user_sub_menu', ['menu_id' => 14])->result_array();
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
         $data['continents'] = $this->db->get('continent')->result_array();
         $this->form_validation->set_rules('continent', 'Continent', 'trim|required');

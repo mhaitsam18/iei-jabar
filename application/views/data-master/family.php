@@ -34,7 +34,6 @@
                                     <th scope="col">#</th>
                                     <th scope="col">Nama Latin Famili</th>
                                     <th scope="col">Nama Umum</th>
-                                    <th scope="col">Subordo</th>
                                     <th scope="col">Ordo</th>
                                     <th scope="col">Kelas</th>
                                     <th scope="col">Filum</th>
@@ -52,7 +51,6 @@
                                         <td><?= $no++ ?></td>
                                         <td><?= $family['family'] ?></td>
                                         <td><?= $family['general_name'] ?></td>
-                                        <td><?= $family['subordo'] ?></td>
                                         <td><?= $family['ordo'] ?></td>
                                         <td><?= $family['class'] ?></td>
                                         <td><?= $family['phylum'] ?></td>
@@ -61,7 +59,7 @@
                                         <td><img src="<?= base_url('assets/img/' . $family['picture']) ?>" class="img-thumbnail img-fluid"></td>
                                         <td>
 
-                                            <a href="#" class="badge bg-success updateFamily" data-bs-toggle="modal" data-bs-target="#edit" data-id="<?= $family['id'] ?>" data-family="<?= $family['family'] ?>" data-general_name="<?= $family['general_name'] ?>" data-description="<?= $family['description'] ?>" data-picture="<?= $family['picture'] ?>" data-ordo_id="<?= $family['ordo_id'] ?>" data-subordo_id="<?= $family['subordo_id'] ?>">Ubah</a>
+                                            <a href="#" class="badge bg-success updateFamily" data-bs-toggle="modal" data-bs-target="#edit" data-id="<?= $family['id'] ?>" data-family="<?= $family['family'] ?>" data-general_name="<?= $family['general_name'] ?>" data-description="<?= $family['description'] ?>" data-picture="<?= $family['picture'] ?>" data-ordo_id="<?= $family['ordo_id'] ?>">Ubah</a>
 
                                             <a href="<?= base_url("DataMaster/family/delete/$family[id]"); ?>" class="badge bg-danger tombol-hapus" data-hapus="family">Hapus</a>
                                         </td>
@@ -109,16 +107,6 @@
                         </select>
                     </div>
                     <?php echo form_error('ordo_id', '<span class="text-danger">', '</span>'); ?>
-                    <div class="mb-3">
-                        <label for="subordo_id">Subordo</label>
-                        <select class="form-select select2-add" id="subordo_id" name="subordo_id">
-                            <option value="" selected disabled>Pilih Subordo</option>
-                            <?php foreach ($subordos as $subordo) : ?>
-                                <option value="<?= $subordo['id'] ?>"><?= $subordo['subordo'] ?></option>
-                            <?php endforeach; ?>
-                        </select>
-                    </div>
-                    <?php echo form_error('subordo_id', '<span class="text-danger">', '</span>'); ?>
                     <div class="mb-3">
                         <label for="description">Deskripsi</label>
                         <textarea class="form-control" id="description" name="description"></textarea>
@@ -173,16 +161,6 @@
                     </div>
                     <?php echo form_error('ordo_id', '<span class="text-danger">', '</span>'); ?>
                     <div class="mb-3">
-                        <label for="subordo_id">Subordo</label>
-                        <select class="form-select select2-edit" id="subordo_id" name="subordo_id">
-                            <option value="" selected disabled>Pilih Subordo</option>
-                            <?php foreach ($subordos as $subordo) : ?>
-                                <option value="<?= $subordo['id'] ?>"><?= $subordo['subordo'] ?></option>
-                            <?php endforeach; ?>
-                        </select>
-                    </div>
-                    <?php echo form_error('subordo_id', '<span class="text-danger">', '</span>'); ?>
-                    <div class="mb-3">
                         <label for="description">Deskripsi</label>
                         <textarea class="form-control" id="description" name="description"></textarea>
                     </div>
@@ -233,9 +211,6 @@
 
         var ordo_id = $(this).data('ordo_id');
         $(".modal-body  #ordo_id").val(ordo_id);
-
-        var subordo_id = $(this).data('subordo_id');
-        $(".modal-body  #subordo_id").val(subordo_id);
 
         var description = $(this).data('description');
         $(".modal-body  #description").val(description);

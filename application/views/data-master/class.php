@@ -35,10 +35,7 @@
                                     <th scope="col">#</th>
                                     <th scope="col">Nama Latin Kelas</th>
                                     <th scope="col">Nama Umum</th>
-                                    <th scope="col">Superkelas</th>
                                     <th scope="col">Filum</th>
-                                    <th scope="col">Subfilum</th>
-                                    <th scope="col">Infrafilum</th>
                                     <th scope="col">Kingdom</th>
                                     <th scope="col" style="max-width: 100px;">Deskripsi</th>
                                     <th scope="col">Jumlah Spesies</th>
@@ -54,17 +51,14 @@
                                         <td><?= $no++ ?></td>
                                         <td><?= $class['class'] ?></td>
                                         <td><?= $class['general_name'] ?></td>
-                                        <td><?= $class['superclass'] ?></td>
                                         <td><?= $class['phylum'] ?></td>
-                                        <td><?= $class['subphylum'] ?></td>
-                                        <td><?= $class['infraphylum'] ?></td>
                                         <td><?= $class['kingdom'] ?></td>
                                         <td><?= $class['description'] ?></td>
                                         <td><?= $class['species'] ?></td>
                                         <td><img src="<?= base_url('assets/img/' . $class['picture']) ?>" class="img-thumbnail img-fluid"></td>
                                         <td>
 
-                                            <a href="#" class="badge bg-success updateclass" data-bs-toggle="modal" data-bs-target="#edit" data-id="<?= $class['id'] ?>" data-class="<?= $class['class'] ?>" data-general_name="<?= $class['general_name'] ?>" data-species="<?= $class['species'] ?>" data-description="<?= $class['description'] ?>" data-picture="<?= $class['picture'] ?>" data-phylum_id="<?= $class['phylum_id'] ?>" data-superclass_id="<?= $class['superclass_id'] ?>" data-subphylum_id="<?= $class['subphylum_id'] ?>" data-infraphylum_id="<?= $class['infraphylum_id'] ?>">Ubah</a>
+                                            <a href="#" class="badge bg-success updateclass" data-bs-toggle="modal" data-bs-target="#edit" data-id="<?= $class['id'] ?>" data-class="<?= $class['class'] ?>" data-general_name="<?= $class['general_name'] ?>" data-species="<?= $class['species'] ?>" data-description="<?= $class['description'] ?>" data-picture="<?= $class['picture'] ?>" data-phylum_id="<?= $class['phylum_id'] ?>">Ubah</a>
 
                                             <a href="<?= base_url("DataMaster/class/delete/$class[id]"); ?>" class="badge bg-danger tombol-hapus" data-hapus="class">Hapus</a>
                                         </td>
@@ -117,36 +111,6 @@
                         </select>
                     </div>
                     <?php echo form_error('phylum_id', '<span class="text-danger">', '</span>'); ?>
-                    <div class="mb-3">
-                        <label for="subphylum_id">Subfilum</label>
-                        <select class="form-select select2-add" id="subphylum_id" name="subphylum_id">
-                            <option value="" selected disabled>Pilih Subfilum</option>
-                            <?php foreach ($subphylums as $subphylum) : ?>
-                                <option value="<?= $subphylum['id'] ?>"><?= $subphylum['subphylum'] ?></option>
-                            <?php endforeach; ?>
-                        </select>
-                    </div>
-                    <?php echo form_error('subphylum_id', '<span class="text-danger">', '</span>'); ?>
-                    <div class="mb-3">
-                        <label for="infraphylum_id">Infrafilum</label>
-                        <select class="form-select select2-add" id="infraphylum_id" name="infraphylum_id">
-                            <option value="" selected disabled>Pilih Infrafilum</option>
-                            <?php foreach ($infraphylums as $infraphylum) : ?>
-                                <option value="<?= $infraphylum['id'] ?>"><?= $infraphylum['infraphylum'] ?></option>
-                            <?php endforeach; ?>
-                        </select>
-                    </div>
-                    <?php echo form_error('infraphylum_id', '<span class="text-danger">', '</span>'); ?>
-                    <div class="mb-3">
-                        <label for="superclass_id">SuperKelas</label>
-                        <select class="form-select select2-add" id="superclass_id" name="superclass_id">
-                            <option value="" selected disabled>Pilih SuperKelas</option>
-                            <?php foreach ($superclasses as $superclass) : ?>
-                                <option value="<?= $superclass['id'] ?>"><?= $superclass['superclass'] ?></option>
-                            <?php endforeach; ?>
-                        </select>
-                    </div>
-                    <?php echo form_error('superclass_id', '<span class="text-danger">', '</span>'); ?>
                     <div class="mb-3">
                         <label for="description">Deskripsi</label>
                         <textarea class="form-control" id="description" name="description" placeholder="description Name"></textarea>
@@ -206,36 +170,6 @@
                     </div>
                     <?php echo form_error('phylum_id', '<span class="text-danger">', '</span>'); ?>
                     <div class="mb-3">
-                        <label for="subphylum_id">Subfilum</label>
-                        <select class="form-select select2-edit" id="subphylum_id" name="subphylum_id">
-                            <option value="" selected disabled>Pilih Subfilum</option>
-                            <?php foreach ($subphylums as $subphylum) : ?>
-                                <option value="<?= $subphylum['id'] ?>"><?= $subphylum['subphylum'] ?></option>
-                            <?php endforeach; ?>
-                        </select>
-                    </div>
-                    <?php echo form_error('subphylum_id', '<span class="text-danger">', '</span>'); ?>
-                    <div class="mb-3">
-                        <label for="infraphylum_id">Infrafilum</label>
-                        <select class="form-select select2-edit" id="infraphylum_id" name="infraphylum_id">
-                            <option value="" selected disabled>Pilih Infrafilum</option>
-                            <?php foreach ($infraphylums as $infraphylum) : ?>
-                                <option value="<?= $infraphylum['id'] ?>"><?= $infraphylum['infraphylum'] ?></option>
-                            <?php endforeach; ?>
-                        </select>
-                    </div>
-                    <?php echo form_error('infraphylum_id', '<span class="text-danger">', '</span>'); ?>
-                    <div class="mb-3">
-                        <label for="superclass_id">SuperKelas</label>
-                        <select class="form-select select2-edit" id="superclass_id" name="superclass_id">
-                            <option value="" selected disabled>Pilih SuperKelas</option>
-                            <?php foreach ($superclasses as $superclass) : ?>
-                                <option value="<?= $superclass['id'] ?>"><?= $superclass['superclass'] ?></option>
-                            <?php endforeach; ?>
-                        </select>
-                    </div>
-                    <?php echo form_error('superclass_id', '<span class="text-danger">', '</span>'); ?>
-                    <div class="mb-3">
                         <label for="description">Deskripsi</label>
                         <textarea class="form-control" id="description" name="description" placeholder="description Name"></textarea>
                     </div>
@@ -286,15 +220,6 @@
 
         var phylum_id = $(this).data('phylum_id');
         $(".modal-body  #phylum_id").val(phylum_id);
-
-        var subphylum_id = $(this).data('subphylum_id');
-        $(".modal-body  #subphylum_id").val(subphylum_id);
-
-        var infraphylum_id = $(this).data('infraphylum_id');
-        $(".modal-body  #infraphylum_id").val(infraphylum_id);
-
-        var superclass_id = $(this).data('superclass_id');
-        $(".modal-body  #superclass_id").val(superclass_id);
 
         var description = $(this).data('description');
         $(".modal-body  #description").val(description);

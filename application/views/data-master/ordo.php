@@ -35,7 +35,6 @@
                                     <th scope="col">#</th>
                                     <th scope="col">Nama Latin Ordo</th>
                                     <th scope="col">Nama Umum</th>
-                                    <th scope="col">Subkelas</th>
                                     <th scope="col">Kelas</th>
                                     <th scope="col">Filum</th>
                                     <th scope="col">Kingdom</th>
@@ -52,7 +51,6 @@
                                         <td><?= $no++ ?></td>
                                         <td><?= $ordo['ordo'] ?></td>
                                         <td><?= $ordo['general_name'] ?></td>
-                                        <td><?= $ordo['subclass'] ?></td>
                                         <td><?= $ordo['class'] ?></td>
                                         <td><?= $ordo['phylum'] ?></td>
                                         <td><?= $ordo['kingdom'] ?></td>
@@ -60,7 +58,7 @@
                                         <td><img src="<?= base_url('assets/img/' . $ordo['picture']) ?>" class="img-thumbnail img-fluid"></td>
                                         <td>
 
-                                            <a href="#" class="badge bg-success updateordo" data-bs-toggle="modal" data-bs-target="#edit" data-id="<?= $ordo['id'] ?>" data-ordo="<?= $ordo['ordo'] ?>" data-general_name="<?= $ordo['general_name'] ?>" data-description="<?= $ordo['description'] ?>" data-picture="<?= $ordo['picture'] ?>" data-class_id="<?= $ordo['class_id'] ?>" data-subclass_id="<?= $ordo['subclass_id'] ?>">Ubah</a>
+                                            <a href="#" class="badge bg-success updateordo" data-bs-toggle="modal" data-bs-target="#edit" data-id="<?= $ordo['id'] ?>" data-ordo="<?= $ordo['ordo'] ?>" data-general_name="<?= $ordo['general_name'] ?>" data-description="<?= $ordo['description'] ?>" data-picture="<?= $ordo['picture'] ?>" data-class_id="<?= $ordo['class_id'] ?>">Ubah</a>
 
                                             <a href="<?= base_url("DataMaster/ordo/delete/$ordo[id]"); ?>" class="badge bg-danger tombol-hapus" data-hapus="ordo">Hapus</a>
                                         </td>
@@ -108,16 +106,6 @@
                         </select>
                     </div>
                     <?php echo form_error('class_id', '<span class="text-danger">', '</span>'); ?>
-                    <div class="mb-3">
-                        <label for="subclass_id">Subkelas</label>
-                        <select class="form-select select2-add" id="subclass_id" name="subclass_id">
-                            <option value="" selected disabled>Pilih Subkelas</option>
-                            <?php foreach ($subclasses as $subclass) : ?>
-                                <option value="<?= $subclass['id'] ?>"><?= $subclass['subclass'] ?></option>
-                            <?php endforeach; ?>
-                        </select>
-                    </div>
-                    <?php echo form_error('subclass_id', '<span class="text-danger">', '</span>'); ?>
                     <div class="mb-3">
                         <label for="description">Deskripsi</label>
                         <textarea class="form-control" id="description" name="description"></textarea>
@@ -172,16 +160,6 @@
                     </div>
                     <?php echo form_error('class_id', '<span class="text-danger">', '</span>'); ?>
                     <div class="mb-3">
-                        <label for="subclass_id">Subkelas</label>
-                        <select class="form-select select2-edit" id="subclass_id" name="subclass_id">
-                            <option value="" selected disabled>Pilih Subkelas</option>
-                            <?php foreach ($subclasses as $subclass) : ?>
-                                <option value="<?= $subclass['id'] ?>"><?= $subclass['subclass'] ?></option>
-                            <?php endforeach; ?>
-                        </select>
-                    </div>
-                    <?php echo form_error('subclass_id', '<span class="text-danger">', '</span>'); ?>
-                    <div class="mb-3">
                         <label for="description">Deskripsi</label>
                         <textarea class="form-control" id="description" name="description"></textarea>
                     </div>
@@ -232,9 +210,6 @@
 
         var class_id = $(this).data('class_id');
         $(".modal-body  #class_id").val(class_id);
-
-        var subclass_id = $(this).data('subclass_id');
-        $(".modal-body  #subclass_id").val(subclass_id);
 
         var description = $(this).data('description');
         $(".modal-body  #description").val(description);

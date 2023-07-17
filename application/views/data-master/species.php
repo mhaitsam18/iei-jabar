@@ -35,7 +35,6 @@
                                     <th scope="col">#</th>
                                     <th scope="col">Nama Latin Spesies</th>
                                     <th scope="col">Nama Umum</th>
-                                    <th scope="col">Subgenus</th>
                                     <th scope="col">Genus</th>
                                     <th scope="col">Famili</th>
                                     <th scope="col">Ordo</th>
@@ -55,7 +54,6 @@
                                         <td><?= $no++ ?></td>
                                         <td><?= $species['species'] ?></td>
                                         <td><?= $species['general_name'] ?></td>
-                                        <td><?= $species['subgenus'] ?></td>
                                         <td><?= $species['genus'] ?></td>
                                         <td><?= $species['family'] ?></td>
                                         <td><?= $species['ordo'] ?></td>
@@ -66,7 +64,7 @@
                                         <td><img src="<?= base_url('assets/img/' . $species['picture']) ?>" class="img-thumbnail img-fluid"></td>
                                         <td>
 
-                                            <a href="#" class="badge bg-success updatespecies" data-bs-toggle="modal" data-bs-target="#edit" data-id="<?= $species['id'] ?>" data-species="<?= $species['species'] ?>" data-general_name="<?= $species['general_name'] ?>" data-description="<?= $species['description'] ?>" data-picture="<?= $species['picture'] ?>" data-genus_id="<?= $species['genus_id'] ?>" data-subgenus_id="<?= $species['subgenus_id'] ?>">Ubah</a>
+                                            <a href="#" class="badge bg-success updatespecies" data-bs-toggle="modal" data-bs-target="#edit" data-id="<?= $species['id'] ?>" data-species="<?= $species['species'] ?>" data-general_name="<?= $species['general_name'] ?>" data-description="<?= $species['description'] ?>" data-picture="<?= $species['picture'] ?>" data-genus_id="<?= $species['genus_id'] ?>">Ubah</a>
 
                                             <a href="<?= base_url("DataMaster/species/delete/$species[id]"); ?>" class="badge bg-danger tombol-hapus" data-hapus="species">Hapus</a>
                                         </td>
@@ -114,16 +112,6 @@
                         </select>
                     </div>
                     <?php echo form_error('genus_id', '<span class="text-danger">', '</span>'); ?>
-                    <div class="mb-3">
-                        <label for="subgenus_id">Subgenus</label>
-                        <select class="form-select select2-add" id="subgenus_id" name="subgenus_id">
-                            <option value="" selected disabled>Pilih Subgenus</option>
-                            <?php foreach ($subgenera as $subgenus) : ?>
-                                <option value="<?= $subgenus['id'] ?>"><?= $subgenus['subgenus'] ?></option>
-                            <?php endforeach; ?>
-                        </select>
-                    </div>
-                    <?php echo form_error('subgenus_id', '<span class="text-danger">', '</span>'); ?>
                     <div class="mb-3">
                         <label for="description">Deskripsi</label>
                         <textarea class="form-control" id="description" name="description"></textarea>
@@ -178,16 +166,6 @@
                     </div>
                     <?php echo form_error('genus_id', '<span class="text-danger">', '</span>'); ?>
                     <div class="mb-3">
-                        <label for="subgenus_id">Subfamili</label>
-                        <select class="form-select select2-edit" id="subgenus_id" name="subgenus_id">
-                            <option value="" selected disabled>Pilih Subfamili</option>
-                            <?php foreach ($subgenera as $subgenus) : ?>
-                                <option value="<?= $subgenus['id'] ?>"><?= $subgenus['subgenus'] ?></option>
-                            <?php endforeach; ?>
-                        </select>
-                    </div>
-                    <?php echo form_error('subgenus_id', '<span class="text-danger">', '</span>'); ?>
-                    <div class="mb-3">
                         <label for="description">Deskripsi</label>
                         <textarea class="form-control" id="description" name="description"></textarea>
                     </div>
@@ -239,9 +217,6 @@
 
         var genus_id = $(this).data('genus_id');
         $(".modal-body  #genus_id").val(genus_id);
-
-        var subgenus_id = $(this).data('subgenus_id');
-        $(".modal-body  #subgenus_id").val(subgenus_id);
 
         var description = $(this).data('description');
         $(".modal-body  #description").val(description);

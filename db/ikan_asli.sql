@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 17, 2023 at 09:54 PM
+-- Generation Time: Jul 17, 2023 at 09:21 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.1.17
 
@@ -174,6 +174,9 @@ CREATE TABLE `class` (
   `class` varchar(255) NOT NULL,
   `general_name` varchar(255) DEFAULT NULL,
   `phylum_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `subphylum_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `infraphylum_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `superclass_id` bigint(20) UNSIGNED DEFAULT NULL,
   `description` text DEFAULT NULL,
   `picture` varchar(255) DEFAULT NULL,
   `species` int(11) DEFAULT NULL,
@@ -185,30 +188,30 @@ CREATE TABLE `class` (
 -- Dumping data for table `class`
 --
 
-INSERT INTO `class` (`id`, `class`, `general_name`, `phylum_id`, `description`, `picture`, `species`, `created_at`, `update_at`) VALUES
-(0, 'Undefined', 'Undefined', 0, NULL, NULL, NULL, '2023-07-17 17:52:28', '2023-07-17 17:52:28'),
-(1, 'Myxini', 'ikan seperti lintah laut', 9, 'Ikan hag (bahasa Inggris: hagfish) adalah hewan serupa ikan yang memiliki tulang belakang (vertebra) semu. Hewan air ini dianggap sebagai bentuk ikan purba. Habitatnya adalah laut, sungai, dan danau.\n\nIkan hag tidak diklasifikasikan sebagai vertebrata karena tidak mempunyai tulang belakang (vertebra) sejati; juga tidak dapat dianggap avertebrata karena ia memiliki notokorda pada tahap awal perkembangan hidupnya dan tengkorak yang melindungi otaknya. Oleh para zoologiwan, remang dimasukkan ke dalam filum Chordata, klad Craniata, suprakelas Agnatha, kelas Myxini.', 'classify/64a3f55888fac.jpeg', 200, '2023-06-10 19:49:52', '2023-06-10 19:49:52'),
-(2, 'Petromyzontidae', 'Ikan Lamprey', 9, 'Lamprey adalah garis keturunan purba dari ikan tak berahang dari ordo Petromyzontiformes, ditempatkan di superclass Cyclostomata. Lamprey dewasa dapat dicirikan dengan mulut penghisap yang bergigi seperti corong.', 'classify/64a3f75277f80.jpeg', 0, '2023-06-10 19:52:30', '2023-06-10 19:52:30'),
-(3, 'Petromyzontida', '', 9, 'Hyperoartia or Petromyzontida is a disputed group of vertebrates that includes the modern lampreys and their fossil relatives. Examples of hyperoartians from early in their fossil record are Endeiolepis and Euphanerops (which possessed a calcified branchial basket), fish-like animals with hypocercal tails that lived during the Late Devonian Period. Some paleontologists still place these forms among the ', 'classify/64a3f75d6c5b3.jpeg', 0, '2023-06-10 19:54:29', '2023-06-10 19:54:29'),
-(4, 'Conodonta', '', 9, 'diklasifikasikan dalam kelas Conodonta. Selama bertahun-tahun, mereka hanya diketahui dari elemen oral mirip gigi yang ditemukan di pengasingan dan sekarang disebut elemen conodont. Pengetahuan mengenai jaringan halus masih terbatas.', 'classify/64a3f76b9ef63.jpeg', 0, '2023-06-10 19:56:27', '2023-06-10 19:56:27'),
-(5, 'Placodermi', 'ikan berperisai', 9, 'Placodermi (Dari bahasa yunani πλάξ = Perisai dan δέρμα = Kulit) adalah spesies ikan berperisai yang telah punah, diketahui dari fossilnya, spesies ini hidup diantara periode Silur, hingga periode Devon (periode) akhir. Kepala ikan ini, dilindungi oleh plat keras, sedangkan, seluruh bagian tubuh lainnya tidak diselimuti oleh perisai ini. Taxa Placodermi, dianggap sebagai paraphyleti yang berkerabat dengan seluruh ikan yang hidup saat ini.', 'classify/64a3f78e28ba0.jpeg', 0, '2023-06-10 19:58:34', '2023-06-10 19:58:34'),
-(6, 'Chondrichthyes', 'ikan bertulang rawan', 9, 'Chondrichthyes atau ikan bertulang rawan adalah ikan berahang, mempunyai sirip berpasangan, lubang hidung berpasangan, sisik, jantung beruang dua, dan rangka yang terdiri atas tulang rawan bukan tulang sejati. Mereka dibagi menjadi dua subkelas: Elasmobranchii (Hiu dan Pari ) dan Holocephali (kimera atau hiu hantu, terkadang dipisahkan menjadi kelas tersendiri).', 'classify/64a3f78423a86.jpg', 0, '2023-06-10 19:58:34', '2023-06-10 19:58:34'),
-(7, 'Acanthodii', 'ikan Basal', 9, 'Acanthodii atau acanthodians adalah kelas gnathostom yang telah punah. Mereka saat ini dianggap mewakili tingkat parafiletik dari berbagai garis keturunan ikan basal hingga Chondrichthyes yang masih ada, yang mencakup hiu, pari, dan chimaera yang masih hidup.', 'classify/64a3f79a18cc6.jpg', 0, '2023-06-10 19:58:34', '2023-06-10 19:58:34'),
-(8, 'Actinopterygii', 'ikan bersirip kipas', 9, 'Actinopterygii (/ˌæktɪnɒptəˈrɪdʒiaɪ/; dari actino-, berarti ', 'classify/64a3f7b7445cf.jpg', 0, '2023-06-10 19:58:34', '2023-06-10 19:58:34'),
-(9, 'Sarcopterygii', 'ikan bersirip cuping', 9, 'Sarcopterygii - Crossopterygii merupakan kelas dari Chordata bertulang sejati yang mengembangkan anggota badan berciri mirip tungkai: tebal, berdaging, dan juga memiliki tulang. Anggotanya adalah ', 'classify/64a3f7c295ef5.png', 0, '2023-06-10 19:58:34', '2023-06-10 19:58:34'),
-(10, 'Mammalia laut', 'ikan seperti paus dan lumba-lumba', 9, '', 'classify/64a3f7cbed19e.jpg', 128, '2023-06-11 02:29:58', '2023-06-11 02:29:58'),
-(11, 'Cephalaspidomorphi', 'ikan tak berahang (primitif)', 9, 'Cephalaspidomorphs adalah sekelompok ikan tanpa rahang yang dinamai Cephalaspis dari osteostracans. Sebagian besar ahli biologi menganggap takson ini telah punah, tetapi nama ini kadang-kadang digunakan dalam klasifikasi lamprey, karena lamprey pernah dianggap berkerabat dengan sefalaspid. Jika lamprey dimasukkan, mereka akan memperluas jangkauan kelompok yang diketahui dari periode Silurian dan Devonian hingga saat ini. Mereka adalah kerabat terdekat ikan berahang, yang muncul dari dalam diri mereka dan akan bertahan hidup jika ikan berahang dimasukkan.', 'classify/64a3f83c83632.jpg', 0, '2023-06-11 02:38:31', '2023-06-11 02:38:31'),
-(12, 'Amphibia', NULL, 9, NULL, NULL, NULL, '2023-06-11 02:38:31', '2023-06-11 02:38:31'),
-(13, 'Aves', NULL, 9, NULL, NULL, NULL, '2023-06-11 02:38:31', '2023-06-11 02:38:31'),
-(14, 'Reptilia', NULL, 9, NULL, NULL, NULL, '2023-06-11 02:38:31', '2023-06-11 02:38:31'),
-(15, 'Sauropsida', NULL, 9, 'Sauropsida (\"wajah kadal\") adalah klad amniota, secara luas setara dengan kelas Reptilia. Sauropsida adalah takson saudara Synapsida, klad amniota yang berisi mamalia sebagai satu-satunya representatif modern. Meskipun synapsida awal secara historis telah dirujuk sebagai \"reptil mirip mamalia\", seluruh synapsida lebih dekat kekerabatannya ke mamalia ketimbang reptil modern. Di sisi lain, sauropsida mengandung seluruh amniota yang lebih dekat ke reptil modern ketimbang mamalia. Ini termasuk Aves (burung), yang sekarang dikenal sebagai subkelompok reptil archosauria meskipun aslinya dinamai sebagai kelas terpisah di taksonomi Linnaeus.', NULL, NULL, '2023-06-11 02:40:04', '2023-06-11 02:40:04'),
-(16, 'Synapsida', NULL, 9, 'Synapsida (\'fused arch\'), atau theropsida (\'wajah hewan\'), adalah kelompok hewan yang termasuk mamalia dan segala kerabat dekatnya selain amniota hidup lainnya.[4] Anggota non-mamalia disebut sebagai reptil mirip mammalia dalam sistematika klasik,[5][6] tetapi disebut \"mamalia batang\" atau \"proto-mammalia\" dalam terminologi kladistika.', NULL, NULL, '2023-06-11 02:40:04', '2023-06-11 02:40:04'),
-(17, 'Thelodonti', 'Ikan Purba', 9, 'Thelodonti adalah kelas ikan tak berahang Paleozoikum yang telah punah dengan sisik yang khas, bukan pelat pelindung yang besar. Ada banyak perdebatan mengenai apakah kelompok tersebut mewakili pengelompokan monofiletik, atau kelompok induk yang berbeda dengan garis utama ikan tanpa rahang dan berahang.', NULL, NULL, '2023-06-11 02:51:48', '2023-06-11 02:51:48'),
-(18, 'Anaspida', 'Ikan Purba', 9, 'Anaspida adalah kelompok vertebrata tanpa rahang yang telah punah secara evolusioner yang ada dari periode Silur awal hingga akhir periode Devonian. Mereka secara klasik dianggap sebagai nenek moyang lamprey.', NULL, NULL, '2023-06-11 02:51:48', '2023-06-11 02:51:48'),
-(19, 'Galeaspida', 'Ikan Purba', 9, 'aleaspida adalah takson ikan laut dan air tawar yang sudah punah. Nama ini berasal dari galea, kata Latin untuk helm, dan mengacu pada perisai tulang besar di kepala mereka.', NULL, NULL, '2023-06-11 02:51:48', '2023-06-11 02:51:48'),
-(20, 'Pituriaspida', 'Ikan Purba', 9, 'Pituriaspida adalah sekelompok kecil ikan tanpa rahang lapis baja yang punah dengan mimbar seperti hidung yang luar biasa, yang hidup di lingkungan delta laut Devonian Tengah Australia', NULL, NULL, '2023-06-11 02:51:48', '2023-06-11 02:51:48'),
-(21, 'Osteostraci', 'Ikan Purba', 9, 'Kelas Osteostraci adalah takson ikan tanpa rahang berlapis tulang yang telah punah, disebut \"ostracoderms\", yang hidup di tempat yang sekarang disebut Amerika Utara, Eropa, dan Rusia dari Silur Tengah hingga Devon Akhir.', NULL, NULL, '2023-06-11 02:51:48', '2023-06-11 02:51:48'),
-(22, 'Hyperoartia', 'Lamprey Modern', 9, 'Hyperoartia atau Petromyzontida adalah kelompok vertebrata yang disengketakan yang mencakup lamprey modern dan kerabat fosilnya. Contoh hyperoartians dari awal catatan fosil mereka adalah Endeiolepis dan Euphanerops, hewan mirip ikan dengan ekor hypocercal yang hidup selama Periode Devon Akhir.', NULL, NULL, '2023-06-11 02:56:13', '2023-06-11 02:56:13');
+INSERT INTO `class` (`id`, `class`, `general_name`, `phylum_id`, `subphylum_id`, `infraphylum_id`, `superclass_id`, `description`, `picture`, `species`, `created_at`, `update_at`) VALUES
+(0, 'Undefined', 'Undefined', 0, 0, 0, 0, NULL, NULL, NULL, '2023-07-17 17:52:28', '2023-07-17 17:52:28'),
+(1, 'Myxini', 'ikan seperti lintah laut', 9, 3, 1, 2, 'Ikan hag (bahasa Inggris: hagfish) adalah hewan serupa ikan yang memiliki tulang belakang (vertebra) semu. Hewan air ini dianggap sebagai bentuk ikan purba. Habitatnya adalah laut, sungai, dan danau.\n\nIkan hag tidak diklasifikasikan sebagai vertebrata karena tidak mempunyai tulang belakang (vertebra) sejati; juga tidak dapat dianggap avertebrata karena ia memiliki notokorda pada tahap awal perkembangan hidupnya dan tengkorak yang melindungi otaknya. Oleh para zoologiwan, remang dimasukkan ke dalam filum Chordata, klad Craniata, suprakelas Agnatha, kelas Myxini.', 'classify/64a3f55888fac.jpeg', 200, '2023-06-10 19:49:52', '2023-06-10 19:49:52'),
+(2, 'Petromyzontidae', 'Ikan Lamprey', 9, 3, 1, 2, 'Lamprey adalah garis keturunan purba dari ikan tak berahang dari ordo Petromyzontiformes, ditempatkan di superclass Cyclostomata. Lamprey dewasa dapat dicirikan dengan mulut penghisap yang bergigi seperti corong.', 'classify/64a3f75277f80.jpeg', 0, '2023-06-10 19:52:30', '2023-06-10 19:52:30'),
+(3, 'Petromyzontida', '', 9, 3, 1, 2, 'Hyperoartia or Petromyzontida is a disputed group of vertebrates that includes the modern lampreys and their fossil relatives. Examples of hyperoartians from early in their fossil record are Endeiolepis and Euphanerops (which possessed a calcified branchial basket), fish-like animals with hypocercal tails that lived during the Late Devonian Period. Some paleontologists still place these forms among the ', 'classify/64a3f75d6c5b3.jpeg', 0, '2023-06-10 19:54:29', '2023-06-10 19:54:29'),
+(4, 'Conodonta', '', 9, 3, 1, 2, 'diklasifikasikan dalam kelas Conodonta. Selama bertahun-tahun, mereka hanya diketahui dari elemen oral mirip gigi yang ditemukan di pengasingan dan sekarang disebut elemen conodont. Pengetahuan mengenai jaringan halus masih terbatas.', 'classify/64a3f76b9ef63.jpeg', 0, '2023-06-10 19:56:27', '2023-06-10 19:56:27'),
+(5, 'Placodermi', 'ikan berperisai', 9, 3, 2, 3, 'Placodermi (Dari bahasa yunani πλάξ = Perisai dan δέρμα = Kulit) adalah spesies ikan berperisai yang telah punah, diketahui dari fossilnya, spesies ini hidup diantara periode Silur, hingga periode Devon (periode) akhir. Kepala ikan ini, dilindungi oleh plat keras, sedangkan, seluruh bagian tubuh lainnya tidak diselimuti oleh perisai ini. Taxa Placodermi, dianggap sebagai paraphyleti yang berkerabat dengan seluruh ikan yang hidup saat ini.', 'classify/64a3f78e28ba0.jpeg', 0, '2023-06-10 19:58:34', '2023-06-10 19:58:34'),
+(6, 'Chondrichthyes', 'ikan bertulang rawan', 9, 3, 2, 3, 'Chondrichthyes atau ikan bertulang rawan adalah ikan berahang, mempunyai sirip berpasangan, lubang hidung berpasangan, sisik, jantung beruang dua, dan rangka yang terdiri atas tulang rawan bukan tulang sejati. Mereka dibagi menjadi dua subkelas: Elasmobranchii (Hiu dan Pari ) dan Holocephali (kimera atau hiu hantu, terkadang dipisahkan menjadi kelas tersendiri).', 'classify/64a3f78423a86.jpg', 0, '2023-06-10 19:58:34', '2023-06-10 19:58:34'),
+(7, 'Acanthodii', 'ikan Basal', 9, 3, 2, 3, 'Acanthodii atau acanthodians adalah kelas gnathostom yang telah punah. Mereka saat ini dianggap mewakili tingkat parafiletik dari berbagai garis keturunan ikan basal hingga Chondrichthyes yang masih ada, yang mencakup hiu, pari, dan chimaera yang masih hidup.', 'classify/64a3f79a18cc6.jpg', 0, '2023-06-10 19:58:34', '2023-06-10 19:58:34'),
+(8, 'Actinopterygii', 'ikan bersirip kipas', 9, 3, 2, 4, 'Actinopterygii (/ˌæktɪnɒptəˈrɪdʒiaɪ/; dari actino-, berarti ', 'classify/64a3f7b7445cf.jpg', 0, '2023-06-10 19:58:34', '2023-06-10 19:58:34'),
+(9, 'Sarcopterygii', 'ikan bersirip cuping', 9, 3, 2, 4, 'Sarcopterygii - Crossopterygii merupakan kelas dari Chordata bertulang sejati yang mengembangkan anggota badan berciri mirip tungkai: tebal, berdaging, dan juga memiliki tulang. Anggotanya adalah ', 'classify/64a3f7c295ef5.png', 0, '2023-06-10 19:58:34', '2023-06-10 19:58:34'),
+(10, 'Mammalia laut', 'ikan seperti paus dan lumba-lumba', 9, 3, 2, NULL, '', 'classify/64a3f7cbed19e.jpg', 128, '2023-06-11 02:29:58', '2023-06-11 02:29:58'),
+(11, 'Cephalaspidomorphi', 'ikan tak berahang (primitif)', 9, 3, NULL, NULL, 'Cephalaspidomorphs adalah sekelompok ikan tanpa rahang yang dinamai Cephalaspis dari osteostracans. Sebagian besar ahli biologi menganggap takson ini telah punah, tetapi nama ini kadang-kadang digunakan dalam klasifikasi lamprey, karena lamprey pernah dianggap berkerabat dengan sefalaspid. Jika lamprey dimasukkan, mereka akan memperluas jangkauan kelompok yang diketahui dari periode Silurian dan Devonian hingga saat ini. Mereka adalah kerabat terdekat ikan berahang, yang muncul dari dalam diri mereka dan akan bertahan hidup jika ikan berahang dimasukkan.', 'classify/64a3f83c83632.jpg', 0, '2023-06-11 02:38:31', '2023-06-11 02:38:31'),
+(12, 'Amphibia', NULL, 9, 3, 2, 5, NULL, NULL, NULL, '2023-06-11 02:38:31', '2023-06-11 02:38:31'),
+(13, 'Aves', NULL, 9, 3, 2, NULL, NULL, NULL, NULL, '2023-06-11 02:38:31', '2023-06-11 02:38:31'),
+(14, 'Reptilia', NULL, 9, 3, 2, 5, NULL, NULL, NULL, '2023-06-11 02:38:31', '2023-06-11 02:38:31'),
+(15, 'Sauropsida', NULL, 9, 3, 2, 5, 'Sauropsida (\"wajah kadal\") adalah klad amniota, secara luas setara dengan kelas Reptilia. Sauropsida adalah takson saudara Synapsida, klad amniota yang berisi mamalia sebagai satu-satunya representatif modern. Meskipun synapsida awal secara historis telah dirujuk sebagai \"reptil mirip mamalia\", seluruh synapsida lebih dekat kekerabatannya ke mamalia ketimbang reptil modern. Di sisi lain, sauropsida mengandung seluruh amniota yang lebih dekat ke reptil modern ketimbang mamalia. Ini termasuk Aves (burung), yang sekarang dikenal sebagai subkelompok reptil archosauria meskipun aslinya dinamai sebagai kelas terpisah di taksonomi Linnaeus.', NULL, NULL, '2023-06-11 02:40:04', '2023-06-11 02:40:04'),
+(16, 'Synapsida', NULL, 9, 3, 2, 5, 'Synapsida (\'fused arch\'), atau theropsida (\'wajah hewan\'), adalah kelompok hewan yang termasuk mamalia dan segala kerabat dekatnya selain amniota hidup lainnya.[4] Anggota non-mamalia disebut sebagai reptil mirip mammalia dalam sistematika klasik,[5][6] tetapi disebut \"mamalia batang\" atau \"proto-mammalia\" dalam terminologi kladistika.', NULL, NULL, '2023-06-11 02:40:04', '2023-06-11 02:40:04'),
+(17, 'Thelodonti', 'Ikan Purba', 9, 3, NULL, NULL, 'Thelodonti adalah kelas ikan tak berahang Paleozoikum yang telah punah dengan sisik yang khas, bukan pelat pelindung yang besar. Ada banyak perdebatan mengenai apakah kelompok tersebut mewakili pengelompokan monofiletik, atau kelompok induk yang berbeda dengan garis utama ikan tanpa rahang dan berahang.', NULL, NULL, '2023-06-11 02:51:48', '2023-06-11 02:51:48'),
+(18, 'Anaspida', 'Ikan Purba', 9, 3, NULL, NULL, 'Anaspida adalah kelompok vertebrata tanpa rahang yang telah punah secara evolusioner yang ada dari periode Silur awal hingga akhir periode Devonian. Mereka secara klasik dianggap sebagai nenek moyang lamprey.', NULL, NULL, '2023-06-11 02:51:48', '2023-06-11 02:51:48'),
+(19, 'Galeaspida', 'Ikan Purba', 9, 3, NULL, NULL, 'aleaspida adalah takson ikan laut dan air tawar yang sudah punah. Nama ini berasal dari galea, kata Latin untuk helm, dan mengacu pada perisai tulang besar di kepala mereka.', NULL, NULL, '2023-06-11 02:51:48', '2023-06-11 02:51:48'),
+(20, 'Pituriaspida', 'Ikan Purba', 9, 3, NULL, NULL, 'Pituriaspida adalah sekelompok kecil ikan tanpa rahang lapis baja yang punah dengan mimbar seperti hidung yang luar biasa, yang hidup di lingkungan delta laut Devonian Tengah Australia', NULL, NULL, '2023-06-11 02:51:48', '2023-06-11 02:51:48'),
+(21, 'Osteostraci', 'Ikan Purba', 9, 3, NULL, NULL, 'Kelas Osteostraci adalah takson ikan tanpa rahang berlapis tulang yang telah punah, disebut \"ostracoderms\", yang hidup di tempat yang sekarang disebut Amerika Utara, Eropa, dan Rusia dari Silur Tengah hingga Devon Akhir.', NULL, NULL, '2023-06-11 02:51:48', '2023-06-11 02:51:48'),
+(22, 'Hyperoartia', 'Lamprey Modern', 9, 3, NULL, NULL, 'Hyperoartia atau Petromyzontida adalah kelompok vertebrata yang disengketakan yang mencakup lamprey modern dan kerabat fosilnya. Contoh hyperoartians dari awal catatan fosil mereka adalah Endeiolepis dan Euphanerops, hewan mirip ikan dengan ekor hypocercal yang hidup selama Periode Devon Akhir.', NULL, NULL, '2023-06-11 02:56:13', '2023-06-11 02:56:13');
 
 -- --------------------------------------------------------
 
@@ -282,6 +285,7 @@ CREATE TABLE `families` (
   `family` varchar(255) NOT NULL,
   `general_name` varchar(255) DEFAULT NULL,
   `ordo_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `subordo_id` bigint(20) UNSIGNED DEFAULT NULL,
   `description` text DEFAULT NULL,
   `picture` varchar(255) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT current_timestamp(),
@@ -292,8 +296,8 @@ CREATE TABLE `families` (
 -- Dumping data for table `families`
 --
 
-INSERT INTO `families` (`id`, `family`, `general_name`, `ordo_id`, `description`, `picture`, `created_at`, `update_at`) VALUES
-(0, 'Undefined', 'Undefined', 0, NULL, NULL, '2023-07-17 17:19:43', '2023-07-17 17:19:43');
+INSERT INTO `families` (`id`, `family`, `general_name`, `ordo_id`, `subordo_id`, `description`, `picture`, `created_at`, `update_at`) VALUES
+(0, 'Undefined', 'Undefined', 0, 0, NULL, NULL, '2023-07-17 17:19:43', '2023-07-17 17:19:43');
 
 -- --------------------------------------------------------
 
@@ -504,6 +508,7 @@ CREATE TABLE `genus` (
   `genus` varchar(255) NOT NULL,
   `general_name` varchar(255) DEFAULT NULL,
   `family_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `subfamily_id` bigint(20) UNSIGNED DEFAULT NULL,
   `description` text DEFAULT NULL,
   `picture` varchar(255) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT current_timestamp(),
@@ -514,8 +519,8 @@ CREATE TABLE `genus` (
 -- Dumping data for table `genus`
 --
 
-INSERT INTO `genus` (`id`, `genus`, `general_name`, `family_id`, `description`, `picture`, `created_at`, `update_at`) VALUES
-(0, 'Undefined\r\n', 'Undefined', 0, NULL, NULL, '2023-07-17 17:22:56', '2023-07-17 17:22:56');
+INSERT INTO `genus` (`id`, `genus`, `general_name`, `family_id`, `subfamily_id`, `description`, `picture`, `created_at`, `update_at`) VALUES
+(0, 'Undefined\r\n', 'Undefined', 0, 0, NULL, NULL, '2023-07-17 17:22:56', '2023-07-17 17:22:56');
 
 -- --------------------------------------------------------
 
@@ -537,6 +542,32 @@ CREATE TABLE `habitats` (
 INSERT INTO `habitats` (`id`, `habitat`, `created_at`, `updated_at`) VALUES
 (0, 'Undefined', '2023-07-17 17:23:08', '2023-07-17 17:23:08'),
 (1, 'Perairan', '2023-06-13 08:28:30', '2023-06-12 17:00:00');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `infraphylum`
+--
+
+CREATE TABLE `infraphylum` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `infraphylum` varchar(255) DEFAULT NULL,
+  `local_name` varchar(255) DEFAULT NULL,
+  `subphylum_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `description` text DEFAULT NULL,
+  `picture` varchar(255) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `infraphylum`
+--
+
+INSERT INTO `infraphylum` (`id`, `infraphylum`, `local_name`, `subphylum_id`, `description`, `picture`, `created_at`, `updated_at`) VALUES
+(0, 'Undefined', NULL, 0, NULL, NULL, '2023-07-17 17:23:18', '2023-07-17 17:23:18'),
+(1, 'incertae sedis', 'Tidak diketahui', 3, 'Incertae sedis (dalam bahasa Latin berarti \"penempatan tidak pasti\") adalah istilah yang digunakan untuk mendefinisikan kelompok taksonomi yang status kekerabatannya tidak diketahui.', NULL, '2023-06-10 19:34:24', '2023-06-10 19:34:24'),
+(2, 'Gnathostomata', NULL, 3, 'Gnathostomata (jepang: /ˌnæθoʊˈstɒmətə/) adalah kelompok vertebrata yang memiliki rahang. Istilah Gnathostomata diambil dari bahasa Yunani γνάθος (gnathos) \"rahang\" + στόμα (stoma) \"mulut\". Jenis Gnathostomata terdiri dari sekitar 60.000 spesies, atau sekitar 99% dari seluruh vertebrata. Gnathostome juga memiliki gigi, dan canalis semisirkularis horisontal di bagian dalam telinga, bersamaan dengan karakter anatomi fisik dan seluler seperti selubung mielin yang menyelubungi sel saraf. Selain itu gnathostomata juga memiliki sistem kekebalan tiruan.[2]', NULL, '2023-06-10 19:34:24', '2023-06-10 19:34:24');
 
 -- --------------------------------------------------------
 
@@ -616,6 +647,7 @@ CREATE TABLE `ordo` (
   `ordo` varchar(255) NOT NULL,
   `general_name` varchar(255) DEFAULT NULL,
   `class_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `subclass_id` bigint(20) UNSIGNED DEFAULT NULL,
   `description` text DEFAULT NULL,
   `picture` varchar(255) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT current_timestamp(),
@@ -626,8 +658,8 @@ CREATE TABLE `ordo` (
 -- Dumping data for table `ordo`
 --
 
-INSERT INTO `ordo` (`id`, `ordo`, `general_name`, `class_id`, `description`, `picture`, `created_at`, `update_at`) VALUES
-(0, 'Undefined', 'Undefined', 0, NULL, NULL, '2023-07-17 17:24:28', '2023-07-17 17:24:28');
+INSERT INTO `ordo` (`id`, `ordo`, `general_name`, `class_id`, `subclass_id`, `description`, `picture`, `created_at`, `update_at`) VALUES
+(0, 'Undefined', 'Undefined', 0, 0, NULL, NULL, '2023-07-17 17:24:28', '2023-07-17 17:24:28');
 
 -- --------------------------------------------------------
 
@@ -713,6 +745,7 @@ CREATE TABLE `species` (
   `species` varchar(255) NOT NULL,
   `general_name` varchar(255) DEFAULT NULL,
   `genus_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `subgenus_id` bigint(20) UNSIGNED DEFAULT NULL,
   `description` text DEFAULT NULL,
   `picture` varchar(255) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT current_timestamp(),
@@ -723,11 +756,190 @@ CREATE TABLE `species` (
 -- Dumping data for table `species`
 --
 
-INSERT INTO `species` (`id`, `species`, `general_name`, `genus_id`, `description`, `picture`, `created_at`, `updated_at`) VALUES
-(0, 'Undefined', 'Undefined', 0, NULL, NULL, '2023-07-17 17:28:29', '2023-07-17 17:28:29'),
-(1, 'Betta sp', NULL, NULL, NULL, NULL, '2023-07-12 06:13:02', '2023-07-12 06:13:02'),
-(2, 'Carrasius auratus', NULL, NULL, NULL, NULL, '2023-07-12 06:13:02', '2023-07-12 06:13:02'),
-(3, 'Symphysodon discus', NULL, NULL, NULL, NULL, '2023-07-12 06:13:02', '2023-07-12 06:13:02');
+INSERT INTO `species` (`id`, `species`, `general_name`, `genus_id`, `subgenus_id`, `description`, `picture`, `created_at`, `updated_at`) VALUES
+(0, 'Undefined', 'Undefined', 0, 0, NULL, NULL, '2023-07-17 17:28:29', '2023-07-17 17:28:29'),
+(1, 'Betta sp', NULL, NULL, NULL, NULL, NULL, '2023-07-12 06:13:02', '2023-07-12 06:13:02'),
+(2, 'Carrasius auratus', NULL, NULL, NULL, NULL, NULL, '2023-07-12 06:13:02', '2023-07-12 06:13:02'),
+(3, 'Symphysodon discus', NULL, NULL, NULL, NULL, NULL, '2023-07-12 06:13:02', '2023-07-12 06:13:02');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `subclass`
+--
+
+CREATE TABLE `subclass` (
+  `id` bigint(11) UNSIGNED NOT NULL,
+  `subclass` varchar(255) DEFAULT NULL,
+  `general_name` varchar(255) DEFAULT NULL,
+  `class_id` bigint(11) UNSIGNED DEFAULT NULL,
+  `description` text DEFAULT NULL,
+  `picture` varchar(255) DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `subclass`
+--
+
+INSERT INTO `subclass` (`id`, `subclass`, `general_name`, `class_id`, `description`, `picture`, `created_at`, `updated_at`) VALUES
+(0, 'Undefined', 'Undefined', 0, NULL, NULL, '2023-07-17 17:28:48', '2023-07-17 17:28:48'),
+(1, 'Pteraspidomorphi', 'Ikan Tanpa Rahang', NULL, 'Pteraspidomorphi adalah kelas ikan tanpa rahang awal yang telah punah. Mereka telah lama dianggap sebagai kerabat dekat atau bahkan nenek moyang vertebrata berahang, tetapi beberapa karakteristik yang mereka miliki dengan yang terakhir sekarang dianggap sebagai sifat dasar untuk semua vertebrata.', NULL, '2023-06-11 03:18:16', '2023-06-11 03:18:16'),
+(2, 'Coelacanthimorpha', 'ikan bersirip lobus', 8, 'Coelacanth adalah kelompok kuno ikan bersirip lobus di kelas Actinistia. Sebagai sarcopterygian, mereka lebih dekat hubungannya dengan lungfish dan tetrapoda daripada ikan bersirip pari.', NULL, '2023-06-11 03:18:16', '2023-06-11 03:18:16'),
+(3, 'Dipnoi', 'Ikan lempung', 9, 'Ikan lempung adalah vertebrata rhipidistia dari ordo Dipnoi. Ikan lempung terkenal karena mempertahankan ciri-ciri nenek moyang dalam Osteichthyes, termasuk kemampuannya menghirup udara, dan struktur tubuh nenek moyang dalam Sarcopterygii, termasuk adanya sirip lobus dengan kerangka dalam yang telah berkembang dengan baik. Ikan lempung mewakili kerabat terdekat tetrapoda yang masih hidup.', NULL, '2023-06-11 03:18:16', '2023-06-11 03:18:16');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `subfamily`
+--
+
+CREATE TABLE `subfamily` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `subfamily` varchar(255) DEFAULT NULL,
+  `general_name` varchar(255) DEFAULT NULL,
+  `family_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `description` text DEFAULT NULL,
+  `picture` varchar(255) DEFAULT NULL,
+  `craeted_at` timestamp NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `subfamily`
+--
+
+INSERT INTO `subfamily` (`id`, `subfamily`, `general_name`, `family_id`, `description`, `picture`, `craeted_at`, `updated_at`) VALUES
+(0, 'Undefined', 'Undefined', 0, NULL, NULL, '2023-07-17 17:29:06', '2023-07-17 17:29:06');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `subgenus`
+--
+
+CREATE TABLE `subgenus` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `subgenus` varchar(255) DEFAULT NULL,
+  `general_name` varchar(255) DEFAULT NULL,
+  `genus_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `description` text DEFAULT NULL,
+  `picture` varchar(255) DEFAULT NULL,
+  `craeted_at` timestamp NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `subgenus`
+--
+
+INSERT INTO `subgenus` (`id`, `subgenus`, `general_name`, `genus_id`, `description`, `picture`, `craeted_at`, `updated_at`) VALUES
+(0, 'Undefined', 'Undefined', 0, NULL, NULL, '2023-07-17 17:30:16', '2023-07-17 17:30:16');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `subordo`
+--
+
+CREATE TABLE `subordo` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `subordo` varchar(255) DEFAULT NULL,
+  `general_name` varchar(255) DEFAULT NULL,
+  `order_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `description` text DEFAULT NULL,
+  `picture` varchar(255) DEFAULT NULL,
+  `craeted_at` timestamp NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `subordo`
+--
+
+INSERT INTO `subordo` (`id`, `subordo`, `general_name`, `order_id`, `description`, `picture`, `craeted_at`, `updated_at`) VALUES
+(0, 'Undefined', 'Undefiend', 0, NULL, NULL, '2023-07-17 17:30:34', '2023-07-17 17:30:34');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `subphylum`
+--
+
+CREATE TABLE `subphylum` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `subphylum` varchar(255) DEFAULT NULL,
+  `general_name` varchar(255) DEFAULT NULL,
+  `phylum_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `description` text DEFAULT NULL,
+  `picture` varchar(255) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `subphylum`
+--
+
+INSERT INTO `subphylum` (`id`, `subphylum`, `general_name`, `phylum_id`, `description`, `picture`, `created_at`, `updated_at`) VALUES
+(0, 'Undefined', 'Undefined', 0, NULL, NULL, '2023-07-17 17:30:50', '2023-07-17 17:30:50'),
+(1, 'Urochordata', 'Tunikata', 9, 'Urochordata merupakan sebuah subfilum dari chordata. Urochordata berasal dari bahasa latin (Uro: ekor, chorda: batang penyokong tubuh dalam). Yang paling menonjol adalah tunicates laut squirts (kelas Ascidiacea). Berbagai macam tumbuh di koloni. Sebagian besar dari tubuh yang diduduki insang yang sangat besar dengan berbagai tekak insang slits yang berfungsi sebagai saringan untuk makanan.', NULL, '2023-06-10 19:26:49', '2023-06-10 19:26:49'),
+(2, 'Cephalochordata', NULL, 9, 'Cephalochordata (dari bahasa Yunani: κεφαλή kephalé, \"kepala\" and χορδή khordé, \"chord\") adalah subfilum dari anggota hewan bertulang belakang yang termasuk dalam filum Chordata, Acraniata.[2] Bentuk tubuh seperti ikan tanpa sirip, pipih memanjang, transparan. Notokorda, saraf dorsal, dan celah faring berkembang bagus. Sistem sirkulasi tanpa jantung. Aliran darah dibagian ventral mengalir ke depan, sedangkan di sisi dorsal mengalir ke belakang. Memiliki alat peraba dimulutnya yang disebut sirus. Pada ujung anterior terdapat bintik mata dan pembau. Reproduksi secara seksual, memiliki kelamin terpisah dan mengalami fertilisasi eksternal. Biasanya hidup terkubur di bawah pasir perairan dangkal. Contohnya Branchiostoma sp. (amphioxus).', NULL, '2023-06-10 19:26:49', '2023-06-10 19:26:49'),
+(3, 'Vertebrata', 'Hewan bertulang belakang', 9, 'Vertebrata adalah subfilum dari Chordata, mencakup semua hewan yang memiliki tulang belakang yang tersusun dari vertebra. Vertebrata adalah subfilum terbesar dari Chordata. Ke dalam vertebrata dapat dimasukkan semua jenis ikan (kecuali remang, belut dan \"lintah laut\" atau hagfish), amfibia, reptil, burung, serta hewan menyusui (mamalia). Kecuali jenis-jenis ikan, vertebrata diketahui memiliki dua pasang tungkai.', NULL, '2023-06-10 19:26:49', '2023-06-10 19:26:49');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `subspecies`
+--
+
+CREATE TABLE `subspecies` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `subspecies` varchar(255) DEFAULT NULL,
+  `general_name` varchar(255) DEFAULT NULL,
+  `species_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `description` text DEFAULT NULL,
+  `picture` varchar(255) DEFAULT NULL,
+  `craeted_at` timestamp NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `subspecies`
+--
+
+INSERT INTO `subspecies` (`id`, `subspecies`, `general_name`, `species_id`, `description`, `picture`, `craeted_at`, `updated_at`) VALUES
+(0, 'Undefined', 'Undefined', 0, NULL, NULL, '2023-07-17 17:31:11', '2023-07-17 17:31:11');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `superclass`
+--
+
+CREATE TABLE `superclass` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `superclass` varchar(255) DEFAULT NULL,
+  `general_name` varchar(255) DEFAULT NULL,
+  `infraphylum_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `description` text DEFAULT NULL,
+  `picture` varchar(255) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `superclass`
+--
+
+INSERT INTO `superclass` (`id`, `superclass`, `general_name`, `infraphylum_id`, `description`, `picture`, `created_at`, `updated_at`) VALUES
+(0, 'Undefined', 'Undefined', 0, NULL, NULL, '2023-07-17 17:31:28', '2023-07-17 17:31:28'),
+(1, 'Agnatha', 'hewan tidak berahang', 1, 'Agnatha (\"hewan tidak berahang\") atau Cyclostomata (\"hewan bermulut lingkar\") adalah salah satu superkelas dari Craniata (hewan bertengkorak). Walaupun hidup di air, agnatha tidak dapat dikatakan sebagai ikan secara biologi karena tidak berahang, siripnya tidak berpasangan,dan rangka tubuhnya tersusun dari tulang rawan.\r\n\r\nKe dalam agnatha termasuk semua lamprey (Petromyzodonti) dan remang (Myxini).', NULL, '2023-06-10 19:40:02', '2023-06-10 19:40:02'),
+(2, 'Cyclostomata', 'hewan bermulut lingkar', 1, 'Agnatha (\"hewan tidak berahang\") atau Cyclostomata (\"hewan bermulut lingkar\") adalah salah satu superkelas dari Craniata (hewan bertengkorak). Walaupun hidup di air, agnatha tidak dapat dikatakan sebagai ikan secara biologi karena tidak berahang, siripnya tidak berpasangan,dan rangka tubuhnya tersusun dari tulang rawan.\r\n\r\nKe dalam agnatha termasuk semua lamprey (Petromyzodonti) dan remang (Myxini).', NULL, '2023-06-10 19:40:02', '2023-06-10 19:40:02'),
+(3, 'Incertae sedis', 'penempatan tidak pasti', 2, 'ncertae sedis (dalam bahasa Latin berarti \"penempatan tidak pasti\")[1] adalah istilah yang digunakan untuk mendefinisikan kelompok taksonomi yang status kekerabatannya tidak diketahui.', NULL, '2023-06-10 19:44:29', '2023-06-10 19:44:29'),
+(4, 'Osteichthyes', 'Ikan bertulang sejati', 2, 'Osteichthyes atau disebut juga Ikan bertulang sejati adalah kelas dari anggota hewan bertulang belakang yang merupakan subfilum dari Pisces.[1] Osteichthyes berasal dari bahasa Yunani, yaitu osteon yang berati tulang dan ichthyes yang berarti ikan.[2] Ikan jenis ini hidup di laut, rawa-rawa, atau air tawar.', NULL, '2023-06-10 19:44:29', '2023-06-10 19:44:29'),
+(5, 'Tetrapoda', 'berkaki-empat', 2, 'Tetrapoda (Yunani τετραποδη tetrapoda, Latin quadrupedal, \"berkaki-empat\") adalah hewan vertebrata yang berkaki empat, kaki atau seperti kaki. Amfibia, reptil, dinosaurus, unggas, dan mamalia merupakan bagian dari tetrapoda, dan bahkan ular yang tidak memiliki kaki juga merupakan tetrapoda menurut keturunan. Tetrapoda awal berasal dari Sarcopterygii atau ikan bersirip lobus.', NULL, '2023-06-10 19:44:29', '2023-06-10 19:44:29');
 
 -- --------------------------------------------------------
 
@@ -746,7 +958,6 @@ CREATE TABLE `user` (
   `phone_number` varchar(128) DEFAULT NULL,
   `address` varchar(255) DEFAULT NULL,
   `image` varchar(128) DEFAULT NULL,
-  `avatar_id` bigint(20) UNSIGNED DEFAULT NULL,
   `password` varchar(256) DEFAULT NULL,
   `role_id` bigint(20) UNSIGNED DEFAULT NULL,
   `is_active` int(1) DEFAULT NULL,
@@ -757,11 +968,11 @@ CREATE TABLE `user` (
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`id`, `username`, `name`, `email`, `gender`, `place_of_birth`, `birthday`, `phone_number`, `address`, `image`, `avatar_id`, `password`, `role_id`, `is_active`, `date_created`) VALUES
-(0, 'undefined', 'Undefined', 'undefined@gmail.com', NULL, NULL, NULL, NULL, NULL, 'default.png', NULL, '$2y$10$54Ajl0R.ArBF45hyXCsJZOnTdLzoegtv9nJbBRs3ICk1QBv1kS5yW', 0, 0, 1614472317),
-(1, 'feby', 'Feby', 'feby@gmail.com', 'Perempuan', 'Bandung', '1999-02-18', '081214222446', 'Jl. Bandung ', 'default.png', NULL, '$2y$10$54Ajl0R.ArBF45hyXCsJZOnTdLzoegtv9nJbBRs3ICk1QBv1kS5yW', 1, 1, 1614472317),
-(2, 'geby', 'Geby', 'geby@gmail.com', 'Perempuan', 'Bandung', '2002-06-12', '0128938123', 'Bandung', 'default.jpg', NULL, '$2y$10$54Ajl0R.ArBF45hyXCsJZOnTdLzoegtv9nJbBRs3ICk1QBv1kS5yW', 2, 1, 1614472317),
-(3, 'amel', 'Amel', 'amel@gmail.com', 'Perempuan', 'Bandung', '2002-06-12', '0821148321', 'Bandung', 'default.jpg', NULL, '$2y$10$54Ajl0R.ArBF45hyXCsJZOnTdLzoegtv9nJbBRs3ICk1QBv1kS5yW', 3, 1, 1614472317);
+INSERT INTO `user` (`id`, `username`, `name`, `email`, `gender`, `place_of_birth`, `birthday`, `phone_number`, `address`, `image`, `password`, `role_id`, `is_active`, `date_created`) VALUES
+(0, 'undefined', 'Undefined', 'undefined@gmail.com', NULL, NULL, NULL, NULL, NULL, 'default.png', '$2y$10$54Ajl0R.ArBF45hyXCsJZOnTdLzoegtv9nJbBRs3ICk1QBv1kS5yW', 0, 0, 1614472317),
+(1, 'feby', 'Feby', 'feby@gmail.com', 'Perempuan', 'Bandung', '1999-02-18', '081214222446', 'Jl. Bandung ', 'default.png', '$2y$10$54Ajl0R.ArBF45hyXCsJZOnTdLzoegtv9nJbBRs3ICk1QBv1kS5yW', 1, 1, 1614472317),
+(2, 'geby', 'Geby', 'geby@gmail.com', 'Perempuan', 'Bandung', '2002-06-12', '0128938123', 'Bandung', 'default.jpg', '$2y$10$54Ajl0R.ArBF45hyXCsJZOnTdLzoegtv9nJbBRs3ICk1QBv1kS5yW', 2, 1, 1614472317),
+(3, 'amel', 'Amel', 'amel@gmail.com', 'Perempuan', 'Bandung', '2002-06-12', '0821148321', 'Bandung', 'default.jpg', '$2y$10$54Ajl0R.ArBF45hyXCsJZOnTdLzoegtv9nJbBRs3ICk1QBv1kS5yW', 3, 1, 1614472317);
 
 -- --------------------------------------------------------
 
@@ -1050,6 +1261,12 @@ ALTER TABLE `habitats`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `infraphylum`
+--
+ALTER TABLE `infraphylum`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `kingdoms`
 --
 ALTER TABLE `kingdoms`
@@ -1106,14 +1323,55 @@ ALTER TABLE `species`
   ADD KEY `genus_id` (`genus_id`);
 
 --
+-- Indexes for table `subclass`
+--
+ALTER TABLE `subclass`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `subfamily`
+--
+ALTER TABLE `subfamily`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `subgenus`
+--
+ALTER TABLE `subgenus`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `subordo`
+--
+ALTER TABLE `subordo`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `subphylum`
+--
+ALTER TABLE `subphylum`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `subspecies`
+--
+ALTER TABLE `subspecies`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `superclass`
+--
+ALTER TABLE `superclass`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `email` (`email`),
   ADD UNIQUE KEY `username` (`username`),
-  ADD KEY `role_id` (`role_id`),
-  ADD KEY `avatar_id` (`avatar_id`);
+  ADD KEY `role_id` (`role_id`);
 
 --
 -- Indexes for table `user_access_menu`
@@ -1273,6 +1531,12 @@ ALTER TABLE `habitats`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
+-- AUTO_INCREMENT for table `infraphylum`
+--
+ALTER TABLE `infraphylum`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT for table `kingdoms`
 --
 ALTER TABLE `kingdoms`
@@ -1319,6 +1583,48 @@ ALTER TABLE `province`
 --
 ALTER TABLE `species`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `subclass`
+--
+ALTER TABLE `subclass`
+  MODIFY `id` bigint(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `subfamily`
+--
+ALTER TABLE `subfamily`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `subgenus`
+--
+ALTER TABLE `subgenus`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `subordo`
+--
+ALTER TABLE `subordo`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `subphylum`
+--
+ALTER TABLE `subphylum`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `subspecies`
+--
+ALTER TABLE `subspecies`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `superclass`
+--
+ALTER TABLE `superclass`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `user`
@@ -1483,8 +1789,7 @@ ALTER TABLE `species`
 -- Constraints for table `user`
 --
 ALTER TABLE `user`
-  ADD CONSTRAINT `user_ibfk_1` FOREIGN KEY (`role_id`) REFERENCES `user_role` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
-  ADD CONSTRAINT `user_ibfk_2` FOREIGN KEY (`avatar_id`) REFERENCES `avatar` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
+  ADD CONSTRAINT `user_ibfk_1` FOREIGN KEY (`role_id`) REFERENCES `user_role` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
 
 --
 -- Constraints for table `user_access_menu`
