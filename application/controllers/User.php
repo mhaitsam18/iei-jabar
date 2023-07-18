@@ -15,6 +15,21 @@ class User extends CI_Controller {
 	{
 		$data['title'] = "Dashboard";
 		$data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+		$this->db->select('SUM(views) as visitor');
+		$article = $this->db->get_where('articles', ['author_id' => $data['user']['id']])->row();
+		$data['visitor'] = $article->visitor;
+		
+		$data['uploaded'] = $this->db->get_where('articles', ['author_id' => $data['user']['id']])->num_rows();
+		
+		$this->db->join('articles', 'likes.article_id = articles.id');
+		$likes = $this->db->get_where('likes', ['author_id' => $data['user']['id']])->num_rows();
+
+		if($likes > 0 && $article->visitor > 0){
+			$percentage = ($likes / $article->visitor) * 100;
+		} else {
+			$percentage = 0;
+		}
+		$data['percentage'] = number_format($percentage, 2);
 		$this->load->view('layouts/header', $data);
 		$this->load->view('layouts/sidebar', $data);
 		$this->load->view('layouts/topbar', $data);
