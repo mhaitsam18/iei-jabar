@@ -10,7 +10,7 @@
             <div class="card">
                 <div class="card-body">
                     <div class="d-flex justify-content-between align-items-baseline mb-2">
-                        <h6 class="card-title mb-0"><?= $title ?></h6>
+                        <h6 class="card-title mb-0"><?= $title ?> : <?= $fish->general_name ?></h6>
                         <div class="dropdown mb-2">
                             <button class="btn p-0" type="button" id="dropdownMenuButton7" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="icon-lg text-muted pb-3px" data-feather="more-horizontal"></i>
@@ -64,7 +64,7 @@
                 <h1 class="modal-title fs-5" id="tambahModalLabel">Add Fish Food</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form action="<?= base_url('DataMaster/fish') ?>" method="post" enctype="multipart/form-data">
+            <form action="<?= base_url('DataMaster/fishFood/index/'.$fish->id) ?>" method="post" enctype="multipart/form-data">
                 <input type="hidden" name="aksi" value="add">
                 <input type="hidden" name="fish_id" value="<?= $fish->id ?>">
                 <div class="modal-body">
