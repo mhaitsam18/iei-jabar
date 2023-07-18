@@ -23,6 +23,27 @@ class File extends CI_Controller {
 		$this->load->view('welcome_message');
 	}
 
+	public function avatar()
+	{
+		if (!empty($_FILES['thumbnail']['name'])) {
+			$config['upload_path'] = './assets/img/avatar/';
+			$config['allowed_types'] = 'jpg|jpeg|png';
+			$config['max_size'] = '4096';
+
+			// Generate random file name
+			$config['file_name'] = uniqid();
+
+			$this->load->library('upload', $config);
+		}
+		if ($this->upload->do_upload('thumbnail')) {
+			$file_name = $this->upload->data('file_name');
+			echo $file_name;
+		} else {
+			$error = $this->upload->display_errors();
+			// Handle error
+			return $error;
+		}
+	}
 	public function artikel()
 	{
 		if (!empty($_FILES['thumbnail']['name'])) {
