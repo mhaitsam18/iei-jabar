@@ -116,6 +116,33 @@
     });
 </script>
 <script type="text/javascript">
+    const success = $('.flash-data').data('success');
+    if (success) {
+        //'Data ' + 
+        Swal.fire({
+            title: 'Success',
+            text: success,
+            icon: 'success'
+        });
+    }
+    const error = $('.flash-data').data('error');
+    if (error) {
+        //'Data ' + 
+        Swal.fire({
+            title: 'Failed',
+            text: error,
+            icon: 'error'
+        });
+    }
+    const warning = $('.flash-data').data('warning');
+    if (warning) {
+        //'Data ' + 
+        Swal.fire({
+            title: 'Warning',
+            text: warning,
+            icon: 'warning'
+        });
+    }
     const flashData = $('.flash-data').data('flashdata');
     const objek = $('.flash-data').data('objek');
     console.log(flashData);

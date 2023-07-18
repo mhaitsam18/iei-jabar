@@ -78,6 +78,8 @@
                                             <a href="<?= base_url("DataMaster/FishDistribution/index/$fish[id]"); ?>" class="badge bg-primary">Lihat Distribusi</a>
                                             <a href="<?= base_url("DataMaster/FishFood/index/$fish[id]"); ?>" class="badge bg-warning">Lihat Makanan</a>
                                             <a href="<?= base_url("DataMaster/FishHabitat/index/$fish[id]"); ?>" class="badge bg-info">Lihat Habitat</a>
+                                            <a href="<?= base_url("DataMaster/Origin/index/$fish[id]"); ?>" class="badge bg-info">Lihat Asal</a>
+                                            <a href="<?= base_url("DataMaster/LocalName/index/$fish[id]"); ?>" class="badge bg-info">Lihat Nama Lokal</a>
                                         </td>
                                     </tr>
 
@@ -155,6 +157,18 @@
                         </select>
                     </div>
                     <?php echo form_error('distribution', '<span class="text-danger">', '</span>'); ?>
+                    <div class="mb-3">
+                        <label for="local_name">Nama Lokal</label>
+                        <select class="multiple-add form-select" id="local_name" name="local_name[]" data-placeholder="Tulis Nama Lokal" multiple>
+                        </select>
+                    </div>
+                    <?php echo form_error('local_name', '<span class="text-danger">', '</span>'); ?>
+                    <div class="mb-3">
+                        <label for="origin">Asal</label>
+                        <select class="multiple-add form-select" id="origin" name="origin[]" data-placeholder="Tulis Asal" multiple>
+                        </select>
+                    </div>
+                    <?php echo form_error('origin', '<span class="text-danger">', '</span>'); ?>
                     <div class="mb-3">
                         <label for="abundance_id">Kelimpahan</label>
                         <select class="form-select" id="abundance_id" name="abundance_id">

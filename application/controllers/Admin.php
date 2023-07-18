@@ -19,6 +19,23 @@ class Admin extends CI_Controller {
 	{
 		$data['title'] = "Dashboard";
 		$data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+		$data['speciess'] = $this->db->get('species')->result_array();
+		$data['genuss'] = $this->db->get('genus')->result_array();
+		$data['families'] = $this->db->get('families')->result_array();
+		$data['ordos'] = $this->db->get('ordo')->result_array();
+		$data['classies'] = $this->db->get('class')->result_array();
+		$data['phylums'] = $this->db->get('phylums')->result_array();
+		$data['kingdoms'] = $this->db->get('kingdoms')->result_array();
+		$data['kingdoms'] = $this->db->get('kingdoms')->result_array();
+		$data['continents'] = $this->db->get('continent')->result_array();
+		$data['countries'] = $this->db->get('country')->result_array();
+		$data['provinces'] = $this->db->get('province')->result_array();
+		$data['distributions'] = $this->db->get('distribution')->result_array();
+		$data['archipelagos'] = $this->db->get('archipelago')->result_array();
+		$data['fish_types'] = $this->db->get('fish_type')->result_array();
+		$data['foods'] = $this->db->get('food')->result_array();
+		$data['habitats'] = $this->db->get('habitats')->result_array();
+		$data['fishs'] = $this->db->get('fish')->result_array();
 		$this->load->view('layouts/header', $data);
 		$this->load->view('layouts/sidebar', $data);
 		$this->load->view('layouts/topbar', $data);

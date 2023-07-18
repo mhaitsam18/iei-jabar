@@ -140,6 +140,18 @@ class Fish extends CI_Controller
                         'distribution_id' => $distribution_id,
                     ]);
                 }
+                foreach ($this->input->post('local_name') as $key => $value) {
+                    $this->db->insert('local_name', [
+                        'fish_id' => $fish_id,
+                        'local_name' => $value,
+                    ]);
+                }
+                foreach ($this->input->post('origin') as $key => $value) {
+                    $this->db->insert('origin', [
+                        'fish_id' => $fish_id,
+                        'origin' => $value,
+                    ]);
+                }
                 $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
                     New fish Added!
                     </div>');
