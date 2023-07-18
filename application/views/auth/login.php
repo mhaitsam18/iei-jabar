@@ -2,7 +2,7 @@
 	<div class="col-lg-5 col-12">
 		<div id="auth-left">
 			<div class="auth-logo">
-				<a href="<?= base_url() ?>"><img src="<?= base_url('assets/images/logo/annisa-cosmetik-logo.png') ?>" alt="Logo"></a>
+				<a href="<?= base_url() ?>"><img src="<?= base_url('/assets/img/logo/sidebar-logo.png') ?>" style="height: 100px;" alt="Logo"></a>
 			</div>
 			<h1 class="auth-title">Log in.</h1>
 			<p class="auth-subtitle mb-5">Silahkan Log in</p>
