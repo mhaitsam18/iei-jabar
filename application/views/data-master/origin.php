@@ -70,7 +70,7 @@
                 <div class="modal-body">
                     <div class="mb-3">
                         <label for="origin">Origin</label>
-                        <input type="text" class="form-select" id="origin" name="origin">
+                        <input type="text" class="form-control" id="origin" name="origin">
                     </div>
                     <?php echo form_error('origin', '<span class="text-danger">', '</span>'); ?>
                 </div>

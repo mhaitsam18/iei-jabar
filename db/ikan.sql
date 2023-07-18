@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 18, 2023 at 04:06 PM
+-- Generation Time: Jul 18, 2023 at 04:09 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.1.17
 
@@ -647,7 +647,8 @@ CREATE TABLE `local_name` (
 --
 
 INSERT INTO `local_name` (`id`, `fish_id`, `local_name`, `area`, `created_at`, `updated_at`) VALUES
-(0, 0, 'Undefined', NULL, '2023-07-17 17:24:14', '2023-07-17 17:24:14');
+(0, 0, 'Undefined', NULL, '2023-07-17 17:24:14', '2023-07-17 17:24:14'),
+(1, 4, 'Ikan Nila Best', 'Bogor', '2023-07-18 14:09:09', '2023-07-18 14:09:09');
 
 -- --------------------------------------------------------
 
@@ -1375,7 +1376,7 @@ ALTER TABLE `likes`
 -- AUTO_INCREMENT for table `local_name`
 --
 ALTER TABLE `local_name`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `ordo`

@@ -72,12 +72,12 @@
                 <div class="modal-body">
                     <div class="mb-3">
                         <label for="local_name">Local Name</label>
-                        <input type="text" class="form-select" id="local_name" name="local_name">
+                        <input type="text" class="form-control" id="local_name" name="local_name">
                     </div>
                     <?php echo form_error('local_name', '<span class="text-danger">', '</span>'); ?>
                     <div class="mb-3">
                         <label for="area">Area Name</label>
-                        <input type="text" class="form-select" id="area" name="area" value="ex. Tasikmalaya">
+                        <input type="text" class="form-control" id="area" name="area" placeholder="ex. Tasikmalaya">
                     </div>
                     <?php echo form_error('area', '<span class="text-danger">', '</span>'); ?>
                 </div>
