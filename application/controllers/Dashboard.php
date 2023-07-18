@@ -14,4 +14,20 @@ class Dashboard extends CI_Controller
     {
         
     }
+    public function country()
+    {
+        
+    }
+    public function province()
+    {
+        
+    }
+    public function distribution()
+    {
+        
+    }
+    public function archipelago()
+    {
+        
+    }
 }
