@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 18, 2023 at 05:48 PM
+-- Generation Time: Jul 18, 2023 at 06:26 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.1.17
 
@@ -163,6 +163,19 @@ CREATE TABLE `avatar` (
   `created_at` timestamp NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `avatar`
+--
+
+INSERT INTO `avatar` (`id`, `name`, `avatar`, `created_at`, `updated_at`) VALUES
+(1, 'Man', 'avatar/man.png', '2023-07-18 16:20:59', '2023-07-18 16:20:59'),
+(2, 'Black Man', 'avatar/black-man.png', '2023-07-18 16:20:59', '2023-07-18 16:20:59'),
+(3, 'Hat Man', 'avatar/hat-man.png', '2023-07-18 16:20:59', '2023-07-18 16:20:59'),
+(4, 'Jilbab Woman', 'avatar/jilbab-woman.png', '2023-07-18 16:20:59', '2023-07-18 16:20:59'),
+(5, 'Europe Man', 'avatar/europe-man.png', '2023-07-18 16:20:59', '2023-07-18 16:20:59'),
+(6, 'Woman', 'avatar/woman.png', '2023-07-18 16:20:59', '2023-07-18 16:20:59'),
+(7, 'Young Black Man', 'avatar/young-black-man.png', '2023-07-18 16:20:59', '2023-07-18 16:20:59');
 
 -- --------------------------------------------------------
 
@@ -876,7 +889,8 @@ INSERT INTO `user_access_menu` (`id`, `role_id`, `menu_id`) VALUES
 (7, 3, 2),
 (8, 3, 6),
 (9, 3, 7),
-(10, 1, 8);
+(10, 1, 8),
+(11, 3, 9);
 
 -- --------------------------------------------------------
 
@@ -903,7 +917,8 @@ INSERT INTO `user_menu` (`id`, `menu`, `active`) VALUES
 (5, 'Lainnya', 0),
 (6, 'Artikel', 1),
 (7, 'Article', 0),
-(8, 'Dashboard', 0);
+(8, 'Dashboard', 0),
+(9, 'App', 1);
 
 -- --------------------------------------------------------
 
@@ -975,7 +990,8 @@ INSERT INTO `user_sub_menu` (`id`, `menu_id`, `title`, `url`, `icon`, `is_active
 (26, 4, 'Abundance', 'DataMaster/abundance', 'box', 1),
 (27, 6, 'Article', 'Artikel/index', 'file', 1),
 (28, 6, 'Article Type', 'Article/ArticleType', 'file', 1),
-(29, 6, 'Article Category', 'Article/ArticleCategory', 'file', 1);
+(29, 6, 'Article Category', 'Article/ArticleCategory', 'file', 1),
+(30, 9, 'Avatar', 'App/avatar', 'user', 1);
 
 -- --------------------------------------------------------
 
@@ -1274,7 +1290,7 @@ ALTER TABLE `article_type`
 -- AUTO_INCREMENT for table `avatar`
 --
 ALTER TABLE `avatar`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `class`
@@ -1418,13 +1434,13 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `user_access_menu`
 --
 ALTER TABLE `user_access_menu`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `user_menu`
 --
 ALTER TABLE `user_menu`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `user_role`
@@ -1436,7 +1452,7 @@ ALTER TABLE `user_role`
 -- AUTO_INCREMENT for table `user_sub_menu`
 --
 ALTER TABLE `user_sub_menu`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT for table `user_token`
