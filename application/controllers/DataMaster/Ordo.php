@@ -40,12 +40,25 @@ class Ordo extends CI_Controller
             $this->load->view('data-master/ordo', $data);
             $this->load->view('layouts/footer');
         } else {
-
+            $class_id = $this->input->post('class_id');
+            if (is_numeric($this->input->post('class_id'))) {
+                $class = $this->db->get_where('class', ['id' => $this->input->post('class_id')])->num_rows();
+                if ($class > 0) {
+                    $class_id = $this->input->post('class_id');
+                } else {
+                    $class_id = 0;
+                }
+            } else {
+                $this->db->insert('class', [
+                    'class' => $this->input->post('class_id')
+                ]);
+                $class_id = $this->db->insert_id();
+            }
             if ($this->input->post('aksi') == "add") {
                 $this->db->insert('ordo', [
                     'ordo' => $this->input->post('ordo'),
                     'general_name' => $this->input->post('general_name'),
-                    'class_id' => $this->input->post('class_id'),
+                    'class_id' => $class_id,
                     // 'subclass_id' => $this->input->post('subclass_id'),
                     'description' => $this->input->post('description'),
                     'picture' => $this->input->post('picture')
@@ -79,7 +92,7 @@ class Ordo extends CI_Controller
                 $data = array(
                     'ordo' => $this->input->post('ordo'),
                     'general_name' => $this->input->post('general_name'),
-                    'class_id' => $this->input->post('class_id'),
+                    'class_id' => $class_id,
                     // 'subclass_id' => $this->input->post('subclass_id'),
                     'description' => $this->input->post('description'),
                 );

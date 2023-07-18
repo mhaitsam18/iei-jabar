@@ -87,7 +87,7 @@
                     <?php echo form_error('phylum', '<span class="text-danger">', '</span>'); ?>
                     <div class="mb-3">
                         <label for="kingdom_id">Kingdom</label>
-                        <select class="form-select select2-add" id="kingdom_id" name="kingdom_id">
+                        <select class="form-select " id="kingdom_id" name="kingdom_id">
                             <option value="" selected disabled>Pilih Kingdom</option>
                             <?php foreach ($kingdoms as $kingdom) : ?>
                                 <option value="<?= $kingdom['id'] ?>"><?= $kingdom['kingdom'] ?></option>
@@ -135,7 +135,7 @@
                     <?php echo form_error('phylum', '<span class="text-danger">', '</span>'); ?>
                     <div class="mb-3">
                         <label for="kingdom_id">Kingdom</label>
-                        <select class="form-select select2-edit" id="kingdom_id" name="kingdom_id">
+                        <select class="form-select " id="kingdom_id" name="kingdom_id">
                             <option value="" selected disabled>Pilih Kingdom</option>
                             <?php foreach ($kingdoms as $kingdom) : ?>
                                 <option value="<?= $kingdom['id'] ?>"><?= $kingdom['kingdom'] ?></option>

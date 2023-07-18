@@ -43,12 +43,25 @@ class Species extends CI_Controller
             $this->load->view('data-master/species', $data);
             $this->load->view('layouts/footer');
         } else {
-
+            $genus_id = $this->input->post('genus_id');
+            if (is_numeric($this->input->post('genus_id'))) {
+                $genus = $this->db->get_where('genus', ['id' => $this->input->post('genus_id')])->num_rows();
+                if ($genus > 0) {
+                    $genus_id = $this->input->post('genus_id');
+                } else {
+                    $genus_id = 0;
+                }
+            } else {
+                $this->db->insert('genus', [
+                    'genus' => $this->input->post('genus_id')
+                ]);
+                $genus_id = $this->db->insert_id();
+            }
             if ($this->input->post('aksi') == "add") {
                 $this->db->insert('species', [
                     'species' => $this->input->post('species'),
                     'general_name' => $this->input->post('general_name'),
-                    'genus_id' => $this->input->post('genus_id'),
+                    'genus_id' => $genus_id,
                     // 'subgenus_id' => $this->input->post('subgenus_id'),
                     'description' => $this->input->post('description'),
                     'picture' => $this->input->post('picture')
@@ -80,7 +93,7 @@ class Species extends CI_Controller
                 $data = array(
                     'species' => $this->input->post('species'),
                     'general_name' => $this->input->post('general_name'),
-                    'genus_id' => $this->input->post('genus_id'),
+                    'genus_id' => $genus_id,
                     // 'subgenus_id' => $this->input->post('subgenus_id'),
                     'description' => $this->input->post('description'),
                 );

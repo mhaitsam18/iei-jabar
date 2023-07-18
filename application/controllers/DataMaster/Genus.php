@@ -42,12 +42,25 @@ class Genus extends CI_Controller
             $this->load->view('data-master/genus', $data);
             $this->load->view('layouts/footer');
         } else {
-
+            $family_id = $this->input->post('family_id');
+            if (is_numeric($this->input->post('family_id'))) {
+                $family = $this->db->get_where('families', ['id' => $this->input->post('family_id')])->num_rows();
+                if ($family > 0) {
+                    $family_id = $this->input->post('family_id');
+                } else {
+                    $family_id = 0;
+                }
+            } else {
+                $this->db->insert('families', [
+                    'family' => $this->input->post('family_id')
+                ]);
+                $family_id = $this->db->insert_id();
+            }
             if ($this->input->post('aksi') == "add") {
                 $this->db->insert('genus', [
                     'genus' => $this->input->post('genus'),
                     'general_name' => $this->input->post('general_name'),
-                    'family_id' => $this->input->post('family_id'),
+                    'family_id' => $family_id,
                     // 'subfamily_id' => $this->input->post('subfamily_id'),
                     'description' => $this->input->post('description'),
                     'picture' => $this->input->post('picture')
@@ -79,7 +92,7 @@ class Genus extends CI_Controller
                 $data = array(
                     'genus' => $this->input->post('genus'),
                     'general_name' => $this->input->post('general_name'),
-                    'family_id' => $this->input->post('family_id'),
+                    'family_id' => $family_id,
                     // 'subfamily_id' => $this->input->post('subfamily_id'),
                     'description' => $this->input->post('description'),
                 );

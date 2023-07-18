@@ -41,12 +41,25 @@ class Family extends CI_Controller
             $this->load->view('data-master/family', $data);
             $this->load->view('layouts/footer');
         } else {
-
+            $ordo_id = $this->input->post('ordo_id');
+            if (is_numeric($this->input->post('ordo_id'))) {
+                $ordo = $this->db->get_where('ordo', ['id' => $this->input->post('ordo_id')])->num_rows();
+                if ($ordo > 0) {
+                    $ordo_id = $this->input->post('ordo_id');
+                } else {
+                    $ordo_id = 0;
+                }
+            } else {
+                $this->db->insert('ordo', [
+                    'ordo' => $this->input->post('ordo_id')
+                ]);
+                $ordo_id = $this->db->insert_id();
+            }
             if ($this->input->post('aksi') == "add") {
                 $this->db->insert('families', [
                     'family' => $this->input->post('family'),
                     'general_name' => $this->input->post('general_name'),
-                    'ordo_id' => $this->input->post('ordo_id'),
+                    'ordo_id' => $ordo_id,
                     // 'subordo_id' => $this->input->post('subordo_id'),
                     'description' => $this->input->post('description'),
                     'picture' => $this->input->post('picture')
@@ -78,7 +91,7 @@ class Family extends CI_Controller
                 $data = array(
                     'family' => $this->input->post('family'),
                     'general_name' => $this->input->post('general_name'),
-                    'ordo_id' => $this->input->post('ordo_id'),
+                    'ordo_id' => $ordo_id,
                     // 'subordo_id' => $this->input->post('subordo_id'),
                     'description' => $this->input->post('description'),
                 );

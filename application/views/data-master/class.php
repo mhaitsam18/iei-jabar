@@ -103,7 +103,7 @@
                     <?php echo form_error('species', '<span class="text-danger">', '</span>'); ?>
                     <div class="mb-3">
                         <label for="phylum_id">Filum</label>
-                        <select class="form-select select2-add" id="phylum_id" name="phylum_id">
+                        <select class="form-select " id="phylum_id" name="phylum_id">
                             <option value="" selected disabled>Pilih Filum</option>
                             <?php foreach ($phylums as $phylum) : ?>
                                 <option value="<?= $phylum['id'] ?>"><?= $phylum['phylum'] ?></option>
@@ -161,7 +161,7 @@
                     <?php echo form_error('species', '<span class="text-danger">', '</span>'); ?>
                     <div class="mb-3">
                         <label for="phylum_id">Filum</label>
-                        <select class="form-select select2-edit" id="phylum_id" name="phylum_id">
+                        <select class="form-select " id="phylum_id" name="phylum_id">
                             <option value="" selected disabled>Pilih Filum</option>
                             <?php foreach ($phylums as $phylum) : ?>
                                 <option value="<?= $phylum['id'] ?>"><?= $phylum['phylum'] ?></option>

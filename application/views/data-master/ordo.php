@@ -151,7 +151,7 @@
                     <?php echo form_error('general_name', '<span class="text-danger">', '</span>'); ?>
                     <div class="mb-3">
                         <label for="class_id">Kelas</label>
-                        <select class="form-select select2-edit" id="class_id" name="class_id">
+                        <select class="form-select select2-edit" id="edit_class_id" name="class_id">
                             <option value="" selected disabled>Pilih Kelas</option>
                             <?php foreach ($classes as $class) : ?>
                                 <option value="<?= $class['id'] ?>"><?= $class['class'] ?></option>
@@ -209,7 +209,7 @@
         $(".modal-body  #general_name").val(general_name);
 
         var class_id = $(this).data('class_id');
-        $(".modal-body  #class_id").val(class_id);
+        $(".modal-body  #edit_class_id").val(class_id);
 
         var description = $(this).data('description');
         $(".modal-body  #description").val(description);

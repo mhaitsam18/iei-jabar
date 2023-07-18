@@ -61,8 +61,6 @@ class Classes extends CI_Controller
                     New class Added!
                     </div>');
             } elseif ($this->input->post('aksi') == "update") {
-
-
                 $upload_picture = $_FILES['picture']['name'];
                 if ($upload_picture) {
                     $config['allowed_types'] = 'gif|jpg|png|svg|jpeg';

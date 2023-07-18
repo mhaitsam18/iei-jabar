@@ -154,7 +154,7 @@
                     <?php echo form_error('general_name', '<span class="text-danger">', '</span>'); ?>
                     <div class="mb-3">
                         <label for="family_id">Famili</label>
-                        <select class="form-select select2-edit" id="family_id" name="family_id">
+                        <select class="form-select select2-edit" id="edit_family_id" name="family_id">
                             <option value="" selected disabled>Pilih Famili</option>
                             <?php foreach ($families as $family) : ?>
                                 <option value="<?= $family['id'] ?>"><?= $family['family'] ?></option>
@@ -212,7 +212,7 @@
         $(".modal-body  #general_name").val(general_name);
 
         var family_id = $(this).data('family_id');
-        $(".modal-body  #family_id").val(family_id);
+        $(".modal-body  #edit_family_id").val(family_id);
 
         var description = $(this).data('description');
         $(".modal-body  #description").val(description);
