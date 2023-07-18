@@ -28,9 +28,9 @@
                     <div class="card-body d-flex flex-column justify-content-between">
                         <h5 class="card-title text-center"><?= $fish['general_name'] ?></h5>
                         <p class="text-center mb-2">
-                            <ul>
-                                <li>Spesies : <?= $fish['scientific_name'] ?></li>
-                            </ul>
+                        <ul>
+                            <li>Spesies : <?= $fish['scientific_name'] ?></li>
+                        </ul>
                         </p>
                         <div class="d-block my-2">
                             <button type="button" class="btn <?= fishlike($fish['id'], $user['id']) ?> float-end like-button" data-fish-id="<?= $fish['id'] ?>"><i data-feather="thumbs-up"></i></button>
@@ -42,6 +42,15 @@
                 </div>
             </div>
         <?php endforeach; ?>
+        <nav aria-label="Page navigation example">
+            <ul class="pagination">
+                <li class="page-item"><a class="page-link" href="#"><i data-feather="chevron-left"></i></a></li>
+                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                <li class="page-item disabled"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item"><a class="page-link" href="#"><i data-feather="chevron-right"></i></a></li>
+            </ul>
+        </nav>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
