@@ -17,7 +17,7 @@ class Fish extends CI_Controller
     {
         $data['title'] = "Fish Gallery";
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
-        $data['fishs'] = $this->db->get('fish')->result_array();
+        $data['fishs'] = $this->db->get_where('fish', ['id !=' => 0])->result_array();
         $this->load->view('layouts/header-member', $data);
         $this->load->view('layouts/topbar-member', $data);
         $this->load->view('member/gallery', $data);
@@ -29,9 +29,10 @@ class Fish extends CI_Controller
         $data['title'] = "Fish Gallery";
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 
-        $this->db->select('fish.*, abundance.abundance, fish_type.type, species.species, subspecies.subspecies, genus.genus, families.family, ordo.ordo, class.class, phylums.phylum, kingdoms.kingdom');
+        $this->db->select('fish.*, abundance.abundance, fish_type.type, species.species, genus.genus, families.family, ordo.ordo, class.class, phylums.phylum, kingdoms.kingdom');
+        // , subspecies.subspecies
         $this->db->join('species', 'fish.species_id = species.id', 'left');
-        $this->db->join('subspecies', 'fish.subspecies_id = subspecies.id', 'left');
+        // $this->db->join('subspecies', 'fish.subspecies_id = subspecies.id', 'left');
         $this->db->join('genus', 'species.genus_id = genus.id', 'left');
         $this->db->join('families', 'genus.family_id = families.id', 'left');
         $this->db->join('ordo', 'families.ordo_id = ordo.id', 'left');
@@ -41,9 +42,16 @@ class Fish extends CI_Controller
         $this->db->join('fish_type', 'fish.fish_type_id = fish_type.id', 'left');
         $this->db->join('abundance', 'fish.abundance_id = abundance.id', 'left');
         $data['fish'] = $this->db->get_where('fish', ['fish.id' => $fish_id])->row_array();
+        
+        $this->db->join('food', 'fish_food.food_id = food.id');
         $data['foods'] = $this->db->get_where('fish_food', ['fish_id' => $fish_id])->result_array();
+        
+        $this->db->join('distribution', 'fish_distribution.distribution_id = distribution.id');
         $data['distributions'] = $this->db->get_where('fish_distribution', ['fish_id' => $fish_id])->result_array();
+        
+        $this->db->join('habitats', 'fish_habitat.habitat_id = habitats.id');
         $data['habitats'] = $this->db->get_where('fish_habitat', ['fish_id' => $fish_id])->result_array();
+
         $data['local_names'] = $this->db->get_where('local_name', ['fish_id' => $fish_id])->result_array();
         $data['origins'] = $this->db->get_where('origin', ['fish_id' => $fish_id])->result_array();
         $data['articles'] = $this->db->get_where('articles', ['fish_id' => $fish_id])->result_array();

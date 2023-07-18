@@ -24,51 +24,67 @@
                 <li>Fish Type : <?= $fish['type'] ?> </li>
                 <li>Abundance / Conservation : <?= $fish['abundance'] ?> </li>
             </ul>
-            <h6>Foods</h6>
-            <p>
-                <?php foreach ($foods as $food) : ?>
-                    <?= $food['food'] ?>,
-                <?php endforeach; ?>
-            </p>
-            <h6>Distributions</h6>
-            <ul>
-                <?php foreach ($distributions as $distribution) : ?>
-                    <li>
-                        <?= $distribution['distribution'] ?>,
-                        <?php
-                        $archipelagos = $this->db->get_where('archipelago', ['distribution_id' => $distribution['id']])->result_array();
-                        ?>
-                        <ul>
-                            <?php foreach ($archipelagos as $archipelago) : ?>
-                                <li><?= $archipelago['archipelago'] ?></li>
-                            <?php endforeach; ?>
-                        </ul>
-                    </li>
-                <?php endforeach; ?>
-            </ul>
-            <h6>Habitats</h6>
-            <p>
-                <?php foreach ($habitats as $habitat) : ?>
-                    <?= $habitat['habitat'] ?>,
-                <?php endforeach; ?>
-            </p>
-            <h6>Local Name</h6>
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>Local Name</th>
-                        <th>Area</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php foreach ($local_names as $local_name) : ?>
-                        <tr>
-                            <td><?= $local_name['local_name'] ?></td>
-                            <td><?= $local_name['area'] ?></td>
-                        </tr>
+            <div class="mb-3">
+                <h6>Foods</h6>
+                <p>
+                    <?php foreach ($foods as $food) : ?>
+                        <?= $food['food'] ?>,
                     <?php endforeach; ?>
-                </tbody>
-            </table>
+                </p>
+            </div>
+            <div class="mb-3">
+                <h6>Distributions</h6>
+                <ul>
+                    <?php foreach ($distributions as $distribution) : ?>
+                        <li>
+                            <?= $distribution['distribution'] ?>,
+                            <?php
+                            $archipelagos = $this->db->get_where('archipelago', ['distribution_id' => $distribution['id']])->result_array();
+                            ?>
+                            <ul>
+                                <?php foreach ($archipelagos as $archipelago) : ?>
+                                    <li><?= $archipelago['archipelago'] ?></li>
+                                <?php endforeach; ?>
+                            </ul>
+                        </li>
+                    <?php endforeach; ?>
+                </ul>
+            </div>
+            <div class="mb-3">
+                <h6>Habitats</h6>
+                <p>
+                    <?php foreach ($habitats as $habitat) : ?>
+                        <?= $habitat['habitat'] ?>,
+                    <?php endforeach; ?>
+                </p>
+            </div>
+            <div class="mb-3">
+                <h6>Origins</h6>
+                <p>
+                    <?php foreach ($origins as $origin) : ?>
+                        <?= $origin['origin'] ?>,
+                    <?php endforeach; ?>
+                </p>
+            </div>
+            <div class="mb-3">
+                <h6>Local Name</h6>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Local Name</th>
+                            <th>Area</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($local_names as $local_name) : ?>
+                            <tr>
+                                <td><?= $local_name['local_name'] ?></td>
+                                <td><?= $local_name['area'] ?></td>
+                            </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
+            </div>
         </div>
         <div class="col-lg-12">
             <h3>Related article</h3>

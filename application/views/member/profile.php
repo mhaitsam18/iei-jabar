@@ -17,7 +17,7 @@
                     <?= form_error('password', '<div class="alert alert-danger" role="alert">', '</div>'); ?>
                     <div class="row">
                         <div class="col-lg-8">
-                            <form action="<?= base_url('user/edit') ?>" method="post" enctype="multipart/form-data">
+                            <form action="<?= base_url('member/user') ?>" method="post" enctype="multipart/form-data">
                                 <div class="mb-3 row">
                                     <label for="email" class="col-sm-2 col-form-label">Email</label>
                                     <div class="col-sm-10">
@@ -146,7 +146,7 @@
                     <h5 class="modal-title fs-5" id="deleteAccountModalLabel">Are You Sure?</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <form action="<?= base_url('User/delete') ?>" method="post">
+                <form action="<?= base_url('member/User/delete') ?>" method="post">
                     <div class="modal-body">
                         <div class="mb-3">
                             <label for="password">Password</label>

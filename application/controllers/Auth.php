@@ -80,7 +80,7 @@ class Auth extends CI_Controller {
 				'birthday' => htmlspecialchars($this->input->post('birthday', true)),
 				'phone_number' => htmlspecialchars($this->input->post('phone_number', true)),
 				'address' => htmlspecialchars($this->input->post('address', true)),
-				'image' => 'default.svg',
+				'image' => 'profile/default.png',
 				'password' => password_hash($this->input->post('password1'), PASSWORD_DEFAULT),
 				// 'role_id' => htmlspecialchars($this->input->post('role_id', true)),
 				'role_id' => 2,
