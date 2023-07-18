@@ -83,7 +83,7 @@
                 <h1 class="modal-title fs-5" id="tambahModalLabel">Tambah Data Kelas</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form action="<?= base_url('DataMaster/class') ?>" method="post" enctype="multipart/form-data">
+            <form action="<?= base_url('DataMaster/classes') ?>" method="post" enctype="multipart/form-data">
                 <input type="hidden" name="aksi" value="add">
                 <div class="modal-body">
                     <div class="mb-3">
@@ -140,7 +140,7 @@
                 <h1 class="modal-title fs-5" id="editLabel">Edit Data Kelas</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form action="<?= base_url('DataMaster/class') ?>" method="post" enctype="multipart/form-data">
+            <form action="<?= base_url('DataMaster/classes') ?>" method="post" enctype="multipart/form-data">
                 <input type="hidden" name="aksi" value="update">
                 <div class="modal-body">
                     <input type="hidden" name="id" id="id">

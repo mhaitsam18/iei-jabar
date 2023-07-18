@@ -253,7 +253,7 @@
                         <select class="form-select select2-edit" id="fish_type_id" name="fish_type_id">
                             <option value="" selected disabled>Pilih Tipe Ikan</option>
                             <?php foreach ($fish_types as $fish_type) : ?>
-                                <option value="<?= $fish_type['id'] ?>"><?= $fish_type['fish_type'] ?></option>
+                                <option value="<?= $fish_type['id'] ?>"><?= $fish_type['type'] ?></option>
                             <?php endforeach; ?>
                         </select>
                     </div>

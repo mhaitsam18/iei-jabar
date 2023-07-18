@@ -17,7 +17,7 @@ class Fish extends CI_Controller
     {
         $data['title'] = "Data Ikan";
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
-
+        
         $this->db->select('fish.*, abundance.abundance, fish_type.type, species.species, genus.genus, families.family, ordo.ordo, class.class, phylums.phylum, kingdoms.kingdom');
         $this->db->join('species', 'fish.species_id = species.id', 'left');
         // , subspecies.subspecies
@@ -39,9 +39,10 @@ class Fish extends CI_Controller
         $data['foods'] = $this->db->get('food')->result_array();
         $data['habitats'] = $this->db->get('habitats')->result_array();
         $data['distribution s'] = $this->db->get('distribution')->result_array();
-
-        $this->form_validation->set_rules('fish', 'fish', 'trim|required');
-
+        
+        $this->form_validation->set_rules('scientific_name', 'fish', 'trim|required');
+        
+        
         if ($this->form_validation->run() == false) {
             // $this->index();
             $this->load->view('layouts/header', $data);
@@ -50,13 +51,29 @@ class Fish extends CI_Controller
             $this->load->view('data-master/fish', $data);
             $this->load->view('layouts/footer');
         } else {
-
+            $species_id = $this->input->post('species_id');
+            if (is_numeric($this->input->post('species_id'))) {
+                $species = $this->db->get_where('species', ['id' => $this->input->post('species_id')])->num_rows();
+                if($species > 0){
+                    $species_id = $this->input->post('species_id');
+                } else {
+                    $species_id = 0;
+                }
+            } else {
+                $this->db->insert('species', [
+                    'species' => $this->input->post('species_id')
+                ]);
+                $species_id = $this->db->insert_id();
+            }
+            // $food = $this->db->get_where('food', ['id' => $this->input->post('food_id')])->row();
+            // $habitat = $this->db->get_where('habitats', ['id' => $this->input->post('habitat_id')])->row();
+            // $distribution = $this->db->get_where('distribution', ['id' => $this->input->post('distribution_id')])->row();
             if ($this->input->post('aksi') == "add") {
                 $this->db->insert('fish', [
                     'scientific_name' => $this->input->post('scientific_name'),
                     'genusl_name' => $this->input->post('genusl_name'),
                     'synonim' => $this->input->post('synonim'),
-                    'species_id' => $this->input->post('species_id'),
+                    'species_id' => $species_id,
                     // 'subspecies_id' => $this->input->post('subspecies_id'),
                     'fish_type_id' => $this->input->post('fish_type_id'),
                     'abundance_id' => $this->input->post('abundance_id'),
@@ -66,6 +83,63 @@ class Fish extends CI_Controller
                     'image' => $this->input->post('image'),
                 ]);
                 $fish_id = $this->db->insert_id();
+                foreach ($this->input->post('food') as $key => $value) {
+                    if (is_numeric($value)) {
+                        $food = $this->db->get_where('food', ['id' => $value]);
+                        if ($food->num_rows() > 0) {
+                            $food_id = $food->row()->id;
+                        } else {
+                            $food_id = 0;
+                        }
+                    } else {
+                        $this->db->insert('food', [
+                            'food' => $value
+                        ]);
+                        $food_id = $this->db->insert_id();
+                    }
+                    $this->db->insert('fish_food',[
+                        'fish_id' => $fish_id,
+                        'food_id' => $food_id,
+                    ]);
+                }
+                foreach ($this->input->post('habitat') as $key => $value) {
+                    if (is_numeric($value)) {
+                        $habitat = $this->db->get_where('habitats', ['id' => $value]);
+                        if ($habitat->num_rows() > 0) {
+                            $habitat_id = $habitat->row()->id;
+                        } else {
+                            $habitat_id = 0;
+                        }
+                    } else {
+                        $this->db->insert('habitats', [
+                            'habitat' => $value
+                        ]);
+                        $habitat_id = $this->db->insert_id();
+                    }
+                    $this->db->insert('fish_habitat',[
+                        'fish_id' => $fish_id,
+                        'habitat_id' => $habitat_id,
+                    ]);
+                }
+                foreach ($this->input->post('distribution') as $key => $value) {
+                    if (is_numeric($value)) {
+                        $distribution = $this->db->get_where('distribution', ['id' => $value]);
+                        if ($distribution->num_rows() > 0) {
+                            $distribution_id = $distribution->row()->id;
+                        } else {
+                            $distribution_id = 0;
+                        }
+                    } else {
+                        $this->db->insert('distribution', [
+                            'distribution' => $value
+                        ]);
+                        $distribution_id = $this->db->insert_id();
+                    }
+                    $this->db->insert('fish_distribution', [
+                        'fish_id' => $fish_id,
+                        'distribution_id' => $distribution_id,
+                    ]);
+                }
                 $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
                     New fish Added!
                     </div>');
@@ -93,7 +167,7 @@ class Fish extends CI_Controller
                     'scientific_name' => $this->input->post('scientific_name'),
                     'genusl_name' => $this->input->post('genusl_name'),
                     'synonim' => $this->input->post('synonim'),
-                    'species_id' => $this->input->post('species_id'),
+                    'species_id' => $species_id,
                     // 'subspecies_id' => $this->input->post('subspecies_id'),
                     'fish_type_id' => $this->input->post('fish_type_id'),
                     'abundance_id' => $this->input->post('abundance_id'),
