@@ -21,7 +21,7 @@
                                 <i class="icon-lg text-muted pb-3px" data-feather="more-horizontal"></i>
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton7">
-                                <a class="dropdown-item d-flex align-items-center" data-bs-toggle="modal" data-bs-target="#setRoleModal"><i data-feather="eye" class="icon-sm me-2"></i> <span class="">Tambah</span></a>
+                                <a href="#" class="dropdown-item d-flex align-items-center" data-bs-toggle="modal" data-bs-target="#setRoleModal"><i data-feather="eye" class="icon-sm me-2"></i> <span class="">Tambah</span></a>
                             </div>
                         </div>
                     </div>
@@ -48,7 +48,7 @@
                                         <td><?= $ct['province'] ?></td>
                                         <td>
 
-                                            <a class="badge bg-success updateCountry" data-bs-toggle="modal" data-bs-target="#editCont" data-id="<?= $ct['pr_id'] ?>" data-country="<?= $ct['ct_id'] ?>" data-province="<?= $ct['province'] ?>">Ubah</a>
+                                            <a href="#" class="badge bg-success updateCountry" data-bs-toggle="modal" data-bs-target="#editCont" data-id="<?= $ct['pr_id'] ?>" data-country="<?= $ct['ct_id'] ?>" data-province="<?= $ct['province'] ?>">Ubah</a>
 
                                             <a href="<?= base_url("DataMaster/province/delete/$ct[pr_id]"); ?>" class="badge bg-danger tombol-hapus" data-hapus="role">Hapus</a>
                                         </td>

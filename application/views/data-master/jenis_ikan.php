@@ -25,7 +25,7 @@
                                 <i class="icon-lg text-muted pb-3px" data-feather="more-horizontal"></i>
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton7">
-                                <a class="dropdown-item d-flex align-items-center" data-bs-toggle="modal" data-bs-target="#setRoleModal"><i data-feather="eye" class="icon-sm me-2"></i> <span class="">Tambah</span></a>
+                                <a href="#" class="dropdown-item d-flex align-items-center" data-bs-toggle="modal" data-bs-target="#setRoleModal"><i data-feather="eye" class="icon-sm me-2"></i> <span class="">Tambah</span></a>
                             </div>
                         </div>
                     </div>
@@ -52,7 +52,7 @@
                                         <td><?= substr($ct['description'], 0, 100) . "...." ?></td>
                                         <td>
 
-                                            <a class="badge bg-success updateBenua" data-bs-toggle="modal" data-bs-target="#editCont" data-id="<?= $ct['id'] ?>" data-type="<?= $ct['type'] ?>" data-description="<?= $ct['description'] ?>">Ubah</a>
+                                            <a href="#" class="badge bg-success updateBenua" data-bs-toggle="modal" data-bs-target="#editCont" data-id="<?= $ct['id'] ?>" data-type="<?= $ct['type'] ?>" data-description="<?= $ct['description'] ?>">Ubah</a>
 
                                             <a href="<?= base_url("DataMaster/fishType/delete/$ct[id]"); ?>" class="badge bg-danger tombol-hapus" data-hapus="role">Hapus</a>
                                         </td>

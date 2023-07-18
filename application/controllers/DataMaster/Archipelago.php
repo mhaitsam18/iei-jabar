@@ -20,7 +20,7 @@ class Archipelago extends CI_Controller
 
         $data['archipelago'] = $this->DataMaster_model->getKepulauan();
 
-        $data['provinces'] = $this->db->get('provinsi')->result_array();
+        $data['provinces'] = $this->db->get('province')->result_array();
         $data['distributions'] = $this->db->get('distribution')->result_array();
 
         $this->form_validation->set_rules('distribution', 'Distribution', 'trim|required');

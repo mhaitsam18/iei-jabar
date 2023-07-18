@@ -17,20 +17,16 @@
                     <div class="d-flex justify-content-between align-items-baseline mb-2">
                         <h6 class="card-title mb-0"><?= $title ?></h6>
                         <div class="dropdown mb-2">
-                            <button class="btn p-0" type="button" id="dropdownMenuButton7" data-bs-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false">
+                            <button class="btn p-0" type="button" id="dropdownMenuButton7" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="icon-lg text-muted pb-3px" data-feather="more-horizontal"></i>
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton7">
-                                <a class="dropdown-item d-flex align-items-center" data-bs-toggle="modal"
-                                    data-bs-target="#setRoleModal"><i data-feather="eye" class="icon-sm me-2"></i> <span
-                                        class="">Tambah</span></a>
+                                <a href="#" class="dropdown-item d-flex align-items-center" data-bs-toggle="modal" data-bs-target="#setRoleModal"><i data-feather="eye" class="icon-sm me-2"></i> <span class="">Tambah</span></a>
                             </div>
                         </div>
                     </div>
                     <?= form_error('role', '<div class="alert alert-danger" role="alert">', '</div>'); ?>
-                    <div class="flash-data" data-flashdata="<?= $this->session->flashdata('flash'); ?>"
-                        data-objek="Role"></div>
+                    <div class="flash-data" data-flashdata="<?= $this->session->flashdata('flash'); ?>" data-objek="Role"></div>
                     <?= $this->session->flashdata('message'); ?>
                     <div class="table-responsive">
                         <table class="table table-hover" id="dataTable">
@@ -45,19 +41,16 @@
                                 <?php $no = 1; ?>
                                 <?php foreach ($foods as $ct) : ?>
 
-                                <tr>
-                                    <td><?= $no++ ?></td>
-                                    <td><?= $ct['food'] ?></td>
-                                    <td>
+                                    <tr>
+                                        <td><?= $no++ ?></td>
+                                        <td><?= $ct['food'] ?></td>
+                                        <td>
 
-                                        <a class="badge bg-success updateBenua" data-bs-toggle="modal"
-                                            data-bs-target="#editCont" data-id="<?= $ct['id'] ?>"
-                                            data-food="<?= $ct['food'] ?>">Ubah</a>
+                                            <a href="#" class="badge bg-success updateBenua" data-bs-toggle="modal" data-bs-target="#editCont" data-id="<?= $ct['id'] ?>" data-food="<?= $ct['food'] ?>">Ubah</a>
 
-                                        <a href="<?= base_url("DataMaster/food/delete/$ct[id]"); ?>"
-                                            class="badge bg-danger tombol-hapus" data-hapus="role">Hapus</a>
-                                    </td>
-                                </tr>
+                                            <a href="<?= base_url("DataMaster/food/delete/$ct[id]"); ?>" class="badge bg-danger tombol-hapus" data-hapus="role">Hapus</a>
+                                        </td>
+                                    </tr>
 
                                 <?php endforeach ?>
 
@@ -124,25 +117,24 @@
     </div>
 </div>
 
-<script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM="
-    crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
 
 
 <script>
-$(document).ready(function() {
-    $('#dataTable').DataTable();
-});
+    $(document).ready(function() {
+        $('#dataTable').DataTable();
+    });
 </script>
 
 <script>
-$(document).on("click", ".updateBenua", function() {
-    var id = $(this).data('id');
-    $(".modal-body  #id").val(id);
+    $(document).on("click", ".updateBenua", function() {
+        var id = $(this).data('id');
+        $(".modal-body  #id").val(id);
 
-    var food = $(this).data('food');
-    $(".modal-body  #food").val(food);
-    // As pointed out in comments, 
-    // it is unnecessary to have to manually call the modal.
-    // $('#addBookDialog').modal('show');
-});
+        var food = $(this).data('food');
+        $(".modal-body  #food").val(food);
+        // As pointed out in comments, 
+        // it is unnecessary to have to manually call the modal.
+        // $('#addBookDialog').modal('show');
+    });
 </script>
