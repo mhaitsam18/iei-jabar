@@ -388,35 +388,6 @@
             });
         });
     });
-
-    $(function() {
-        $('.newKategoriModalButton').on('click', function() {
-            $('#newKategoriModalLabel').html('Add New Category');
-            $('.modal-footer button[type=submit]').html('Add');
-            $('.modal-content form')[0].reset();
-            $('.modal-content form').attr('action', '<?= base_url('DataMaster/kategori') ?>');
-        });
-
-        $('.updateKategoriModalButton').on('click', function() {
-            $('#newKategoriModalLabel').html('Edit Category');
-            $('.modal-footer button[type=submit]').html('Save');
-            $('.modal-content form').attr('action', '<?= base_url('DataMaster/updateKategori') ?>');
-            const id = $(this).data('id');
-            jQuery.ajax({
-                url: '<?= base_url('DataMaster/getUpdateKategori') ?>',
-                data: {
-                    id: id
-                },
-                method: 'post',
-                dataType: 'json',
-                success: function(data) {
-                    console.log(data);
-                    $('#id_kategori').val(data.id_kategori);
-                    $('#kategori').val(data.kategori);
-                }
-            });
-        });
-    });
 </script>
 <script type="text/javascript">
     $('.check-role-access').on('click', function() {
@@ -435,38 +406,6 @@
             }
         });
     });
-
-    $(document).ready(function() {
-        setInterval(function() {
-            $('#show').load('<?= base_url('User/notifikasi') ?>')
-        }, 10000);
-    });
-
-    function notifikasi() {
-        $.ajax({
-            type: "POST",
-            url: '<?= base_url('User/readAllNotification') ?>',
-            data: {
-                action: 'call_this'
-            },
-            success: function(html) {
-
-            }
-        });
-    }
-
-    function read(id) {
-        $.ajax({
-            type: "POST",
-            url: '<?= base_url('User/readNotification/') ?>' + id,
-            data: {
-                action: 'call_this'
-            },
-            success: function(html) {
-
-            }
-        });
-    }
 </script>
 </body>
 

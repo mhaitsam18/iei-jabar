@@ -259,3 +259,4 @@
 <!-- partial -->
 
 <div class="page-wrapper">
+    <div class="flash-data" data-success="<?= $this->session->flashdata('success') ?>" data-error="<?= $this->session->flashdata('error') ?>" data-warning="<?= $this->session->flashdata('warning') ?>"></div>

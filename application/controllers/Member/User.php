@@ -17,6 +17,7 @@ class User extends CI_Controller
     {
         $data['title'] = "Profile";
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        $data['avatars'] = $this->db->get('avatar')->result_array();
         $this->form_validation->set_rules('name', 'Full Name', 'trim|required');
         if ($this->form_validation->run() ==  false) {
             $this->load->view('layouts/header-member', $data);
@@ -66,6 +67,17 @@ class User extends CI_Controller
 				</div>');
             redirect('member/user');
         }
+    }
+
+    public function changeAvatar()
+    {
+        $this->db->where('id', $this->input->post('user_id'));
+        $this->db->update('user',['image' => $this->input->post('avatar')]);
+        $this->session->set_flashdata('success', 'Profile Updated!');
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
+				Profile Updated
+				</div>');
+        redirect('member/user');
     }
 
     public function delete()

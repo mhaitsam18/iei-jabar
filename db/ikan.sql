@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 18, 2023 at 08:40 PM
+-- Generation Time: Jul 18, 2023 at 09:17 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.1.17
 
@@ -859,7 +859,7 @@ CREATE TABLE `user` (
 INSERT INTO `user` (`id`, `username`, `name`, `email`, `gender`, `place_of_birth`, `birthday`, `phone_number`, `address`, `image`, `avatar_id`, `password`, `role_id`, `is_active`, `date_created`) VALUES
 (0, 'undefined', 'Undefined', 'undefined@gmail.com', NULL, NULL, NULL, NULL, NULL, 'profile/default.png', NULL, '$2y$10$54Ajl0R.ArBF45hyXCsJZOnTdLzoegtv9nJbBRs3ICk1QBv1kS5yW', 0, 0, 1614472317),
 (1, 'feby', 'Feby', 'feby@gmail.com', 'Perempuan', 'Bandung', '1999-02-18', '081214222446', 'Jl. Bandung ', 'profile/default.png', NULL, '$2y$10$54Ajl0R.ArBF45hyXCsJZOnTdLzoegtv9nJbBRs3ICk1QBv1kS5yW', 1, 1, 1614472317),
-(2, 'geby', 'Geby', 'geby@gmail.com', 'Perempuan', 'Bandung', '2002-06-12', '0128938123', 'Bandung', 'profile/default.png', NULL, '$2y$10$54Ajl0R.ArBF45hyXCsJZOnTdLzoegtv9nJbBRs3ICk1QBv1kS5yW', 2, 1, 1614472317),
+(2, 'geby', 'Geby', 'geby@gmail.com', 'Perempuan', 'Bandung', '2002-06-12', '0128938123', 'Bandung', 'avatar/woman.png', NULL, '$2y$10$54Ajl0R.ArBF45hyXCsJZOnTdLzoegtv9nJbBRs3ICk1QBv1kS5yW', 2, 1, 1614472317),
 (3, 'amel', 'Amel', 'amel@gmail.com', 'Perempuan', 'Bandung', '2002-06-12', '0821148321', 'Bandung', 'profile/default.png', NULL, '$2y$10$54Ajl0R.ArBF45hyXCsJZOnTdLzoegtv9nJbBRs3ICk1QBv1kS5yW', 3, 1, 1614472317);
 
 -- --------------------------------------------------------

@@ -131,6 +131,36 @@
 
                             </form>
                         </div>
+                        <style>
+                            input[type="radio"]:checked+img {
+                                border: 3px solid #007bff;
+                                /* Change border color to your preference */
+                                box-shadow: 0 0 5px #007bff;
+                                /* Add a box shadow when selected */
+                            }
+
+                            /* Change cursor to pointer (hand) when hovering over the avatar images */
+                            input[type="radio"]+img {
+                                cursor: pointer;
+                            }
+                        </style>
+                        <div class="col-lg-4">
+                            <h4>Replace Profile Photo with Avatar</h4>
+                            <form action="<?= base_url('/member/user/changeAvatar') ?>" method="post">
+                                <input type="hidden" name="user_id" value="<?= $user['id'] ?>">
+                                <div class="row">
+                                    <?php foreach ($avatars as $avatar) : ?>
+                                        <div class="col-lg-4 p-3">
+                                            <label>
+                                                <input type="radio" name="avatar" value="<?= $avatar['avatar'] ?>" style="display: none;">
+                                                <img src="<?= base_url('assets/img/' . $avatar['avatar']) ?>" class="wd-80 ht-80 rounded-circle" title="<?= $avatar['name'] ?>">
+                                            </label>
+                                        </div>
+                                    <?php endforeach; ?>
+                                </div>
+                                <button type="submit" class="btn btn-primary btn-sm float-end m-3">Save</button>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
