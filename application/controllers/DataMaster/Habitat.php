@@ -32,6 +32,7 @@ class Habitat extends CI_Controller
 
             if ($this->input->post('aksi') == "add") {
                 $this->db->insert('habitats', ['habitat' => $this->input->post('habitat')]);
+                $this->session->set_flashdata('success', 'Habitat Added!');
 
                 $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
                     New Habitat Added!
@@ -42,6 +43,8 @@ class Habitat extends CI_Controller
 
                 $this->db->where('id', $this->input->post('id'));
                 $this->db->update('habitats', $data);
+                
+                $this->session->set_flashdata('success', 'Habitat Updated!');
                 $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
                 Habitat Updated!
                     </div>');
@@ -57,6 +60,8 @@ class Habitat extends CI_Controller
     {
         $this->db->where('id', $id);
         $this->db->delete('habitats');
+        
+        $this->session->set_flashdata('success', 'Habitat Deleted!');
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
         Habitat Deleted!
 			</div>');

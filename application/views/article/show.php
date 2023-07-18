@@ -3,6 +3,8 @@
         <div class="col-12 col-xl-12 stretch-card">
             <div class="card">
                 <div class="card-body">
+                    <div class="flash-data" data-flashdata="<?= $this->session->flashdata('flash'); ?>" data-objek="Data User"></div>
+                    <?= $this->session->flashdata('message'); ?>
                     <div class="d-flex justify-content-center align-items-center flex-wrap grid-margin">
                         <div class="text-center">
                             <h2 class="mb-3 mb-md-0"><?= $title ?></h2>

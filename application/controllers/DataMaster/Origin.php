@@ -38,6 +38,7 @@ class Origin extends CI_Controller
                     'fish_id' => $fish_id,
                     'origin' => $this->input->post('origin'),
                 ]);
+                $this->session->set_flashdata('success', 'Origin Added!');
                 $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
                     New Origin Added!
                     </div>');
@@ -48,6 +49,8 @@ class Origin extends CI_Controller
                 );
                 $this->db->where('id', $this->input->post('id'));
                 $this->db->update('origin', $data);
+                
+                $this->session->set_flashdata('success', 'Origin Updated!');
                 $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
                 Origin Updated!
                     </div>');
@@ -61,6 +64,8 @@ class Origin extends CI_Controller
     {
         $this->db->where('id', $id);
         $this->db->delete('origin');
+        
+        $this->session->set_flashdata('success', 'Origin Deleted!');
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
         Origin Deleted!
 			</div>');

@@ -32,6 +32,8 @@ class Food extends CI_Controller
 
             if ($this->input->post('aksi') == "add") {
                 $this->db->insert('food', ['food' => $this->input->post('food')]);
+                
+                $this->session->set_flashdata('success', 'Food Added!');
 
                 $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
                     New Food Added!
@@ -42,6 +44,8 @@ class Food extends CI_Controller
 
                 $this->db->where('id', $this->input->post('id'));
                 $this->db->update('food', $data);
+                
+                $this->session->set_flashdata('success', 'Food Updated!');
                 $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
                 Food Updated!
                     </div>');
@@ -57,6 +61,8 @@ class Food extends CI_Controller
     {
         $this->db->where('id', $id);
         $this->db->delete('food');
+        
+        $this->session->set_flashdata('success', 'Food Deleted!');
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
         Food Deleted!
 			</div>');

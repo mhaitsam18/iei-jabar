@@ -39,6 +39,7 @@ class LocalName extends CI_Controller
                     'local_name' => $this->input->post('local_name'),
                     'area' => $this->input->post('area'),
                 ]);
+                $this->session->set_flashdata('success', 'Local Name Added!');
                 $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
                     New Local Name Added!
                     </div>');
@@ -50,6 +51,8 @@ class LocalName extends CI_Controller
                 );
                 $this->db->where('id', $this->input->post('id'));
                 $this->db->update('local_name', $data);
+                
+                $this->session->set_flashdata('success', 'Local Name Updated!');
                 $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
                 Local Name Updated!
                     </div>');
@@ -63,6 +66,8 @@ class LocalName extends CI_Controller
     {
         $this->db->where('id', $id);
         $this->db->delete('local_name');
+        
+        $this->session->set_flashdata('success', 'Local Name Deleted!');
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
         Local Name Deleted!
 			</div>');

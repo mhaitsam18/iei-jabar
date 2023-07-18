@@ -39,6 +39,7 @@ class Country extends CI_Controller
                 ];
 
                 $this->db->insert('country', $data);
+                $this->session->set_flashdata('success', 'Country Added!');
                 $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
                     New Country Added!
                     </div>');
@@ -50,6 +51,8 @@ class Country extends CI_Controller
 
                 $this->db->where('id', $this->input->post('id'));
                 $this->db->update('country', $data);
+                
+                $this->session->set_flashdata('success', 'Country Updated!');
                 $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
                 Country Updated!
                     </div>');
@@ -65,6 +68,8 @@ class Country extends CI_Controller
     {
         $this->db->where('id', $id);
         $this->db->delete('country');
+        
+        $this->session->set_flashdata('success', 'Country Deleted!');
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
         Country Deleted!
 			</div>');

@@ -64,6 +64,7 @@ class FishFood extends CI_Controller
                         'food_id' => $food_id,
                     ]);
                 }
+                $this->session->set_flashdata('success', 'Fish Food Added!');
                 $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
                     New fish food Added!
                     </div>');
@@ -75,6 +76,8 @@ class FishFood extends CI_Controller
 
                 $this->db->where('id', $this->input->post('id'));
                 $this->db->update('fish_food', $data);
+                
+                $this->session->set_flashdata('success', 'Fish Food Updated!');
                 $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
                 fish food Updated!
                     </div>');
@@ -88,6 +91,8 @@ class FishFood extends CI_Controller
     {
         $this->db->where('id', $id);
         $this->db->delete('fish_food');
+        
+        $this->session->set_flashdata('success', 'Fish Food Deleted!');
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
         fish food Deleted!
 			</div>');

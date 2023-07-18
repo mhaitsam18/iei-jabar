@@ -12,6 +12,8 @@
                 <div class="card-body">
                     <div class="d-flex justify-content-between align-items-baseline mb-2">
                         <h6 class="card-title mb-0">Projects</h6>
+                        <div class="flash-data" data-flashdata="<?= $this->session->flashdata('flash'); ?>" data-objek="Data User"></div>
+                        <?= $this->session->flashdata('message'); ?>
                         <div class="dropdown mb-2">
                             <button class="btn p-0" type="button" id="dropdownMenuButton7" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="icon-lg text-muted pb-3px" data-feather="more-horizontal"></i>
@@ -40,7 +42,7 @@
                                         <td><?= $row['name'] ?></td>
                                         <td><?= $row['title'] ?></td>
                                         <td>
-                                            <?php if (!$row['published_at'] && $row['deleted_at']) : ?>
+                                            <?php if ($row['deleted_at']) : ?>
                                                 <span class="badge bg-danger">Unpublish</span>
                                             <?php elseif (!$row['published_at']) : ?>
                                                 <span class="badge bg-primary">Draft</span>

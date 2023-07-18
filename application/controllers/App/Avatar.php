@@ -32,6 +32,7 @@ class Avatar extends CI_Controller
                     'name' => $this->input->post('name'),
                     'avatar' => $this->input->post('avatar')
                 ]);
+                $this->session->set_flashdata('success', 'Avatar Added!');
 
                 $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
                     New Avatar Added!
@@ -50,6 +51,7 @@ class Avatar extends CI_Controller
                         $new_avatar = $this->upload->data('file_name');
                         $this->db->set('avatar', 'avatar/' . $new_avatar);
                     } else {
+                        $this->session->set_flashdata('error', $this->upload->display_errors());
                         $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">' . $this->upload->display_errors() . '</div>');
                         redirect($_SERVER['HTTP_REFERER']);
                     }
@@ -61,6 +63,7 @@ class Avatar extends CI_Controller
 
                 $this->db->where('id', $this->input->post('id'));
                 $this->db->update('avatar', $data);
+                $this->session->set_flashdata('success', 'Avatar Updated!');
                 $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
                 avatar Updated!
                     </div>');
@@ -76,6 +79,8 @@ class Avatar extends CI_Controller
     {
         $this->db->where('id', $id);
         $this->db->delete('avatar');
+
+        $this->session->set_flashdata('success', 'Avatar Deleted!');
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
         avatar Deleted!
 			</div>');

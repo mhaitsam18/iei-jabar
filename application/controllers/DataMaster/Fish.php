@@ -152,6 +152,7 @@ class Fish extends CI_Controller
                         'origin' => $value,
                     ]);
                 }
+                $this->session->set_flashdata('success', 'Fish Added!');
                 $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
                     New fish Added!
                     </div>');
@@ -170,6 +171,7 @@ class Fish extends CI_Controller
                         $new_image = $this->upload->data('file_name');
                         $this->db->set('image', 'fish/' . $new_image);
                     } else {
+                        $this->session->set_flashdata('error', $this->upload->display_errors());
                         $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">' . $this->upload->display_errors() . '</div>');
                         redirect($_SERVER['HTTP_REFERER']);
                     }
@@ -190,6 +192,8 @@ class Fish extends CI_Controller
 
                 $this->db->where('id', $this->input->post('id'));
                 $this->db->update('fish', $data);
+                
+                $this->session->set_flashdata('success', 'Fish Updated!');
                 $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
                 fish Updated!
                     </div>');
@@ -205,6 +209,8 @@ class Fish extends CI_Controller
     {
         $this->db->where('id', $id);
         $this->db->delete('fish');
+        
+        $this->session->set_flashdata('success', 'Fish Deleted!');
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
         fish Deleted!
 			</div>');

@@ -53,7 +53,8 @@ class User extends CI_Controller {
 					} 
 					$new_image = $this->upload->data('file_name');
 					$this->db->set('image', $new_image);
-				} else{
+				} else {
+					$this->session->set_flashdata('error', $this->upload->display_errors());
 					$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">'.$this->upload->display_errors().'</div>');
 					redirect('user');
 				}
@@ -69,7 +70,8 @@ class User extends CI_Controller {
 			];
 			$this->db->where('email', $email);
 			$this->db->update('user', $data);
-			$this->session->set_flashdata('flash', 'Berhasil diubah');
+			// $this->session->set_flashdata('flash', 'Berhasil diubah');
+			$this->session->set_flashdata('success', 'Profile Updated!');
 			$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
 				Selamat! Profilmu berhasil diperbarui!
 				</div>');
@@ -81,7 +83,8 @@ class User extends CI_Controller {
 	{
 		$this->form_validation->set_rules('password', 'Password', 'trim|required');
 		if ($this->form_validation->run() ==  false) {
-			$this->session->set_flashdata('flash_gagal', 'Kata sandi wajib diisi');
+			// $this->session->set_flashdata('flash_gagal', 'Kata sandi wajib diisi');
+			$this->session->set_flashdata('error', 'Password is required!');
 			$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
 				The Password is required.
 				</div>');
@@ -98,6 +101,7 @@ class User extends CI_Controller {
 				redirect('auth/logout');
 			} else{
 				$this->session->set_flashdata('flash_gagal', 'Kata Sandi salah');
+				$this->session->set_flashdata('error', 'Wrong Password!');
 				$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
 					Wrong Password!
 					</div>');
@@ -125,12 +129,14 @@ class User extends CI_Controller {
 			$new_password1 = $this->input->post('new_password1');
 			$new_password2 = $this->input->post('new_password2');
 			if (!password_verify($current_password, $data['user']['password'])) {
-			$this->session->set_flashdata('flash_gagal', 'Password saat ini salah');
+			// $this->session->set_flashdata('flash_gagal', 'Password saat ini salah');
+			$this->session->set_flashdata('error', 'Wrong current password!');
 			$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Wrong current password!</div>');
 			redirect('user/changePassword');
 			} else{
 				if ($current_password == $new_password1) {
-					$this->session->set_flashdata('flash_gagal', 'Kata Sandi baru tidak boleh sama dengan kata sandi yang lama');
+					// $this->session->set_flashdata('flash_gagal', 'Kata Sandi baru tidak boleh sama dengan kata sandi yang lama');
+					$this->session->set_flashdata('warning', 'New password cannot be the same as current password!');
 					$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">New password cannot be the same as current password!</div>');
 					redirect('user/changePassword');
 				} else{
@@ -139,7 +145,8 @@ class User extends CI_Controller {
 					$this->db->set('password', $password_hash);
 					$this->db->where('email', $this->session->userdata('email'));
 					$this->db->update('user');
-					$this->session->set_flashdata('flash', 'Berhasil diubah');
+					// $this->session->set_flashdata('flash', 'Berhasil diubah');
+					$this->session->set_flashdata('success', 'Password Changed!');
 					$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">password changed!</div>');
 					redirect('user/changePassword');
 				}

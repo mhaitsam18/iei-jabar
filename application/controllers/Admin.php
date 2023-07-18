@@ -57,6 +57,8 @@ class Admin extends CI_Controller {
 			$this->load->view('layouts/footer');
 		} else{
 			$this->db->insert('user_role', ['role' => $this->input->post('role')]);
+
+			$this->session->set_flashdata('success', 'Role Added!');
 			$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
 				New Role Added!
 				</div>');
@@ -88,6 +90,8 @@ class Admin extends CI_Controller {
 		// $input = array('role_id' => $this->input->post('role_id'));
 		// $id = $this->input->post('id');
 		// $this->User_model->update()
+
+		$this->session->set_flashdata('success', 'Set User Role successfull!');
 		$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
 			Set User Role Successfull!
 			</div>');
@@ -125,6 +129,8 @@ class Admin extends CI_Controller {
 		} else{
 			$this->db->delete('user_access_menu', $data);
 		}
+
+		$this->session->set_flashdata('success', 'Access Changed!');
 		$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
 			Access Changed!
 			</div>');
@@ -144,6 +150,8 @@ class Admin extends CI_Controller {
 			$data = array('role' => $this->input->post('role'));
 			$this->db->where('id', $this->input->post('id'));
 			$this->db->update('user_role', $data);
+
+			$this->session->set_flashdata('success', 'Role Updated!');
 			$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
 				Role Updated!
 				</div>');
@@ -161,6 +169,8 @@ class Admin extends CI_Controller {
 		
 		$this->db->where('id', $id);
 		$this->db->delete('user_role');
+
+		$this->session->set_flashdata('success', 'Role Deleted!');
 		$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
 			Role Deleted!
 			</div>');

@@ -10,6 +10,8 @@
         <div class="col-12 col-xl-12 stretch-card">
             <div class="card">
                 <div class="card-body">
+                    <div class="flash-data" data-flashdata="<?= $this->session->flashdata('flash'); ?>" data-objek="Data User"></div>
+                    <?= $this->session->flashdata('message'); ?>
                     <form action="<?= base_url('Artikel/edit/' . $article->id) ?>" method="post" enctype="multipart/form-data">
                         <div class="row">
                             <div class="col-lg-9 col-sm-12">
@@ -34,7 +36,7 @@
                                 </div>
                                 <div class="mb-3">
                                     <div class="col-sm-4 m-1">
-                                        <img src="<?= base_url('assets/img/'.set_value('nama_thumbnail', $article->thumbnail)) ?>" class="img-thumbnail img-preview">
+                                        <img src="<?= base_url('assets/img/' . set_value('nama_thumbnail', $article->thumbnail)) ?>" class="img-thumbnail img-preview">
                                     </div>
                                     <label for="thumbnail">Thumbnail</label>
                                     <input type="file" class="form-control filepond" name="thumbnail" multiple data-allow-reorder="true" data-max-file-size="3MB" data-max-files="3" data-folder="artikel" onchange="previewImg()">

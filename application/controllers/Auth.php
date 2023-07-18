@@ -216,14 +216,18 @@ class Auth extends CI_Controller {
 						// redirect('Artikel/index');
 						redirect('user/index');
 					}
-				} else{
+				} else {
+
+					$this->session->set_flashdata('error', 'Wrong Password!');
 					$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
 						Wrong password!
 						</div>');
 					redirect('auth');
 
 				}
-			} else{
+			} else {
+
+				$this->session->set_flashdata('warning', 'This email has not been activated! Please Check Your Email!');
 				$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
 					This email has not been activated! Please Check Your Email!
 					</div>');
@@ -243,6 +247,7 @@ class Auth extends CI_Controller {
 		$this->session->unset_userdata('username');
 		$this->session->unset_userdata('email');
 		$this->session->unset_userdata('role_id');
+		$this->session->set_flashdata('success', 'You Have Been logout!');
 		$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
 			You have been log out
 			</div>');

@@ -33,6 +33,7 @@ class ArticleType extends CI_Controller
                     'article_type' => $this->input->post('article_type')
                 ]);
 
+                $this->session->set_flashdata('success', 'Articel Type Added!');
                 $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
                     New Article Type Added!
                     </div>');
@@ -43,6 +44,7 @@ class ArticleType extends CI_Controller
 
                 $this->db->where('id', $this->input->post('id'));
                 $this->db->update('article_type', $data);
+                $this->session->set_flashdata('success', 'Article Type Updated!');
                 $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
                 Article Type Updated!
                     </div>');
@@ -58,6 +60,7 @@ class ArticleType extends CI_Controller
     {
         $this->db->where('id', $id);
         $this->db->delete('article_type');
+        $this->session->set_flashdata('success', 'Article Type Deleted!');
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
         Article Type Deleted!
 			</div>');

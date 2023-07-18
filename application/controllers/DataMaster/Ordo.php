@@ -63,6 +63,7 @@ class Ordo extends CI_Controller
                     'description' => $this->input->post('description'),
                     'picture' => $this->input->post('picture')
                 ]);
+                $this->session->set_flashdata('success', 'Ordo Added!');
 
                 $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
                     New ordo Added!
@@ -84,6 +85,8 @@ class Ordo extends CI_Controller
                         $new_picture = $this->upload->data('file_name');
                         $this->db->set('picture', 'ordo/' . $new_picture);
                     } else {
+
+                        $this->session->set_flashdata('error', $this->upload->display_errors());
                         $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">' . $this->upload->display_errors() . '</div>');
                         redirect($_SERVER['HTTP_REFERER']);
                     }
@@ -99,6 +102,8 @@ class Ordo extends CI_Controller
 
                 $this->db->where('id', $this->input->post('id'));
                 $this->db->update('ordo', $data);
+                
+                $this->session->set_flashdata('success', 'Ordo Updated!');
                 $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
                 ordo Updated!
                     </div>');
@@ -114,6 +119,8 @@ class Ordo extends CI_Controller
     {
         $this->db->where('id', $id);
         $this->db->delete('ordo');
+        
+        $this->session->set_flashdata('success', 'Ordo Deleted!');
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
         ordo Deleted!
 			</div>');

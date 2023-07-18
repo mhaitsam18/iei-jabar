@@ -66,6 +66,7 @@ class Species extends CI_Controller
                     'description' => $this->input->post('description'),
                     'picture' => $this->input->post('picture')
                 ]);
+                $this->session->set_flashdata('success', 'Species Added!');
 
                 $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
                     New species Added!
@@ -85,6 +86,8 @@ class Species extends CI_Controller
                         $new_picture = $this->upload->data('file_name');
                         $this->db->set('picture', 'species/' . $new_picture);
                     } else {
+
+                        $this->session->set_flashdata('error', $this->upload->display_errors());
                         $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">' . $this->upload->display_errors() . '</div>');
                         redirect($_SERVER['HTTP_REFERER']);
                     }
@@ -100,6 +103,8 @@ class Species extends CI_Controller
 
                 $this->db->where('id', $this->input->post('id'));
                 $this->db->update('species', $data);
+                
+                $this->session->set_flashdata('success', 'Species Updated!');
                 $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
                 species Updated!
                     </div>');
@@ -115,6 +120,8 @@ class Species extends CI_Controller
     {
         $this->db->where('id', $id);
         $this->db->delete('species');
+        
+        $this->session->set_flashdata('success', 'Species Deleted!');
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
         species Deleted!
 			</div>');

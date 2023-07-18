@@ -7,6 +7,8 @@
 			<h1 class="auth-title">Log in.</h1>
 			<p class="auth-subtitle mb-5">Silahkan Log in</p>
 			<form action="<?= base_url('auth/') ?>" method="post">
+				<div class="flash-data" data-flashdata="<?= $this->session->flashdata('flash'); ?>" data-objek="Data User"></div>
+				<?= $this->session->flashdata('message'); ?>
 				<div class="form-group position-relative has-icon-left mb-4">
 					<input type="text" class="form-control form-control-xl <?= (form_error('username')) ? "is-invalid" : '' ?>" name="username" id="username" placeholder="Username">
 					<div class="form-control-icon">

@@ -40,6 +40,7 @@ class Province extends CI_Controller
                 ];
 
                 $this->db->insert('province', $data);
+                $this->session->set_flashdata('success', 'Province Added!');
                 $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
                     New Province Added!
                     </div>');
@@ -51,6 +52,8 @@ class Province extends CI_Controller
 
                 $this->db->where('id', $this->input->post('id'));
                 $this->db->update('province', $data);
+                
+                $this->session->set_flashdata('success', 'Province Updated!');
                 $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
                 Province Updated!
                     </div>');
@@ -66,6 +69,8 @@ class Province extends CI_Controller
     {
         $this->db->where('id', $id);
         $this->db->delete('province');
+        
+        $this->session->set_flashdata('success', 'Province Deleted!');
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
         Province Deleted!
 			</div>');

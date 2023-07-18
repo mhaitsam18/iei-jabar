@@ -39,6 +39,7 @@ class FishType extends CI_Controller
                 ];
 
                 $this->db->insert('fish_type', $data);
+                $this->session->set_flashdata('success', 'Fish Type Added!');
                 $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
                     New Fish Type Added!
                     </div>');
@@ -52,6 +53,8 @@ class FishType extends CI_Controller
 
                 $this->db->where('id', $this->input->post('id'));
                 $this->db->update('fish_type', $data);
+                
+                $this->session->set_flashdata('success', 'Fish Type Updated!');
                 $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
                 Fish Type Updated!
                     </div>');
@@ -67,6 +70,8 @@ class FishType extends CI_Controller
     {
         $this->db->where('id', $id);
         $this->db->delete('fish_type');
+        
+        $this->session->set_flashdata('success', 'Fish Type Deleted!');
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
         Fish Type Deleted!
 			</div>');

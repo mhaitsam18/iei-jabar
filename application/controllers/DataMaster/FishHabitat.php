@@ -64,6 +64,7 @@ class FishHabitat extends CI_Controller
                         'habitat_id' => $habitat_id,
                     ]);
                 }
+                $this->session->set_flashdata('success', 'Fish Habitat Added!');
                 $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
                     New fish habitat Added!
                     </div>');
@@ -75,6 +76,8 @@ class FishHabitat extends CI_Controller
 
                 $this->db->where('id', $this->input->post('id'));
                 $this->db->update('fish_habitat', $data);
+                
+                $this->session->set_flashdata('success', 'Fish Habitat Updated!');
                 $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
                 fish habitat Updated!
                     </div>');
@@ -88,6 +91,8 @@ class FishHabitat extends CI_Controller
     {
         $this->db->where('id', $id);
         $this->db->delete('fish_habitat');
+        
+        $this->session->set_flashdata('success', 'Fish Habitat Deleted!');
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
         fish habitat Deleted!
 			</div>');

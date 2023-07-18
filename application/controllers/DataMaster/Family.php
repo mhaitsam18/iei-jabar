@@ -64,6 +64,7 @@ class Family extends CI_Controller
                     'description' => $this->input->post('description'),
                     'picture' => $this->input->post('picture')
                 ]);
+                $this->session->set_flashdata('success', 'Family Added!');
 
                 $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
                     New family Added!
@@ -83,6 +84,7 @@ class Family extends CI_Controller
                         $new_picture = $this->upload->data('file_name');
                         $this->db->set('picture', 'family/' . $new_picture);
                     } else {
+                        $this->session->set_flashdata('error', $this->upload->display_errors());
                         $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">' . $this->upload->display_errors() . '</div>');
                         redirect($_SERVER['HTTP_REFERER']);
                     }
@@ -98,6 +100,8 @@ class Family extends CI_Controller
 
                 $this->db->where('id', $this->input->post('id'));
                 $this->db->update('families', $data);
+                
+                $this->session->set_flashdata('success', 'Family Updated!');
                 $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
                 family Updated!
                     </div>');
@@ -113,6 +117,8 @@ class Family extends CI_Controller
     {
         $this->db->where('id', $id);
         $this->db->delete('families');
+        
+        $this->session->set_flashdata('success', 'Family Deleted!');
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
         family Deleted!
 			</div>');

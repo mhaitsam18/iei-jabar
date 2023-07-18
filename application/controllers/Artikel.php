@@ -91,6 +91,8 @@ class Artikel extends CI_Controller
                 'article_category_id' => $this->input->post('article_category_id'),
                 'article_type_id' => $this->input->post('article_type_id'),
             ]);
+
+            $this->session->set_flashdata('success', 'Article Added!');
             $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
 				Data Artikel berhasil ditambahkan!
 				</div>');
@@ -148,7 +150,10 @@ class Artikel extends CI_Controller
                 'published_at' => $published_at,
                 'article_category_id' => $this->input->post('article_category_id'),
                 'article_type_id' => $this->input->post('article_type_id'),
+                'updated_at' => date('Y-m-d H:i:s'),
             ]);
+
+            $this->session->set_flashdata('success', 'Article Updated!');
             $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
 				Data Artikel berhasil diperbarui!
 				</div>');
@@ -160,16 +165,43 @@ class Artikel extends CI_Controller
     {
         $this->db->where('id', $id);
         $this->db->delete('articles');
+
+        $this->session->set_flashdata('success', 'Article Deleted!');
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
         Article Deleted!
 			</div>');
-
         redirect($_SERVER['HTTP_REFERER']);
     }
 
     public function publish($article_id = null, $publish = null)
     {
-        # code...
+        $this->db->where('id', $article_id);
+        $data = [];
+        if ($publish == 'draft') {
+            $data = [
+                'published_at' => null,
+                'updated_at' => date('Y-m-d H:i:s'),
+                'deleted_at' => null,
+            ];
+        } elseif ($publish == 'publish') {
+            $data = [
+                'published_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),
+                'deleted_at' => null,
+            ];
+        } elseif ($publish == 'unpublish') {
+            $data = [
+                'updated_at' => date('Y-m-d H:i:s'),
+                'deleted_at' => date('Y-m-d H:i:s'),
+            ];
+        }
+        $this->db->update('articles', $data);
+
+        $this->session->set_flashdata('success', 'Article Updated!');
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
+				Data Artikel berhasil diperbarui!
+				</div>');
+        redirect('Artikel/index');
     }
     
 }

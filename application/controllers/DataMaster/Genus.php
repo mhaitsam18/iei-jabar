@@ -65,6 +65,8 @@ class Genus extends CI_Controller
                     'description' => $this->input->post('description'),
                     'picture' => $this->input->post('picture')
                 ]);
+                
+                $this->session->set_flashdata('success', 'Genus Added!');
 
                 $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
                     New genus Added!
@@ -84,6 +86,7 @@ class Genus extends CI_Controller
                         $new_picture = $this->upload->data('file_name');
                         $this->db->set('picture', 'genus/' . $new_picture);
                     } else {
+                        $this->session->set_flashdata('error', $this->upload->display_errors());
                         $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">' . $this->upload->display_errors() . '</div>');
                         redirect($_SERVER['HTTP_REFERER']);
                     }
@@ -99,6 +102,8 @@ class Genus extends CI_Controller
 
                 $this->db->where('id', $this->input->post('id'));
                 $this->db->update('genus', $data);
+                
+                $this->session->set_flashdata('success', 'Genus Updated!');
                 $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
                 genus Updated!
                     </div>');
@@ -114,6 +119,8 @@ class Genus extends CI_Controller
     {
         $this->db->where('id', $id);
         $this->db->delete('genus');
+        
+        $this->session->set_flashdata('success', 'Genus Deleted!');
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
         genus Deleted!
 			</div>');

@@ -32,6 +32,7 @@ class Articlecategory extends CI_Controller
                 $this->db->insert('article_category', [
                     'article_category' => $this->input->post('article_category')
                 ]);
+                $this->session->set_flashdata('success', 'Article Category Added!');
 
                 $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
                     New Article category Added!
@@ -43,6 +44,7 @@ class Articlecategory extends CI_Controller
 
                 $this->db->where('id', $this->input->post('id'));
                 $this->db->update('article_category', $data);
+                $this->session->set_flashdata('success', 'Article Category Updated!');
                 $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
                 Article category Updated!
                     </div>');
@@ -58,6 +60,7 @@ class Articlecategory extends CI_Controller
     {
         $this->db->where('id', $id);
         $this->db->delete('article_category');
+        $this->session->set_flashdata('success', 'Article Category Deleted!');
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
         Article category Deleted!
 			</div>');

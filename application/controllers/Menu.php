@@ -27,6 +27,7 @@ class Menu extends CI_Controller
 			$this->load->view('layouts/footer');
 		} else {
 			$this->db->insert('user_menu', ['menu' => $this->input->post('menu'), 'active' => $this->input->post('active')]);
+			$this->session->set_flashdata('success', 'Menu Added!');
 			$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
 				New Menu Added!
 				</div>');
@@ -58,6 +59,7 @@ class Menu extends CI_Controller
 				'is_active' => $this->input->post('is_active')
 			];
 			$this->db->insert('user_sub_menu', $data);
+			$this->session->set_flashdata('success', 'Sub Menu Added!');
 			$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
 				New Sub Menu Added!
 				</div>');
@@ -81,6 +83,7 @@ class Menu extends CI_Controller
 			);
 			$this->db->where('id', $this->input->post('id'));
 			$this->db->update('user_menu', $data);
+			$this->session->set_flashdata('success', 'Menu Updated!');
 			$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
 				Menu Updated!
 				</div>');
@@ -111,6 +114,7 @@ class Menu extends CI_Controller
 			];
 			$this->db->where('id', $this->input->post('id'));
 			$this->db->update('user_sub_menu', $data);
+			$this->session->set_flashdata('success', 'Sub Menu Updated!');
 			$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
 				Sub Menu Updated!
 				</div>');
@@ -128,8 +132,9 @@ class Menu extends CI_Controller
 
 		$this->db->where('id', $id);
 		$this->db->delete('user_menu');
+		$this->session->set_flashdata('success', 'Menu Deleted!');
 		$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
-			Sub Menu Deleted!
+			Menu Deleted!
 			</div>');
 		redirect('menu/');
 	}
@@ -138,6 +143,7 @@ class Menu extends CI_Controller
 	{
 		$this->db->where('id', $id);
 		$this->db->delete('user_sub_menu');
+		$this->session->set_flashdata('success', 'Sub Menu Deleted!');
 		$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
 			Sub Menu Deleted!
 			</div>');

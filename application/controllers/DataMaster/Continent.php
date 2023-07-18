@@ -31,6 +31,7 @@ class Continent extends CI_Controller
 
             if ($this->input->post('aksi') == "add") {
                 $this->db->insert('continent', ['continent' => $this->input->post('continent')]);
+                $this->session->set_flashdata('success', 'Continent Added!');
                 $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
                     New Continent Added!
                     </div>');
@@ -38,6 +39,8 @@ class Continent extends CI_Controller
                 $data = array('continent' => $this->input->post('continent'));
                 $this->db->where('id', $this->input->post('id'));
                 $this->db->update('continent', $data);
+                
+                $this->session->set_flashdata('success', 'Continent Updated!');
                 $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
                 Continent Updated!
                     </div>');
@@ -53,6 +56,8 @@ class Continent extends CI_Controller
     {
         $this->db->where('id', $id);
         $this->db->delete('continent');
+        
+        $this->session->set_flashdata('success', 'Continent Deleted!');
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
         Continent Deleted!
 			</div>');

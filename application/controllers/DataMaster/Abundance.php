@@ -39,6 +39,7 @@ class Abundance extends CI_Controller
                 ];
 
                 $this->db->insert('abundance', $data);
+                $this->session->set_flashdata('success', 'Abundance Added!');
                 $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
                     New Abundance Added!
                     </div>');
@@ -52,6 +53,7 @@ class Abundance extends CI_Controller
 
                 $this->db->where('id', $this->input->post('id'));
                 $this->db->update('abundance', $data);
+                $this->session->set_flashdata('success', 'Abundance Updated!');
                 $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
                 Abundance Updated!
                     </div>');
@@ -67,6 +69,7 @@ class Abundance extends CI_Controller
     {
         $this->db->where('id', $id);
         $this->db->delete('abundance');
+        $this->session->set_flashdata('success', 'Abundance Deleted!');
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
         Fish Type Deleted!
 			</div>');

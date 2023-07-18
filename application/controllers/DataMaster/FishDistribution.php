@@ -64,6 +64,7 @@ class Fishdistribution extends CI_Controller
                         'distribution_id' => $distribution_id,
                     ]);
                 }
+                $this->session->set_flashdata('success', 'Fish Distribution Added!');
                 $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
                     New fish distribution Added!
                     </div>');
@@ -75,6 +76,8 @@ class Fishdistribution extends CI_Controller
 
                 $this->db->where('id', $this->input->post('id'));
                 $this->db->update('fish_distribution', $data);
+                
+                $this->session->set_flashdata('success', 'Fish Distribution Updated!');
                 $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
                 fish distribution Updated!
                     </div>');
@@ -88,6 +91,8 @@ class Fishdistribution extends CI_Controller
     {
         $this->db->where('id', $id);
         $this->db->delete('fish_distribution');
+        
+        $this->session->set_flashdata('success', 'Fish Distribution Deleted!');
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
         fish distribution Deleted!
 			</div>');

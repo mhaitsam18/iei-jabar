@@ -44,6 +44,7 @@ class Archipelago extends CI_Controller
                 ];
 
                 $this->db->insert('archipelago', $data);
+                $this->session->set_flashdata('success', 'Archipelago / waters Added!');
                 $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
                     New Archipelago Added!
                     </div>');
@@ -56,6 +57,7 @@ class Archipelago extends CI_Controller
 
                 $this->db->where('id', $this->input->post('id'));
                 $this->db->update('archipelago', $data);
+                $this->session->set_flashdata('success', 'Archipelago / waters Updated!');
                 $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
                 Archipelago Updated!
                     </div>');
@@ -71,6 +73,7 @@ class Archipelago extends CI_Controller
     {
         $this->db->where('id', $id);
         $this->db->delete('archipelago');
+        $this->session->set_flashdata('success', 'Archipelago / Waters Deleted!');
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
         Archipelago Deleted!
 			</div>');

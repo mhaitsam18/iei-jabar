@@ -10,6 +10,8 @@
         <div class="col-12 col-xl-12 stretch-card">
             <div class="card">
                 <div class="card-body">
+                    <div class="flash-data" data-flashdata="<?= $this->session->flashdata('flash'); ?>" data-objek="Data User"></div>
+                    <?= $this->session->flashdata('message'); ?>
                     <form action="<?= base_url('Artikel/create') ?>" method="post" enctype="multipart/form-data">
                         <div class="row">
                             <div class="col-lg-9 col-sm-12">

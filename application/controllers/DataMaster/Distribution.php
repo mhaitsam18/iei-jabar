@@ -31,6 +31,7 @@ class Distribution extends CI_Controller
 
             if ($this->input->post('aksi') == "add") {
                 $this->db->insert('distribution', ['distribution' => $this->input->post('distribution')]);
+                $this->session->set_flashdata('success', 'Distribution Added!');
                 $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
                     New Distribution Added!
                     </div>');
@@ -40,6 +41,8 @@ class Distribution extends CI_Controller
 
                 $this->db->where('id', $this->input->post('id'));
                 $this->db->update('distribution', $data);
+                
+                $this->session->set_flashdata('success', 'Distribution Updated!');
                 $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
                 Distribution Updated!
                     </div>');
@@ -55,6 +58,8 @@ class Distribution extends CI_Controller
     {
         $this->db->where('id', $id);
         $this->db->delete('distribution');
+        
+        $this->session->set_flashdata('success', 'Distribution Deleted!');
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
         Distribution Deleted!
 			</div>');
