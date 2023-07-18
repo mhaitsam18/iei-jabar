@@ -22,7 +22,7 @@ class Dashboard extends CI_Controller
     public function country()
     {
         $data = [
-            'continent_id' => $this->input->post('continent'),
+            'continent_id' => $this->input->post('continent_id'),
             'country' => $this->input->post('country'),
         ];
         $this->db->insert('country', $data);
@@ -35,7 +35,7 @@ class Dashboard extends CI_Controller
     public function province()
     {
         $data = [
-            'country_id' => $this->input->post('country'),
+            'country_id' => $this->input->post('country_id'),
             'province' => $this->input->post('province'),
         ];
 
@@ -58,8 +58,8 @@ class Dashboard extends CI_Controller
     public function archipelago()
     {
         $data = [
-            'distribution_id' => $this->input->post('distribution'),
-            'province_id' => $this->input->post('province'),
+            'distribution_id' => $this->input->post('distribution_id'),
+            'province_id' => $this->input->post('province_id'),
             'archipelago' => $this->input->post('archipelago'),
         ];
 
@@ -518,6 +518,11 @@ class Dashboard extends CI_Controller
 
     public function localName()
     {
+        $this->db->insert('local_name', [
+            'fish_id' => $this->input->post('fish_id'),
+            'local_name' => $this->input->post('local_name'),
+            'area' => $this->input->post('area'),
+        ]);
         $this->session->set_flashdata('success', 'New Local Name Added!');
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
                     New Local Name Added!
@@ -526,6 +531,10 @@ class Dashboard extends CI_Controller
     }
     public function origin()
     {
+        $this->db->insert('origin', [
+            'fish_id' => $this->input->post('fish_id'),
+            'origin' => $this->input->post('origin'),
+        ]);
         $this->session->set_flashdata('success', 'New Origin Added!');
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
                     New Origin Added!

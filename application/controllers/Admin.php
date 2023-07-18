@@ -20,7 +20,7 @@ class Admin extends CI_Controller {
 		$data['title'] = "Dashboard";
 		$data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 		$data['speciess'] = $this->db->get('species')->result_array();
-		$data['genuss'] = $this->db->get('genus')->result_array();
+		$data['genera'] = $this->db->get('genus')->result_array();
 		$data['families'] = $this->db->get('families')->result_array();
 		$data['ordos'] = $this->db->get('ordo')->result_array();
 		$data['classies'] = $this->db->get('class')->result_array();
