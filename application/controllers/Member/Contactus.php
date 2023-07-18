@@ -15,7 +15,7 @@ class Contactus extends CI_Controller
 
     public function index()
     {
-        $data['title'] = "Fish Gallery";
+        $data['title'] = "Contact Us";
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
         $data['fishs'] = $this->db->get('fish')->result_array();
         $this->load->view('layouts/header-member', $data);
