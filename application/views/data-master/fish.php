@@ -239,7 +239,7 @@
                     <?php echo form_error('synonim', '<span class="text-danger">', '</span>'); ?>
                     <div class="mb-3">
                         <label for="species_id">Species</label>
-                        <select class="form-select" id="species_id" name="species_id">
+                        <select class="form-select select2-edit" id="edit_species_id" name="species_id">
                             <option value="" selected disabled>Pilih species</option>
                             <?php foreach ($speciess as $species) : ?>
                                 <option value="<?= $species['id'] ?>"><?= $species['species'] ?></option>
@@ -334,7 +334,7 @@
         $(".modal-body #synonim").val(synonim);
 
         var species_id = $(this).data('species_id');
-        $(".modal-body #species_id").val(species_id);
+        $(".modal-body #edit_species_id").val(species_id);
 
         var fish_type_id = $(this).data('fish_type_id');
         $(".modal-body #fish_type_id").val(fish_type_id);

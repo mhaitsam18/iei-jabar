@@ -157,7 +157,7 @@
                     <?php echo form_error('general_name', '<span class="text-danger">', '</span>'); ?>
                     <div class="mb-3">
                         <label for="genus_id">Genus</label>
-                        <select class="form-select select2-edit" id="genus_id" name="genus_id">
+                        <select class="form-select select2-edit" id="edit_genus_id" name="genus_id">
                             <option value="" selected disabled>Pilih Genus</option>
                             <?php foreach ($genera as $genus) : ?>
                                 <option value="<?= $genus['id'] ?>"><?= $genus['genus'] ?></option>
@@ -216,7 +216,7 @@
         $(".modal-body  #general_name").val(general_name);
 
         var genus_id = $(this).data('genus_id');
-        $(".modal-body  #genus_id").val(genus_id);
+        $(".modal-body  #edit_genus_id").val(genus_id);
 
         var description = $(this).data('description');
         $(".modal-body  #description").val(description);
