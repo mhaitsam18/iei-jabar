@@ -615,7 +615,7 @@
 					<?php echo form_error('general_name', '<span class="">', '</span>'); ?>
 					<div class="mb-3">
 						<label for="class_id">Class</label>
-						<select class="form-select select2-add" id="class_id" name="class_id">
+						<select class="form-select select2-ordo" id="class_id" name="class_id">
 							<option value="" selected disabled>Choose Class</option>
 							<?php foreach ($classies as $class) : ?>
 								<option value="<?= $class['id'] ?>"><?= $class['class'] ?></option>
@@ -666,7 +666,7 @@
 					<?php echo form_error('general_name', '<span class="">', '</span>'); ?>
 					<div class="mb-3">
 						<label for="ordo_id">Ordo</label>
-						<select class="form-select select2-add" id="ordo_id" name="ordo_id">
+						<select class="form-select select2-family" id="ordo_id" name="ordo_id">
 							<option value="" selected disabled>Choose Ordo</option>
 							<?php foreach ($ordos as $ordo) : ?>
 								<option value="<?= $ordo['id'] ?>"><?= $ordo['ordo'] ?></option>
@@ -717,7 +717,7 @@
 					<?php echo form_error('general_name', '<span class="">', '</span>'); ?>
 					<div class="mb-3">
 						<label for="family_id">family</label>
-						<select class="form-select select2-add" id="family_id" name="family_id">
+						<select class="form-select select2-genus" id="family_id" name="family_id">
 							<option value="" selected disabled>Choose family</option>
 							<?php foreach ($families as $family) : ?>
 								<option value="<?= $family['id'] ?>"><?= $family['family'] ?></option>
@@ -768,7 +768,7 @@
 					<?php echo form_error('general_name', '<span class="">', '</span>'); ?>
 					<div class="mb-3">
 						<label for="genus_id">genus</label>
-						<select class="form-select select2-add" id="genus_id" name="genus_id">
+						<select class="form-select select2-species" id="genus_id" name="genus_id">
 							<option value="" selected disabled>Choose genus</option>
 							<?php foreach ($genera as $genus) : ?>
 								<option value="<?= $genus['id'] ?>"><?= $genus['genus'] ?></option>
@@ -824,7 +824,7 @@
 					<?php echo form_error('synonim', '<span class="text-danger">', '</span>'); ?>
 					<div class="mb-3">
 						<label for="species_id">Species</label>
-						<select class="select2-add form-select" id="species_id" name="species_id" style="width: 100%; height: 200% !important;">
+						<select class="select2-fish form-select" id="species_id" name="species_id" style="width: 100%; height: 200% !important;">
 							<option value="" selected disabled>Pilih species</option>
 							<?php foreach ($speciess as $species) : ?>
 								<option value="<?= $species['id'] ?>"><?= $species['species'] ?></option>
@@ -942,7 +942,7 @@
 					<?php echo form_error('origin', '<span class="">', '</span>'); ?>
 					<div class="mb-3">
 						<label for="fish_id">Fish</label>
-						<select class="form-select select2-add" id="fish_id" name="fish_id">
+						<select class="form-select" id="fish_id" name="fish_id">
 							<option value="" selected disabled>Choose fish</option>
 							<?php foreach ($fishs as $fish) : ?>
 								<option value="<?= $fish['id'] ?>"><?= $fish['general_name'] ?></option>
@@ -974,7 +974,7 @@
 					<?php echo form_error('origin', '<span class="">', '</span>'); ?>
 					<div class="mb-3">
 						<label for="fish_id">Fish</label>
-						<select class="form-select select2-add" id="fish_id" name="fish_id">
+						<select class="form-select" id="fish_id" name="fish_id">
 							<option value="" selected disabled>Choose fish</option>
 							<?php foreach ($fishs as $fish) : ?>
 								<option value="<?= $fish['id'] ?>"><?= $fish['general_name'] ?></option>
@@ -1012,15 +1012,17 @@
 
 <script>
 	function previewImg() {
-		const image = document.querySelector('.img-input');
-		const imgPreview = document.querySelector('.img-preview');
-		imgPreview.style.display = 'block';
-		const oFReader = new FileReader();
-		oFReader.readAsDataURL(image.files[0]);
+		$('.img-input').each(function(index) {
+			const image = this;
+			const imgPreview = $('.img-preview').eq(index); // Ambil elemen .img-preview yang sesuai berdasarkan indeks
+			imgPreview.css('display', 'block');
+			const oFReader = new FileReader();
+			oFReader.readAsDataURL(image.files[0]);
 
-		oFReader.onload = function(oFREvent) {
-			imgPreview.src = oFREvent.target.result;
-		}
+			oFReader.onload = function(oFREvent) {
+				imgPreview.attr('src', oFREvent.target.result);
+			};
+		});
 	}
 </script>
 <script>
@@ -1037,8 +1039,48 @@
 			theme: 'bootstrap',
 			tags: true
 		});
+		$('.select2-kingdom').select2({
+			dropdownParent: $('#kingdomModal'),
+			theme: 'bootstrap',
+			tags: true
+		});
+		$('.select2-phylum').select2({
+			dropdownParent: $('#phylumModal'),
+			theme: 'bootstrap',
+			tags: true
+		});
+		$('.select2-class').select2({
+			dropdownParent: $('#classModal'),
+			theme: 'bootstrap',
+			tags: true
+		});
+		$('.select2-ordo').select2({
+			dropdownParent: $('#ordoModal'),
+			theme: 'bootstrap',
+			tags: true
+		});
+		$('.select2-family').select2({
+			dropdownParent: $('#familyModal'),
+			theme: 'bootstrap',
+			tags: true
+		});
+		$('.select2-genus').select2({
+			dropdownParent: $('#genusModal'),
+			theme: 'bootstrap',
+			tags: true
+		});
+		$('.select2-species').select2({
+			dropdownParent: $('#speciesModal'),
+			theme: 'bootstrap',
+			tags: true
+		});
+		$('.select2-fish').select2({
+			dropdownParent: $('#fishModal'),
+			theme: 'bootstrap',
+			tags: true
+		});
 		$('.multiple-add').select2({
-			dropdownParent: $('.modal'),
+			dropdownParent: $('#fishModal'),
 			theme: "bootstrap",
 			placeholder: $(this).data('placeholder'),
 			closeOnSelect: false,
