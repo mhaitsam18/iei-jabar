@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 18, 2023 at 06:44 PM
+-- Generation Time: Jul 18, 2023 at 07:54 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.1.17
 
@@ -104,7 +104,7 @@ CREATE TABLE `articles` (
 
 INSERT INTO `articles` (`id`, `title`, `excerpt`, `content`, `slug`, `author_id`, `fish_id`, `article_category_id`, `article_type_id`, `thumbnail`, `views`, `published_at`, `created_at`, `updated_at`, `deleted_at`) VALUES
 (0, 'Undefined', 'Undefined', '', '', 0, 0, 0, 0, '', 0, NULL, '2023-07-17 17:50:39', '2023-07-17 17:50:39', '2023-07-17 17:50:39'),
-(1, 'satu dua tiga tes tes', 'satu dua tiga tes tes tes adasdasdasd1', 'satu dua tiga tes tes 11', 'satu-dua-tiga-tes-tes', 3, NULL, NULL, 1, 'artikel/64af97caeec64.png', 0, NULL, '2023-06-22 01:22:54', '2023-06-22 01:22:54', NULL);
+(1, 'satu dua tiga tes tes', 'satu dua tiga tes tes tes adasdasdasd1', 'satu dua tiga tes tes 11', 'satu-dua-tiga-tes-tes', 3, NULL, NULL, 1, 'artikel/64af97caeec64.png', 0, NULL, '2023-06-22 01:22:54', '2023-07-18 17:23:33', NULL);
 
 -- --------------------------------------------------------
 
