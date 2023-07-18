@@ -71,7 +71,7 @@ class Fish extends CI_Controller
             if ($this->input->post('aksi') == "add") {
                 $this->db->insert('fish', [
                     'scientific_name' => $this->input->post('scientific_name'),
-                    'genusl_name' => $this->input->post('genusl_name'),
+                    'general_name' => $this->input->post('general_name'),
                     'synonim' => $this->input->post('synonim'),
                     'species_id' => $species_id,
                     // 'subspecies_id' => $this->input->post('subspecies_id'),
@@ -165,7 +165,7 @@ class Fish extends CI_Controller
 
                 $data = array(
                     'scientific_name' => $this->input->post('scientific_name'),
-                    'genusl_name' => $this->input->post('genusl_name'),
+                    'general_name' => $this->input->post('general_name'),
                     'synonim' => $this->input->post('synonim'),
                     'species_id' => $species_id,
                     // 'subspecies_id' => $this->input->post('subspecies_id'),

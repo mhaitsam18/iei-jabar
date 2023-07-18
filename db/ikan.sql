@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 18, 2023 at 08:54 AM
+-- Generation Time: Jul 18, 2023 at 11:01 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.1.17
 
@@ -61,7 +61,7 @@ CREATE TABLE `archipelago` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `distribution_id` bigint(20) UNSIGNED DEFAULT NULL,
   `province_id` bigint(20) UNSIGNED DEFAULT NULL,
-  `archipelago` varchar(255) NOT NULL,
+  `archipelago` varchar(255) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -82,15 +82,15 @@ INSERT INTO `archipelago` (`id`, `distribution_id`, `province_id`, `archipelago`
 CREATE TABLE `articles` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `title` varchar(255) DEFAULT NULL,
-  `excerpt` text NOT NULL,
-  `content` text NOT NULL,
-  `slug` varchar(255) NOT NULL,
+  `excerpt` text DEFAULT NULL,
+  `content` text DEFAULT NULL,
+  `slug` varchar(255) DEFAULT NULL,
   `author_id` bigint(20) UNSIGNED DEFAULT NULL,
   `fish_id` bigint(20) UNSIGNED DEFAULT NULL,
   `article_category_id` bigint(20) UNSIGNED DEFAULT NULL,
   `article_type_id` bigint(20) UNSIGNED DEFAULT NULL,
-  `thumbnail` varchar(255) NOT NULL,
-  `views` int(11) NOT NULL DEFAULT 0,
+  `thumbnail` varchar(255) DEFAULT NULL,
+  `views` int(11) DEFAULT 0,
   `published_at` datetime DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NULL DEFAULT current_timestamp(),
@@ -171,7 +171,7 @@ CREATE TABLE `avatar` (
 
 CREATE TABLE `class` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `class` varchar(255) NOT NULL,
+  `class` varchar(255) DEFAULT NULL,
   `general_name` varchar(255) DEFAULT NULL,
   `phylum_id` bigint(20) UNSIGNED DEFAULT NULL,
   `description` text DEFAULT NULL,
@@ -240,7 +240,7 @@ INSERT INTO `continent` (`id`, `continent`, `created_at`, `updated_at`) VALUES
 CREATE TABLE `country` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `continent_id` bigint(20) UNSIGNED DEFAULT NULL,
-  `country` varchar(255) NOT NULL,
+  `country` varchar(255) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -260,7 +260,7 @@ INSERT INTO `country` (`id`, `continent_id`, `country`, `created_at`, `updated_a
 
 CREATE TABLE `distribution` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `distribution` varchar(255) NOT NULL,
+  `distribution` varchar(255) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -280,7 +280,7 @@ INSERT INTO `distribution` (`id`, `distribution`, `created_at`, `updated_at`) VA
 
 CREATE TABLE `families` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `family` varchar(255) NOT NULL,
+  `family` varchar(255) DEFAULT NULL,
   `general_name` varchar(255) DEFAULT NULL,
   `ordo_id` bigint(20) UNSIGNED DEFAULT NULL,
   `description` text DEFAULT NULL,
@@ -294,7 +294,8 @@ CREATE TABLE `families` (
 --
 
 INSERT INTO `families` (`id`, `family`, `general_name`, `ordo_id`, `description`, `picture`, `created_at`, `update_at`) VALUES
-(0, 'Undefined', 'Undefined', 0, NULL, NULL, '2023-07-17 17:19:43', '2023-07-17 17:19:43');
+(0, 'Undefined', 'Undefined', 0, NULL, NULL, '2023-07-17 17:19:43', '2023-07-17 17:19:43'),
+(1, 'Cichlidae', 'Siklid atau Cichlid', 1, 'Siklid atau Cichlid adalah ikan dari famili Cichlidae dalam ordo Cichliformes', 'family/64b64ea07ae3f.jpg', '2023-07-18 08:33:19', '2023-07-18 08:33:19');
 
 -- --------------------------------------------------------
 
@@ -304,17 +305,17 @@ INSERT INTO `families` (`id`, `family`, `general_name`, `ordo_id`, `description`
 
 CREATE TABLE `fish` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `scientific_name` varchar(255) NOT NULL,
-  `general_name` varchar(255) NOT NULL,
-  `synonim` varchar(255) NOT NULL,
+  `scientific_name` varchar(255) DEFAULT NULL,
+  `general_name` varchar(255) DEFAULT NULL,
+  `synonim` varchar(255) DEFAULT NULL,
   `species_id` bigint(20) UNSIGNED DEFAULT NULL,
   `subspecies_id` bigint(20) UNSIGNED DEFAULT NULL,
   `fish_type_id` bigint(20) UNSIGNED DEFAULT NULL,
   `abundance_id` bigint(20) UNSIGNED DEFAULT NULL,
-  `length` varchar(255) NOT NULL,
-  `weight` varchar(255) NOT NULL,
-  `information` text NOT NULL,
-  `image` varchar(255) NOT NULL,
+  `length` varchar(255) DEFAULT NULL,
+  `weight` varchar(255) DEFAULT NULL,
+  `information` text DEFAULT NULL,
+  `image` varchar(255) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT current_timestamp(),
   `deleted_at` timestamp NULL DEFAULT current_timestamp()
@@ -328,7 +329,8 @@ INSERT INTO `fish` (`id`, `scientific_name`, `general_name`, `synonim`, `species
 (0, 'Undefined', 'Undefined', '', 0, 0, 0, 0, '', '', '', '', NULL, '2023-07-17 17:20:36', '2023-07-17 17:20:36'),
 (1, 'Betta sp', 'Ikan Cupang', '', 1, NULL, 7, 2, '', '', '', 'fish/cupang.jpg', NULL, '2023-07-12 06:11:31', '2023-07-12 06:11:31'),
 (2, 'Carrasius auratus', 'Ikan Koki', '', 2, NULL, 7, 2, '', '', '', 'fish/koki.jpg', NULL, '2023-07-12 06:11:31', '2023-07-12 06:11:31'),
-(3, 'Symphysodon discus', 'Ikan Discus', '', 3, NULL, 7, 2, '', '', '', 'fish/discus.jpg', NULL, '2023-07-12 06:11:31', '2023-07-12 06:11:31');
+(3, 'Symphysodon discus', 'Ikan Discus', '', 3, NULL, 7, 2, '', '', '', 'fish/discus.jpg', NULL, '2023-07-12 06:11:31', '2023-07-12 06:11:31'),
+(4, 'Oreochromis niloticus', 'Ikan Nila', 'ikan nila', 4, NULL, 1, 1, '15-40 cm', '0,4 - 2 kg', 'Ikan nila adalah sejenis ikan konsumsi air tawar. Ikan ini diintroduksi dari Afrika, tepatnya Afrika bagian timur, pada tahun 1969, dan kini menjadi ikan peliharaan yang populer di kolam-kolam air tawar di Indonesia sekaligus hama di setiap sungai dan danau Indonesia. Nama ilmiahnya adalah Oreochromis niloticus, dan dalam bahasa Inggris dikenal sebagai Nile Tilapia.', 'fish/64b6549622a32.jpg', NULL, '2023-07-18 09:00:07', '2023-07-18 09:00:07');
 
 -- --------------------------------------------------------
 
@@ -370,7 +372,15 @@ CREATE TABLE `fish_food` (
 --
 
 INSERT INTO `fish_food` (`id`, `fish_id`, `food_id`, `created_at`, `update_at`) VALUES
-(0, 0, 0, '2023-07-17 17:54:04', '2023-07-17 17:54:04');
+(0, 0, 0, '2023-07-17 17:54:04', '2023-07-17 17:54:04'),
+(1, 1, 1, '2023-07-18 08:09:13', '2023-07-18 08:09:13'),
+(2, 1, 2, '2023-07-18 08:09:13', '2023-07-18 08:09:13'),
+(3, 1, 4, '2023-07-18 08:09:13', '2023-07-18 08:09:13'),
+(4, 1, 5, '2023-07-18 08:09:51', '2023-07-18 08:09:51'),
+(5, 1, 31, '2023-07-18 08:09:51', '2023-07-18 08:09:51'),
+(6, 4, 1, '2023-07-18 08:48:02', '2023-07-18 08:48:02'),
+(7, 4, 2, '2023-07-18 08:48:02', '2023-07-18 08:48:02'),
+(8, 4, 3, '2023-07-18 08:48:02', '2023-07-18 08:48:02');
 
 -- --------------------------------------------------------
 
@@ -391,7 +401,8 @@ CREATE TABLE `fish_habitat` (
 --
 
 INSERT INTO `fish_habitat` (`id`, `fish_id`, `habitat_id`, `created_at`, `update_at`) VALUES
-(0, 0, 0, '2023-07-17 17:54:18', '2023-07-17 17:54:18');
+(0, 0, 0, '2023-07-17 17:54:18', '2023-07-17 17:54:18'),
+(1, 4, 1, '2023-07-18 08:48:02', '2023-07-18 08:48:02');
 
 -- --------------------------------------------------------
 
@@ -452,7 +463,7 @@ INSERT INTO `fish_type` (`id`, `type`, `description`, `created_at`, `updated_at`
 
 CREATE TABLE `food` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `food` varchar(255) NOT NULL,
+  `food` varchar(255) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT current_timestamp(),
   `updated_at` datetime DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -492,7 +503,8 @@ INSERT INTO `food` (`id`, `food`, `created_at`, `updated_at`) VALUES
 (27, 'udang', '2023-06-08 00:29:45', '2023-06-08 07:29:45'),
 (28, 'larva udang', '2023-06-08 00:29:45', '2023-06-08 07:29:45'),
 (29, 'plankton', '2023-06-08 00:29:45', '2023-06-08 07:29:45'),
-(30, 'zooplankton', '2023-06-08 00:29:45', '2023-06-08 07:29:45');
+(30, 'zooplankton', '2023-06-08 00:29:45', '2023-06-08 07:29:45'),
+(31, 'Air', '2023-07-18 08:09:51', '2023-07-18 15:09:51');
 
 -- --------------------------------------------------------
 
@@ -502,7 +514,7 @@ INSERT INTO `food` (`id`, `food`, `created_at`, `updated_at`) VALUES
 
 CREATE TABLE `genus` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `genus` varchar(255) NOT NULL,
+  `genus` varchar(255) DEFAULT NULL,
   `general_name` varchar(255) DEFAULT NULL,
   `family_id` bigint(20) UNSIGNED DEFAULT NULL,
   `description` text DEFAULT NULL,
@@ -516,7 +528,8 @@ CREATE TABLE `genus` (
 --
 
 INSERT INTO `genus` (`id`, `genus`, `general_name`, `family_id`, `description`, `picture`, `created_at`, `update_at`) VALUES
-(0, 'Undefined\r\n', 'Undefined', 0, NULL, NULL, '2023-07-17 17:22:56', '2023-07-17 17:22:56');
+(0, 'Undefined\r\n', 'Undefined', 0, NULL, NULL, '2023-07-17 17:22:56', '2023-07-17 17:22:56'),
+(1, 'Oreochromis', 'ikan endemik di Afrika dan Timur Tengah', 1, 'Oreochromis adalah genus besar oreochromine cichlids, ikan endemik di Afrika dan Timur Tengah. Beberapa spesies dari genus ini telah diperkenalkan jauh di luar jangkauan asli mereka dan penting dalam akuakultur.', 'genus/64b64fb36d7c9.png', '2023-07-18 08:39:20', '2023-07-18 08:39:20');
 
 -- --------------------------------------------------------
 
@@ -526,7 +539,7 @@ INSERT INTO `genus` (`id`, `genus`, `general_name`, `family_id`, `description`, 
 
 CREATE TABLE `habitats` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `habitat` varchar(255) NOT NULL,
+  `habitat` varchar(255) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -547,8 +560,8 @@ INSERT INTO `habitats` (`id`, `habitat`, `created_at`, `updated_at`) VALUES
 
 CREATE TABLE `kingdoms` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `kingdom` varchar(255) NOT NULL,
-  `description` text NOT NULL,
+  `kingdom` varchar(255) DEFAULT NULL,
+  `description` text DEFAULT NULL,
   `picture` varchar(255) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NULL DEFAULT current_timestamp()
@@ -593,7 +606,7 @@ INSERT INTO `likes` (`id`, `user_id`, `article_id`, `created_at`, `updated_at`) 
 CREATE TABLE `local_name` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `fish_id` bigint(20) UNSIGNED DEFAULT NULL,
-  `local_name` varchar(255) NOT NULL,
+  `local_name` varchar(255) DEFAULT NULL,
   `area` varchar(255) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NULL DEFAULT current_timestamp()
@@ -614,7 +627,7 @@ INSERT INTO `local_name` (`id`, `fish_id`, `local_name`, `area`, `created_at`, `
 
 CREATE TABLE `ordo` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `ordo` varchar(255) NOT NULL,
+  `ordo` varchar(255) DEFAULT NULL,
   `general_name` varchar(255) DEFAULT NULL,
   `class_id` bigint(20) UNSIGNED DEFAULT NULL,
   `description` text DEFAULT NULL,
@@ -628,7 +641,8 @@ CREATE TABLE `ordo` (
 --
 
 INSERT INTO `ordo` (`id`, `ordo`, `general_name`, `class_id`, `description`, `picture`, `created_at`, `update_at`) VALUES
-(0, 'Undefined', 'Undefined', 0, NULL, NULL, '2023-07-17 17:24:28', '2023-07-17 17:24:28');
+(0, 'Undefined', 'Undefined', 0, NULL, NULL, '2023-07-17 17:24:28', '2023-07-17 17:24:28'),
+(1, 'Perciformes', 'Percomorphi atau Acanthopteri', 1, 'Perciformes, juga disebut Percomorphi atau Acanthopteri, adalah ordo terbesar vertebrata, yang mengandung sekitar 41% dari semua ikan bertulang sejati. Perciformes berarti \"seperti-perch\"', 'ordo/64b64e24bdab1.jpg', '2023-07-18 08:29:47', '2023-07-18 08:29:47');
 
 -- --------------------------------------------------------
 
@@ -659,7 +673,7 @@ INSERT INTO `origin` (`id`, `fish_id`, `origin`, `created_at`, `updated_at`) VAL
 
 CREATE TABLE `phylums` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `phylum` varchar(255) NOT NULL,
+  `phylum` varchar(255) DEFAULT NULL,
   `kingdom_id` bigint(20) UNSIGNED DEFAULT NULL,
   `description` text DEFAULT NULL,
   `picture` varchar(255) DEFAULT NULL,
@@ -711,7 +725,7 @@ INSERT INTO `province` (`id`, `country_id`, `province`, `created_at`, `updated_a
 
 CREATE TABLE `species` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `species` varchar(255) NOT NULL,
+  `species` varchar(255) DEFAULT NULL,
   `general_name` varchar(255) DEFAULT NULL,
   `genus_id` bigint(20) UNSIGNED DEFAULT NULL,
   `description` text DEFAULT NULL,
@@ -728,7 +742,8 @@ INSERT INTO `species` (`id`, `species`, `general_name`, `genus_id`, `description
 (0, 'Undefined', 'Undefined', 0, NULL, NULL, '2023-07-17 17:28:29', '2023-07-17 17:28:29'),
 (1, 'Betta sp', NULL, NULL, NULL, NULL, '2023-07-12 06:13:02', '2023-07-12 06:13:02'),
 (2, 'Carrasius auratus', NULL, NULL, NULL, NULL, '2023-07-12 06:13:02', '2023-07-12 06:13:02'),
-(3, 'Symphysodon discus', NULL, NULL, NULL, NULL, '2023-07-12 06:13:02', '2023-07-12 06:13:02');
+(3, 'Symphysodon discus', NULL, NULL, NULL, NULL, '2023-07-12 06:13:02', '2023-07-12 06:13:02'),
+(4, 'Oreochromis niloticus', 'Ikan Nila', 1, 'Ikan nila adalah sejenis ikan konsumsi air tawar. Ikan ini diintroduksi dari Afrika, tepatnya Afrika bagian timur, pada tahun 1969, dan kini menjadi ikan peliharaan yang populer di kolam-kolam air tawar di Indonesia sekaligus hama di setiap sungai dan danau Indonesia.', 'species/64b65146d407b.jpg', '2023-07-18 08:46:01', '2023-07-18 08:46:01');
 
 -- --------------------------------------------------------
 
@@ -800,8 +815,8 @@ INSERT INTO `user_access_menu` (`id`, `role_id`, `menu_id`) VALUES
 
 CREATE TABLE `user_menu` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `menu` varchar(128) NOT NULL,
-  `active` int(11) NOT NULL
+  `menu` varchar(128) DEFAULT NULL,
+  `active` int(11) DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
@@ -826,7 +841,7 @@ INSERT INTO `user_menu` (`id`, `menu`, `active`) VALUES
 
 CREATE TABLE `user_role` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `role` varchar(128) NOT NULL
+  `role` varchar(128) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
@@ -898,9 +913,9 @@ INSERT INTO `user_sub_menu` (`id`, `menu_id`, `title`, `url`, `icon`, `is_active
 
 CREATE TABLE `user_token` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `email` varchar(128) NOT NULL,
-  `token` varchar(255) NOT NULL,
-  `date_created` int(11) NOT NULL
+  `email` varchar(128) DEFAULT NULL,
+  `token` varchar(255) DEFAULT NULL,
+  `date_created` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
@@ -1217,13 +1232,13 @@ ALTER TABLE `distribution`
 -- AUTO_INCREMENT for table `families`
 --
 ALTER TABLE `families`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `fish`
 --
 ALTER TABLE `fish`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `fish_distribution`
@@ -1235,13 +1250,13 @@ ALTER TABLE `fish_distribution`
 -- AUTO_INCREMENT for table `fish_food`
 --
 ALTER TABLE `fish_food`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `fish_habitat`
 --
 ALTER TABLE `fish_habitat`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `fish_like`
@@ -1259,13 +1274,13 @@ ALTER TABLE `fish_type`
 -- AUTO_INCREMENT for table `food`
 --
 ALTER TABLE `food`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT for table `genus`
 --
 ALTER TABLE `genus`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `habitats`
@@ -1295,7 +1310,7 @@ ALTER TABLE `local_name`
 -- AUTO_INCREMENT for table `ordo`
 --
 ALTER TABLE `ordo`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `origin`
@@ -1319,7 +1334,7 @@ ALTER TABLE `province`
 -- AUTO_INCREMENT for table `species`
 --
 ALTER TABLE `species`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `user`

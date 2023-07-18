@@ -19,8 +19,8 @@ class FishHabitat extends CI_Controller
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
         $data['fish'] = $this->db->get_where('fish', ['id' => $fish_id])->row();
 
-        $this->db->select('fish_habitat.*, habitat.habitat');
-        $this->db->join('habitat', 'fish_habitat.habitat_id = habitat.id');
+        $this->db->select('fish_habitat.*, habitats.habitat');
+        $this->db->join('habitats', 'fish_habitat.habitat_id = habitats.id');
         $fish_habitats = $this->db->get_where('fish_habitat', ['fish_id' => $fish_id])->result_array();
         $data['fish_habitats'] = $fish_habitats;
 

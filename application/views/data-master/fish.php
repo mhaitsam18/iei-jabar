@@ -71,7 +71,7 @@
                                         <td><img src="<?= base_url('assets/img/' . $fish['image']) ?>" class="img-thumbnail img-fluid"></td>
                                         <td>
 
-                                            <a href="#" class="badge bg-success updatefish" data-bs-toggle="modal" data-bs-target="#editModal" data-id="<?= $fish['id'] ?>" data-scientific_name="<?= $fish['scientific_name'] ?>" data-general_name="<?= $fish['general_name'] ?>" data-synonim="<?= $fish['synonim'] ?>" data-image="<?= $fish['image'] ?>" data-species_id="<?= $fish['species_id'] ?>"  data-fish_type_id="<?= $fish['fish_type_id'] ?>" data-abundance_id="<?= $fish['abundance_id'] ?>" data-length="<?= $fish['length'] ?>" data-weight="<?= $fish['weight'] ?>" data-information="<?= $fish['information'] ?>">Ubah</a>
+                                            <a href="#" class="badge bg-success updatefish" data-bs-toggle="modal" data-bs-target="#editModal" data-id="<?= $fish['id'] ?>" data-scientific_name="<?= $fish['scientific_name'] ?>" data-general_name="<?= $fish['general_name'] ?>" data-synonim="<?= $fish['synonim'] ?>" data-image="<?= $fish['image'] ?>" data-species_id="<?= $fish['species_id'] ?>" data-fish_type_id="<?= $fish['fish_type_id'] ?>" data-abundance_id="<?= $fish['abundance_id'] ?>" data-length="<?= $fish['length'] ?>" data-weight="<?= $fish['weight'] ?>" data-information="<?= $fish['information'] ?>">Ubah</a>
 
                                             <a href="<?= base_url("DataMaster/fish/delete/$fish[id]"); ?>" class="badge bg-danger tombol-hapus" data-hapus="fish">Hapus</a>
 
@@ -113,6 +113,11 @@
                         <input type="text" class="form-control" id="general_name" name="general_name">
                     </div>
                     <?php echo form_error('general_name', '<span class="text-danger">', '</span>'); ?>
+                    <div class="mb-3">
+                        <label for="synonim">Sinonim</label>
+                        <input type="text" class="form-control" id="synonim" name="synonim">
+                    </div>
+                    <?php echo form_error('synonim', '<span class="text-danger">', '</span>'); ?>
                     <div class="mb-3">
                         <label for="species_id">Species</label>
                         <select class="select2-add form-select" id="species_id" name="species_id" style="width: 100%; height: 200% !important;">
@@ -227,6 +232,11 @@
                         <input type="text" class="form-control" id="general_name" name="general_name">
                     </div>
                     <?php echo form_error('general_name', '<span class="text-danger">', '</span>'); ?>
+                    <div class="mb-3">
+                        <label for="synonim">Sinonim</label>
+                        <input type="text" class="form-control" id="synonim" name="synonim">
+                    </div>
+                    <?php echo form_error('synonim', '<span class="text-danger">', '</span>'); ?>
                     <div class="mb-3">
                         <label for="species_id">Species</label>
                         <select class="form-select" id="species_id" name="species_id">
@@ -354,7 +364,7 @@
             tags: true
         });
         $('.select2-edit').select2({
-            dropdownParent: $('#edit'),
+            dropdownParent: $('#editModal'),
             theme: 'bootstrap',
             tags: true
         });

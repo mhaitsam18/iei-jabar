@@ -46,7 +46,7 @@ class Genus extends CI_Controller
             if ($this->input->post('aksi') == "add") {
                 $this->db->insert('genus', [
                     'genus' => $this->input->post('genus'),
-                    'genusl_name' => $this->input->post('genusl_name'),
+                    'general_name' => $this->input->post('general_name'),
                     'family_id' => $this->input->post('family_id'),
                     // 'subfamily_id' => $this->input->post('subfamily_id'),
                     'description' => $this->input->post('description'),
@@ -78,7 +78,7 @@ class Genus extends CI_Controller
 
                 $data = array(
                     'genus' => $this->input->post('genus'),
-                    'genusl_name' => $this->input->post('genusl_name'),
+                    'general_name' => $this->input->post('general_name'),
                     'family_id' => $this->input->post('family_id'),
                     // 'subfamily_id' => $this->input->post('subfamily_id'),
                     'description' => $this->input->post('description'),
