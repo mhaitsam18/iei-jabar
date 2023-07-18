@@ -49,7 +49,7 @@
                                     <tr>
                                         <td><?= $no++ ?></td>
                                         <td><?= $ct['abundance'] ?></td>
-                                        <td><?= substr($ct['description'], 0, 100) . "...." ?></td>
+                                        <td><?= ($ct['abundance']) ?? substr($ct['description'], 0, 100) . "...." ?></td>
                                         <td>
 
                                             <a class="badge bg-success updateBenua" data-bs-toggle="modal" data-bs-target="#editCont" data-id="<?= $ct['id'] ?>" data-abundance="<?= $ct['abundance'] ?>" data-description="<?= $ct['description'] ?>">Ubah</a>

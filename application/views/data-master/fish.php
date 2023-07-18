@@ -71,13 +71,13 @@
                                         <td><img src="<?= base_url('assets/img/' . $fish['image']) ?>" class="img-thumbnail img-fluid"></td>
                                         <td>
 
-                                            <a href="#" class="badge bg-success updatefish" data-bs-toggle="modal" data-bs-target="#edit" data-id="<?= $fish['id'] ?>" data-scientific_name="<?= $fish['scientific_name'] ?>" data-general_name="<?= $fish['general_name'] ?>" data-synonim="<?= $fish['synonim'] ?>" data-image="<?= $fish['image'] ?>" data-species_id="<?= $fish['species_id'] ?>"  data-fish_type_id="<?= $fish['fish_type_id'] ?>" data-abundance_id="<?= $fish['abundance_id'] ?>" data-length="<?= $fish['length'] ?>" data-weight="<?= $fish['weight'] ?>" data-information="<?= $fish['information'] ?>">Ubah</a>
+                                            <a href="#" class="badge bg-success updatefish" data-bs-toggle="modal" data-bs-target="#editModal" data-id="<?= $fish['id'] ?>" data-scientific_name="<?= $fish['scientific_name'] ?>" data-general_name="<?= $fish['general_name'] ?>" data-synonim="<?= $fish['synonim'] ?>" data-image="<?= $fish['image'] ?>" data-species_id="<?= $fish['species_id'] ?>"  data-fish_type_id="<?= $fish['fish_type_id'] ?>" data-abundance_id="<?= $fish['abundance_id'] ?>" data-length="<?= $fish['length'] ?>" data-weight="<?= $fish['weight'] ?>" data-information="<?= $fish['information'] ?>">Ubah</a>
 
                                             <a href="<?= base_url("DataMaster/fish/delete/$fish[id]"); ?>" class="badge bg-danger tombol-hapus" data-hapus="fish">Hapus</a>
 
-                                            <a href="<?= base_url("DataMaster/distribution/$fish[id]"); ?>" class="badge bg-primary">Lihat Distribusi</a>
-                                            <a href="<?= base_url("DataMaster/food/$fish[id]"); ?>" class="badge bg-warning">Lihat Makanan</a>
-                                            <a href="<?= base_url("DataMaster/habitat/$fish[id]"); ?>" class="badge bg-info">Lihat Habitat</a>
+                                            <a href="<?= base_url("DataMaster/FishDistribution/index/$fish[id]"); ?>" class="badge bg-primary">Lihat Distribusi</a>
+                                            <a href="<?= base_url("DataMaster/FishFood/index/$fish[id]"); ?>" class="badge bg-warning">Lihat Makanan</a>
+                                            <a href="<?= base_url("DataMaster/FishHabitat/index/$fish[id]"); ?>" class="badge bg-info">Lihat Habitat</a>
                                         </td>
                                     </tr>
 
@@ -97,7 +97,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="tambahModalLabel">Tambah Data Spesies</h1>
+                <h1 class="modal-title fs-5" id="tambahModalLabel">Add Fish</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <form action="<?= base_url('DataMaster/fish') ?>" method="post" enctype="multipart/form-data">
@@ -206,11 +206,11 @@
 </div>
 
 <!-- Modal Edit-->
-<div class="modal fade" id="edit" tabindex="-1" aria-labelledby="editLabel" aria-hidden="true">
+<div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="editLabel">Edit Data phylum</h1>
+                <h1 class="modal-title fs-5" id="editModalLabel">Edit Fish</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <form action="<?= base_url('DataMaster/fish') ?>" method="post" enctype="multipart/form-data">
