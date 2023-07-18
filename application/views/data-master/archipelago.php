@@ -39,7 +39,7 @@
                                     <th scope="col">#</th>
                                     <th scope="col">Nama Provinsi</th>
                                     <th scope="col">Nama Distribusi</th>
-                                    <th scope="col">Nama Kepulauuan</th>
+                                    <th scope="col">Nama Kepulauuan / Perairan</th>
                                     <th scope="col">Aksi</th>
                                 </tr>
                             </thead>
@@ -110,7 +110,7 @@
                     </div>
 
                     <div class="form-group mb-3">
-                        <label for="archipelago">Nama Kepulauan</label>
+                        <label for="archipelago">Nama Kepulauan atau Perairan</label>
                         <input type="text" class="form-control" id="archipelago" name="archipelago" placeholder="Nama Kepulauan">
                     </div>
 
@@ -163,7 +163,7 @@
                     </div>
 
                     <div class="form-group mb-3">
-                        <label for="archipelago">Nama Kepulauan</label>
+                        <label for="archipelago">Nama Kepulauan atau perairan</label>
                         <input type="text" class="form-control" id="archipelago" name="archipelago" placeholder="Nama Kepulauan">
                     </div>
                 </div>

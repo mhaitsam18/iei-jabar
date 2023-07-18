@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 18, 2023 at 11:01 AM
+-- Generation Time: Jul 18, 2023 at 12:50 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.1.17
 
@@ -71,7 +71,8 @@ CREATE TABLE `archipelago` (
 --
 
 INSERT INTO `archipelago` (`id`, `distribution_id`, `province_id`, `archipelago`, `created_at`, `updated_at`) VALUES
-(0, 0, 0, 'Undefined', '2023-07-17 10:12:36', '2023-07-17 10:12:36');
+(0, 0, 0, 'Undefined', '2023-07-17 10:12:36', '2023-07-17 10:12:36'),
+(1, 1, 0, 'Sungai Nil', '2023-07-18 10:20:57', '2023-07-18 10:20:57');
 
 -- --------------------------------------------------------
 
@@ -102,7 +103,7 @@ CREATE TABLE `articles` (
 --
 
 INSERT INTO `articles` (`id`, `title`, `excerpt`, `content`, `slug`, `author_id`, `fish_id`, `article_category_id`, `article_type_id`, `thumbnail`, `views`, `published_at`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(0, 'Undefined', '', '', '', 0, 0, 0, 0, '', 0, NULL, '2023-07-17 17:50:39', '2023-07-17 17:50:39', '2023-07-17 17:50:39'),
+(0, 'Undefined', 'Undefined', '', '', 0, 0, 0, 0, '', 0, NULL, '2023-07-17 17:50:39', '2023-07-17 17:50:39', '2023-07-17 17:50:39'),
 (1, 'satu dua tiga tes tes', 'satu dua tiga tes tes tes adasdasdasd1', 'satu dua tiga tes tes 11', 'satu-dua-tiga-tes-tes', 3, NULL, NULL, 1, 'artikel/64af97caeec64.png', 0, NULL, '2023-06-22 01:22:54', '2023-06-22 01:22:54', NULL);
 
 -- --------------------------------------------------------
@@ -229,7 +230,34 @@ CREATE TABLE `continent` (
 --
 
 INSERT INTO `continent` (`id`, `continent`, `created_at`, `updated_at`) VALUES
-(0, 'Undefined', '2023-07-17 10:29:32', '2023-07-17 10:29:32');
+(0, 'Undefined', '2023-07-17 10:29:32', '2023-07-17 10:29:32'),
+(1, 'Amerika Utara', '2023-07-18 10:23:16', '2023-07-18 10:23:16'),
+(2, 'Amerika Selatan', '2023-07-18 10:23:23', '2023-07-18 10:23:23'),
+(3, 'Afrika Utara', '2023-07-18 10:23:57', '2023-07-18 10:23:57'),
+(4, 'Afrika Barat', '2023-07-18 10:24:04', '2023-07-18 10:24:04'),
+(5, 'Afrika Tengah', '2023-07-18 10:24:15', '2023-07-18 10:24:15'),
+(6, 'Afrika Timur', '2023-07-18 10:24:26', '2023-07-18 10:24:26'),
+(7, 'Afrika Selatan', '2023-07-18 10:24:37', '2023-07-18 10:24:37'),
+(8, 'Asia Tengah', '2023-07-18 10:24:50', '2023-07-18 10:24:50'),
+(9, 'Asia Timur', '2023-07-18 10:24:57', '2023-07-18 10:24:57'),
+(10, 'Asia Tenggara', '2023-07-18 10:25:05', '2023-07-18 10:25:05'),
+(11, 'Asia Selatan', '2023-07-18 10:25:13', '2023-07-18 10:25:13'),
+(12, 'Asia Barat', '2023-07-18 10:25:21', '2023-07-18 10:25:21'),
+(13, 'Eropa Utara', '2023-07-18 10:26:58', '2023-07-18 10:26:58'),
+(14, 'Eropa Barat', '2023-07-18 10:27:06', '2023-07-18 10:27:06'),
+(15, 'Eropa Tengah', '2023-07-18 10:27:14', '2023-07-18 10:27:14'),
+(16, 'Eropa Timur', '2023-07-18 10:27:19', '2023-07-18 10:27:19'),
+(17, 'Eropa Selatan', '2023-07-18 10:27:25', '2023-07-18 10:27:25'),
+(18, 'Australia', '2023-07-18 10:27:46', '2023-07-18 10:27:46'),
+(19, 'Antarktika', '2023-07-18 10:27:55', '2023-07-18 10:27:55'),
+(20, 'Artik', '2023-07-18 10:28:52', '2023-07-18 10:28:52'),
+(21, 'Samudera Pasifik', '2023-07-18 10:29:48', '2023-07-18 10:29:48'),
+(22, 'Samudera Atlantik', '2023-07-18 10:29:56', '2023-07-18 10:29:56'),
+(23, 'Samudera Hindia', '2023-07-18 10:30:05', '2023-07-18 10:30:05'),
+(24, 'Samudera Arktik', '2023-07-18 10:30:10', '2023-07-18 10:30:10'),
+(25, 'Samudera Selatan', '2023-07-18 10:30:32', '2023-07-18 10:30:32'),
+(26, 'Samudera Timur', '2023-07-18 10:30:39', '2023-07-18 10:30:39'),
+(27, 'Samudera Utara', '2023-07-18 10:30:49', '2023-07-18 10:30:49');
 
 -- --------------------------------------------------------
 
@@ -250,7 +278,8 @@ CREATE TABLE `country` (
 --
 
 INSERT INTO `country` (`id`, `continent_id`, `country`, `created_at`, `updated_at`) VALUES
-(0, 0, 'Undefined', '2023-07-17 10:29:56', '2023-07-17 10:29:56');
+(0, 0, 'Undefined', '2023-07-17 10:29:56', '2023-07-17 10:29:56'),
+(1, 10, 'Indonesia', '2023-07-18 10:31:31', '2023-07-18 10:31:31');
 
 -- --------------------------------------------------------
 
@@ -270,7 +299,8 @@ CREATE TABLE `distribution` (
 --
 
 INSERT INTO `distribution` (`id`, `distribution`, `created_at`, `updated_at`) VALUES
-(0, 'Undefined', '2023-07-17 10:30:15', '2023-07-17 10:30:15');
+(0, 'Undefined', '2023-07-17 10:30:15', '2023-07-17 10:30:15'),
+(1, 'Afrika Selatan', '2023-07-18 10:18:41', '2023-07-18 10:18:41');
 
 -- --------------------------------------------------------
 
@@ -715,7 +745,46 @@ CREATE TABLE `province` (
 --
 
 INSERT INTO `province` (`id`, `country_id`, `province`, `created_at`, `updated_at`) VALUES
-(0, 0, NULL, '2023-07-17 17:28:16', '2023-07-17 17:28:16');
+(0, 0, 'Undefined', '2023-07-17 17:28:16', '2023-07-17 17:28:16'),
+(1, 1, 'Aceh', '2023-07-18 10:33:27', '2023-07-18 10:33:27'),
+(2, 1, 'Sumatera Utara', '2023-07-18 10:34:01', '2023-07-18 10:34:01'),
+(3, 1, 'Sumatera Barat', '2023-07-18 10:37:27', '2023-07-18 10:37:27'),
+(4, 1, 'Riau', '2023-07-18 10:37:27', '2023-07-18 10:37:27'),
+(5, 1, 'Kepulauan Riau', '2023-07-18 10:37:27', '2023-07-18 10:37:27'),
+(6, 1, 'Jambi', '2023-07-18 10:37:27', '2023-07-18 10:37:27'),
+(7, 1, 'Sumatera Selatan', '2023-07-18 10:37:27', '2023-07-18 10:37:27'),
+(8, 1, 'Bangka Belitung', '2023-07-18 10:37:27', '2023-07-18 10:37:27'),
+(9, 1, 'Bengkulu', '2023-07-18 10:37:27', '2023-07-18 10:37:27'),
+(10, 1, 'Lampung', '2023-07-18 10:37:27', '2023-07-18 10:37:27'),
+(11, 1, 'Banten', '2023-07-18 10:37:27', '2023-07-18 10:37:27'),
+(12, 1, 'DKI Jakarta (Daerah Khusus Ibukota Jakarta)', '2023-07-18 10:37:27', '2023-07-18 10:37:27'),
+(13, 1, 'Jawa Barat', '2023-07-18 10:38:21', '2023-07-18 10:38:21'),
+(14, 1, 'Jawa Tengah', '2023-07-18 10:38:21', '2023-07-18 10:38:21'),
+(15, 1, 'DI Yogyakarta (Daerah Istimewa Yogyakarta)', '2023-07-18 10:38:21', '2023-07-18 10:38:21'),
+(16, 1, 'Jawa Timur', '2023-07-18 10:38:21', '2023-07-18 10:38:21'),
+(17, 1, 'Bali', '2023-07-18 10:38:21', '2023-07-18 10:38:21'),
+(18, 1, 'Nusa Tenggara Barat (NTB)', '2023-07-18 10:38:21', '2023-07-18 10:38:21'),
+(19, 1, 'Nusa Tenggara Timur (NTT)', '2023-07-18 10:38:21', '2023-07-18 10:38:21'),
+(20, 1, 'Kalimantan Barat', '2023-07-18 10:38:21', '2023-07-18 10:38:21'),
+(21, 1, 'Kalimantan Tengah', '2023-07-18 10:38:21', '2023-07-18 10:38:21'),
+(22, 1, 'Kalimantan Selatan', '2023-07-18 10:38:21', '2023-07-18 10:38:21'),
+(23, 1, 'Kalimantan Timur', '2023-07-18 10:39:06', '2023-07-18 10:39:06'),
+(24, 1, 'Kalimantan Utara', '2023-07-18 10:39:06', '2023-07-18 10:39:06'),
+(25, 1, 'Sulawesi Utara', '2023-07-18 10:39:06', '2023-07-18 10:39:06'),
+(26, 1, 'Gorontalo', '2023-07-18 10:39:06', '2023-07-18 10:39:06'),
+(27, 1, 'Sulawesi Tengah', '2023-07-18 10:39:06', '2023-07-18 10:39:06'),
+(28, 1, 'Sulawesi Barat', '2023-07-18 10:39:06', '2023-07-18 10:39:06'),
+(29, 1, 'Sulawesi Selatan', '2023-07-18 10:39:06', '2023-07-18 10:39:06'),
+(30, 1, 'Sulawesi Tenggara\n', '2023-07-18 10:39:06', '2023-07-18 10:39:06'),
+(31, 1, 'Maluku', '2023-07-18 10:39:06', '2023-07-18 10:39:06'),
+(32, 1, 'Maluku Utara\n', '2023-07-18 10:39:06', '2023-07-18 10:39:06'),
+(33, 1, 'Papua Barat\n', '2023-07-18 10:39:06', '2023-07-18 10:39:06'),
+(34, 1, 'Papua', '2023-07-18 10:39:06', '2023-07-18 10:39:06'),
+(35, 1, 'Kalimantan Utara\n', '2023-07-18 10:39:06', '2023-07-18 10:39:06'),
+(36, 1, 'Papua Barat Daya', '2023-07-18 10:39:06', '2023-07-18 10:39:06'),
+(37, 1, 'Kepulauan Papua', '2023-07-18 10:39:06', '2023-07-18 10:39:06'),
+(38, 1, 'Maluku Utara Barat', '2023-07-18 10:39:06', '2023-07-18 10:39:06'),
+(39, 1, 'Nusantara', '2023-07-18 10:39:06', '2023-07-18 10:39:06');
 
 -- --------------------------------------------------------
 
@@ -1178,7 +1247,7 @@ ALTER TABLE `abundance`
 -- AUTO_INCREMENT for table `archipelago`
 --
 ALTER TABLE `archipelago`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `articles`
@@ -1214,19 +1283,19 @@ ALTER TABLE `class`
 -- AUTO_INCREMENT for table `continent`
 --
 ALTER TABLE `continent`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT for table `country`
 --
 ALTER TABLE `country`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `distribution`
 --
 ALTER TABLE `distribution`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `families`
@@ -1328,7 +1397,7 @@ ALTER TABLE `phylums`
 -- AUTO_INCREMENT for table `province`
 --
 ALTER TABLE `province`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
 -- AUTO_INCREMENT for table `species`
