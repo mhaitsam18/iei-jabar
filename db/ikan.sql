@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 18, 2023 at 12:50 PM
+-- Generation Time: Jul 18, 2023 at 02:10 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.1.17
 
@@ -874,7 +874,8 @@ INSERT INTO `user_access_menu` (`id`, `role_id`, `menu_id`) VALUES
 (6, 2, 2),
 (7, 3, 2),
 (8, 3, 6),
-(9, 3, 7);
+(9, 3, 7),
+(10, 1, 8);
 
 -- --------------------------------------------------------
 
@@ -900,7 +901,8 @@ INSERT INTO `user_menu` (`id`, `menu`, `active`) VALUES
 (4, 'DataMaster', 1),
 (5, 'Lainnya', 0),
 (6, 'Artikel', 1),
-(7, 'Article', 0);
+(7, 'Article', 0),
+(8, 'Dashboard', 0);
 
 -- --------------------------------------------------------
 
@@ -944,8 +946,8 @@ CREATE TABLE `user_sub_menu` (
 
 INSERT INTO `user_sub_menu` (`id`, `menu_id`, `title`, `url`, `icon`, `is_active`) VALUES
 (0, 0, 'Undefined', NULL, NULL, 0),
-(1, 1, 'Dashboard', 'admin/', 'box', 0),
-(2, 2, 'Dashboard', 'user/', 'box', 1),
+(1, 1, 'Dashboard', 'admin/', 'box', 1),
+(2, 6, 'Dashboard', 'user/', 'box', 1),
 (3, 2, 'Edit Profile', 'user/edit', 'user', 1),
 (4, 3, 'Menu Management', 'menu/', 'list', 1),
 (5, 3, 'Submenu Management', 'menu/subMenu', 'list', 1),
@@ -1415,13 +1417,13 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `user_access_menu`
 --
 ALTER TABLE `user_access_menu`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `user_menu`
 --
 ALTER TABLE `user_menu`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `user_role`
