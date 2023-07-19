@@ -42,7 +42,7 @@
                         </a> -->
                     </div>
                     <div class="comment m-3">
-                        <h4 class="mb-3">Komentar</h4>
+                        <h4 class="mb-3">Comments</h4>
                         <div class="d-flex align-items-start comment-text d-none">
                             <img src="<?= base_url('assets/img/' . $user['image']) ?>" class="align-self-start wd-25 wd-sm-50 me-3" alt="...">
                             <div class="row w-100">
