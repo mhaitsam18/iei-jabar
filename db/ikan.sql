@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 18, 2023 at 09:17 PM
+-- Generation Time: Jul 19, 2023 at 08:05 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.1.17
 
@@ -467,7 +467,8 @@ CREATE TABLE `fish_like` (
 
 INSERT INTO `fish_like` (`id`, `fish_id`, `user_id`, `created_at`, `updated_at`) VALUES
 (0, 0, 0, '2023-07-17 17:54:54', '2023-07-17 17:54:54'),
-(1, 2, 3, '2023-07-12 07:54:41', '2023-07-12 07:54:41');
+(1, 2, 3, '2023-07-12 07:54:41', '2023-07-12 07:54:41'),
+(5, 2, 2, '2023-07-19 06:03:22', '2023-07-19 06:03:22');
 
 -- --------------------------------------------------------
 
@@ -1352,7 +1353,7 @@ ALTER TABLE `fish_habitat`
 -- AUTO_INCREMENT for table `fish_like`
 --
 ALTER TABLE `fish_like`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `fish_type`

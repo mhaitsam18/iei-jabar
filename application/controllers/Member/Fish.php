@@ -10,18 +10,28 @@ class Fish extends CI_Controller
         is_logged_in();
         $this->load->library('form_validation');
         $this->load->model('Member_model');
+        $this->load->model('Fish_model');
         date_default_timezone_set('Asia/Jakarta');
     }
 
-    public function index()
+    public function index($page = null)
     {
         $data['title'] = "Fish Gallery";
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
-        $data['fishs'] = $this->db->get_where('fish', ['id !=' => 0])->result_array();
+        $data['fishs'] = $this->pagination();
+        $data['fish_types'] = $this->db->get('fish_type')->result_array();
         $this->load->view('layouts/header-member', $data);
         $this->load->view('layouts/topbar-member', $data);
         $this->load->view('member/gallery', $data);
         $this->load->view('layouts/footer-member');
+    }
+
+    public function record()
+    {
+        $data['title'] = "Fish Gallery";
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        $data['fishs'] = $this->db->get_where('fish', ['fish_type_id' => $this->input->post('fishType')])->result_array();
+        $this->load->view('member/fish-record', $data);
     }
     
     public function detail($fish_id = null)
@@ -96,5 +106,59 @@ class Fish extends CI_Controller
             $response = array('status' => 'error', 'message' => 'User not logged in');
             echo json_encode($response);
         }
+    }
+
+    private function pagination()
+    {
+        $config['base_url'] = base_url('Member/fish/index');
+        $this->db->from('fish');
+        $config['total_rows'] = $this->db->count_all_results();
+        $data['total_rows'] = $config['total_rows'];
+        $config['per_page'] = 4;
+        $config['num_links'] = 1;
+
+        //styling
+        $config['full_tag_open'] = '<nav aria-label="Page navigation example"><ul class="pagination">';
+        $config['full_tag_close'] = '</ul></nav>';
+
+        $config['first_link'] = 'First';
+        $config['first_tag_open'] = '<li class="page-item">';
+        $config['first_tag_close'] = '</li>';
+
+        $config['last_link'] = 'Last';
+        $config['last_tag_open'] = '<li class="page-item">';
+        $config['last_tag_close'] = '</li>';
+
+        $config['next_link'] = '<i data-feather="chevron-right"></i>';
+        $config['next_tag_open'] = '<li class="page-item">';
+        $config['next_tag_close'] = '</li>';
+
+        $config['prev_link'] = '<i data-feather="chevron-left"></i>';
+        $config['prev_tag_open'] = '<li class="page-item">';
+        $config['prev_tag_close'] = '</li>';
+        if (empty($this->uri->segment(4))) {
+            $prev = '<li class="page-item disabled"><a class="page-link"><i data-feather="chevron-left"></i></a></li>';
+            $next = '';
+        } elseif ($config['total_rows'] - $this->uri->segment(4) < 4) {
+            $prev = '';
+            $next = '<li class="page-item disabled"><a class="page-link"><i data-feather="chevron-right"></i></a></li>';
+        } else {
+            $next = '';
+            $prev = '';
+        }
+
+        $config['cur_tag_open'] = $prev . '<li class="page-item active" aria-current="page"><a href="#" class="page-link">';
+        $config['cur_tag_close'] = '</a></li>' . $next;
+
+        $config['num_tag_open'] = '<li class="page-item">';
+        $config['num_tag_close'] = '</li>';
+
+        $config['attributes'] = array('class' => 'page-link');
+
+        // $config['display_pages'] = TRUE;
+        // $config['attributes']['rel'] = FALSE;
+        $this->pagination->initialize($config);
+        $start = $this->uri->segment(4);
+        return $this->Fish_model->getFishLimit($config['per_page'], $start);
     }
 }
