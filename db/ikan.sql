@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 19, 2023 at 08:17 AM
+-- Generation Time: Jul 19, 2023 at 08:43 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.1.17
 
@@ -103,7 +103,7 @@ CREATE TABLE `articles` (
 --
 
 INSERT INTO `articles` (`id`, `title`, `excerpt`, `content`, `slug`, `author_id`, `fish_id`, `article_category_id`, `article_type_id`, `thumbnail`, `views`, `published_at`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(0, 'Undefined', 'Undefined', '', '', 0, 0, 0, 0, '', 0, NULL, '2023-07-17 17:50:39', '2023-07-17 17:50:39', '2023-07-17 17:50:39'),
+(0, 'Undefined', 'Undefined', 'Undefined', 'undefined', 0, 0, 0, 0, 'image-not-found.png', 0, NULL, '2023-07-17 17:50:39', '2023-07-17 17:50:39', '2023-07-17 17:50:39'),
 (1, 'satu dua tiga tes tes', 'satu dua tiga tes tes tes adasdasdasd1', 'satu dua tiga tes tes 11', 'satu-dua-tiga-tes-tes', 3, NULL, NULL, 1, 'artikel/64af97caeec64.png', 0, NULL, '2023-06-22 01:22:54', '2023-07-18 17:23:33', NULL);
 
 -- --------------------------------------------------------
@@ -200,7 +200,7 @@ CREATE TABLE `class` (
 --
 
 INSERT INTO `class` (`id`, `class`, `general_name`, `phylum_id`, `description`, `picture`, `species`, `created_at`, `update_at`) VALUES
-(0, 'Undefined', 'Undefined', 0, NULL, NULL, NULL, '2023-07-17 17:52:28', '2023-07-17 17:52:28'),
+(0, 'Undefined', 'Undefined', 0, 'not found', 'image-not-found.png', NULL, '2023-07-17 17:52:28', '2023-07-17 17:52:28'),
 (1, 'Osteichtyes', 'Ikan Bertulang Sejati', 9, 'Osteichthyes atau disebut juga Ikan bertulang sejati adalah kelas dari anggota hewan bertulang belakang yang merupakan subfilum dari Pisces. Osteichthyes berasal dari bahasa Yunani, yaitu osteon yang berati tulang dan ichthyes yang berarti ikan. Ikan jenis ini hidup di laut, rawa-rawa, atau air tawar. Superkelas: Osteichthyes; Huxley, 1880', 'class/64b62ea2b4b69.jpeg', 0, '2023-07-18 06:15:07', '2023-07-18 06:15:07'),
 (2, 'Petromyzontidae', 'Ikan Lamprey', 9, 'Lamprey adalah garis keturunan purba dari ikan tak berahang dari ordo Petromyzontiformes, ditempatkan di superclass Cyclostomata. Lamprey dewasa dapat dicirikan dengan mulut penghisap yang bergigi seperti corong.', 'classify/64a3f75277f80.jpeg', 0, '2023-06-10 19:52:30', '2023-06-10 19:52:30'),
 (3, 'Petromyzontida', '', 9, 'Hyperoartia or Petromyzontida is a disputed group of vertebrates that includes the modern lampreys and their fossil relatives. Examples of hyperoartians from early in their fossil record are Endeiolepis and Euphanerops (which possessed a calcified branchial basket), fish-like animals with hypocercal tails that lived during the Late Devonian Period. Some paleontologists still place these forms among the ', 'classify/64a3f75d6c5b3.jpeg', 0, '2023-06-10 19:54:29', '2023-06-10 19:54:29'),
@@ -352,7 +352,7 @@ CREATE TABLE `families` (
 --
 
 INSERT INTO `families` (`id`, `family`, `general_name`, `ordo_id`, `description`, `picture`, `created_at`, `update_at`) VALUES
-(0, 'Undefined', 'Undefined', 0, NULL, NULL, '2023-07-17 17:19:43', '2023-07-17 17:19:43'),
+(0, 'Undefined', 'Undefined', 0, 'Not Found', 'image-not-found.png', '2023-07-17 17:19:43', '2023-07-17 17:19:43'),
 (1, 'Cichlidae', 'Siklid atau Cichlid', 1, 'Siklid atau Cichlid adalah ikan dari famili Cichlidae dalam ordo Cichliformes', 'family/64b64ea07ae3f.jpg', '2023-07-18 08:33:19', '2023-07-18 08:33:19');
 
 -- --------------------------------------------------------
@@ -384,7 +384,7 @@ CREATE TABLE `fish` (
 --
 
 INSERT INTO `fish` (`id`, `scientific_name`, `general_name`, `synonim`, `species_id`, `subspecies_id`, `fish_type_id`, `abundance_id`, `length`, `weight`, `information`, `image`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(0, 'Undefined', 'Undefined', '', 0, 0, 0, 0, '', '', '', '', NULL, '2023-07-17 17:20:36', '2023-07-17 17:20:36'),
+(0, 'Undefined', 'Undefined', 'Undefined', 0, 0, 0, 0, '', '', '', 'image-not-found.png', NULL, '2023-07-17 17:20:36', '2023-07-17 17:20:36'),
 (1, 'Betta sp', 'Ikan Cupang', '', 1, NULL, 7, 2, '', '', '', 'fish/cupang.jpg', NULL, '2023-07-12 06:11:31', '2023-07-12 06:11:31'),
 (2, 'Carrasius auratus', 'Ikan Koki', '', 2, NULL, 7, 2, '', '', '', 'fish/koki.jpg', NULL, '2023-07-12 06:11:31', '2023-07-12 06:11:31'),
 (3, 'Symphysodon discus', 'Ikan Discus', '', 3, NULL, 7, 2, '', '', '', 'fish/discus.jpg', NULL, '2023-07-12 06:11:31', '2023-07-12 06:11:31'),
@@ -587,7 +587,7 @@ CREATE TABLE `genus` (
 --
 
 INSERT INTO `genus` (`id`, `genus`, `general_name`, `family_id`, `description`, `picture`, `created_at`, `update_at`) VALUES
-(0, 'Undefined\r\n', 'Undefined', 0, NULL, NULL, '2023-07-17 17:22:56', '2023-07-17 17:22:56'),
+(0, 'Undefined\r\n', 'Undefined', 0, 'Undefined', 'image-not-found.png', '2023-07-17 17:22:56', '2023-07-17 17:22:56'),
 (1, 'Oreochromis', 'ikan endemik di Afrika dan Timur Tengah', 1, 'Oreochromis adalah genus besar oreochromine cichlids, ikan endemik di Afrika dan Timur Tengah. Beberapa spesies dari genus ini telah diperkenalkan jauh di luar jangkauan asli mereka dan penting dalam akuakultur.', 'genus/64b64fb36d7c9.png', '2023-07-18 08:39:20', '2023-07-18 08:39:20');
 
 -- --------------------------------------------------------
@@ -631,7 +631,7 @@ CREATE TABLE `kingdoms` (
 --
 
 INSERT INTO `kingdoms` (`id`, `kingdom`, `description`, `picture`, `created_at`, `updated_at`) VALUES
-(0, 'Undefined', '', NULL, '2023-07-17 17:23:43', '2023-07-17 17:23:43'),
+(0, 'Undefined', '', 'image-not-found.png', '2023-07-17 17:23:43', '2023-07-17 17:23:43'),
 (1, 'Animalia', '', 'kingdom/animalia.jpeg', '2023-06-10 18:49:08', '2023-06-10 17:00:00'),
 (2, 'Plantae', '', 'kingdom/plantae.png', '2023-06-10 17:00:00', '2023-06-10 18:49:44');
 
@@ -676,7 +676,7 @@ CREATE TABLE `local_name` (
 --
 
 INSERT INTO `local_name` (`id`, `fish_id`, `local_name`, `area`, `created_at`, `updated_at`) VALUES
-(0, 0, 'Undefined', NULL, '2023-07-17 17:24:14', '2023-07-17 17:24:14'),
+(0, 0, 'Undefined', 'Undefined', '2023-07-17 17:24:14', '2023-07-17 17:24:14'),
 (1, 4, 'Ikan Nila Best', 'Bogor', '2023-07-18 14:09:09', '2023-07-18 14:09:09');
 
 -- --------------------------------------------------------
@@ -701,7 +701,7 @@ CREATE TABLE `ordo` (
 --
 
 INSERT INTO `ordo` (`id`, `ordo`, `general_name`, `class_id`, `description`, `picture`, `created_at`, `update_at`) VALUES
-(0, 'Undefined', 'Undefined', 0, NULL, NULL, '2023-07-17 17:24:28', '2023-07-17 17:24:28'),
+(0, 'Undefined', 'Undefined', 0, 'Not Found', 'image-not-found.png', '2023-07-17 17:24:28', '2023-07-17 17:24:28'),
 (1, 'Perciformes', 'Percomorphi atau Acanthopteri', 1, 'Perciformes, juga disebut Percomorphi atau Acanthopteri, adalah ordo terbesar vertebrata, yang mengandung sekitar 41% dari semua ikan bertulang sejati. Perciformes berarti \"seperti-perch\"', 'ordo/64b64e24bdab1.jpg', '2023-07-18 08:29:47', '2023-07-18 08:29:47');
 
 -- --------------------------------------------------------
@@ -746,14 +746,14 @@ CREATE TABLE `phylums` (
 --
 
 INSERT INTO `phylums` (`id`, `phylum`, `kingdom_id`, `description`, `picture`, `created_at`, `update_at`) VALUES
-(0, 'Undefined', 0, NULL, NULL, '2023-07-17 17:27:50', '2023-07-17 17:27:50'),
-(1, 'Porifera', 1, NULL, NULL, '2023-06-10 18:50:42', '2023-06-10 18:50:52'),
-(2, 'Platyhelminthes', 1, NULL, NULL, '2023-06-10 18:50:42', '2023-06-10 18:50:42'),
-(3, 'Coelenterata', 1, NULL, NULL, '2023-06-10 18:50:42', '2023-06-10 18:50:42'),
-(4, 'Nematoda', 1, NULL, NULL, '2023-06-10 18:50:42', '2023-06-10 18:50:42'),
-(5, 'Annelida', 1, NULL, NULL, '2023-06-10 18:50:42', '2023-06-10 18:50:42'),
-(6, 'Mollusca', 1, NULL, NULL, '2023-06-10 18:50:42', '2023-06-10 18:50:42'),
-(8, 'Echinodermata', 1, NULL, NULL, '2023-06-10 18:50:42', '2023-06-10 18:50:42'),
+(0, 'Undefined', 0, 'Undefined', 'image-not-found.png', '2023-07-17 17:27:50', '2023-07-17 17:27:50'),
+(1, 'Porifera', 1, NULL, 'image-not-found.png', '2023-06-10 18:50:42', '2023-06-10 18:50:52'),
+(2, 'Platyhelminthes', 1, NULL, 'image-not-found.png', '2023-06-10 18:50:42', '2023-06-10 18:50:42'),
+(3, 'Coelenterata', 1, NULL, 'image-not-found.png', '2023-06-10 18:50:42', '2023-06-10 18:50:42'),
+(4, 'Nematoda', 1, NULL, 'image-not-found.png', '2023-06-10 18:50:42', '2023-06-10 18:50:42'),
+(5, 'Annelida', 1, NULL, 'image-not-found.png', '2023-06-10 18:50:42', '2023-06-10 18:50:42'),
+(6, 'Mollusca', 1, NULL, 'image-not-found.png', '2023-06-10 18:50:42', '2023-06-10 18:50:42'),
+(8, 'Echinodermata', 1, NULL, 'image-not-found.png', '2023-06-10 18:50:42', '2023-06-10 18:50:42'),
 (9, 'Chordata', 1, 'Filum Chordata adalah kelompok hewan, termasuk vertebrata dan beberapa binatang yang mirip invertebrata yang memiliki ciri-ciri yang serupa. Semua anggota kelompok ini, pada suatu saat dalam kehidupan mereka, memiliki notokorda, tali saraf dorsal berongga, celah faring (pharyngeal slits), endostyle, dan ekor berotot yang melewati anus. Vertebrata merupakan kelompok hewan yang memiliki tulang belakang. Dalam sistem klasifikasi, vertebrata merupakan subfilum dari filum Chordata. Chordata terbagi menjadi empat subfilum: Vertebrata, Urochordata, Cephalochordata, dan Hemichordata. Urochordata dan Cephalochordata tergolong invertebrata.', 'phylum/chordata.jpg', '2023-06-10 18:50:42', '2023-06-10 18:50:42');
 
 -- --------------------------------------------------------
@@ -838,10 +838,10 @@ CREATE TABLE `species` (
 --
 
 INSERT INTO `species` (`id`, `species`, `general_name`, `genus_id`, `description`, `picture`, `created_at`, `updated_at`) VALUES
-(0, 'Undefined', 'Undefined', 0, NULL, NULL, '2023-07-17 17:28:29', '2023-07-17 17:28:29'),
-(1, 'Betta sp', NULL, NULL, NULL, NULL, '2023-07-12 06:13:02', '2023-07-12 06:13:02'),
-(2, 'Carrasius auratus', NULL, NULL, NULL, NULL, '2023-07-12 06:13:02', '2023-07-12 06:13:02'),
-(3, 'Symphysodon discus', NULL, NULL, NULL, NULL, '2023-07-12 06:13:02', '2023-07-12 06:13:02'),
+(0, 'Undefined', 'Undefined', 0, 'Undefined', 'image-not-found.png', '2023-07-17 17:28:29', '2023-07-17 17:28:29'),
+(1, 'Betta sp', NULL, NULL, NULL, 'image-not-found.png', '2023-07-12 06:13:02', '2023-07-12 06:13:02'),
+(2, 'Carrasius auratus', NULL, NULL, NULL, 'image-not-found.png', '2023-07-12 06:13:02', '2023-07-12 06:13:02'),
+(3, 'Symphysodon discus', NULL, NULL, NULL, 'image-not-found.png', '2023-07-12 06:13:02', '2023-07-12 06:13:02'),
 (4, 'Oreochromis niloticus', 'Ikan Nila', 1, 'Ikan nila adalah sejenis ikan konsumsi air tawar. Ikan ini diintroduksi dari Afrika, tepatnya Afrika bagian timur, pada tahun 1969, dan kini menjadi ikan peliharaan yang populer di kolam-kolam air tawar di Indonesia sekaligus hama di setiap sungai dan danau Indonesia.', 'species/64b65146d407b.jpg', '2023-07-18 08:46:01', '2023-07-18 08:46:01');
 
 -- --------------------------------------------------------
