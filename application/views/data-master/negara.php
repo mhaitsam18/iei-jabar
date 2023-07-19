@@ -33,8 +33,8 @@
                             <thead>
                                 <tr>
                                     <th scope="col">#</th>
-                                    <th scope="col">Nama Benua</th>
                                     <th scope="col">Nama Negara</th>
+                                    <th scope="col">Nama Benua</th>
                                     <th scope="col">Aksi</th>
                                 </tr>
                             </thead>
@@ -44,8 +44,8 @@
 
                                     <tr>
                                         <td><?= $no++ ?></td>
-                                        <td><?= $ct['continent'] ?></td>
                                         <td><?= $ct['country'] ?></td>
+                                        <td><?= $ct['continent'] ?></td>
                                         <td>
 
                                             <a href="#" class="badge bg-success updateCountry" data-bs-toggle="modal" data-bs-target="#editCont" data-id="<?= $ct['ct_id'] ?>" data-country="<?= $ct['country'] ?>" data-continent="<?= $ct['ctn_id'] ?>">Ubah</a>

@@ -33,8 +33,8 @@
                             <thead>
                                 <tr>
                                     <th scope="col">#</th>
-                                    <th scope="col">Nama Negara</th>
                                     <th scope="col">Nama Provinsi</th>
+                                    <th scope="col">Nama Negara</th>
                                     <th scope="col">Aksi</th>
                                 </tr>
                             </thead>
@@ -44,8 +44,8 @@
 
                                     <tr>
                                         <td><?= $no++ ?></td>
-                                        <td><?= $ct['country'] ?></td>
                                         <td><?= $ct['province'] ?></td>
+                                        <td><?= $ct['country'] ?></td>
                                         <td>
 
                                             <a href="#" class="badge bg-success updateCountry" data-bs-toggle="modal" data-bs-target="#editCont" data-id="<?= $ct['pr_id'] ?>" data-country="<?= $ct['ct_id'] ?>" data-province="<?= $ct['province'] ?>">Ubah</a>

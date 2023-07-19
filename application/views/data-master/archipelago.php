@@ -37,9 +37,9 @@
                             <thead>
                                 <tr>
                                     <th scope="col">#</th>
+                                    <th scope="col">Nama Kepulauuan / Perairan</th>
                                     <th scope="col">Nama Provinsi</th>
                                     <th scope="col">Nama Distribusi</th>
-                                    <th scope="col">Nama Kepulauuan / Perairan</th>
                                     <th scope="col">Aksi</th>
                                 </tr>
                             </thead>
@@ -49,9 +49,9 @@
 
                                     <tr>
                                         <td><?= $no++ ?></td>
+                                        <td><?= $ct['archipelago'] ?></td>
                                         <td><?= $ct['province'] ?></td>
                                         <td><?= $ct['distribution'] ?></td>
-                                        <td><?= $ct['archipelago'] ?></td>
                                         <td>
 
                                             <a href="#" class="badge bg-success updateCountry" data-bs-toggle="modal" data-bs-target="#editCont" data-id="<?= $ct['ar_id'] ?>" data-province="<?= $ct['pr_id'] ?>" data-distribution="<?= $ct['d_id'] ?>" data-archipelago="<?= $ct['archipelago'] ?>">Ubah</a>
