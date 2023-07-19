@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 19, 2023 at 08:43 AM
+-- Generation Time: Jul 19, 2023 at 09:14 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.1.17
 
@@ -104,7 +104,7 @@ CREATE TABLE `articles` (
 
 INSERT INTO `articles` (`id`, `title`, `excerpt`, `content`, `slug`, `author_id`, `fish_id`, `article_category_id`, `article_type_id`, `thumbnail`, `views`, `published_at`, `created_at`, `updated_at`, `deleted_at`) VALUES
 (0, 'Undefined', 'Undefined', 'Undefined', 'undefined', 0, 0, 0, 0, 'image-not-found.png', 0, NULL, '2023-07-17 17:50:39', '2023-07-17 17:50:39', '2023-07-17 17:50:39'),
-(1, 'satu dua tiga tes tes', 'satu dua tiga tes tes tes adasdasdasd1', 'satu dua tiga tes tes 11', 'satu-dua-tiga-tes-tes', 3, NULL, NULL, 1, 'artikel/64af97caeec64.png', 0, NULL, '2023-06-22 01:22:54', '2023-07-18 17:23:33', NULL);
+(1, 'Resep Ikan Kuah Kuning, Pakai Daging Ikan Filet Lebih Nikmat', 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Blanditiis, cupiditate.', 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptates deserunt officia ab nesciunt quidem hic aperiam delectus, necessitatibus doloremque sed repellat praesentium eius commodi aliquid atque quo perspiciatis quod quibusdam eveniet iure adipisci. Fugiat molestias minima facilis praesentium tempora, sequi doloribus officia, obcaecati illum asperiores beatae unde veniam sit alias? Voluptate aliquam ut, neque eaque vitae sint. Ab et ratione rem maxime ad animi adipisci eligendi itaque facilis odio placeat ipsam voluptate tempora reprehenderit molestiae mollitia, dolores quibusdam autem. Necessitatibus dolore assumenda consectetur eligendi numquam nemo ex aliquid non similique est quaerat optio quisquam, quae consequuntur dolores id natus molestias?', 'resep-ikan-kuah-kuning', 3, NULL, NULL, 1, 'artikel/64b73f6366c30.jpeg', 0, NULL, '2023-06-22 01:22:54', '2023-07-18 17:23:33', NULL);
 
 -- --------------------------------------------------------
 
@@ -654,7 +654,8 @@ CREATE TABLE `likes` (
 --
 
 INSERT INTO `likes` (`id`, `user_id`, `article_id`, `created_at`, `updated_at`) VALUES
-(0, 0, 0, '2023-07-17 17:56:42', '2023-07-17 17:56:42');
+(0, 0, 0, '2023-07-17 17:56:42', '2023-07-17 17:56:42'),
+(3, 2, 1, '2023-07-19 07:03:21', '2023-07-19 07:03:21');
 
 -- --------------------------------------------------------
 
@@ -1418,7 +1419,7 @@ ALTER TABLE `kingdoms`
 -- AUTO_INCREMENT for table `likes`
 --
 ALTER TABLE `likes`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `local_name`

@@ -29,10 +29,10 @@
                             <i class="icon-md" data-feather="message-square"></i>
                             <p class="d-none d-md-block ms-2">Comment</p>
                         </a>
-                        <a href="javascript:;" class="d-flex align-items-center text-muted">
+                        <!-- <a href="javascript:;" class="d-flex align-items-center text-muted">
                             <i class="icon-md" data-feather="share"></i>
                             <p class="d-none d-md-block ms-2">Share</p>
-                        </a>
+                        </a> -->
                     </div>
                     <div class="card-footer">
                     </div>

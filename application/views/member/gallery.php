@@ -76,10 +76,28 @@
                             if (button.hasClass('btn-outline-success')) {
                                 // Tombol like sebelumnya belum ditekan, ubah menjadi tombol unlike
                                 button.removeClass('btn-outline-success').addClass('btn-success');
+                                var like = 'Like in successfully';
                             } else {
                                 // Tombol like sebelumnya telah ditekan, ubah menjadi tombol like
                                 button.removeClass('btn-success').addClass('btn-outline-success');
+                                var like = 'Unlike in successfully';
                             }
+                            const Toast = Swal.mixin({
+                                toast: true,
+                                position: 'top-end',
+                                showConfirmButton: false,
+                                timer: 3000,
+                                timerProgressBar: true,
+                                didOpen: (toast) => {
+                                    toast.addEventListener('mouseenter', Swal.stopTimer)
+                                    toast.addEventListener('mouseleave', Swal.resumeTimer)
+                                }
+                            })
+
+                            Toast.fire({
+                                icon: 'success',
+                                title: like
+                            })
                         } else {
                             alert('Failed to like fish: ' + response.message);
                         }

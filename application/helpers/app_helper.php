@@ -17,6 +17,23 @@ function fishlike($fish_id, $user_id)
 	
 }
 
+function articlelike($article_id, $user_id)
+{
+	$ci = get_instance();
+
+	$ci->db->where('article_id', $article_id);
+	$ci->db->where('user_id', $user_id);
+	$result = $ci->db->get('likes');
+
+	
+	if ($result->num_rows() > 0) {
+		return "btn-success";
+	} else {
+		return "btn-outline-success";
+	}
+	
+}
+
 function is_logged_in()
 {
 	$ci = get_instance();

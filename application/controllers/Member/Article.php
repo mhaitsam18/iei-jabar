@@ -9,7 +9,7 @@ class Article extends CI_Controller
         parent::__construct();
         is_logged_in();
         $this->load->library('form_validation');
-        $this->load->model('Member_model');
+        $this->load->model('Article_model');
         date_default_timezone_set('Asia/Jakarta');
     }
 
@@ -17,47 +17,24 @@ class Article extends CI_Controller
     {
         $data['title'] = "Articles";
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
-        $data['articles'] = $this->db->get('articles')->result_array();
+        $data['articles'] = $this->pagination();
         $this->load->view('layouts/header-member', $data);
         $this->load->view('layouts/topbar-member', $data);
         $this->load->view('member/article', $data);
         $this->load->view('layouts/footer-member');
     }
 
-    public function detail($fish_id = null)
+    public function detail($article_id = null)
     {
-        $data['title'] = "Fish Gallery";
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
-
-        $this->db->select('fish.*, abundance.abundance, fish_type.type, species.species, genus.genus, families.family, ordo.ordo, class.class, phylums.phylum, kingdoms.kingdom');
-        // , subspecies.subspecies
-        $this->db->join('species', 'fish.species_id = species.id', 'left');
-        // $this->db->join('subspecies', 'fish.subspecies_id = subspecies.id', 'left');
-        $this->db->join('genus', 'species.genus_id = genus.id', 'left');
-        $this->db->join('families', 'genus.family_id = families.id', 'left');
-        $this->db->join('ordo', 'families.ordo_id = ordo.id', 'left');
-        $this->db->join('class', 'ordo.class_id = class.id', 'left');
-        $this->db->join('phylums', 'class.phylum_id = phylums.id', 'left');
-        $this->db->join('kingdoms', 'phylums.kingdom_id = kingdoms.id', 'left');
-        $this->db->join('fish_type', 'fish.fish_type_id = fish_type.id', 'left');
-        $this->db->join('abundance', 'fish.abundance_id = abundance.id', 'left');
-        $data['fish'] = $this->db->get_where('fish', ['fish.id' => $fish_id])->row_array();
-
-        $this->db->join('food', 'fish_food.food_id = food.id');
-        $data['foods'] = $this->db->get_where('fish_food', ['fish_id' => $fish_id])->result_array();
-
-        $this->db->join('distribution', 'fish_distribution.distribution_id = distribution.id');
-        $data['distributions'] = $this->db->get_where('fish_distribution', ['fish_id' => $fish_id])->result_array();
-
-        $this->db->join('habitats', 'fish_habitat.habitat_id = habitats.id');
-        $data['habitats'] = $this->db->get_where('fish_habitat', ['fish_id' => $fish_id])->result_array();
-
-        $data['local_names'] = $this->db->get_where('local_name', ['fish_id' => $fish_id])->result_array();
-        $data['origins'] = $this->db->get_where('origin', ['fish_id' => $fish_id])->result_array();
-        $data['articles'] = $this->db->get_where('articles', ['fish_id' => $fish_id])->result_array();
+        
+        $this->db->select('articles.*, user.name');
+        $this->db->join('user', 'articles.author_id = user.id', 'left');
+        $data['article'] = $this->db->get_where('articles', ['articles.id' => $article_id])->row_array();
+        $data['title'] = $data['article']['title'];
         $this->load->view('layouts/header-member', $data);
         $this->load->view('layouts/topbar-member', $data);
-        $this->load->view('member/fish-detail', $data);
+        $this->load->view('member/article-detail', $data);
         $this->load->view('layouts/footer-member');
     }
 
@@ -100,8 +77,8 @@ class Article extends CI_Controller
 
     private function pagination()
     {
-        $config['base_url'] = base_url('Member/fish/index');
-        $this->db->from('fish');
+        $config['base_url'] = base_url('Member/article/index');
+        $this->db->from('articles');
         $config['total_rows'] = $this->db->count_all_results();
         $data['total_rows'] = $config['total_rows'];
         $config['per_page'] = 4;
@@ -149,6 +126,6 @@ class Article extends CI_Controller
         // $config['attributes']['rel'] = FALSE;
         $this->pagination->initialize($config);
         $start = $this->uri->segment(4);
-        return $this->Fish_model->getFishLimit($config['per_page'], $start);
+        return $this->Article_model->getArticleLimit($config['per_page'], $start);
     }
 }
