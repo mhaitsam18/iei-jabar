@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 19, 2023 at 03:27 PM
+-- Generation Time: Jul 19, 2023 at 09:07 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.1.17
 
@@ -335,7 +335,9 @@ CREATE TABLE `distribution` (
 
 INSERT INTO `distribution` (`id`, `distribution`, `created_at`, `updated_at`) VALUES
 (0, 'Undefined', '2023-07-17 10:30:15', '2023-07-17 10:30:15'),
-(1, 'Afrika Selatan', '2023-07-18 10:18:41', '2023-07-18 10:18:41');
+(1, 'Afrika Selatan', '2023-07-18 10:18:41', '2023-07-18 10:18:41'),
+(2, 'Filipina', '2023-07-19 13:35:40', '2023-07-19 13:35:40'),
+(3, 'Australia', '2023-07-19 13:35:40', '2023-07-19 13:35:40');
 
 -- --------------------------------------------------------
 
@@ -394,7 +396,8 @@ INSERT INTO `fish` (`id`, `scientific_name`, `general_name`, `synonim`, `species
 (1, 'Betta sp', 'Ikan Cupang', '', 1, 7, 2, '', '', '', 'fish/cupang.jpg', NULL, '2023-07-12 06:11:31', '2023-07-12 06:11:31'),
 (2, 'Carrasius auratus', 'Ikan Koki', '', 2, 7, 2, '', '', '', 'fish/koki.jpg', NULL, '2023-07-12 06:11:31', '2023-07-12 06:11:31'),
 (3, 'Symphysodon discus', 'Ikan Discus', '', 3, 7, 2, '', '', '', 'fish/discus.jpg', NULL, '2023-07-12 06:11:31', '2023-07-12 06:11:31'),
-(4, 'Oreochromis niloticus', 'Ikan Nila', 'ikan nila', 4, 1, 1, '15-40 cm', '0,4 - 2 kg', 'Ikan nila adalah sejenis ikan konsumsi air tawar. Ikan ini diintroduksi dari Afrika, tepatnya Afrika bagian timur, pada tahun 1969, dan kini menjadi ikan peliharaan yang populer di kolam-kolam air tawar di Indonesia sekaligus hama di setiap sungai dan danau Indonesia. Nama ilmiahnya adalah Oreochromis niloticus, dan dalam bahasa Inggris dikenal sebagai Nile Tilapia.', 'fish/64b6549622a32.jpg', NULL, '2023-07-18 09:00:07', '2023-07-18 09:00:07');
+(4, 'Oreochromis niloticus', 'Ikan Nila', 'ikan nila', 4, 1, 1, '15-40 cm', '0,4 - 2 kg', 'Ikan nila adalah sejenis ikan konsumsi air tawar. Ikan ini diintroduksi dari Afrika, tepatnya Afrika bagian timur, pada tahun 1969, dan kini menjadi ikan peliharaan yang populer di kolam-kolam air tawar di Indonesia sekaligus hama di setiap sungai dan danau Indonesia. Nama ilmiahnya adalah Oreochromis niloticus, dan dalam bahasa Inggris dikenal sebagai Nile Tilapia.', 'fish/64b6549622a32.jpg', NULL, '2023-07-18 09:00:07', '2023-07-18 09:00:07'),
+(5, 'Oreochromis mossambicus', 'Oreochromis mossambicus', 'Oreochromis mossambicus', 5, 1, 1, '', '', 'oke', '', NULL, '2023-07-19 13:35:40', '2023-07-19 13:35:40');
 
 -- --------------------------------------------------------
 
@@ -415,7 +418,9 @@ CREATE TABLE `fish_distribution` (
 --
 
 INSERT INTO `fish_distribution` (`id`, `fish_id`, `distribution_id`, `created_at`, `update_at`) VALUES
-(0, 0, 0, '2023-07-17 17:21:12', '2023-07-17 17:21:12');
+(0, 0, 0, '2023-07-17 17:21:12', '2023-07-17 17:21:12'),
+(1, 5, 2, '2023-07-19 13:35:40', '2023-07-19 13:35:40'),
+(2, 5, 3, '2023-07-19 13:35:40', '2023-07-19 13:35:40');
 
 -- --------------------------------------------------------
 
@@ -444,7 +449,10 @@ INSERT INTO `fish_food` (`id`, `fish_id`, `food_id`, `created_at`, `update_at`) 
 (5, 1, 31, '2023-07-18 08:09:51', '2023-07-18 08:09:51'),
 (6, 4, 1, '2023-07-18 08:48:02', '2023-07-18 08:48:02'),
 (7, 4, 2, '2023-07-18 08:48:02', '2023-07-18 08:48:02'),
-(8, 4, 3, '2023-07-18 08:48:02', '2023-07-18 08:48:02');
+(8, 4, 3, '2023-07-18 08:48:02', '2023-07-18 08:48:02'),
+(9, 5, 1, '2023-07-19 13:35:40', '2023-07-19 13:35:40'),
+(10, 5, 2, '2023-07-19 13:35:40', '2023-07-19 13:35:40'),
+(11, 5, 4, '2023-07-19 13:35:40', '2023-07-19 13:35:40');
 
 -- --------------------------------------------------------
 
@@ -466,7 +474,8 @@ CREATE TABLE `fish_habitat` (
 
 INSERT INTO `fish_habitat` (`id`, `fish_id`, `habitat_id`, `created_at`, `update_at`) VALUES
 (0, 0, 0, '2023-07-17 17:54:18', '2023-07-17 17:54:18'),
-(1, 4, 1, '2023-07-18 08:48:02', '2023-07-18 08:48:02');
+(1, 4, 1, '2023-07-18 08:48:02', '2023-07-18 08:48:02'),
+(2, 5, 1, '2023-07-19 13:35:40', '2023-07-19 13:35:40');
 
 -- --------------------------------------------------------
 
@@ -661,8 +670,7 @@ CREATE TABLE `likes` (
 --
 
 INSERT INTO `likes` (`id`, `user_id`, `article_id`, `created_at`, `updated_at`) VALUES
-(0, 0, 0, '2023-07-17 17:56:42', '2023-07-17 17:56:42'),
-(8, 2, 1, '2023-07-19 07:40:17', '2023-07-19 07:40:17');
+(0, 0, 0, '2023-07-17 17:56:42', '2023-07-17 17:56:42');
 
 -- --------------------------------------------------------
 
@@ -685,7 +693,9 @@ CREATE TABLE `local_name` (
 
 INSERT INTO `local_name` (`id`, `fish_id`, `local_name`, `area`, `created_at`, `updated_at`) VALUES
 (0, 0, 'Undefined', 'Undefined', '2023-07-17 17:24:14', '2023-07-17 17:24:14'),
-(1, 4, 'Ikan Nila Best', 'Bogor', '2023-07-18 14:09:09', '2023-07-18 14:09:09');
+(1, 4, 'Ikan Nila Best', 'Bogor', '2023-07-18 14:09:09', '2023-07-18 14:09:09'),
+(2, 5, 'Mujaer', NULL, '2023-07-19 13:35:40', '2023-07-19 13:35:40'),
+(3, 5, 'Mujair', NULL, '2023-07-19 13:35:40', '2023-07-19 13:35:40');
 
 -- --------------------------------------------------------
 
@@ -731,7 +741,8 @@ CREATE TABLE `origin` (
 --
 
 INSERT INTO `origin` (`id`, `fish_id`, `origin`, `created_at`, `updated_at`) VALUES
-(0, 0, 'Undefined', '2023-07-17 17:27:24', '2023-07-17 17:27:24');
+(0, 0, 'Undefined', '2023-07-17 17:27:24', '2023-07-17 17:27:24'),
+(1, 5, 'Indonesia', '2023-07-19 13:35:40', '2023-07-19 13:35:40');
 
 -- --------------------------------------------------------
 
@@ -850,7 +861,8 @@ INSERT INTO `species` (`id`, `species`, `general_name`, `genus_id`, `description
 (1, 'Betta sp', NULL, NULL, NULL, 'image-not-found.png', '2023-07-12 06:13:02', '2023-07-12 06:13:02'),
 (2, 'Carrasius auratus', NULL, NULL, NULL, 'image-not-found.png', '2023-07-12 06:13:02', '2023-07-12 06:13:02'),
 (3, 'Symphysodon discus', NULL, NULL, NULL, 'image-not-found.png', '2023-07-12 06:13:02', '2023-07-12 06:13:02'),
-(4, 'Oreochromis niloticus', 'Ikan Nila', 1, 'Ikan nila adalah sejenis ikan konsumsi air tawar. Ikan ini diintroduksi dari Afrika, tepatnya Afrika bagian timur, pada tahun 1969, dan kini menjadi ikan peliharaan yang populer di kolam-kolam air tawar di Indonesia sekaligus hama di setiap sungai dan danau Indonesia.', 'species/64b65146d407b.jpg', '2023-07-18 08:46:01', '2023-07-18 08:46:01');
+(4, 'Oreochromis niloticus', 'Ikan Nila', 1, 'Ikan nila adalah sejenis ikan konsumsi air tawar. Ikan ini diintroduksi dari Afrika, tepatnya Afrika bagian timur, pada tahun 1969, dan kini menjadi ikan peliharaan yang populer di kolam-kolam air tawar di Indonesia sekaligus hama di setiap sungai dan danau Indonesia.', 'species/64b65146d407b.jpg', '2023-07-18 08:46:01', '2023-07-18 08:46:01'),
+(5, 'Oreochromis mossambicus', 'Mozambique Tilapia', 1, 'Mujair', 'species/64b7e64dc4c4e.jpg', '2023-07-19 13:34:07', '2023-07-19 13:34:07');
 
 -- --------------------------------------------------------
 
@@ -1354,7 +1366,7 @@ ALTER TABLE `country`
 -- AUTO_INCREMENT for table `distribution`
 --
 ALTER TABLE `distribution`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `families`
@@ -1366,31 +1378,31 @@ ALTER TABLE `families`
 -- AUTO_INCREMENT for table `fish`
 --
 ALTER TABLE `fish`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `fish_distribution`
 --
 ALTER TABLE `fish_distribution`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `fish_food`
 --
 ALTER TABLE `fish_food`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `fish_habitat`
 --
 ALTER TABLE `fish_habitat`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `fish_like`
 --
 ALTER TABLE `fish_like`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `fish_type`
@@ -1432,7 +1444,7 @@ ALTER TABLE `likes`
 -- AUTO_INCREMENT for table `local_name`
 --
 ALTER TABLE `local_name`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `ordo`
@@ -1444,7 +1456,7 @@ ALTER TABLE `ordo`
 -- AUTO_INCREMENT for table `origin`
 --
 ALTER TABLE `origin`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `phylums`
@@ -1462,7 +1474,7 @@ ALTER TABLE `province`
 -- AUTO_INCREMENT for table `species`
 --
 ALTER TABLE `species`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `user`
@@ -1508,8 +1520,8 @@ ALTER TABLE `user_token`
 -- Constraints for table `archipelago`
 --
 ALTER TABLE `archipelago`
-  ADD CONSTRAINT `archipelago_ibfk_1` FOREIGN KEY (`distribution_id`) REFERENCES `distribution` (`id`),
-  ADD CONSTRAINT `archipelago_ibfk_2` FOREIGN KEY (`province_id`) REFERENCES `province` (`id`);
+  ADD CONSTRAINT `archipelago_ibfk_1` FOREIGN KEY (`distribution_id`) REFERENCES `distribution` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `archipelago_ibfk_2` FOREIGN KEY (`province_id`) REFERENCES `province` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
 
 --
 -- Constraints for table `articles`
@@ -1524,7 +1536,7 @@ ALTER TABLE `articles`
 -- Constraints for table `class`
 --
 ALTER TABLE `class`
-  ADD CONSTRAINT `class_ibfk_1` FOREIGN KEY (`phylum_id`) REFERENCES `phylums` (`id`);
+  ADD CONSTRAINT `class_ibfk_1` FOREIGN KEY (`phylum_id`) REFERENCES `phylums` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
 
 --
 -- Constraints for table `comment`
@@ -1537,19 +1549,19 @@ ALTER TABLE `comment`
 -- Constraints for table `country`
 --
 ALTER TABLE `country`
-  ADD CONSTRAINT `country_ibfk_1` FOREIGN KEY (`continent_id`) REFERENCES `continent` (`id`);
+  ADD CONSTRAINT `country_ibfk_1` FOREIGN KEY (`continent_id`) REFERENCES `continent` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
 
 --
 -- Constraints for table `families`
 --
 ALTER TABLE `families`
-  ADD CONSTRAINT `families_ibfk_1` FOREIGN KEY (`ordo_id`) REFERENCES `ordo` (`id`);
+  ADD CONSTRAINT `families_ibfk_1` FOREIGN KEY (`ordo_id`) REFERENCES `ordo` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
 
 --
 -- Constraints for table `fish`
 --
 ALTER TABLE `fish`
-  ADD CONSTRAINT `fish_ibfk_1` FOREIGN KEY (`species_id`) REFERENCES `species` (`id`),
+  ADD CONSTRAINT `fish_ibfk_1` FOREIGN KEY (`species_id`) REFERENCES `species` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
   ADD CONSTRAINT `fish_ibfk_2` FOREIGN KEY (`fish_type_id`) REFERENCES `fish_type` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
   ADD CONSTRAINT `fish_ibfk_3` FOREIGN KEY (`abundance_id`) REFERENCES `abundance` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
 
@@ -1557,78 +1569,78 @@ ALTER TABLE `fish`
 -- Constraints for table `fish_distribution`
 --
 ALTER TABLE `fish_distribution`
-  ADD CONSTRAINT `fish_distribution_ibfk_1` FOREIGN KEY (`fish_id`) REFERENCES `fish` (`id`),
-  ADD CONSTRAINT `fish_distribution_ibfk_2` FOREIGN KEY (`distribution_id`) REFERENCES `distribution` (`id`);
+  ADD CONSTRAINT `fish_distribution_ibfk_1` FOREIGN KEY (`fish_id`) REFERENCES `fish` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `fish_distribution_ibfk_2` FOREIGN KEY (`distribution_id`) REFERENCES `distribution` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `fish_food`
 --
 ALTER TABLE `fish_food`
-  ADD CONSTRAINT `fish_food_ibfk_1` FOREIGN KEY (`fish_id`) REFERENCES `fish` (`id`),
-  ADD CONSTRAINT `fish_food_ibfk_2` FOREIGN KEY (`food_id`) REFERENCES `food` (`id`);
+  ADD CONSTRAINT `fish_food_ibfk_1` FOREIGN KEY (`fish_id`) REFERENCES `fish` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `fish_food_ibfk_2` FOREIGN KEY (`food_id`) REFERENCES `food` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `fish_habitat`
 --
 ALTER TABLE `fish_habitat`
-  ADD CONSTRAINT `fish_habitat_ibfk_1` FOREIGN KEY (`fish_id`) REFERENCES `fish` (`id`),
-  ADD CONSTRAINT `fish_habitat_ibfk_2` FOREIGN KEY (`habitat_id`) REFERENCES `habitats` (`id`);
+  ADD CONSTRAINT `fish_habitat_ibfk_1` FOREIGN KEY (`fish_id`) REFERENCES `fish` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `fish_habitat_ibfk_2` FOREIGN KEY (`habitat_id`) REFERENCES `habitats` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `fish_like`
 --
 ALTER TABLE `fish_like`
   ADD CONSTRAINT `fish_like_ibfk_1` FOREIGN KEY (`fish_id`) REFERENCES `fish` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `fish_like_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `fish_like_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
 
 --
 -- Constraints for table `genus`
 --
 ALTER TABLE `genus`
-  ADD CONSTRAINT `genus_ibfk_1` FOREIGN KEY (`family_id`) REFERENCES `families` (`id`);
+  ADD CONSTRAINT `genus_ibfk_1` FOREIGN KEY (`family_id`) REFERENCES `families` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
 
 --
 -- Constraints for table `likes`
 --
 ALTER TABLE `likes`
-  ADD CONSTRAINT `likes_article_id_foreign` FOREIGN KEY (`article_id`) REFERENCES `articles` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
+  ADD CONSTRAINT `likes_article_id_foreign` FOREIGN KEY (`article_id`) REFERENCES `articles` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `likes_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
 
 --
 -- Constraints for table `local_name`
 --
 ALTER TABLE `local_name`
-  ADD CONSTRAINT `local_name_ibfk_1` FOREIGN KEY (`fish_id`) REFERENCES `fish` (`id`);
+  ADD CONSTRAINT `local_name_ibfk_1` FOREIGN KEY (`fish_id`) REFERENCES `fish` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `ordo`
 --
 ALTER TABLE `ordo`
-  ADD CONSTRAINT `ordo_ibfk_1` FOREIGN KEY (`class_id`) REFERENCES `class` (`id`);
+  ADD CONSTRAINT `ordo_ibfk_1` FOREIGN KEY (`class_id`) REFERENCES `class` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
 
 --
 -- Constraints for table `origin`
 --
 ALTER TABLE `origin`
-  ADD CONSTRAINT `origin_ibfk_1` FOREIGN KEY (`fish_id`) REFERENCES `fish` (`id`);
+  ADD CONSTRAINT `origin_ibfk_1` FOREIGN KEY (`fish_id`) REFERENCES `fish` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `phylums`
 --
 ALTER TABLE `phylums`
-  ADD CONSTRAINT `phylums_ibfk_1` FOREIGN KEY (`kingdom_id`) REFERENCES `kingdoms` (`id`);
+  ADD CONSTRAINT `phylums_ibfk_1` FOREIGN KEY (`kingdom_id`) REFERENCES `kingdoms` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
 
 --
 -- Constraints for table `province`
 --
 ALTER TABLE `province`
-  ADD CONSTRAINT `province_ibfk_1` FOREIGN KEY (`country_id`) REFERENCES `country` (`id`);
+  ADD CONSTRAINT `province_ibfk_1` FOREIGN KEY (`country_id`) REFERENCES `country` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
 
 --
 -- Constraints for table `species`
 --
 ALTER TABLE `species`
-  ADD CONSTRAINT `species_ibfk_1` FOREIGN KEY (`genus_id`) REFERENCES `genus` (`id`);
+  ADD CONSTRAINT `species_ibfk_1` FOREIGN KEY (`genus_id`) REFERENCES `genus` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
 
 --
 -- Constraints for table `user`
