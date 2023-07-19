@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 19, 2023 at 09:14 AM
+-- Generation Time: Jul 19, 2023 at 10:02 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.1.17
 
@@ -239,6 +239,13 @@ CREATE TABLE `comment` (
   `created_at` timestamp NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `comment`
+--
+
+INSERT INTO `comment` (`id`, `user_id`, `article_id`, `comment`, `created_at`, `updated_at`) VALUES
+(1, 2, 1, 'Wahhh, enak bangeett!!!', '2023-07-19 07:57:40', '2023-07-19 07:57:40');
 
 -- --------------------------------------------------------
 
@@ -655,7 +662,7 @@ CREATE TABLE `likes` (
 
 INSERT INTO `likes` (`id`, `user_id`, `article_id`, `created_at`, `updated_at`) VALUES
 (0, 0, 0, '2023-07-17 17:56:42', '2023-07-17 17:56:42'),
-(3, 2, 1, '2023-07-19 07:03:21', '2023-07-19 07:03:21');
+(8, 2, 1, '2023-07-19 07:40:17', '2023-07-19 07:40:17');
 
 -- --------------------------------------------------------
 
@@ -1329,7 +1336,7 @@ ALTER TABLE `class`
 -- AUTO_INCREMENT for table `comment`
 --
 ALTER TABLE `comment`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `continent`
@@ -1419,7 +1426,7 @@ ALTER TABLE `kingdoms`
 -- AUTO_INCREMENT for table `likes`
 --
 ALTER TABLE `likes`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `local_name`

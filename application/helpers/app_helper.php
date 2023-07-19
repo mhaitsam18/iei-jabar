@@ -25,11 +25,42 @@ function articlelike($article_id, $user_id)
 	$ci->db->where('user_id', $user_id);
 	$result = $ci->db->get('likes');
 
-	
+
 	if ($result->num_rows() > 0) {
 		return "btn-success";
 	} else {
 		return "btn-outline-success";
+	}
+	
+}
+function hearticon($article_id, $user_id)
+{
+	$ci = get_instance();
+
+	$ci->db->where('article_id', $article_id);
+	$ci->db->where('user_id', $user_id);
+	$result = $ci->db->get('likes');
+
+	
+	if ($result->num_rows() > 0) {
+		return "heart-icon";
+	} else {
+		return "";
+	}
+	
+}
+function articletombollike($article_id, $user_id)
+{
+	$ci = get_instance();
+
+	$ci->db->where('article_id', $article_id);
+	$ci->db->where('user_id', $user_id);
+	$result = $ci->db->get('likes');
+
+	if ($result->num_rows() > 0) {
+		return "text-danger";
+	} else {
+		return "text-muted";
 	}
 	
 }

@@ -31,11 +31,24 @@ class Article extends CI_Controller
         $this->db->select('articles.*, user.name');
         $this->db->join('user', 'articles.author_id = user.id', 'left');
         $data['article'] = $this->db->get_where('articles', ['articles.id' => $article_id])->row_array();
+
+        $this->db->join('user', 'comment.user_id = user.id', 'left');
+        $data['comments'] = $this->db->get_where('comment', ['article_id' => $article_id])->result_array();
         $data['title'] = $data['article']['title'];
         $this->load->view('layouts/header-member', $data);
         $this->load->view('layouts/topbar-member', $data);
         $this->load->view('member/article-detail', $data);
         $this->load->view('layouts/footer-member');
+    }
+
+    public function comment()
+    {
+        $this->db->insert('comment', [
+            'user_id' => $this->input->post('user_id'),
+            'article_id' => $this->input->post('article_id'),
+            'comment' => $this->input->post('comment'),
+        ]);
+        redirect($_SERVER['HTTP_REFERER']);
     }
 
     public function like()
