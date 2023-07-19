@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 19, 2023 at 08:05 AM
+-- Generation Time: Jul 19, 2023 at 08:17 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.1.17
 
@@ -224,6 +224,21 @@ INSERT INTO `class` (`id`, `class`, `general_name`, `phylum_id`, `description`, 
 (21, 'Reptilia', '', 9, '', 'class/64b62f56b8b83.jpg', 0, '2023-06-11 02:38:31', '2023-06-11 02:38:31'),
 (22, 'Sauropsida', '', 9, 'Sauropsida Hewan Purba', 'class/64b62f9e0dd48.jpg', 0, '2023-06-11 02:40:04', '2023-06-11 02:40:04'),
 (23, 'Synapsida', 'Dinosaurus', 9, 'Synapsida (\'fused arch\'), atau theropsida (\'wajah hewan\'), adalah kelompok hewan yang termasuk mamalia dan segala kerabat dekatnya selain amniota hidup lainnya.[4] Anggota non-mamalia disebut sebagai reptil mirip mammalia dalam sistematika klasik,[5][6] tetapi disebut ', 'class/64b630357c75c.jpg', 0, '2023-06-11 02:40:04', '2023-06-11 02:40:04');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `comment`
+--
+
+CREATE TABLE `comment` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `user_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `article_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `comment` text DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -1064,6 +1079,14 @@ ALTER TABLE `class`
   ADD KEY `phylum_id` (`phylum_id`);
 
 --
+-- Indexes for table `comment`
+--
+ALTER TABLE `comment`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `user_id` (`user_id`),
+  ADD KEY `article_id` (`article_id`);
+
+--
 -- Indexes for table `continent`
 --
 ALTER TABLE `continent`
@@ -1302,6 +1325,12 @@ ALTER TABLE `class`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
+-- AUTO_INCREMENT for table `comment`
+--
+ALTER TABLE `comment`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `continent`
 --
 ALTER TABLE `continent`
@@ -1488,6 +1517,13 @@ ALTER TABLE `articles`
 --
 ALTER TABLE `class`
   ADD CONSTRAINT `class_ibfk_1` FOREIGN KEY (`phylum_id`) REFERENCES `phylums` (`id`);
+
+--
+-- Constraints for table `comment`
+--
+ALTER TABLE `comment`
+  ADD CONSTRAINT `comment_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
+  ADD CONSTRAINT `comment_ibfk_2` FOREIGN KEY (`article_id`) REFERENCES `articles` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `country`
