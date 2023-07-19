@@ -60,7 +60,7 @@
 
                                             <a href="#" class="badge bg-success updateclass" data-bs-toggle="modal" data-bs-target="#edit" data-id="<?= $class['id'] ?>" data-class="<?= $class['class'] ?>" data-general_name="<?= $class['general_name'] ?>" data-species="<?= $class['species'] ?>" data-description="<?= $class['description'] ?>" data-picture="<?= $class['picture'] ?>" data-phylum_id="<?= $class['phylum_id'] ?>">Ubah</a>
 
-                                            <a href="<?= base_url("DataMaster/class/delete/$class[id]"); ?>" class="badge bg-danger tombol-hapus" data-hapus="class">Hapus</a>
+                                            <a href="<?= base_url("DataMaster/classes/delete/$class[id]"); ?>" class="badge bg-danger tombol-hapus" data-hapus="class">Hapus</a>
                                         </td>
                                     </tr>
 
