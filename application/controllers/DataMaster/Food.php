@@ -17,7 +17,7 @@ class Food extends CI_Controller
     {
         $data['title'] = "Data Master Makanan";
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
-        $data['foods'] = $this->db->order_by('id', 'DESC')->get('food')->result_array();
+        $data['foods'] = $this->db->order_by('id', 'DESC')->get_where('food', ['id !=' => 0])->result_array();
 
         $this->form_validation->set_rules('food', 'Food', 'trim|required');
 

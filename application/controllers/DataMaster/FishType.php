@@ -17,7 +17,7 @@ class FishType extends CI_Controller
     {
         $data['title'] = "Data Master Jenis Ikan";
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
-        $data['fish_type'] = $this->db->order_by('id', 'desc')->get('fish_type')->result_array();
+        $data['fish_type'] = $this->db->order_by('id', 'desc')->get_where('fish_type', ['id !=' => 0])->result_array();
 
         $this->form_validation->set_rules('type', 'Type', 'trim|required');
         $this->form_validation->set_rules('description', 'Description', 'trim|required');

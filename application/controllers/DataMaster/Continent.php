@@ -17,7 +17,7 @@ class Continent extends CI_Controller
     {
         $data['title'] = "Data Master Benua";
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
-        $data['continents'] = $this->db->get('continent')->result_array();
+        $data['continents'] = $this->db->get_where('continent', ['id !=' => 0])->result_array();
         $this->form_validation->set_rules('continent', 'Continent', 'trim|required');
 
         if ($this->form_validation->run() == false) {

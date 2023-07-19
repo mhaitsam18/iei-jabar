@@ -17,7 +17,7 @@ class Abundance extends CI_Controller
     {
         $data['title'] = "Data Master Kelimpahan / Konservasi";
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
-        $data['abundance'] = $this->db->order_by('id', 'desc')->get('abundance')->result_array();
+        $data['abundance'] = $this->db->order_by('id', 'desc')->get_where('abundance', ['abundance !=' => 0])->result_array();
 
         $this->form_validation->set_rules('abundance', 'Abundance', 'trim|required');
         $this->form_validation->set_rules('description', 'Description', 'trim|required');

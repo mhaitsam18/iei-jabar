@@ -17,7 +17,7 @@ class Habitat extends CI_Controller
     {
         $data['title'] = "Data Master Habitat";
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
-        $data['habitats'] = $this->db->get('habitats')->result_array();
+        $data['habitats'] = $this->db->get_where('habitats', ['id !=' => 0])->result_array();
 
         $this->form_validation->set_rules('habitat', 'Habitat', 'trim|required');
 
