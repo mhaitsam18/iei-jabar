@@ -74,6 +74,7 @@ class Admin extends CI_Controller {
 		$this->db->select('*, user_role.id AS rid, user.id AS uid');
 		$this->db->from('user');
 		$this->db->join('user_role', 'user_role.id = user.role_id');
+		$this->db->where('user.id !=', 0);
 		$data['user_data'] = $this->db->get()->result_array();
 		$this->load->view('layouts/header', $data);
 		$this->load->view('layouts/sidebar', $data);
