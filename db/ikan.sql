@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 19, 2023 at 10:02 AM
+-- Generation Time: Jul 19, 2023 at 03:27 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.1.17
 
@@ -374,7 +374,6 @@ CREATE TABLE `fish` (
   `general_name` varchar(255) DEFAULT NULL,
   `synonim` varchar(255) DEFAULT NULL,
   `species_id` bigint(20) UNSIGNED DEFAULT NULL,
-  `subspecies_id` bigint(20) UNSIGNED DEFAULT NULL,
   `fish_type_id` bigint(20) UNSIGNED DEFAULT NULL,
   `abundance_id` bigint(20) UNSIGNED DEFAULT NULL,
   `length` varchar(255) DEFAULT NULL,
@@ -390,12 +389,12 @@ CREATE TABLE `fish` (
 -- Dumping data for table `fish`
 --
 
-INSERT INTO `fish` (`id`, `scientific_name`, `general_name`, `synonim`, `species_id`, `subspecies_id`, `fish_type_id`, `abundance_id`, `length`, `weight`, `information`, `image`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(0, 'Undefined', 'Undefined', 'Undefined', 0, 0, 0, 0, '', '', '', 'image-not-found.png', NULL, '2023-07-17 17:20:36', '2023-07-17 17:20:36'),
-(1, 'Betta sp', 'Ikan Cupang', '', 1, NULL, 7, 2, '', '', '', 'fish/cupang.jpg', NULL, '2023-07-12 06:11:31', '2023-07-12 06:11:31'),
-(2, 'Carrasius auratus', 'Ikan Koki', '', 2, NULL, 7, 2, '', '', '', 'fish/koki.jpg', NULL, '2023-07-12 06:11:31', '2023-07-12 06:11:31'),
-(3, 'Symphysodon discus', 'Ikan Discus', '', 3, NULL, 7, 2, '', '', '', 'fish/discus.jpg', NULL, '2023-07-12 06:11:31', '2023-07-12 06:11:31'),
-(4, 'Oreochromis niloticus', 'Ikan Nila', 'ikan nila', 4, NULL, 1, 1, '15-40 cm', '0,4 - 2 kg', 'Ikan nila adalah sejenis ikan konsumsi air tawar. Ikan ini diintroduksi dari Afrika, tepatnya Afrika bagian timur, pada tahun 1969, dan kini menjadi ikan peliharaan yang populer di kolam-kolam air tawar di Indonesia sekaligus hama di setiap sungai dan danau Indonesia. Nama ilmiahnya adalah Oreochromis niloticus, dan dalam bahasa Inggris dikenal sebagai Nile Tilapia.', 'fish/64b6549622a32.jpg', NULL, '2023-07-18 09:00:07', '2023-07-18 09:00:07');
+INSERT INTO `fish` (`id`, `scientific_name`, `general_name`, `synonim`, `species_id`, `fish_type_id`, `abundance_id`, `length`, `weight`, `information`, `image`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(0, 'Undefined', 'Undefined', 'Undefined', 0, 0, 0, '', '', '', 'image-not-found.png', NULL, '2023-07-17 17:20:36', '2023-07-17 17:20:36'),
+(1, 'Betta sp', 'Ikan Cupang', '', 1, 7, 2, '', '', '', 'fish/cupang.jpg', NULL, '2023-07-12 06:11:31', '2023-07-12 06:11:31'),
+(2, 'Carrasius auratus', 'Ikan Koki', '', 2, 7, 2, '', '', '', 'fish/koki.jpg', NULL, '2023-07-12 06:11:31', '2023-07-12 06:11:31'),
+(3, 'Symphysodon discus', 'Ikan Discus', '', 3, 7, 2, '', '', '', 'fish/discus.jpg', NULL, '2023-07-12 06:11:31', '2023-07-12 06:11:31'),
+(4, 'Oreochromis niloticus', 'Ikan Nila', 'ikan nila', 4, 1, 1, '15-40 cm', '0,4 - 2 kg', 'Ikan nila adalah sejenis ikan konsumsi air tawar. Ikan ini diintroduksi dari Afrika, tepatnya Afrika bagian timur, pada tahun 1969, dan kini menjadi ikan peliharaan yang populer di kolam-kolam air tawar di Indonesia sekaligus hama di setiap sungai dan danau Indonesia. Nama ilmiahnya adalah Oreochromis niloticus, dan dalam bahasa Inggris dikenal sebagai Nile Tilapia.', 'fish/64b6549622a32.jpg', NULL, '2023-07-18 09:00:07', '2023-07-18 09:00:07');
 
 -- --------------------------------------------------------
 
@@ -519,7 +518,8 @@ INSERT INTO `fish_type` (`id`, `type`, `description`, `created_at`, `updated_at`
 (5, 'Ikan Invasif', 'Ikan invasif adalah jenis ikan yang diperkenalkan ke suatu wilayah baru dan memiliki kemampuan untuk berkembang biak secara agresif dan mengganggu ekosistem setempat. Ikan invasif biasanya tidak memiliki pemangsa alami di wilayah baru mereka dan dapat menyebabkan kerusakan yang signifikan terhadap keanekaragaman hayati asli.', '2023-06-13 09:33:05', '2023-06-13 09:33:05'),
 (6, 'Ikan Komersial', 'Ikan komersial merujuk pada jenis ikan yang ditangkap atau dibudidayakan untuk tujuan komersial, seperti untuk konsumsi manusia atau industri perikanan. Ikan komersial sering kali memiliki nilai ekonomi yang tinggi dan ditangkap dalam skala besar.', '2023-06-13 09:33:05', '2023-06-13 09:33:05'),
 (7, 'Ikan Hias', 'Ikan hias adalah jenis ikan yang dipelihara dalam akuarium atau kolam sebagai hewan peliharaan. Mereka sering memiliki warna yang indah dan bentuk tubuh yang menarik. Ikan hias berasal dari berbagai wilayah di dunia dan telah menjadi bagian penting dari industri perdagangan hewan peliharaan.', '2023-06-13 09:33:05', '2023-06-13 09:33:05'),
-(8, 'Ikan Purba', 'Ikan purba merujuk pada jenis ikan yang telah ada sejak zaman prasejarah dan masih bertahan sampai sekarang. Beberapa contoh ikan purba termasuk ikan pari, ikan hiu, dan coelacanth.', '2023-06-13 09:33:05', '2023-06-13 09:33:05');
+(8, 'Ikan Purba', 'Ikan purba merujuk pada jenis ikan yang telah ada sejak zaman prasejarah dan masih bertahan sampai sekarang. Beberapa contoh ikan purba termasuk ikan pari, ikan hiu, dan coelacanth.', '2023-06-13 09:33:05', '2023-06-13 09:33:05'),
+(9, 'Ikan Asli', 'Ikan Asli', '2023-07-19 13:22:47', '2023-07-19 13:22:47');
 
 -- --------------------------------------------------------
 
@@ -1396,7 +1396,7 @@ ALTER TABLE `fish_like`
 -- AUTO_INCREMENT for table `fish_type`
 --
 ALTER TABLE `fish_type`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `food`

@@ -11,9 +11,9 @@
         <div class="d-flex align-items-start">
             <img src="<?= base_url('assets/images/samples/gedung-telyu.jpg') ?>" class="wd-100 wd-sm-200 me-3" alt="...">
             <div>
-                <h5 class="mb-2">Ikan Endemik dan Introduksi Jawa Barat</h5>
+                <h5 class="mb-2">Ikan Asli dan Introduksi Jawa Barat</h5>
                 <p class="">
-                    Situs web katalog Ikan Endemik dan Introduksi Jawa Barat merupakan sebuah proyek inovatif yang dikelola oleh Badan Riset dan Inovasi Nasional (BRIN) bekerja sama dengan Dinas Perikanan dan Kelautan. Situs web ini bertujuan untuk menyediakan informasi kaya mengenai beragam spesies ikan endemik dan ikan introduksi yang ada di wilayah Jawa Barat.
+                    Situs web katalog Ikan Asli dan Introduksi Jawa Barat merupakan sebuah proyek inovatif yang dikelola oleh Badan Riset dan Inovasi Nasional (BRIN). Situs web ini bertujuan untuk menyediakan informasi kaya mengenai beragam spesies ikan endemik dan ikan introduksi yang ada di wilayah Jawa Barat.
                 </p>
                 <p class="">
                     Dengan dukungan teknis dari Fakultas Ilmu Terapan di Telkom University, situs web ini dikembangkan dengan pendekatan yang canggih dan responsif untuk memastikan aksesibilitas bagi semua kalangan pengguna. Penggarapan situs web ini dilakukan oleh tim ahli di bidangnya, termasuk para peneliti, ilmuwan perikanan, dan ahli teknologi informasi, sehingga memastikan bahwa konten yang disajikan adalah akurat dan terpercaya.

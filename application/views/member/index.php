@@ -2,7 +2,7 @@
 
 	<div class="d-flex justify-content-between align-items-center flex-wrap grid-margin mt-3">
 		<div>
-			<h4 class="mb-3 mb-md-0 color-mamhi" style="font-style: italic">Beranda Ikan Endemik dan Introduksi Jawa Barat</h4>
+			<h4 class="mb-3 mb-md-0 color-mamhi" style="font-style: italic">Beranda Ikan Asli dan Introduksi Jawa Barat</h4>
 		</div>
 	</div>
 
