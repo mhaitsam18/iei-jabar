@@ -60,7 +60,7 @@ class Auth extends CI_Controller {
 		]);
 		// $this->form_validation->set_rules('role_id','Role', 'required|trim');
 		$this->form_validation->set_rules('gender','Gander', 'required|trim');
-		$this->form_validation->set_rules('place_of_birth','Place of Birth', 'required|trim');
+		// $this->form_validation->set_rules('place_of_birth','Place of Birth', 'required|trim');
 		$this->form_validation->set_rules('birthday','Birth Day', 'required|trim');
 		$this->form_validation->set_rules('phone_number','Phone Number', 'required|trim');
 		$this->form_validation->set_rules('address','Address', 'required|trim');
@@ -76,7 +76,7 @@ class Auth extends CI_Controller {
 				'email' => htmlspecialchars($this->input->post('email', true)),
 				'username' => htmlspecialchars($this->input->post('username', true)),
 				'gender' => htmlspecialchars($this->input->post('gender', true)),
-				'place_of_birth' => htmlspecialchars($this->input->post('place_of_birth', true)),
+				// 'place_of_birth' => htmlspecialchars($this->input->post('place_of_birth', true)),
 				'birthday' => htmlspecialchars($this->input->post('birthday', true)),
 				'phone_number' => htmlspecialchars($this->input->post('phone_number', true)),
 				'address' => htmlspecialchars($this->input->post('address', true)),

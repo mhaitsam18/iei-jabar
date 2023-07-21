@@ -90,7 +90,7 @@ class User extends CI_Controller {
 			$data = [
 				'name' => $this->input->post('name'),
 				'gender' => $this->input->post('gender'),
-				'place_of_birth' => $this->input->post('place_of_birth'),
+				// 'place_of_birth' => $this->input->post('place_of_birth'),
 				'birthday' => $this->input->post('birthday'),
 				'phone_number' => $this->input->post('phone_number'),
 				'address' => $this->input->post('address')
