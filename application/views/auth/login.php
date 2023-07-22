@@ -37,8 +37,18 @@
 			</div>
 		</div>
 	</div>
-	<div class="col-lg-7 d-none d-lg-block">
-		<div id="auth-right">
-		</div>
+	<style>
+		.bg-latar {
+			background-image: url('<?= base_url('assets/img/app/bg.png') ?>');
+			/* Tentukan path ke gambar auth-happy.png */
+			background-size: cover;
+			/* Menyesuaikan ukuran gambar dengan div */
+			background-position: center;
+			/* Mengatur posisi gambar */
+			position: relative;
+			/* Mengatur posisi div */
+		}
+	</style>
+	<div class="col-lg-7 d-none d-lg-block bg-latar">
 	</div>
 </div>
