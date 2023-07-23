@@ -38,7 +38,7 @@ class Fish extends CI_Controller
         
         $data['foods'] = $this->db->get('food')->result_array();
         $data['habitats'] = $this->db->get('habitats')->result_array();
-        $data['distribution s'] = $this->db->get('distribution')->result_array();
+        $data['distributions'] = $this->db->get('distribution')->result_array();
         
         $this->form_validation->set_rules('scientific_name', 'fish', 'trim|required');
         
