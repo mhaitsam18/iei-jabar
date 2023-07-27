@@ -33,7 +33,7 @@
 			</form>
 			<div class="text-center mt-5 text-lg fs-4">
 				<p class="text-gray-600">Don't have an account? <a href="<?= base_url('Auth/registration') ?>" class="font-bold">Sign up</a>.</p>
-				<p><a class="font-bold" href="<?= base_url('auth/forgotPassword') ?>">Forgot password?</a>.</p>
+				<!-- <p><a class="font-bold" href="<?= base_url('auth/forgotPassword') ?>">Forgot password?</a>.</p> -->
 			</div>
 		</div>
 	</div>
