@@ -21,7 +21,7 @@
 							<div class="card">
 								<div class="card-body">
 									<h4 class="mb-3">Continent</h4>
-									<p class="m-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse debitis ratione iure nobis quos laudantium?</p>
+									<p class="m-2" style="text-align: justify;">A 'continent form' is utilized to gather master data about continents like Africa, North America, and Asia. This data includes essential attributes for detailing fish distribution information worldwide or in specific regions. Organizing fish data based on continents helps researchers and managers gain insights into fish population diversity and patterns globally.</p>
 									<a href="#" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#continentModal">Fill Continent</a>
 									<a href="<?= base_url('DataMaster/Continent') ?>" class="btn btn-sm btn-info">See Continent</a>
 								</div>
@@ -31,7 +31,7 @@
 							<div class="card">
 								<div class="card-body">
 									<h4 class="mb-3">Country</h4>
-									<p class="m-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse debitis ratione iure nobis quos laudantium?</p>
+									<p class="m-2" style="text-align: justify;">The "country form" collects master data about countries, which are children of continents. It includes attributes like location, climate, and fish species found there. Organizing fish distribution data by countries provides insights for targeted conservation and sustainable resource management.</p>
 									<a href="#" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#countryModal">Fill Country</a>
 									<a href="<?= base_url('DataMaster/Country') ?>" class="btn btn-sm btn-info">See Country</a>
 								</div>
@@ -41,7 +41,7 @@
 							<div class="card">
 								<div class="card-body">
 									<h4 class="mb-3">Province</h4>
-									<p class="m-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse debitis ratione iure nobis quos laudantium?</p>
+									<p class="m-2" style="text-align: justify;">The "province form" gathers master data about administrative divisions within a country, including location, population, and unique characteristics. This data aids in analyzing fish species distribution, understanding local fishing practices, and implementing targeted conservation measures. It enables informed decisions to promote responsible fishing and protect aquatic ecosystems at a local level.</p>
 									<a href="#" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#provinceModal">Fill Province</a>
 									<a href="<?= base_url('DataMaster/Province') ?>" class="btn btn-sm btn-info">See Province</a>
 								</div>
@@ -51,7 +51,7 @@
 							<div class="card">
 								<div class="card-body">
 									<h4 class="mb-3">Archipelago / Waters</h4>
-									<p class="m-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse debitis ratione iure nobis quos laudantium?</p>
+									<p class="m-2" style="text-align: justify;">The 'archipelago and waters form' collects data on islands and marine ecosystems. It helps understand biodiversity, support conservation, and manage fisheries. Organizing data with this form preserves delicate marine ecosystems in unique island clusters.</p>
 									<a href="#" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#archipelagoModal">Fill Waters</a>
 									<a href="<?= base_url('DataMaster/Archipelago') ?>" class="btn btn-sm btn-info">See Waters</a>
 								</div>
@@ -61,7 +61,8 @@
 							<div class="card">
 								<div class="card-body">
 									<h4 class="mb-3">Fish Type</h4>
-									<p class="m-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse debitis ratione iure nobis quos laudantium?</p>
+									<p class="m-2" style="text-align: justify;">
+										The "Fish Type Form" is used to gather data on various fish types, including endemic, introduced, and others. It contains essential information about each fish type, such as its habitat and origin (whether it is native to a specific region or introduced from elsewhere), along with other relevant attributes. This form aids in understanding fish diversity, tracking species distribution, and supporting conservation and sustainable fisheries management efforts.</p>
 									<a href="#" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#fishTypeModal">Fill Type</a>
 									<a href="<?= base_url('DataMaster/FishType') ?>" class="btn btn-sm btn-info">See Type</a>
 								</div>
@@ -71,7 +72,7 @@
 							<div class="card">
 								<div class="card-body">
 									<h4 class="mb-3">Abundance</h4>
-									<p class="m-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse debitis ratione iure nobis quos laudantium?</p>
+									<p class="m-2" style="text-align: justify;">The "Abundance or Conservation Form" is designed to collect data related to the abundance of species or conservation efforts. This form includes essential information about population numbers, distribution patterns, and conservation measures taken to protect the species. Gathering such data enables researchers and conservationists to assess the health of populations, identify vulnerable species, and make informed decisions to promote biodiversity conservation and sustainable environmental practices.</p>
 									<a href="#" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#abundanceModal">Fill Abundance</a>
 									<a href="<?= base_url('DataMaster/Abundance') ?>" class="btn btn-sm btn-info">See Abundance</a>
 								</div>
@@ -81,7 +82,7 @@
 							<div class="card">
 								<div class="card-body">
 									<h4 class="mb-3">Food</h4>
-									<p class="m-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse debitis ratione iure nobis quos laudantium?</p>
+									<p class="m-2" style="text-align: justify;">The "Fish Food Form" is a data collection tool used to gather information about the types of food suitable for fish. This form includes details such as the specific food items, their nutritional content, feeding habits, and compatibility with different fish species. Utilizing the Fish Food Form helps in selecting appropriate diets for different fish species in aquaculture, aquariums, and natural environments. It is essential for fishkeepers, aquaculturists, and researchers to ensure the well-being and optimal growth of fish populations.</p>
 									<a href="#" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#foodModal">Fill Food</a>
 									<a href="<?= base_url('DataMaster/Food') ?>" class="btn btn-sm btn-info">See Food</a>
 								</div>
@@ -91,7 +92,7 @@
 							<div class="card">
 								<div class="card-body">
 									<h4 class="mb-3">Habitat</h4>
-									<p class="m-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse debitis ratione iure nobis quos laudantium?</p>
+									<p class="m-2" style="text-align: justify;">The "Habitat Form" will be the parent data source for the fish table. It contains information about various habitats, linking to specific fish species through a foreign key. This setup enables researchers to study fish-habitat relationships and implement conservation measures effectively.</p>
 									<a href="#" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#habitatModal">Fill Habitat</a>
 									<a href="<?= base_url('DataMaster/Habitat') ?>" class="btn btn-sm btn-info">See Habitat</a>
 								</div>
@@ -101,7 +102,7 @@
 							<div class="card">
 								<div class="card-body">
 									<h4 class="mb-3">Kingdom</h4>
-									<p class="m-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse debitis ratione iure nobis quos laudantium?</p>
+									<p class="m-2" style="text-align: justify;">The "Kingdom Form" is the parent data source for taxonomic tables, including those for fish. It allows researchers to categorize and study species based on evolutionary relationships and shared characteristics.</p>
 									<a href="#" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#kingdomModal">Fill Kingdom</a>
 									<a href="<?= base_url('DataMaster/Kingdom') ?>" class="btn btn-sm btn-info">See Kingdom</a>
 								</div>
@@ -111,7 +112,7 @@
 							<div class="card">
 								<div class="card-body">
 									<h4 class="mb-3">Phylum</h4>
-									<p class="m-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse debitis ratione iure nobis quos laudantium?</p>
+									<p class="m-2" style="text-align: justify;">The "Phylum Form" is a data collection tool that falls under the "Kingdom" category in taxonomic hierarchy. It contains information about various phyla, which represent major groups of organisms sharing certain fundamental characteristics. This hierarchical structure allows researchers to classify and study different phyla under their respective kingdoms, facilitating a systematic understanding of the diversity of life forms and their evolutionary relationships.</p>
 									<a href="#" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#phylumModal">Fill Phylum</a>
 									<a href="<?= base_url('DataMaster/Phylum') ?>" class="btn btn-sm btn-info">See Phylum</a>
 								</div>
@@ -121,7 +122,7 @@
 							<div class="card">
 								<div class="card-body">
 									<h4 class="mb-3">Class</h4>
-									<p class="m-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse debitis ratione iure nobis quos laudantium?</p>
+									<p class="m-2" style="text-align: justify;">The "Class Form" is used to enter data about the classes, specifically focusing on fish classes. This form is a child of the "Phylum" table in the taxonomic hierarchy. By utilizing the "Class Form," researchers can systematically organize and study different classes of fish, understanding their unique characteristics, and establishing their evolutionary relationships within their respective phyla. This data organization facilitates a comprehensive analysis of fish diversity and supports in-depth research on various fish classes.</p>
 									<a href="#" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#classModal">Fill Class</a>
 									<a href="<?= base_url('DataMaster/Classes') ?>" class="btn btn-sm btn-info">See Class</a>
 								</div>
@@ -131,7 +132,7 @@
 							<div class="card">
 								<div class="card-body">
 									<h4 class="mb-3">Ordo</h4>
-									<p class="m-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse debitis ratione iure nobis quos laudantium?</p>
+									<p class="m-2" style="text-align: justify;">The "Order Form" is designed to input data regarding fish orders. It serves as a child of the "Class" table within the taxonomic hierarchy. This form allows researchers to systematically categorize and study various fish orders, understanding their specific features, and establishing their evolutionary connections within their respective classes. Organizing data using the "Order Form" enables comprehensive analysis of fish diversity and facilitates in-depth research on different fish orders.</p>
 									<a href="#" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#ordoModal">Fill Ordo</a>
 									<a href="<?= base_url('DataMaster/Ordo') ?>" class="btn btn-sm btn-info">See Ordo</a>
 								</div>
@@ -141,7 +142,7 @@
 							<div class="card">
 								<div class="card-body">
 									<h4 class="mb-3">Family</h4>
-									<p class="m-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse debitis ratione iure nobis quos laudantium?</p>
+									<p class="m-2" style="text-align: justify;">The "Family Form" collects data on fish families, linked as a child to the "Order" table. It helps categorize and study fish families, establishing evolutionary relationships within their respective orders. This structure enables comprehensive analyses of fish diversity and supports in-depth research on different fish families.</p>
 									<a href="#" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#familyModal">Fill Family</a>
 									<a href="<?= base_url('DataMaster/Family') ?>" class="btn btn-sm btn-info">See Family</a>
 								</div>
@@ -151,7 +152,7 @@
 							<div class="card">
 								<div class="card-body">
 									<h4 class="mb-3">Genus</h4>
-									<p class="m-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse debitis ratione iure nobis quos laudantium?</p>
+									<p class="m-2" style="text-align: justify;">The "Genus Form" collects data on fish genera and is linked as a child to the "Family" table. It aids in organizing and studying fish genera, understanding their traits and evolutionary connections within their respective families. This structure supports comprehensive analyses of fish diversity and research on different genera.</p>
 									<a href="#" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#genusModal">Fill Genus</a>
 									<a href="<?= base_url('DataMaster/Genus') ?>" class="btn btn-sm btn-info">See Genus</a>
 								</div>
@@ -161,7 +162,7 @@
 							<div class="card">
 								<div class="card-body">
 									<h4 class="mb-3">Species</h4>
-									<p class="m-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse debitis ratione iure nobis quos laudantium?</p>
+									<p class="m-2" style="text-align: justify;">The "Species Form" gathers data on fish species, linked as a child to the "Genus" table. It aids in organizing and studying fish species, understanding their characteristics and evolutionary connections within their respective genera. This structure supports comprehensive analyses and research on different fish species.</p>
 									<a href="#" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#speciesModal">Fill Species</a>
 									<a href="<?= base_url('DataMaster/Species') ?>" class="btn btn-sm btn-info">See Species</a>
 								</div>
@@ -171,7 +172,7 @@
 							<div class="card">
 								<div class="card-body">
 									<h4 class="mb-3">Fish</h4>
-									<p class="m-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse debitis ratione iure nobis quos laudantium?</p>
+									<p class="m-2" style="text-align: justify;">The "Fish Form" is a primary data collection tool for storing information about fish species. It is a child of the "Species Form," "Fish Type Form," "Abundance Form," and either the "Waters Form" or "Archipelago Form." Additionally, it serves as a parent for many-to-many relationships with the "Habitat Form," "Distribution Form," and "Food Form." The form also has two child forms, the "Origin Form" and the "Local Name Form," which collect data on origin information and local names of fish species, respectively. This structure facilitates organized and comprehensive research, analysis, and conservation efforts for various fish species and their ecological interactions.</p>
 									<a href="#" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#fishModal">Fill Fish</a>
 									<a href="<?= base_url('DataMaster/Fish') ?>" class="btn btn-sm btn-info">See Fish</a>
 								</div>
@@ -181,7 +182,7 @@
 							<div class="card">
 								<div class="card-body">
 									<h4 class="mb-3">Local Name</h4>
-									<p class="m-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse debitis ratione iure nobis quos laudantium?</p>
+									<p class="m-2" style="text-align: justify;">The "Local Name Form" collects data on vernacular names of fish species in different regions. It aids in effective communication and collaboration for fish identification, conservation, and fisheries management.</p>
 									<a href="#" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#localNameModal">Fill Local Name</a>
 									<!-- <a href="<?= base_url('DataMaster/LocalName') ?>" class="btn btn-sm btn-info">See Local Name</a> -->
 								</div>
@@ -191,7 +192,7 @@
 							<div class="card">
 								<div class="card-body">
 									<h4 class="mb-3">Origin</h4>
-									<p class="m-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse debitis ratione iure nobis quos laudantium?</p>
+									<p class="m-2" style="text-align: justify;">The "Origin Form" collects data on the native range of fish species. It aids in conservation efforts and identifying potential threats from invasive species.</p>
 									<a href="#" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#originModal">Fill Origin</a>
 									<!-- <a href="<?= base_url('DataMaster/Origin') ?>" class="btn btn-sm btn-info">See Origin</a> -->
 								</div>
