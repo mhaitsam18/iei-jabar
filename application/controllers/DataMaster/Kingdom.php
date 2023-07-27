@@ -20,6 +20,7 @@ class Kingdom extends CI_Controller
         $data['kingdoms'] = $this->db->get_where('kingdoms', ['kingdoms.id !=' => 0])->result_array();
 
         $this->form_validation->set_rules('kingdom', 'kingdom', 'trim|required');
+        $this->form_validation->set_rules('description', 'Description', 'trim|required');
 
         if ($this->form_validation->run() == false) {
             // $this->index();

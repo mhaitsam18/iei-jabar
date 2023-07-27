@@ -32,6 +32,9 @@ class Family extends CI_Controller
         // $data['subordos'] = $this->db->get('subordo')->result_array();
 
         $this->form_validation->set_rules('family', 'family', 'trim|required');
+        $this->form_validation->set_rules('general_name', 'general name', 'trim|required');
+        $this->form_validation->set_rules('ordo_id', 'Ordo', 'trim|required');
+        $this->form_validation->set_rules('description', 'Description', 'trim|required');
 
         if ($this->form_validation->run() == false) {
             // $this->index();

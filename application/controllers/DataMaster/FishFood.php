@@ -34,6 +34,7 @@ class FishFood extends CI_Controller
         $data['foods'] = $this->db->get('food')->result_array();
 
         $this->form_validation->set_rules('fish_id', 'fish', 'trim');
+        $this->form_validation->set_rules('food', 'food', 'trim');
 
 
         if ($this->form_validation->run() == false) {

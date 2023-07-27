@@ -31,6 +31,9 @@ class Ordo extends CI_Controller
         // $data['subclasses'] = $this->db->get('subclass')->result_array();
 
         $this->form_validation->set_rules('ordo', 'ordo', 'trim|required');
+        $this->form_validation->set_rules('general_name', 'general name', 'trim|required');
+        $this->form_validation->set_rules('class_id', 'class', 'trim|required');
+        $this->form_validation->set_rules('description', 'Description', 'trim|required');
 
         if ($this->form_validation->run() == false) {
             // $this->index();

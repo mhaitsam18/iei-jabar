@@ -34,6 +34,10 @@ class Classes extends CI_Controller
         // $data['superclasses'] = $this->db->get('superclass')->result_array();
 
         $this->form_validation->set_rules('class', 'class', 'trim|required');
+        $this->form_validation->set_rules('general_name', 'general name', 'trim|required');
+        $this->form_validation->set_rules('phylum_id', 'Phylum', 'trim|required');
+        $this->form_validation->set_rules('description', 'Description', 'trim|required');
+        $this->form_validation->set_rules('species', 'Species', 'trim|required');
 
         if ($this->form_validation->run() == false) {
             // $this->index();

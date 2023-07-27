@@ -31,8 +31,11 @@ class Genus extends CI_Controller
 
         $data['families'] = $this->db->get('families')->result_array();
         // $data['subfamilies'] = $this->db->get('subfamily')->result_array();
-
+        
         $this->form_validation->set_rules('genus', 'genus', 'trim|required');
+        $this->form_validation->set_rules('general_name', 'general name', 'trim|required');
+        $this->form_validation->set_rules('family_id', 'family', 'trim|required');
+        $this->form_validation->set_rules('description', 'Description', 'trim|required');
 
         if ($this->form_validation->run() == false) {
             // $this->index();

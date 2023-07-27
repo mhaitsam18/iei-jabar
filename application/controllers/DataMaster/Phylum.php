@@ -24,6 +24,9 @@ class Phylum extends CI_Controller
         $data['kingdoms'] = $this->db->get('kingdoms')->result_array();
 
         $this->form_validation->set_rules('phylum', 'phylum', 'trim|required');
+        $this->form_validation->set_rules('general_name', 'general name', 'trim|required');
+        $this->form_validation->set_rules('kingdom_id', 'kingdom', 'trim|required');
+        $this->form_validation->set_rules('description', 'Description', 'trim|required');
 
         if ($this->form_validation->run() == false) {
             // $this->index();

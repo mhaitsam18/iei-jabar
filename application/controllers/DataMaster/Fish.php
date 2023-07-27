@@ -41,6 +41,14 @@ class Fish extends CI_Controller
         $data['distributions'] = $this->db->get('distribution')->result_array();
         
         $this->form_validation->set_rules('scientific_name', 'fish', 'trim|required');
+        $this->form_validation->set_rules('general_name', 'general name', 'trim|required');
+        $this->form_validation->set_rules('synonim', 'Synonim', 'trim|required');
+        $this->form_validation->set_rules('species_id', 'species', 'trim|required');
+        $this->form_validation->set_rules('fish_type_id', 'fish_type', 'trim|required');
+        $this->form_validation->set_rules('abundance_id', 'abundance', 'trim|required');
+        $this->form_validation->set_rules('length', 'length', 'trim|required');
+        $this->form_validation->set_rules('weight', 'weight', 'trim|required');
+        $this->form_validation->set_rules('information', 'information', 'trim|required');
         
         
         if ($this->form_validation->run() == false) {

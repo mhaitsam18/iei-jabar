@@ -23,6 +23,8 @@ class LocalName extends CI_Controller
         $data['local_names'] = $local_names;
 
         $this->form_validation->set_rules('fish_id', 'fish', 'trim');
+        $this->form_validation->set_rules('local_name', 'local name', 'trim');
+        $this->form_validation->set_rules('area', 'area', 'trim');
 
 
         if ($this->form_validation->run() == false) {
