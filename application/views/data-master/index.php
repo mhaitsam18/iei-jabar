@@ -42,23 +42,19 @@
                     <div class="d-flex justify-content-between align-items-baseline mb-2">
                         <h6 class="card-title mb-0"><?= $title ?></h6>
                         <div class="dropdown mb-2">
-                            <button class="btn p-0" type="button" id="dropdownMenuButton7" data-bs-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false">
+                            <button class="btn p-0" type="button" id="dropdownMenuButton7" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="icon-lg text-muted pb-3px" data-feather="more-horizontal"></i>
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton7">
-                                <a class="dropdown-item d-flex align-items-center" data-bs-toggle="modal"
-                                    data-bs-target="#setRoleModal"><i data-feather="eye" class="icon-sm me-2"></i> <span
-                                        class="">Tambah</span></a>
+                                <a class="dropdown-item d-flex align-items-center" data-bs-toggle="modal" data-bs-target="#setRoleModal"><i data-feather="eye" class="icon-sm me-2"></i> <span class="">Tambah</span></a>
                             </div>
                         </div>
                     </div>
                     <?= form_error('role', '<div class="alert alert-danger" role="alert">', '</div>'); ?>
-                    <div class="flash-data" data-flashdata="<?= $this->session->flashdata('flash'); ?>"
-                        data-objek="Role"></div>
+                    <div class="flash-data" data-flashdata="<?= $this->session->flashdata('flash'); ?>" data-objek="Role"></div>
                     <?= $this->session->flashdata('message'); ?>
                     <div class="table-responsive">
-                        <table class="table table-hover" id="dataTable">
+                        <table class="table table-hover" id="dataTableExample">
                             <thead>
                                 <tr>
                                     <th scope="col">#</th>
@@ -90,8 +86,7 @@
                 <div class="modal-body">
                     <div class="form-group">
                         <label for="continent">Nama Benua</label>
-                        <input type="text" class="form-control" id="continent" name="continent"
-                            placeholder="Continent Name">
+                        <input type="text" class="form-control" id="continent" name="continent" placeholder="Continent Name">
                     </div>
                     <?php echo form_error('continent', '<span class="">', '</span>'); ?>
                 </div>
