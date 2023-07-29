@@ -11,7 +11,7 @@
         <div class="col-lg-4">
             <img src="<?= base_url('assets/img/' . $fish['image']) ?>" class="img-thumbnail w-100" alt="...">
         </div>
-        <div class="col-lg-6">
+        <div class="col-lg-4">
             <h4>Clasification</h4>
             <ul>
                 <li>Kingdom : <?= $fish['kingdom'] ?> </li>
@@ -20,9 +20,11 @@
                 <li>Order : <?= $fish['ordo'] ?> </li>
                 <li>Family : <?= $fish['family'] ?> </li>
                 <li>Genus : <?= $fish['genus'] ?> </li>
-                <li>Species : <?= $fish['species'] ?> </li>
+                <li>Species / Scientific Name : <?= $fish['species'] ?> </li>
                 <li>Fish Type : <?= $fish['type'] ?> </li>
                 <li>Abundance / Conservation : <?= $fish['abundance'] ?> </li>
+                <li>General Name : <?= $fish['general_name'] ?> </li>
+                <li>Synonim : <?= $fish['synonim'] ?> </li>
             </ul>
             <div class="mb-3">
                 <h6>Foods</h6>
@@ -85,6 +87,14 @@
                     </tbody>
                 </table>
             </div>
+        </div>
+        <div class="col-lg-4">
+            <h4 class="">Information</h4>
+            <p><?= $fish['information'] ?></p>
+            <h4 class="mt-2">Weight</h4>
+            <p><?= $fish['weight'] ?></p>
+            <h4 class="mt-2">Length</h4>
+            <p><?= $fish['length'] ?></p>
         </div>
         <div class="col-lg-12">
             <h3>Related article</h3>
