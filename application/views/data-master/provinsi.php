@@ -26,7 +26,7 @@
                         </div>
                     </div>
                     <?= form_error('role', '<div class="alert alert-danger" role="alert">', '</div>'); ?>
-                    <div class="flash-data" data-flashdata="<?= $this->session->flashdata('flash'); ?>" data-objek="Role"></div>
+                    <div class="flash-data" data-flashdata="<?= $this->session->flashdata('flash'); ?>" data-objek="Provinsi"></div>
                     <?= $this->session->flashdata('message'); ?>
                     <div class="table-responsive">
                         <table class="table table-hover" id="dataTableExample">
@@ -50,7 +50,7 @@
 
                                             <a href="#" class="badge bg-success updateCountry" data-bs-toggle="modal" data-bs-target="#editCont" data-id="<?= $ct['pr_id'] ?>" data-country="<?= $ct['ct_id'] ?>" data-province="<?= $ct['province'] ?>">Ubah</a>
 
-                                            <a href="<?= base_url("DataMaster/province/delete/$ct[pr_id]"); ?>" class="badge bg-danger tombol-hapus" data-hapus="role">Hapus</a>
+                                            <a href="<?= base_url("DataMaster/province/delete/$ct[pr_id]"); ?>" class="badge bg-danger tombol-hapus" data-hapus="provinsi">Hapus</a>
                                         </td>
                                     </tr>
 
@@ -70,7 +70,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="setRoleModalLabel">Tambah Data Negara</h1>
+                <h1 class="modal-title fs-5" id="setRoleModalLabel">Tambah Data Provinsi</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <form action="<?= base_url('DataMaster/province') ?>" method="post">
@@ -110,7 +110,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="editContLabel">Edit Data Benua</h1>
+                <h1 class="modal-title fs-5" id="editContLabel">Edit Data Provinsi</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <form action="<?= base_url('DataMaster/province') ?>" method="post">

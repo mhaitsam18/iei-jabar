@@ -26,7 +26,7 @@
                         </div>
                     </div>
                     <?= form_error('role', '<div class="alert alert-danger" role="alert">', '</div>'); ?>
-                    <div class="flash-data" data-flashdata="<?= $this->session->flashdata('flash'); ?>" data-objek="Role"></div>
+                    <div class="flash-data" data-flashdata="<?= $this->session->flashdata('flash'); ?>" data-objek="Distribusi"></div>
                     <?= $this->session->flashdata('message'); ?>
                     <div class="table-responsive">
                         <table class="table table-hover" id="dataTableExample">
@@ -46,9 +46,9 @@
                                         <td><?= $ct['distribution'] ?></td>
                                         <td>
 
-                                            <a href="#" class="badge bg-success updateBenua" data-bs-toggle="modal" data-bs-target="#editCont" data-id="<?= $ct['id'] ?>" data-distribution="<?= $ct['distribution'] ?>">Ubah</a>
+                                            <a href="#" class="badge bg-success updateDistribusi" data-bs-toggle="modal" data-bs-target="#editCont" data-id="<?= $ct['id'] ?>" data-distribution="<?= $ct['distribution'] ?>">Ubah</a>
 
-                                            <a href="<?= base_url("DataMaster/distribution/delete/$ct[id]"); ?>" class="badge bg-danger tombol-hapus" data-hapus="role">Hapus</a>
+                                            <a href="<?= base_url("DataMaster/distribution/delete/$ct[id]"); ?>" class="badge bg-danger tombol-hapus" data-hapus="distribusi">Hapus</a>
                                         </td>
                                     </tr>
 
@@ -68,7 +68,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="setRoleModalLabel">Tambah Data Benua</h1>
+                <h1 class="modal-title fs-5" id="setRoleModalLabel">Tambah Data Distribusi</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <form action="<?= base_url('DataMaster/distribution') ?>" method="post">
@@ -94,7 +94,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="editContLabel">Edit Data Benua</h1>
+                <h1 class="modal-title fs-5" id="editContLabel">Edit Data Distribusi</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <form action="<?= base_url('DataMaster/distribution') ?>" method="post">
@@ -119,7 +119,7 @@
 <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
 
 <script>
-    $(document).on("click", ".updateBenua", function() {
+    $(document).on("click", ".updateDistribusi", function() {
         var id = $(this).data('id');
         $(".modal-body  #id").val(id);
 

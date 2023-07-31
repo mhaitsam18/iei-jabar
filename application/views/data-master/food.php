@@ -25,8 +25,7 @@
                             </div>
                         </div>
                     </div>
-                    <?= form_error('role', '<div class="alert alert-danger" role="alert">', '</div>'); ?>
-                    <div class="flash-data" data-flashdata="<?= $this->session->flashdata('flash'); ?>" data-objek="Role"></div>
+                    <div class="flash-data" data-flashdata="<?= $this->session->flashdata('flash'); ?>" data-objek="makanan"></div>
                     <?= $this->session->flashdata('message'); ?>
                     <div class="table-responsive">
                         <table class="table table-hover" id="dataTableExample">
@@ -46,9 +45,9 @@
                                         <td><?= $ct['food'] ?></td>
                                         <td>
 
-                                            <a href="#" class="badge bg-success updateBenua" data-bs-toggle="modal" data-bs-target="#editCont" data-id="<?= $ct['id'] ?>" data-food="<?= $ct['food'] ?>">Ubah</a>
+                                            <a href="#" class="badge bg-success updateFood" data-bs-toggle="modal" data-bs-target="#editCont" data-id="<?= $ct['id'] ?>" data-food="<?= $ct['food'] ?>">Ubah</a>
 
-                                            <a href="<?= base_url("DataMaster/food/delete/$ct[id]"); ?>" class="badge bg-danger tombol-hapus" data-hapus="role">Hapus</a>
+                                            <a href="<?= base_url("DataMaster/food/delete/$ct[id]"); ?>" class="badge bg-danger tombol-hapus" data-hapus="makanan">Hapus</a>
                                         </td>
                                     </tr>
 
@@ -94,7 +93,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="editContLabel">Edit Data Benua</h1>
+                <h1 class="modal-title fs-5" id="editContLabel">Edit Data Makanan</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <form action="<?= base_url('DataMaster/food') ?>" method="post">
@@ -127,7 +126,7 @@
 </script>
 
 <script>
-    $(document).on("click", ".updateBenua", function() {
+    $(document).on("click", ".updateFood", function() {
         var id = $(this).data('id');
         $(".modal-body  #id").val(id);
 

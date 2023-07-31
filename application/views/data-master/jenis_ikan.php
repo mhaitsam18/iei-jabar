@@ -30,7 +30,7 @@
                         </div>
                     </div>
                     <?= form_error('role', '<div class="alert alert-danger" role="alert">', '</div>'); ?>
-                    <div class="flash-data" data-flashdata="<?= $this->session->flashdata('flash'); ?>" data-objek="Role"></div>
+                    <div class="flash-data" data-flashdata="<?= $this->session->flashdata('flash'); ?>" data-objek="Jenis Ikan"></div>
                     <?= $this->session->flashdata('message'); ?>
                     <div class="table-responsive" style="width: 100%;">
                         <table class="table table-hover" id="dataTableExample">
@@ -54,7 +54,7 @@
 
                                             <a href="#" class="badge bg-success updateBenua" data-bs-toggle="modal" data-bs-target="#editCont" data-id="<?= $ct['id'] ?>" data-type="<?= $ct['type'] ?>" data-description="<?= $ct['description'] ?>">Ubah</a>
 
-                                            <a href="<?= base_url("DataMaster/fishType/delete/$ct[id]"); ?>" class="badge bg-danger tombol-hapus" data-hapus="role">Hapus</a>
+                                            <a href="<?= base_url("DataMaster/fishType/delete/$ct[id]"); ?>" class="badge bg-danger tombol-hapus" data-hapus="Jenis Ikan">Hapus</a>
                                         </td>
                                     </tr>
 

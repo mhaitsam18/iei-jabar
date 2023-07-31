@@ -30,7 +30,7 @@
                         </div>
                     </div>
                     <?= form_error('role', '<div class="alert alert-danger" role="alert">', '</div>'); ?>
-                    <div class="flash-data" data-flashdata="<?= $this->session->flashdata('flash'); ?>" data-objek="Role"></div>
+                    <div class="flash-data" data-flashdata="<?= $this->session->flashdata('flash'); ?>" data-objek="Kepulauan"></div>
                     <?= $this->session->flashdata('message'); ?>
                     <div class="table-responsive">
                         <table class="table table-hover" id="dataTableExample">
@@ -56,7 +56,7 @@
 
                                             <a href="#" class="badge bg-success updateCountry" data-bs-toggle="modal" data-bs-target="#editCont" data-id="<?= $ct['ar_id'] ?>" data-province="<?= $ct['pr_id'] ?>" data-distribution="<?= $ct['d_id'] ?>" data-archipelago="<?= $ct['archipelago'] ?>">Ubah</a>
 
-                                            <a href="<?= base_url("DataMaster/archipelago/delete/$ct[ar_id]"); ?>" class="badge bg-danger tombol-hapus" data-hapus="role">Hapus</a>
+                                            <a href="<?= base_url("DataMaster/archipelago/delete/$ct[ar_id]"); ?>" class="badge bg-danger tombol-hapus" data-hapus="kepulauan">Hapus</a>
                                         </td>
                                     </tr>
 
@@ -129,7 +129,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="editContLabel">Edit Data Benua</h1>
+                <h1 class="modal-title fs-5" id="editContLabel">Edit Data Kepulauan / Perairan</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <form action="<?= base_url('DataMaster/archipelago') ?>" method="post">

@@ -11,25 +11,21 @@
             <div class="card">
                 <div class="card-body">
                     <?= form_error('menu', '<div class="alert alert-danger" role="alert">', '</div>'); ?>
-                    <div class="flash-data" data-flashdata="<?= $this->session->flashdata('flash'); ?>"
-                        data-objek="Menu"></div>
+                    <div class="flash-data" data-flashdata="<?= $this->session->flashdata('flash'); ?>" data-objek="Menu"></div>
                     <?= $this->session->flashdata('message'); ?>
                     <div class="d-flex justify-content-between align-items-baseline mb-2">
                         <h6 class="card-title mb-0">Projects</h6>
                         <div class="dropdown mb-2">
-                            <button class="btn p-0" type="button" id="dropdownMenuButton7" data-bs-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false">
+                            <button class="btn p-0" type="button" id="dropdownMenuButton7" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="icon-lg text-muted pb-3px" data-feather="more-horizontal"></i>
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton7">
-                                <a class="dropdown-item d-flex align-items-center" href="javascript:;"><i
-                                        data-feather="eye" class="icon-sm me-2"></i> <span class="">Tambah</span></a>
+                                <a class="dropdown-item d-flex align-items-center" data-bs-toggle="modal" data-bs-target="#newMenuModal" href="javascript:;"><i data-feather="eye" class="icon-sm me-2"></i> <span class="">Tambah</span></a>
                             </div>
                         </div>
                     </div>
                     <div class="table-responsive">
-                        <a href="" class="btn btn-primary mb-3 newMenuModalButton" data-bs-toggle="modal"
-                            data-bs-target="#newMenuModal">Add New Menu</a>
+                        <a href="" class="btn btn-primary mb-3 newMenuModalButton" data-bs-toggle="modal" data-bs-target="#newMenuModal">Add New Menu</a>
                         <table class="table table-hover">
                             <thead>
                                 <tr>
@@ -42,27 +38,24 @@
                             <tbody>
                                 <?php $no = 1; ?>
                                 <?php foreach ($menu as $m) : ?>
-                                <tr>
-                                    <th scope="row"><?= $no ?></th>
-                                    <td><?= $m['menu'] ?></td>
-                                    <td>
-                                        <?php
-											if ($m['active'] == 1) {
-												echo "Enebled";
-											} else {
-												echo "Disabled";
-											}
-											?>
-                                    </td>
-                                    <td>
-                                        <a href="<?= base_url("Menu/updateMenu/$m[id]"); ?>"
-                                            class="badge bg-success updateMenuModalButton" data-bs-toggle="modal"
-                                            data-bs-target="#newMenuModal" data-id="<?= $m['id'] ?>">Edit</a>
-                                        <a href="<?= base_url("Menu/deleteMenu/$m[id]"); ?>"
-                                            class="badge bg-danger tombol-hapus" data-hapus="Menu">Delete</a>
-                                    </td>
-                                </tr>
-                                <?php $no++; ?>
+                                    <tr>
+                                        <th scope="row"><?= $no ?></th>
+                                        <td><?= $m['menu'] ?></td>
+                                        <td>
+                                            <?php
+                                            if ($m['active'] == 1) {
+                                                echo "Enebled";
+                                            } else {
+                                                echo "Disabled";
+                                            }
+                                            ?>
+                                        </td>
+                                        <td>
+                                            <a href="<?= base_url("Menu/updateMenu/$m[id]"); ?>" class="badge bg-success updateMenuModalButton" data-bs-toggle="modal" data-bs-target="#newMenuModal" data-id="<?= $m['id'] ?>">Edit</a>
+                                            <a href="<?= base_url("Menu/deleteMenu/$m[id]"); ?>" class="badge bg-danger tombol-hapus" data-hapus="Menu">Delete</a>
+                                        </td>
+                                    </tr>
+                                    <?php $no++; ?>
                                 <?php endforeach ?>
                             </tbody>
                         </table>

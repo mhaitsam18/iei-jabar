@@ -26,7 +26,7 @@
                         </div>
                     </div>
                     <?= form_error('role', '<div class="alert alert-danger" role="alert">', '</div>'); ?>
-                    <div class="flash-data" data-flashdata="<?= $this->session->flashdata('flash'); ?>" data-objek="Role"></div>
+                    <div class="flash-data" data-flashdata="<?= $this->session->flashdata('flash'); ?>" data-objek="Habitat"></div>
                     <?= $this->session->flashdata('message'); ?>
                     <div class="table-responsive">
                         <table class="table table-hover" id="dataTableExample">
@@ -46,9 +46,9 @@
                                         <td><?= $ct['habitat'] ?></td>
                                         <td>
 
-                                            <a class="badge bg-success updateBenua" data-bs-toggle="modal" data-bs-target="#editCont" data-id="<?= $ct['id'] ?>" data-habitat="<?= $ct['habitat'] ?>">Ubah</a>
+                                            <a class="badge bg-success updateHabitat" data-bs-toggle="modal" data-bs-target="#editCont" data-id="<?= $ct['id'] ?>" data-habitat="<?= $ct['habitat'] ?>">Ubah</a>
 
-                                            <a href="<?= base_url("DataMaster/habitat/delete/$ct[id]"); ?>" class="badge bg-danger tombol-hapus" data-hapus="role">Hapus</a>
+                                            <a href="<?= base_url("DataMaster/habitat/delete/$ct[id]"); ?>" class="badge bg-danger tombol-hapus" data-hapus="Habitat">Hapus</a>
                                         </td>
                                     </tr>
 
@@ -94,7 +94,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="editContLabel">Edit Data Benua</h1>
+                <h1 class="modal-title fs-5" id="editContLabel">Edit Data Habitat</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <form action="<?= base_url('DataMaster/habitat') ?>" method="post">
@@ -120,7 +120,7 @@
 <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
 
 <script>
-    $(document).on("click", ".updateBenua", function() {
+    $(document).on("click", ".updateHabitat", function() {
         var id = $(this).data('id');
         $(".modal-body  #id").val(id);
 
