@@ -140,3 +140,17 @@ function cari_tanggal($tanggal)
 
     return date('j',strtotime($tanggal))." $bulan ".date('Y',strtotime($tanggal));
 }
+
+
+function app_name()
+{
+	return "IEI-JABAR";	
+}
+function app_brand()
+{
+	return "IEI<span>JABAR</span>";	
+}
+function creator_name()
+{
+	return "Feboy Geboy Amoy";	
+}
