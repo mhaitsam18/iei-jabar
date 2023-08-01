@@ -34,7 +34,7 @@ class Fishdistribution extends CI_Controller
         $data['distributions'] = $this->db->get('distribution')->result_array();
 
         $this->form_validation->set_rules('fish_id', 'fish', 'trim');
-        $this->form_validation->set_rules('distribution', 'distribution', 'trim');
+        // $this->form_validation->set_rules('distribution', 'distribution', 'required');
 
 
         if ($this->form_validation->run() == false) {

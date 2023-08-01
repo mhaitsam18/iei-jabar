@@ -64,11 +64,10 @@
                 <h1 class="modal-title fs-5" id="tambahModalLabel">Add Fish Food</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form action="<?= base_url('DataMaster/fishFood/index/'.$fish->id) ?>" method="post" enctype="multipart/form-data">
+            <form action="<?= base_url('DataMaster/fishFood/index/' . $fish->id) ?>" method="post" enctype="multipart/form-data">
                 <input type="hidden" name="aksi" value="add">
                 <input type="hidden" name="fish_id" value="<?= $fish->id ?>">
                 <div class="modal-body">
-                    <?php echo form_error('species_id', '<span class="text-danger">', '</span>'); ?>
                     <div class="mb-3">
                         <label for="food">Makanan</label>
                         <select class="multiple-add form-select" id="food" name="food[]" data-placeholder="Pilih Makanan" multiple>
@@ -76,6 +75,7 @@
                                 <option value="<?= $food['id'] ?>"><?= $food['food'] ?></option>
                             <?php endforeach; ?>
                         </select>
+                        <?php echo form_error('food', '<span class="text-danger">', '</span>'); ?>
                     </div>
                 </div>
                 <div class="modal-footer">

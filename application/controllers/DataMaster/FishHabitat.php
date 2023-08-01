@@ -34,7 +34,7 @@ class FishHabitat extends CI_Controller
         $data['habitats'] = $this->db->get('habitats')->result_array();
 
         $this->form_validation->set_rules('fish_id', 'fish', 'trim');
-        $this->form_validation->set_rules('habitat', 'habitat', 'trim');
+        // $this->form_validation->set_rules('habitat', 'habitat', 'required');
 
 
         if ($this->form_validation->run() == false) {

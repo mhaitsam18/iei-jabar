@@ -68,7 +68,6 @@
                 <input type="hidden" name="aksi" value="add">
                 <input type="hidden" name="fish_id" value="<?= $fish->id ?>">
                 <div class="modal-body">
-                    <?php echo form_error('species_id', '<span class="text-danger">', '</span>'); ?>
                     <div class="mb-3">
                         <label for="distribution">Distribusi</label>
                         <select class="multiple-add form-select" id="distribution" name="distribution[]" data-placeholder="Pilih Distribusi" multiple>
@@ -76,6 +75,7 @@
                                 <option value="<?= $distribution['id'] ?>"><?= $distribution['distribution'] ?></option>
                             <?php endforeach; ?>
                         </select>
+                        <?php echo form_error('distribution', '<span class="text-danger">', '</span>'); ?>
                     </div>
                 </div>
                 <div class="modal-footer">
