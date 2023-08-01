@@ -69,8 +69,8 @@
                 <input type="hidden" name="fish_id" value="<?= $fish->id ?>">
                 <div class="modal-body">
                     <div class="mb-3">
-                        <label for="habitat">Makanan</label>
-                        <select class="multiple-add form-select" id="habitat" name="habitat[]" data-placeholder="Pilih Makanan" multiple>
+                        <label for="habitat">Habitat</label>
+                        <select class="multiple-add form-select" id="habitat" name="habitat[]" data-placeholder="Pilih Habitat" multiple>
                             <?php foreach ($habitats as $habitat) : ?>
                                 <option value="<?= $habitat['id'] ?>"><?= $habitat['habitat'] ?></option>
                             <?php endforeach; ?>
