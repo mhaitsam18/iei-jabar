@@ -92,6 +92,8 @@ class Article extends CI_Controller
     {
         $config['base_url'] = base_url('Member/article/index');
         $this->db->from('articles');
+        $this->db->where('published_at IS NOT NULL');
+        $this->db->where('deleted_at IS NULL');
         $config['total_rows'] = $this->db->count_all_results();
         $data['total_rows'] = $config['total_rows'];
         $config['per_page'] = 4;
