@@ -19,8 +19,7 @@
                             </p>
                         </div>
                     </div>
-                    <h4 class="mb-3">Komentar</h4>
-                    <div class="d-flex post-actions">
+                    <!-- <div class="d-flex post-actions">
                         <a href="javascript:;" class="d-flex align-items-center text-muted me-4">
                             <i class="icon-md" data-feather="heart"></i>
                             <p class="d-none d-md-block ms-2">Like</p>
@@ -33,6 +32,32 @@
                             <i class="icon-md" data-feather="share"></i>
                             <p class="d-none d-md-block ms-2">Share</p>
                         </a>
+                    </div> -->
+                    <div class="comment m-3">
+                        <h4 class="mb-3">Komentar</h4>
+                        <!-- <div class="d-flex align-items-start comment-text d-none">
+                            <img src="<?= base_url('assets/img/' . $user['image']) ?>" class="align-self-start wd-25 wd-sm-50 me-3" alt="...">
+                            <div class="row w-100">
+                                <form action="<?= base_url('member/article/comment') ?>" method="post">
+                                    <input type="hidden" name="user_id" value="<?= $user['id'] ?>">
+                                    <input type="hidden" name="article_id" value="<?= $article['id'] ?>">
+                                    <h5 class="mb-2"><?= $user['name'] ?></h5>
+                                    <div class="mb-3">
+                                        <textarea class="form-control" name="comment" id="comment"></textarea>
+                                    </div>
+                                    <button type="submit" class="btn btn-sm btn-primary float-end">Send</button>
+                                </form>
+                            </div>
+                        </div> -->
+                        <?php foreach ($comments as $comment) : ?>
+                            <div class="d-flex align-items-start mb-3">
+                                <img src="<?= base_url('assets/img/' . $comment['image']) ?>" class="align-self-start wd-25 wd-sm-50 me-3" alt="...">
+                                <div>
+                                    <h5 class="mb-2"><?= $comment['name'] ?></h5>
+                                    <p><?= $comment['comment'] ?></p>
+                                </div>
+                            </div>
+                        <?php endforeach; ?>
                     </div>
                     <div class="card-footer">
                     </div>
