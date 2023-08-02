@@ -32,6 +32,10 @@ class Article extends CI_Controller
         $this->db->join('user', 'articles.author_id = user.id', 'left');
         $data['article'] = $this->db->get_where('articles', ['articles.id' => $article_id])->row_array();
 
+        $visitor = $data['article']['views'] + 1;
+        $this->db->where('id', $article_id);
+        $this->db->update('articles', ['views' => $visitor]);
+
         $this->db->join('user', 'comment.user_id = user.id', 'left');
         $data['comments'] = $this->db->get_where('comment', ['article_id' => $article_id])->result_array();
         $data['title'] = $data['article']['title'];
