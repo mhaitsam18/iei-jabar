@@ -34,6 +34,9 @@ class Artikel extends CI_Controller
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
         $this->db->join('user', 'user.id = articles.author_id');
         $data['article'] = $this->db->get_where('articles', ['articles.id' => $article_id])->row_array();
+
+        $this->db->join('user', 'comment.user_id = user.id', 'left');
+        $data['comments'] = $this->db->get_where('comment', ['article_id' => $article_id])->result_array();
         $data['title'] = $data['article']['title'];
         
         $this->load->view('layouts/header', $data);

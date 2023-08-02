@@ -58,7 +58,7 @@
                             </div>
                         </div>
                         <?php foreach ($comments as $comment) : ?>
-                            <div class="d-flex align-items-start">
+                            <div class="d-flex align-items-start mb-3">
                                 <img src="<?= base_url('assets/img/' . $comment['image']) ?>" class="align-self-start wd-25 wd-sm-50 me-3" alt="...">
                                 <div>
                                     <h5 class="mb-2"><?= $comment['name'] ?></h5>

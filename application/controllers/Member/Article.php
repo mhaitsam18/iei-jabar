@@ -32,6 +32,10 @@ class Article extends CI_Controller
         $this->db->join('user', 'articles.author_id = user.id', 'left');
         $data['article'] = $this->db->get_where('articles', ['articles.id' => $article_id])->row_array();
 
+        $visitor = $data['article']['views'] + 1;
+        $this->db->where('id', $article_id);
+        $this->db->update('articles', ['views' => $visitor]);
+
         $this->db->join('user', 'comment.user_id = user.id', 'left');
         $data['comments'] = $this->db->get_where('comment', ['article_id' => $article_id])->result_array();
         $data['title'] = $data['article']['title'];
@@ -92,6 +96,8 @@ class Article extends CI_Controller
     {
         $config['base_url'] = base_url('Member/article/index');
         $this->db->from('articles');
+        $this->db->where('published_at IS NOT NULL');
+        $this->db->where('deleted_at IS NULL');
         $config['total_rows'] = $this->db->count_all_results();
         $data['total_rows'] = $config['total_rows'];
         $config['per_page'] = 4;
