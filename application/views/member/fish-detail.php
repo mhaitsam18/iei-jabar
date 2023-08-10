@@ -103,13 +103,13 @@
                     <div class="card mb-3" style="max-width: 540px;">
                         <div class="row g-0">
                             <div class="col-md-4">
-                                <img src="<?= base_url('assets/img/' . $fish['thumbnail']) ?>" class="img-fluid rounded-start" alt="...">
+                                <img src="<?= base_url('assets/img/' . $article['thumbnail']) ?>" class="img-fluid rounded-start" alt="...">
                             </div>
                             <div class="col-md-8">
                                 <div class="card-body">
                                     <h5 class="card-title"><?= $article['title'] ?></h5>
                                     <p class="card-text"><?= $article['excerpt'] ?></p>
-                                    <p class="card-text"><a href="/member/article/show/<?= $article['id'] ?>" class="btn btn-primary">See More</a></p>
+                                    <p class="card-text"><a href="<?= base_url('member/article/detail/'. $article['id']) ?>" class="btn btn-primary">See More</a></p>
                                 </div>
                             </div>
                         </div>
