@@ -15,7 +15,7 @@ class Archipelago extends CI_Controller
 
     public function index()
     {
-        $data['title'] = "Data Master Kepulauan atau Perairan";
+        $data['title'] = "Archipelago Data";
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 
         $data['archipelago'] = $this->DataMaster_model->getKepulauan();

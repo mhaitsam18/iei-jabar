@@ -15,7 +15,7 @@ class Abundance extends CI_Controller
 
     public function index()
     {
-        $data['title'] = "Data Master Kelimpahan / Konservasi";
+        $data['title'] = "Abundance / Conservation Data";
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
         $data['abundance'] = $this->db->order_by('id', 'desc')->get_where('abundance', ['abundance.id !=' => 0])->result_array();
 
@@ -71,7 +71,7 @@ class Abundance extends CI_Controller
         $this->db->delete('abundance');
         $this->session->set_flashdata('success', 'Abundance Deleted!');
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
-        Fish Type Deleted!
+        Abundance Deleted!
 			</div>');
 
         redirect($_SERVER['HTTP_REFERER']);

@@ -15,7 +15,7 @@ class Family extends CI_Controller
 
     public function index()
     {
-        $data['title'] = "Data family";
+        $data['title'] = "Family Data";
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 
         $this->db->select('families.*, ordo.ordo, class.class, phylums.phylum, kingdoms.kingdom');

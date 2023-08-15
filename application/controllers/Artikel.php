@@ -15,7 +15,7 @@ class Artikel extends CI_Controller
 
     public function index()
     {
-        $data['title'] = "Data Artikel";
+        $data['title'] = "Article Data";
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
         $this->db->select('*, articles.id as article_id');
         $this->db->join('user', 'user.id = articles.author_id');
@@ -97,7 +97,7 @@ class Artikel extends CI_Controller
 
             $this->session->set_flashdata('success', 'Article Added!');
             $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
-				Data Artikel berhasil ditambahkan!
+				Article Added!
 				</div>');
             redirect('Artikel/index');
         }
@@ -158,7 +158,7 @@ class Artikel extends CI_Controller
 
             $this->session->set_flashdata('success', 'Article Updated!');
             $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
-				Data Artikel berhasil diperbarui!
+				Article Updated!
 				</div>');
             redirect('Artikel/index');
         }
@@ -202,7 +202,7 @@ class Artikel extends CI_Controller
 
         $this->session->set_flashdata('success', 'Article Updated!');
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
-				Data Artikel berhasil diperbarui!
+				Article deleted!
 				</div>');
         redirect('Artikel/index');
     }

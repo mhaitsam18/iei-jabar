@@ -15,7 +15,7 @@ class Phylum extends CI_Controller
 
     public function index()
     {
-        $data['title'] = "Data phylum";
+        $data['title'] = "Phylum Data";
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
         $this->db->select('phylums.*, kingdoms.kingdom');
         $this->db->join('kingdoms','phylums.kingdom_id = kingdoms.id', 'left');

@@ -70,7 +70,7 @@ class Admin extends CI_Controller {
 
 	public function dataUser()
 	{
-		$data['title'] = "Data User";
+		$data['title'] = "User Data";
 		$data['role'] = $this->db->get('user_role')->result_array();
 		$data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 		$this->db->select('*, user_role.id AS rid, user.id AS uid');
@@ -144,9 +144,9 @@ class Admin extends CI_Controller {
 				$this->db->insert('user', $data);
 
 				$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
-                    Data Users telah disimpan!
+                    User Data has been added!
                     </div>');
-				$this->session->set_flashdata('success', 'Data Users telah disimpan!!');
+				$this->session->set_flashdata('success', 'User Data has been added!!');
 			} elseif ($this->input->post('aksi') == "update") {
 				$data = [
 					'name' => htmlspecialchars($this->input->post('name', true)),
@@ -162,9 +162,9 @@ class Admin extends CI_Controller {
 				$this->db->where('id', $this->input->post('id'));
 				$this->db->update('user', $data);
 				$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
-                Data User berhasil diperbarui!
+                User Data has been updated!
                     </div>');
-				$this->session->set_flashdata('success', 'Data user berhasil diperbarui!');
+				$this->session->set_flashdata('success', 'User Data has been updated!');
 			}
 			redirect($_SERVER['HTTP_REFERER']);
 		}
@@ -175,9 +175,9 @@ class Admin extends CI_Controller {
 		$this->db->where('id', $id);
 		$this->db->delete('user');
 		$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
-        data user berhasil dihapus!
+        User Data has been deleted!
 			</div>');
-		$this->session->set_flashdata('flash', 'data user berhasil dihapus!');
+		$this->session->set_flashdata('flash', 'User Data has been deleted!');
 
 		redirect($_SERVER['HTTP_REFERER']);
 	}

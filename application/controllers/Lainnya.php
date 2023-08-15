@@ -14,7 +14,7 @@ class Lainnya extends CI_Controller {
 
 	public function index()
 	{
-		$data['title'] = "Fitur Lainnya";
+		$data['title'] = "Other feature";
 		$data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 		$data['konten'] = $this->db->get_where('content', ['id' => 1])->row_array();
 		$this->load->view('layouts/header', $data);
@@ -26,7 +26,7 @@ class Lainnya extends CI_Controller {
 
 	public function tentang()
 	{
-		$data['title'] = "Tentang Aplikasi";
+		$data['title'] = "About App";
 		$data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 		$data['konten'] = $this->db->get_where('content', ['id' => 1])->row_array();
 		$this->load->view('layouts/header', $data);
@@ -38,7 +38,7 @@ class Lainnya extends CI_Controller {
 
 	public function pengaturan()
 	{
-		$data['title'] = "Pengaturan";
+		$data['title'] = "Settings";
 		$data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 		$data['konten'] = $this->db->get_where('content', ['id' => 1])->row_array();
 		$this->load->view('layouts/header', $data);
@@ -50,7 +50,7 @@ class Lainnya extends CI_Controller {
 
 	public function hubungi()
 	{
-		$data['title'] = "Hubungi Kami";
+		$data['title'] = "Contact Us";
 		$data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 		$data['konten'] = $this->db->get_where('content', ['id' => 1])->row_array();
 		$this->load->view('layouts/header', $data);
@@ -62,7 +62,7 @@ class Lainnya extends CI_Controller {
 
 	public function bantuan()
 	{
-		$data['title'] = "Bantuan";
+		$data['title'] = "Helo";
 		$data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 		$data['konten'] = $this->db->get_where('content', ['id' => 1])->row_array();
 		$this->load->view('layouts/header', $data);

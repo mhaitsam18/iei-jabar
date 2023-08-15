@@ -13,7 +13,7 @@ class Avatar extends CI_Controller
 
     public function index()
     {
-        $data['title'] = "avatar";
+        $data['title'] = "Avatar";
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
         $data['avatars'] = $this->db->get('avatar')->result_array();
 

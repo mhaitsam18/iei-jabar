@@ -15,7 +15,7 @@ class Genus extends CI_Controller
 
     public function index()
     {
-        $data['title'] = "Data genus";
+        $data['title'] = "Genus Data";
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 
         $this->db->select('genus.*, families.family, ordo.ordo, class.class, phylums.phylum, kingdoms.kingdom');

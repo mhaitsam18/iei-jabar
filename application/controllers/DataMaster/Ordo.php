@@ -15,7 +15,7 @@ class Ordo extends CI_Controller
 
     public function index()
     {
-        $data['title'] = "Data Ordo";
+        $data['title'] = "Order Data";
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 
         $this->db->select('ordo.*, class.class, phylums.phylum, kingdoms.kingdom');
@@ -69,7 +69,7 @@ class Ordo extends CI_Controller
                 $this->session->set_flashdata('success', 'Ordo Added!');
 
                 $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
-                    New ordo Added!
+                    New order Added!
                     </div>');
             } elseif ($this->input->post('aksi') == "update") {
 
@@ -108,7 +108,7 @@ class Ordo extends CI_Controller
                 
                 $this->session->set_flashdata('success', 'Ordo Updated!');
                 $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
-                ordo Updated!
+                order Updated!
                     </div>');
             }
 
@@ -125,7 +125,7 @@ class Ordo extends CI_Controller
         
         $this->session->set_flashdata('success', 'Ordo Deleted!');
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
-        ordo Deleted!
+        order Deleted!
 			</div>');
 
         redirect($_SERVER['HTTP_REFERER']);

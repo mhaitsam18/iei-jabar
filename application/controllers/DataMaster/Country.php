@@ -15,7 +15,7 @@ class Country extends CI_Controller
 
     public function index()
     {
-        $data['title'] = "Data Master Negara";
+        $data['title'] = "Country Data";
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
         $data['countrys'] = $this->DataMaster_model->getNegara();
         $data['continents'] = $this->db->get('continent')->result_array();

@@ -14,7 +14,7 @@ class Home extends CI_Controller {
 
 	public function index()
 	{
-		$data['title'] = "Beranda";
+		$data['title'] = "Home";
 		$data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 		$this->db->limit(10);
 		$data['fishs'] = $this->db->get_where('fish', ['id !=' => 0])->result_array();

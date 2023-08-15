@@ -100,7 +100,7 @@ class User extends CI_Controller {
 			// $this->session->set_flashdata('flash', 'Berhasil diubah');
 			$this->session->set_flashdata('success', 'Profile Updated!');
 			$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
-				Selamat! Profilmu berhasil diperbarui!
+				Congratulation, Your profile has been updated!
 				</div>');
 			redirect('user');
 		}
@@ -127,7 +127,7 @@ class User extends CI_Controller {
 				$this->db->delete('user', ['id' => $id]);
 				redirect('auth/logout');
 			} else{
-				$this->session->set_flashdata('flash_gagal', 'Kata Sandi salah');
+				$this->session->set_flashdata('flash_gagal', 'Wrong Password');
 				$this->session->set_flashdata('error', 'Wrong Password!');
 				$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
 					Wrong Password!

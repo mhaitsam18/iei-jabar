@@ -15,7 +15,7 @@ class Food extends CI_Controller
 
     public function index()
     {
-        $data['title'] = "Data Master Makanan";
+        $data['title'] = "Food Data";
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
         $data['foods'] = $this->db->order_by('id', 'DESC')->get_where('food', ['id !=' => 0])->result_array();
 

@@ -49,8 +49,6 @@ class Articlecategory extends CI_Controller
                 Article category Updated!
                     </div>');
             }
-
-
             // redirect('admin/role');
             redirect($_SERVER['HTTP_REFERER']);
         }

@@ -15,7 +15,7 @@ class Fish extends CI_Controller
 
     public function index()
     {
-        $data['title'] = "Data Ikan";
+        $data['title'] = "Fish Data";
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
         
         $this->db->select('fish.*, abundance.abundance, fish_type.type, species.species, genus.genus, families.family, ordo.ordo, class.class, phylums.phylum, kingdoms.kingdom');

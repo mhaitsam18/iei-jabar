@@ -15,7 +15,7 @@ class Species extends CI_Controller
 
     public function index()
     {
-        $data['title'] = "Data Master species";
+        $data['title'] = "Species Data";
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 
         $this->db->select('species.*, genus.genus, families.family, ordo.ordo, class.class, phylums.phylum, kingdoms.kingdom');

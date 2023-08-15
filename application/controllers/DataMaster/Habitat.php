@@ -15,7 +15,7 @@ class Habitat extends CI_Controller
 
     public function index()
     {
-        $data['title'] = "Data Master Habitat";
+        $data['title'] = "Habitat Data";
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
         $data['habitats'] = $this->db->get_where('habitats', ['id !=' => 0])->result_array();
 
