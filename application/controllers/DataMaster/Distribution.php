@@ -25,7 +25,7 @@ class Distribution extends CI_Controller
             $this->load->view('layouts/header', $data);
             $this->load->view('layouts/sidebar', $data);
             $this->load->view('layouts/topbar', $data);
-            $this->load->view('data-master/distribusi', $data);
+            $this->load->view('data-master/distribution', $data);
             $this->load->view('layouts/footer');
         } else {
 

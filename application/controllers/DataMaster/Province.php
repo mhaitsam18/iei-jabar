@@ -29,7 +29,7 @@ class Province extends CI_Controller
             $this->load->view('layouts/header', $data);
             $this->load->view('layouts/sidebar', $data);
             $this->load->view('layouts/topbar', $data);
-            $this->load->view('data-master/provinsi', $data);
+            $this->load->view('data-master/province', $data);
             $this->load->view('layouts/footer');
         } else {
 

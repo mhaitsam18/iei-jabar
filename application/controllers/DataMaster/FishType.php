@@ -27,7 +27,7 @@ class FishType extends CI_Controller
             $this->load->view('layouts/header', $data);
             $this->load->view('layouts/sidebar', $data);
             $this->load->view('layouts/topbar', $data);
-            $this->load->view('data-master/jenis_ikan', $data);
+            $this->load->view('data-master/fish-type', $data);
             $this->load->view('layouts/footer');
         } else {
 
