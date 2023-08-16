@@ -12,6 +12,7 @@
 				<div class="card-body">
 					<div class="flash-data" data-flashdata="<?= $this->session->flashdata('flash'); ?>" data-objek="Data User"></div>
 					<?= $this->session->flashdata('message'); ?>
+					<!-- <div id="markdown-preview"></div> -->
 					<form action="<?= base_url('Artikel/create') ?>" method="post" enctype="multipart/form-data">
 						<div class="row">
 							<div class="col-lg-9 col-sm-12">

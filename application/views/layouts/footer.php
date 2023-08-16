@@ -68,7 +68,31 @@
 
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 
+<!-- Di bagian head HTML, sertakan pustaka markdown-it -->
+<script src="https://cdn.jsdelivr.net/npm/markdown-it@12/dist/markdown-it.min.js"></script>
 
+<script>
+	// // Ambil konten dari elemen dengan id "markdown-preview"
+	// var markdownContent = document.getElementById("markdown-preview").innerHTML;
+
+	// // Inisialisasi markdown-it
+	// var md = window.markdownit();
+
+	// // Render konten Markdown ke HTML
+	// var renderedHTML = md.render(markdownContent);
+
+	// // Tampilkan HTML yang dirender di elemen dengan id "markdown-preview"
+	// document.getElementById("markdown-preview").innerHTML = renderedHTML;
+	// console.log(renderedHTML);
+
+	// // Ubah tautan gambar menjadi elemen <img>
+	// var images = document.querySelectorAll("#markdown-preview img");
+	// images.forEach(function(image) {
+	// 	var src = image.getAttribute("src");
+	// 	var alt = image.getAttribute("alt");
+	// 	image.outerHTML = '<img src="' + src + '" alt="' + alt + '">';
+	});
+</script>
 
 
 <script>

@@ -52,7 +52,7 @@ class Artikel extends CI_Controller
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
         $data['article_types'] = $this->db->get('article_type')->result();
         $data['article_categories'] = $this->db->get('article_category')->result();
-        $data['fishs'] = $this->db->get('fish')->result();
+        $data['fishs'] = $this->db->get_where('fish', ['id !=' => 0])->result();
     
         $this->form_validation->set_rules('title', 'title', 'trim|required');
         $this->form_validation->set_rules('excerpt', 'excerpt', 'trim|required');
@@ -108,7 +108,7 @@ class Artikel extends CI_Controller
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
         $data['article_types'] = $this->db->get('article_type')->result();
         $data['article_categories'] = $this->db->get('article_category')->result();
-        $data['fishs'] = $this->db->get('fish')->result();
+		$data['fishs'] = $this->db->get_where('fish', ['id !=' => 0])->result();
         $article = $this->db->get_where('articles', ['articles.id' => $article_id])->row();
         $data['article'] = $article;
     
