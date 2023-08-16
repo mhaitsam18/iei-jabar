@@ -64,14 +64,24 @@
 								/* Jika ikon memiliki garis pinggir, mengubah warna garis pinggir menjadi merah */
 							}
 						</style>
-						<a href="javascript:;" class="d-flex align-items-center like-button <?= articletombollike($article['id'], $user['id']) ?> me-4" data-article-id="<?= $article['id'] ?>">
-							<i class="icon-md <?= hearticon($article['id'], $user['id']) ?>" data-feather="heart" id="love"></i>
-							<p class="d-none d-md-block ms-2">Like</p>
-						</a>
-						<a href="javascript:;" class="d-flex align-items-center text-muted me-4 comment-button">
-							<i class="icon-md" data-feather="message-square"></i>
-							<p class="d-none d-md-block ms-2">Comment</p>
-						</a>
+
+						<?php if ($user) : ?>
+							<a href="javascript:;" class="d-flex align-items-center like-button <?= articletombollike($article['id'], $user['id']) ?> me-4" data-article-id="<?= $article['id'] ?>">
+								<i class="icon-md <?= hearticon($article['id'], $user['id']) ?>" data-feather="heart" id="love"></i>
+								<p class="d-none d-md-block ms-2">Like</p>
+							</a>
+						<?php endif; ?>
+						<?php if ($user) : ?>
+							<a href="javascript:;" class="d-flex align-items-center text-muted me-4 comment-button">
+								<i class="icon-md" data-feather="message-square"></i>
+								<p class="d-none d-md-block ms-2">Comment</p>
+							</a>
+						<?php else: ?>
+							<a href="<?= base_url('auth') ?>" class="d-flex align-items-center text-muted me-4">
+								<i class="icon-md" data-feather="message-square"></i>
+								<p class="d-none d-md-block ms-2">Comment</p>
+							</a>
+						<?php endif; ?>
 						<!-- <a href="javascript:;" class="d-flex align-items-center text-muted">
                             <i class="icon-md" data-feather="share"></i>
                             <p class="d-none d-md-block ms-2">Share</p>
@@ -79,20 +89,22 @@
 					</div>
 					<div class="comment m-3">
 						<h4 class="mb-3">Comments</h4>
-						<div class="d-flex align-items-start comment-text d-none">
-							<img src="<?= base_url('assets/img/' . $user['image']) ?>" class="align-self-start wd-25 wd-sm-50 me-3" alt="...">
-							<div class="row w-100">
-								<form action="<?= base_url('member/article/comment') ?>" method="post" id="commentForm">
-									<input type="hidden" name="user_id" value="<?= $user['id'] ?>">
-									<input type="hidden" name="article_id" value="<?= $article['id'] ?>">
-									<h5 class="mb-2"><?= $user['name'] ?></h5>
-									<div class="mb-3">
-										<textarea class="form-control" name="comment" id="comment" required oninput="validateComment()"></textarea>
-									</div>
-									<button type="submit" class="btn btn-sm btn-primary float-end" id="sendButton" disabled>Send</button>
-								</form>
+						<?php if ($user) : ?>
+							<div class="d-flex align-items-start comment-text d-none">
+								<img src="<?= base_url('assets/img/' . $user['image']) ?>" class="align-self-start wd-25 wd-sm-50 me-3" alt="...">
+								<div class="row w-100">
+									<form action="<?= base_url('member/article/comment') ?>" method="post" id="commentForm">
+										<input type="hidden" name="user_id" value="<?= $user['id'] ?>">
+										<input type="hidden" name="article_id" value="<?= $article['id'] ?>">
+										<h5 class="mb-2"><?= $user['name'] ?></h5>
+										<div class="mb-3">
+											<textarea class="form-control" name="comment" id="comment" required oninput="validateComment()"></textarea>
+										</div>
+										<button type="submit" class="btn btn-sm btn-primary float-end" id="sendButton" disabled>Send</button>
+									</form>
+								</div>
 							</div>
-						</div>
+						<?php endif; ?>
 						<?php foreach ($comments as $comment) : ?>
 							<div class="d-flex align-items-start mb-3">
 								<img src="<?= base_url('assets/img/' . $comment['image']) ?>" class="align-self-start wd-25 wd-sm-50 me-3" alt="...">

@@ -1,12 +1,12 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class Home extends CI_Controller {
+class Home extends CI_Controller
+{
 
 	public function __construct()
 	{
-		parent:: __construct();
-		// is_logged_in();
+		parent::__construct();
 		$this->load->library('form_validation');
 		$this->load->model('Member_model');
 		date_default_timezone_set('Asia/Jakarta');
@@ -24,6 +24,4 @@ class Home extends CI_Controller {
 		$this->load->view('member/index', $data);
 		$this->load->view('layouts/footer-member');
 	}
-
-	
 }

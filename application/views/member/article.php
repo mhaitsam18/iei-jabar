@@ -14,9 +14,11 @@
                 <div class="card-body">
                     <h4><?= $article['title'] ?></h4>
                     <p class="card-text"><?= $article['excerpt'] ?></p>
-                    <div class="d-block my-2">
-                        <button type="button" class="btn <?= articlelike($article['id'], $user['id']) ?> float-end like-button" data-article-id="<?= $article['id'] ?>"><i data-feather="thumbs-up"></i></button>
-                    </div>
+					<?php if($user): ?>
+						<div class="d-block my-2">
+							<button type="button" class="btn <?= articlelike($article['id'], $user['id']) ?> float-end like-button" data-article-id="<?= $article['id'] ?>"><i data-feather="thumbs-up"></i></button>
+						</div>
+					<?php endif; ?>
                     <a href="<?= base_url('member/article/detail/' . $article['id']) ?>" class="btn btn-primary">Read More</a>
                     <div class="text-center d-grid">
                     </div>
