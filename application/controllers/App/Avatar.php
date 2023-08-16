@@ -18,6 +18,7 @@ class Avatar extends CI_Controller
         $data['avatars'] = $this->db->get('avatar')->result_array();
 
         $this->form_validation->set_rules('name', 'Name', 'trim|required');
+        // $this->form_validation->set_rules('avatar', 'avatar', 'required');
 
         if ($this->form_validation->run() == false) {
             $this->load->view('layouts/header', $data);
@@ -40,9 +41,9 @@ class Avatar extends CI_Controller
             } elseif ($this->input->post('aksi') == "update") {
                 $upload_avatar = $_FILES['avatar']['name'];
                 if ($upload_avatar) {
-                    $config['allowed_types'] = 'gif|jpg|png|svg|jpeg';
-                    $config['upload_path'] = './assets/img/avatar';
-                    $config['max_size']     = '4096';
+					$config['allowed_types'] = 'gif|jpg|png|svg|jpeg';
+					$config['upload_path'] = './assets/img/avatar';
+					$config['max_size'] = 3 * 1024; // Maksimal 3 MB dalam KB
 
                     // Generate random file name
                     $config['file_name'] = uniqid();

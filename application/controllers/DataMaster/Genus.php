@@ -80,7 +80,7 @@ class Genus extends CI_Controller
                 if ($upload_picture) {
                     $config['allowed_types'] = 'gif|jpg|png|svg|jpeg';
                     $config['upload_path'] = './assets/img/genus';
-                    $config['max_size']     = '4096';
+					$config['max_size'] = 3 * 1024; // Maksimal 3 MB dalam KB
 
                     // genuste random file name
                     $config['file_name'] = uniqid();

@@ -10,14 +10,14 @@
 				<div class="flash-data" data-flashdata="<?= $this->session->flashdata('flash'); ?>" data-objek="Data User"></div>
 				<?= $this->session->flashdata('message'); ?>
 				<div class="form-group position-relative has-icon-left mb-4">
-					<input type="text" class="form-control form-control-xl <?= (form_error('username')) ? "is-invalid" : '' ?>" name="username" id="username" placeholder="Username">
+					<input type="text" class="form-control form-control-xl <?= (form_error('username')) ? "is-invalid" : '' ?>" name="username" id="username" placeholder="Username" required>
 					<div class="form-control-icon">
 						<i class="bi bi-person"></i>
 					</div>
 					<?= form_error('username', '<div class="invalid-feedback">', '</div>') ?>
 				</div>
 				<div class="form-group position-relative has-icon-left mb-4">
-					<input type="password" class="form-control form-control-xl <?= (form_error('password')) ? "is-invalid" : '' ?>" name="password" id="password" placeholder="Password">
+					<input type="password" class="form-control form-control-xl <?= (form_error('password')) ? "is-invalid" : '' ?>" name="password" id="password" placeholder="Password" required>
 					<div class="form-control-icon">
 						<i class="bi bi-shield-lock"></i>
 					</div>

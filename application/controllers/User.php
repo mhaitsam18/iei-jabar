@@ -55,6 +55,11 @@ class User extends CI_Controller {
 		$data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 		$data['avatars'] = $this->db->get('avatar')->result_array();
 		$this->form_validation->set_rules('name', 'Full Name', 'trim|required');
+		$this->form_validation->set_rules('gender', 'Gender', 'trim|required');
+		// $this->form_validation->set_rules('place_of_birth', 'Place of birth', 'trim|required');
+		$this->form_validation->set_rules('birthday', 'Birth day', 'trim|required');
+		$this->form_validation->set_rules('phone_number', 'Phone Number', 'trim|required');
+		$this->form_validation->set_rules('Address', 'Address', 'trim|required');
 		if ($this->form_validation->run() ==  false) {
 			$this->load->view('layouts/header', $data);
 			$this->load->view('layouts/sidebar', $data);
@@ -69,9 +74,9 @@ class User extends CI_Controller {
 			//jika ada gambar
 			$upload_image = $_FILES['image']['name'];
 			if ($upload_image) {
-				$config['allowed_types'] = 'gif|jpg|png|svg';
+				$config['allowed_types'] = 'gif|jpg|png|svg|jpeg';
 				$config['upload_path'] = './assets/img/profile';
-				$config['max_size']     = '2048';
+				$config['max_size'] = 3 * 1024; // Maksimal 3 MB dalam KB
 				$this->load->library('upload', $config);
 				if ($this->upload->do_upload('image')) {
 					$old_image = $data['user']['image'];

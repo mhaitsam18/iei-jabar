@@ -216,6 +216,7 @@
 						<label for="image">Picture</label>
 						<input type="file" class="form-control filepond" name="file" multiple data-allow-reorder="true" data-max-file-size="3MB" data-max-files="3" data-folder="fish">
 						<input type="hidden" name="image" id="img-filepond" value="">
+						<small class="form-text text-muted">Image must be in JPG, JPEG, or PNG format and not exceed 3 MB in size.</small>
 					</div>
 					<?php echo form_error('image', '<span class="text-danger">', '</span>'); ?>
 				</div>
@@ -309,6 +310,7 @@
 						</div>
 						<label for="image">Picture</label>
 						<input type="file" class="form-control img-input" name="image" onchange="previewImg()" id="image">
+						<small class="form-text text-muted">Image must be in JPG, JPEG, or PNG format and not exceed 3 MB in size.</small>
 					</div>
 					<?php echo form_error('image', '<span class="text-danger">', '</span>'); ?>
 				</div>
