@@ -237,9 +237,9 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="text-light nav-link" href="<?= base_url('member/fish') ?>">
+                    <a class="text-light nav-link" href="<?= base_url('Gallery') ?>">
                         <i class="link-icon" data-feather="box"></i>
-                        <span class="menu-title">Galery</span>
+                        <span class="menu-title">Gallery</span>
                     </a>
                 </li>
                 <li class="nav-item">
