@@ -20,7 +20,7 @@
                                 <i class="icon-lg text-muted pb-3px" data-feather="more-horizontal"></i>
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton7">
-                                <a class="dropdown-item d-flex align-items-center" data-bs-toggle="modal" data-bs-target="#newSubMenuModal" href="javascript:;"><i data-feather="eye" class="icon-sm me-2"></i> <span class="">Tambah</span></a>
+                                <a class="dropdown-item d-flex align-items-center" data-bs-toggle="modal" data-bs-target="#newSubMenuModal" href="javascript:;"><i data-feather="eye" class="icon-sm me-2"></i> <span class="">Add</span></a>
                             </div>
                         </div>
                     </div>
@@ -76,7 +76,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="newSubMenuModalLabel">Tambah sub menu baru</h1>
+                <h1 class="modal-title fs-5" id="newSubMenuModalLabel">Add new sub menu</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <form action="<?= base_url('menu/subMenu/') ?>" method="post">
@@ -106,7 +106,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
-                    <button type="submit" class="btn btn-primary">Tambah</button>
+                    <button type="submit" class="btn btn-primary">Add</button>
                 </div>
             </form>
         </div>

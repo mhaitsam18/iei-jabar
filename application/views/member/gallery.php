@@ -28,7 +28,7 @@
                                 <h5 class="card-title text-center"><?= $fish['general_name'] ?></h5>
                                 <p class="text-center mb-2">
                                 <ul>
-                                    <li>Spesies : <?= $fish['scientific_name'] ?></li>
+                                    <li>Species : <?= $fish['scientific_name'] ?></li>
                                 </ul>
                                 </p>
                                 <div class="d-block my-2">

@@ -2,7 +2,7 @@
 
 	<div class="d-flex justify-content-between align-items-center flex-wrap grid-margin mt-3">
 		<div>
-			<h4 class="mb-3 mb-md-0 color-mamhi" style="font-style: italic">Beranda Ikan Asli dan Introduksi Jawa Barat</h4>
+			<h4 class="mb-3 mb-md-0 color-mamhi" style="font-style: italic">Home Original Fish and West Java Introductions</h4>
 		</div>
 	</div>
 
@@ -32,7 +32,7 @@
 								<div class="carousel-item <?= ($loop == 1) ? 'active' : '' ?>">
 									<img src="<?= base_url('assets/img/' . $fish['image']) ?>" class="d-block w-100" style="height: 500px;" alt="...">
 								</div>
-							<?php $loop++; ?>
+								<?php $loop++; ?>
 							<?php endforeach; ?>
 						</div>
 						<a class="carousel-control-prev" data-bs-target="#carouselExampleControls" role="button" data-bs-slide="prev">

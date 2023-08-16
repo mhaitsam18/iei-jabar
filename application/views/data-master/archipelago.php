@@ -25,22 +25,21 @@
                                 <i class="icon-lg text-muted pb-3px" data-feather="more-horizontal"></i>
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton7">
-                                <a href="#" class="dropdown-item d-flex align-items-center" data-bs-toggle="modal" data-bs-target="#setRoleModal"><i data-feather="eye" class="icon-sm me-2"></i> <span class="">Tambah</span></a>
+                                <a href="#" class="dropdown-item d-flex align-items-center" data-bs-toggle="modal" data-bs-target="#addModal"><i data-feather="eye" class="icon-sm me-2"></i> <span class="">Add</span></a>
                             </div>
                         </div>
                     </div>
-                    <?= form_error('role', '<div class="alert alert-danger" role="alert">', '</div>'); ?>
-                    <div class="flash-data" data-flashdata="<?= $this->session->flashdata('flash'); ?>" data-objek="Kepulauan"></div>
+                    <div class="flash-data" data-flashdata="<?= $this->session->flashdata('flash'); ?>" data-objek="Archipelago/Waters"></div>
                     <?= $this->session->flashdata('message'); ?>
                     <div class="table-responsive">
                         <table class="table table-hover" id="dataTableExample">
                             <thead>
                                 <tr>
                                     <th scope="col">#</th>
-                                    <th scope="col">Nama Kepulauuan / Perairan</th>
-                                    <th scope="col">Nama Provinsi</th>
-                                    <th scope="col">Nama Distribusi</th>
-                                    <th scope="col">Aksi</th>
+                                    <th scope="col">Archipelago or Waters</th>
+                                    <th scope="col">Province</th>
+                                    <th scope="col">Distribution</th>
+                                    <th scope="col">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -54,9 +53,9 @@
                                         <td><?= $ct['distribution'] ?></td>
                                         <td>
 
-                                            <a href="#" class="badge bg-success updateCountry" data-bs-toggle="modal" data-bs-target="#editCont" data-id="<?= $ct['ar_id'] ?>" data-province="<?= $ct['pr_id'] ?>" data-distribution="<?= $ct['d_id'] ?>" data-archipelago="<?= $ct['archipelago'] ?>">Ubah</a>
+                                            <a href="#" class="badge bg-success edit-modal" data-bs-toggle="modal" data-bs-target="#editModal" data-id="<?= $ct['ar_id'] ?>" data-province="<?= $ct['pr_id'] ?>" data-distribution="<?= $ct['d_id'] ?>" data-archipelago="<?= $ct['archipelago'] ?>">Edit</a>
 
-                                            <a href="<?= base_url("DataMaster/archipelago/delete/$ct[ar_id]"); ?>" class="badge bg-danger tombol-hapus" data-hapus="kepulauan">Hapus</a>
+                                            <a href="<?= base_url("DataMaster/archipelago/delete/$ct[ar_id]"); ?>" class="badge bg-danger tombol-hapus" data-hapus="archipelago">Delete</a>
                                         </td>
                                     </tr>
 
@@ -72,11 +71,11 @@
 </div>
 
 <!-- Modal Add-->
-<div class="modal fade" id="setRoleModal" tabindex="-1" aria-labelledby="setRoleModalLabel" aria-hidden="true">
+<div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="addModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="setRoleModalLabel">Tambah Data Kepulauan</h1>
+                <h1 class="modal-title fs-5" id="addModalLabel">Add Archipelago</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <form action="<?= base_url('DataMaster/archipelago') ?>" method="post">
@@ -84,9 +83,9 @@
                 <div class="modal-body">
 
                     <div class="form-group mb-3">
-                        <label for="province">Nama Provinsi</label>
+                        <label for="province">Province</label>
                         <select name="province" id="province" class="form-select">
-                            <option value="" selected disabled>---Pilih Provinsi---</option>
+                            <option value="" selected disabled>---Choose Province---</option>
 
                             <?php foreach ($provinces as $item) : ?>
                                 <option value="<?= $item['id'] ?>"><?= $item['province'] ?></option>
@@ -97,9 +96,9 @@
                     </div>
 
                     <div class="form-group mb-3">
-                        <label for="distribution">Nama Distribusi</label>
+                        <label for="distribution">Distribution</label>
                         <select name="distribution" id="distribution" class="form-select">
-                            <option value="" selected disabled>---Pilih Distribusi---</option>
+                            <option value="" selected disabled>---Choose Distribution---</option>
 
                             <?php foreach ($distributions as $item) : ?>
                                 <option value="<?= $item['id'] ?>"><?= $item['distribution'] ?></option>
@@ -110,14 +109,14 @@
                     </div>
 
                     <div class="form-group mb-3">
-                        <label for="archipelago">Nama Kepulauan atau Perairan</label>
-                        <input type="text" class="form-control" id="archipelago" name="archipelago" placeholder="Nama Kepulauan">
+                        <label for="archipelago">Archipelago or Waters</label>
+                        <input type="text" class="form-control" id="archipelago" name="archipelago" placeholder="Archipelago">
                     </div>
 
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
-                    <button type="submit" class="btn btn-primary">Tambah</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Add</button>
                 </div>
             </form>
         </div>
@@ -125,11 +124,11 @@
 </div>
 
 <!-- Modal Edit-->
-<div class="modal fade" id="editCont" tabindex="-1" aria-labelledby="editContLabel" aria-hidden="true">
+<div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="editContLabel">Edit Data Kepulauan / Perairan</h1>
+                <h1 class="modal-title fs-5" id="editModalLabel">Edit Archipelago or Waters</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <form action="<?= base_url('DataMaster/archipelago') ?>" method="post">
@@ -137,9 +136,9 @@
                 <div class="modal-body">
                     <input type="hidden" name="id" id="id">
                     <div class="form-group mb-3">
-                        <label for="province">Nama Provinsi</label>
+                        <label for="province">Province</label>
                         <select name="province" id="province" class="form-select">
-                            <option value="" selected disabled>---Pilih Provinsi---</option>
+                            <option value="" selected disabled>---Choose Province---</option>
 
                             <?php foreach ($provinces as $item) : ?>
                                 <option value="<?= $item['id'] ?>"><?= $item['province'] ?></option>
@@ -150,9 +149,9 @@
                     </div>
 
                     <div class="form-group mb-3">
-                        <label for="distribution">Nama Distribusi</label>
+                        <label for="distribution">Distribution</label>
                         <select name="distribution" id="distribution" class="form-select">
-                            <option value="" selected disabled>---Pilih Distribusi---</option>
+                            <option value="" selected disabled>---Choose Distribution---</option>
 
                             <?php foreach ($distributions as $item) : ?>
                                 <option value="<?= $item['id'] ?>"><?= $item['distribution'] ?></option>
@@ -163,13 +162,13 @@
                     </div>
 
                     <div class="form-group mb-3">
-                        <label for="archipelago">Nama Kepulauan atau perairan</label>
-                        <input type="text" class="form-control" id="archipelago" name="archipelago" placeholder="Nama Kepulauan">
+                        <label for="archipelago">Archipelago or Waters</label>
+                        <input type="text" class="form-control" id="archipelago" name="archipelago" placeholder="Archipelago">
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
-                    <button type="submit" class="btn btn-primary">Update</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Save</button>
                 </div>
             </form>
         </div>
@@ -179,7 +178,7 @@
 <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
 
 <script>
-    $(document).on("click", ".updateCountry", function() {
+    $(document).on("click", ".edit-modal", function() {
         var id = $(this).data('id');
         $(".modal-body  #id").val(id);
 

@@ -16,7 +16,7 @@
                                 <i class="icon-lg text-muted pb-3px" data-feather="more-horizontal"></i>
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton7">
-                                <a href="#" class="dropdown-item d-flex align-items-center" data-bs-toggle="modal" data-bs-target="#tambahModal"><i data-feather="eye" class="icon-sm me-2"></i> <span>Tambah</span></a>
+                                <a href="#" class="dropdown-item d-flex align-items-center" data-bs-toggle="modal" data-bs-target="#addModal"><i data-feather="eye" class="icon-sm me-2"></i> <span>Add</span></a>
                             </div>
                         </div>
                     </div>
@@ -30,7 +30,7 @@
                                 <tr>
                                     <th scope="col">#</th>
                                     <th scope="col">Origin</th>
-                                    <th scope="col">Aksi</th>
+                                    <th scope="col">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -57,11 +57,11 @@
 </div>
 
 <!-- Modal Add-->
-<div class="modal fade" id="tambahModal" tabindex="-1" aria-labelledby="tambahModalLabel" aria-hidden="true">
+<div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="addModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="tambahModalLabel">Add Origin</h1>
+                <h1 class="modal-title fs-5" id="addModalLabel">Add Origin</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <form action="<?= base_url('DataMaster/Origin/index/' . $fish->id) ?>" method="post" enctype="multipart/form-data">
@@ -103,17 +103,17 @@
     // In your Javascript (external .js resource or <script> tag)
     $(document).ready(function() {
         $('.select2-add').select2({
-            dropdownParent: $('#tambahModal'),
+            dropdownParent: $('#addModal'),
             theme: 'bootstrap',
             tags: true
         });
         $('.select2-edit').select2({
-            dropdownParent: $('#edit'),
+            dropdownParent: $('#editModal'),
             theme: 'bootstrap',
             tags: true
         });
         $('.multiple-add').select2({
-            dropdownParent: $('#tambahModal'),
+            dropdownParent: $('#addModal'),
             theme: "bootstrap",
             placeholder: $(this).data('placeholder'),
             closeOnSelect: false,

@@ -23,7 +23,7 @@
 								<i class="icon-lg text-muted pb-3px" data-feather="more-horizontal"></i>
 							</button>
 							<div class="dropdown-menu" aria-labelledby="dropdownMenuButton7">
-								<a class="dropdown-item d-flex align-items-center" href="javascript:;" data-bs-toggle="modal" data-bs-target="#setRoleModal"><i data-feather="eye" class="icon-sm me-2"></i> <span class="">Tambah</span></a>
+								<a class="dropdown-item d-flex align-items-center" href="javascript:;" data-bs-toggle="modal" data-bs-target="#setRoleModal"><i data-feather="eye" class="icon-sm me-2"></i> <span class="">Add</span></a>
 							</div>
 						</div>
 					</div>
@@ -36,7 +36,7 @@
 								<tr>
 									<th scope="col">#</th>
 									<th scope="col">Role</th>
-									<th scope="col">Aksi</th>
+									<th scope="col">Action</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -46,8 +46,8 @@
 										<th scope="row"><?= $no ?></th>
 										<td><?= $r['role'] ?></td>
 										<td>
-											<a href="<?= base_url("admin/roleAccess/$r[id]"); ?>" class="badge bg-warning">Akses</a>
-											<a href="<?= base_url("admin/updateRole/$r[id]"); ?>" class="badge bg-success updateRoleModalButton" data-bs-toggle="modal" data-bs-target="#setRoleModal" data-id="<?= $r['id'] ?>">Ubah</a>
+											<a href="<?= base_url("admin/roleAccess/$r[id]"); ?>" class="badge bg-warning">Access</a>
+											<a href="<?= base_url("admin/updateRole/$r[id]"); ?>" class="badge bg-success updateRoleModalButton" data-bs-toggle="modal" data-bs-target="#setRoleModal" data-id="<?= $r['id'] ?>">Edit</a>
 											<a href="<?= base_url("admin/deleteRole/$r[id]"); ?>" class="badge bg-danger tombol-hapus" data-hapus="role">Delete</a>
 										</td>
 									</tr>
@@ -67,7 +67,7 @@
 	<div class="modal-dialog">
 		<div class="modal-content">
 			<div class="modal-header">
-				<h1 class="modal-title fs-5" id="setRoleModalLabel">Set Role pengguna</h1>
+				<h1 class="modal-title fs-5" id="setRoleModalLabel">Set User Role</h1>
 				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 			</div>
 			<form action="<?= base_url('admin/role') ?>" method="post">
@@ -79,8 +79,8 @@
 					</div>
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
-					<button type="submit" class="btn btn-primary">Tambah</button>
+					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+					<button type="submit" class="btn btn-primary">Add</button>
 				</div>
 			</form>
 		</div>

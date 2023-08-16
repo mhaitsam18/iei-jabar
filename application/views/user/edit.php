@@ -43,23 +43,23 @@
                                         <select class="form-control" name="gender" id="gender">
                                             <option>Select Gender</option>
                                             <?php if ($user['gender'] == 'Laki-laki') : ?>
-                                                <option value="Laki-laki" selected>Laki-laki</option>
-                                                <option value="Perempuan">Perempuan</option>
+                                                <option value="Laki-laki" selected>Male</option>
+                                                <option value="Perempuan">Female</option>
                                             <?php elseif ($user['gender'] == 'Perempuan') : ?>
-                                                <option value="Laki-laki">Laki-laki</option>
-                                                <option value="Perempuan" selected>Perempuan</option>
+                                                <option value="Laki-laki">Male</option>
+                                                <option value="Perempuan" selected>Female</option>
                                             <?php endif ?>
                                         </select>
                                         <?= form_error('gender', '<small class="text-danger pl-3">', '</small>') ?>
                                     </div>
                                 </div>
-                                <div class="mb-3 row">
+                                <!-- <div class="mb-3 row">
                                     <label for="place_of_birth" class="col-sm-2 col-form-label">Place of Birth</label>
                                     <div class="col-sm-10">
                                         <input type="text" class="form-control" id="place_of_birth" name="place_of_birth" value="<?= $user['place_of_birth'] ?>">
                                         <?= form_error('place_of_birth', '<small class="text-danger pl-3">', '</small>') ?>
                                     </div>
-                                </div>
+                                </div> -->
                                 <div class="mb-3 row">
                                     <label for="birthday" class="col-sm-2 col-form-label">Birth Day</label>
                                     <div class="col-sm-10">

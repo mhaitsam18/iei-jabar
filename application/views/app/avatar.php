@@ -18,7 +18,7 @@
                                 <i class="icon-lg text-muted pb-3px" data-feather="more-horizontal"></i>
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton7">
-                                <a href="#" class="dropdown-item d-flex align-items-center" data-bs-toggle="modal" data-bs-target="#addModal"><i data-feather="eye" class="icon-sm me-2"></i> <span class="">Tambah</span></a>
+                                <a href="#" class="dropdown-item d-flex align-items-center" data-bs-toggle="modal" data-bs-target="#addModal"><i data-feather="eye" class="icon-sm me-2"></i> <span class="">Add</span></a>
                             </div>
                         </div>
                     </div>
@@ -45,9 +45,9 @@
                                         <td><img src="<?= base_url('assets/img/' . $avatar['avatar']) ?>" class="img-thumbnail img-fluid"></td>
                                         <td>
 
-                                            <a href="#" class="badge bg-success update-modal" data-bs-toggle="modal" data-bs-target="#editModal" data-id="<?= $avatar['id'] ?>" data-avatar="<?= $avatar['avatar'] ?>" data-name=" <?= $avatar['name'] ?>">Ubah</a>
+                                            <a href="#" class="badge bg-success update-modal" data-bs-toggle="modal" data-bs-target="#editModal" data-id="<?= $avatar['id'] ?>" data-avatar="<?= $avatar['avatar'] ?>" data-name=" <?= $avatar['name'] ?>">Edit</a>
 
-                                            <a href="<?= base_url("App/avatar/delete/$avatar[id]"); ?>" class="badge bg-danger tombol-hapus" data-hapus="avatar">Hapus</a>
+                                            <a href="<?= base_url("App/avatar/delete/$avatar[id]"); ?>" class="badge bg-danger tombol-hapus" data-hapus="avatar">Dekete</a>
                                         </td>
                                     </tr>
 
@@ -87,7 +87,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">Tambah</button>
+                    <button type="submit" class="btn btn-primary">Add</button>
                 </div>
             </form>
         </div>
@@ -122,7 +122,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">Update</button>
+                    <button type="submit" class="btn btn-primary">Save</button>
                 </div>
             </form>
         </div>

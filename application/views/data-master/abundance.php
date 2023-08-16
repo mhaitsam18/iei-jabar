@@ -25,21 +25,21 @@
                                 <i class="icon-lg text-muted pb-3px" data-feather="more-horizontal"></i>
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton7">
-                                <a href="#" class="dropdown-item d-flex align-items-center" data-bs-toggle="modal" data-bs-target="#setRoleModal"><i data-feather="eye" class="icon-sm me-2"></i> <span class="">Tambah</span></a>
+                                <a href="#" class="dropdown-item d-flex align-items-center" data-bs-toggle="modal" data-bs-target="#addModal"><i data-feather="eye" class="icon-sm me-2"></i> <span class="">Add</span></a>
                             </div>
                         </div>
                     </div>
-                    <?= form_error('role', '<div class="alert alert-danger" role="alert">', '</div>'); ?>
-                    <div class="flash-data" data-flashdata="<?= $this->session->flashdata('flash'); ?>" data-objek="Konservasi"></div>
+                    <?= form_error('abundance', '<div class="alert alert-danger" role="alert">', '</div>'); ?>
+                    <div class="flash-data" data-flashdata="<?= $this->session->flashdata('flash'); ?>" data-objek="Conservation / Abundance"></div>
                     <?= $this->session->flashdata('message'); ?>
                     <div class="table-responsive" style="width: 100%;">
                         <table class="table table-hover" id="dataTableExample">
                             <thead>
                                 <tr>
                                     <th>#</th>
-                                    <th>Kelimpahan</th>
-                                    <th>Deskripsi</th>
-                                    <th>Aksi</th>
+                                    <th>Conservation / Abundance</th>
+                                    <th>Description</th>
+                                    <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -52,9 +52,9 @@
                                         <td><?= ($ct['abundance']) ?? substr($ct['description'], 0, 100) . "...." ?></td>
                                         <td>
 
-                                            <a href="#" class="badge bg-success update-modal" data-bs-toggle="modal" data-bs-target="#editCont" data-id="<?= $ct['id'] ?>" data-abundance="<?= $ct['abundance'] ?>" data-description="<?= $ct['description'] ?>">Ubah</a>
+                                            <a href="#" class="badge bg-success edit-modal" data-bs-toggle="modal" data-bs-target="#editModal" data-id="<?= $ct['id'] ?>" data-abundance="<?= $ct['abundance'] ?>" data-description="<?= $ct['description'] ?>">Edit</a>
 
-                                            <a href="<?= base_url("DataMaster/abundance/delete/$ct[id]"); ?>" class="badge bg-danger tombol-hapus" data-hapus="Konservasi">Hapus</a>
+                                            <a href="<?= base_url("DataMaster/abundance/delete/$ct[id]"); ?>" class="badge bg-danger tombol-hapus" data-hapus="Conservation">Delete</a>
                                         </td>
                                     </tr>
 
@@ -70,11 +70,11 @@
 </div>
 
 <!-- Modal Add-->
-<div class="modal fade" id="setRoleModal" tabindex="-1" aria-labelledby="setRoleModalLabel" aria-hidden="true">
+<div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="addModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="setRoleModalLabel">Tambah Data Konservasi / kelimpahan</h1>
+                <h1 class="modal-title fs-5" id="addModalLabel">Add Conservation / Abundance</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <form action="<?= base_url('DataMaster/abundance') ?>" method="post">
@@ -86,14 +86,14 @@
                     </div>
 
                     <div class="form-group mb-3">
-                        <label for="description">Deskripsi</label>
+                        <label for="description">Description</label>
                         <textarea class="form-control" id="description" name="description" placeholder="Abundance Description"></textarea>
                     </div>
 
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
-                    <button type="submit" class="btn btn-primary">Tambah</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Add</button>
                 </div>
             </form>
         </div>
@@ -101,11 +101,11 @@
 </div>
 
 <!-- Modal Edit-->
-<div class="modal fade" id="editCont" tabindex="-1" aria-labelledby="editContLabel" aria-hidden="true">
+<div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="editContLabel">Edit Data Konservasi</h1>
+                <h1 class="modal-title fs-5" id="editModalLabel">Edit Conservation / Abundance</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <form action="<?= base_url('DataMaster/abundance') ?>" method="post">
@@ -118,14 +118,14 @@
                     </div>
 
                     <div class="form-group mb-3">
-                        <label for="description">Deskripsi</label>
+                        <label for="description">Description</label>
                         <textarea class="form-control" id="description" name="description" placeholder="Abundance Description"></textarea>
                     </div>
 
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
-                    <button type="submit" class="btn btn-primary">Update</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Save</button>
                 </div>
             </form>
         </div>
@@ -141,7 +141,7 @@
 </script>
 
 <script>
-    $(document).on("click", ".update-modal", function() {
+    $(document).on("click", ".edit-modal", function() {
         var id = $(this).data('id');
         $(".modal-body  #id").val(id);
 

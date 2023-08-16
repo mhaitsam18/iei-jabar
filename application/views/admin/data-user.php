@@ -23,7 +23,7 @@
                                 <i class="icon-lg text-muted pb-3px" data-feather="more-horizontal"></i>
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton7">
-                                <a href="#" class="dropdown-item d-flex align-items-center" data-bs-toggle="modal" data-bs-target="#addModal"><i data-feather="eye" class="icon-sm me-2"></i> <span class="">Tambah</span></a>
+                                <a href="#" class="dropdown-item d-flex align-items-center" data-bs-toggle="modal" data-bs-target="#addModal"><i data-feather="eye" class="icon-sm me-2"></i> <span class="">Add</span></a>
                             </div>
                         </div>
                     </div>
@@ -63,8 +63,8 @@
                                         <td>
                                             <a href="" class="badge bg-warning setRoleButton" data-bs-toggle="modal" data-bs-target="#setRoleModal" data-id="<?= $key['uid'] ?>">Set Role</a>
 
-                                            <a href="#" class="badge bg-success btn-update" data-bs-toggle="modal" data-bs-target="#editModal" data-id="<?= $key['uid'] ?>" data-username="<?= $key['username'] ?>" data-name="<?= $key['name'] ?>" data-email="<?= $key['email'] ?>" data-gender="<?= $key['gender'] ?>" data-birthday="<?= $key['birthday'] ?>" data-phone_number="<?= $key['phone_number'] ?>" data-address="<?= $key['address'] ?>" data-image="<?= $key['image'] ?>" data-role_id="<?= $key['role_id'] ?>">Ubah</a>
-                                            <a href="<?= base_url("Admin/deleteUser/$key[uid]"); ?>" class="badge bg-danger tombol-hapus" data-hapus="user">Hapus</a>
+                                            <a href="#" class="badge bg-success btn-update" data-bs-toggle="modal" data-bs-target="#editModal" data-id="<?= $key['uid'] ?>" data-username="<?= $key['username'] ?>" data-name="<?= $key['name'] ?>" data-email="<?= $key['email'] ?>" data-gender="<?= $key['gender'] ?>" data-birthday="<?= $key['birthday'] ?>" data-phone_number="<?= $key['phone_number'] ?>" data-address="<?= $key['address'] ?>" data-image="<?= $key['image'] ?>" data-role_id="<?= $key['role_id'] ?>">Edit</a>
+                                            <a href="<?= base_url("Admin/deleteUser/$key[uid]"); ?>" class="badge bg-danger tombol-hapus" data-hapus="user">Delete</a>
                                         </td>
                                     </tr>
                                     <?php $no++; ?>
@@ -84,20 +84,20 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="setRoleModalLabel">Set Role pengguna</h1>
+                <h1 class="modal-title fs-5" id="setRoleModalLabel">Set User Role</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <form action="<?= base_url('admin/setRole/') ?>" method="post">
                 <input type="hidden" name="id" id="id">
                 <div class="modal-body">
                     <div class="mb-3">
-                        <label for="">Nama</label>
+                        <label for="">Name</label>
                         <input type="text" class="form-control" id="name" name="name" readonly>
                     </div>
                     <div class="mb-3">
                         <label for="">Role</label>
                         <select class="form-select" name="role_id" id="role_id">
-                            <option value="">Pilih Role</option>
+                            <option value="">Choose Role</option>
                             <?php foreach ($role as $r) : ?>
                                 <option value="<?= $r['id'] ?>"><?= $r['role'] ?></option>
                             <?php endforeach ?>
@@ -105,8 +105,8 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
-                    <button type="submit" class="btn btn-primary">Tambah</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Add</button>
                 </div>
             </form>
         </div>
@@ -118,15 +118,15 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="addModalLabel">Tambah Data user</h1>
+                <h1 class="modal-title fs-5" id="addModalLabel">Add user</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <form action="<?= base_url('Admin/dataUser') ?>" method="post">
                 <input type="hidden" name="aksi" value="add">
                 <div class="modal-body">
                     <div class="mb-3">
-                        <label for="name" class="form-label">Nama Lengkap</label>
-                        <input type="text" class="form-control <?= (form_error('name')) ? 'is-invalid' : '' ?>" id="name" name="name" placeholder="Nama Lengkap" value="<?= set_value('name') ?>">
+                        <label for="name" class="form-label">Full Name</label>
+                        <input type="text" class="form-control <?= (form_error('name')) ? 'is-invalid' : '' ?>" id="name" name="name" placeholder="Full Name" value="<?= set_value('name') ?>">
                         <div class="form-control-icon">
                             <i class="bi bi-shield-lock"></i>
                         </div>
@@ -150,11 +150,11 @@
                         <?= form_error('username', '<small class="text-danger pl-3">', '</small>') ?>
                     </div>
                     <div class="mb-3">
-                        <label for="gender" class="form-label">Jenis Kelamin</label>
+                        <label for="gender" class="form-label">Gender</label>
                         <select class="form-select <?= (form_error('gender')) ? 'is-invalid' : '' ?>" name="gender" id="gender">
                             <option value="" disabled selected>Pilih Gender</option>
-                            <option value="Laki-laki">Laki-laki</option>
-                            <option value="Perempuan">Perempuan</option>
+                            <option value="Laki-laki">Male</option>
+                            <option value="Perempuan">Female</option>
                         </select>
                         <div class="form-control-icon">
                             <i class="bi bi-shield-lock"></i>
@@ -162,24 +162,24 @@
                         <?= form_error('gender', '<small class="text-danger pl-3">', '</small>') ?>
                     </div>
                     <div class="mb-3">
-                        <label for="birthday" class="form-label">Tanggal Lahir</label>
-                        <input type="date" class="form-control <?= (form_error('birthday')) ? 'is-invalid' : '' ?>" id="birthday" name="birthday" placeholder="Tanggal Lahir" value="<?= set_value('birthday') ?>">
+                        <label for="birthday" class="form-label">Birthday</label>
+                        <input type="date" class="form-control <?= (form_error('birthday')) ? 'is-invalid' : '' ?>" id="birthday" name="birthday" placeholder="Birthday" value="<?= set_value('birthday') ?>">
                         <div class="form-control-icon">
                             <i class="bi bi-shield-lock"></i>
                         </div>
                         <?= form_error('birthday', '<small class="text-danger pl-3">', '</small>') ?>
                     </div>
                     <div class="mb-3">
-                        <label for="phone_number" class="form-label">Nomor Telepon</label>
-                        <input type="number" class="form-control <?= (form_error('phone_number')) ? 'is-invalid' : '' ?>" id="phone_number" name="phone_number" placeholder="Nomor Telepon" value="<?= set_value('phone_number') ?>">
+                        <label for="phone_number" class="form-label">Phone Number</label>
+                        <input type="number" class="form-control <?= (form_error('phone_number')) ? 'is-invalid' : '' ?>" id="phone_number" name="phone_number" placeholder="Phone Number" value="<?= set_value('phone_number') ?>">
                         <div class="form-control-icon">
                             <i class="bi bi-shield-lock"></i>
                         </div>
                         <?= form_error('phone_number', '<small class="text-danger pl-3">', '</small>') ?>
                     </div>
                     <div class="mb-3">
-                        <label for="address" class="form-label">Alamat</label>
-                        <textarea class="form-control <?= (form_error('address')) ? 'is-invalid' : '' ?>" id="address" name="address" rows="3" placeholder="Alamat"><?= set_value('address') ?></textarea>
+                        <label for="address" class="form-label">Address</label>
+                        <textarea class="form-control <?= (form_error('address')) ? 'is-invalid' : '' ?>" id="address" name="address" rows="3" placeholder="Address"><?= set_value('address') ?></textarea>
                         <div class="form-control-icon">
                             <i class="bi bi-shield-lock"></i>
                         </div>
@@ -196,7 +196,7 @@
                     </div>
                     <div class="mb-3 row">
                         <div class="col-sm-6 mb-3 mb-sm-0">
-                            <label for="password1" class="form-label">Kata Sandi</label>
+                            <label for="password1" class="form-label">Password</label>
                             <input type="password" class="form-control <?= (form_error('password1')) ? 'is-invalid' : '' ?>" id="password1" name="password1" placeholder="Password">
                             <?= form_error('password1', '<small class="bi bi-shield-lockdanger pl-3">', '</small>') ?>
                             <div class="form-control-icon">
@@ -204,8 +204,8 @@
                             </div>
                         </div>
                         <div class="col-sm-6">
-                            <label for="password2" class="form-label">Konfirmasi Kata Sandi</label>
-                            <input type="password" class="form-control <?= (form_error('password2')) ? 'is-invalid' : '' ?>" id="password2" name="password2" placeholder="Konfirmasi Kata Sandi">
+                            <label for="password2" class="form-label">Konfirmasi Password</label>
+                            <input type="password" class="form-control <?= (form_error('password2')) ? 'is-invalid' : '' ?>" id="password2" name="password2" placeholder="Konfirmasi Password">
                             <div class="form-control-icon">
                                 <i class="bi bi-shield-lock"></i>
                             </div>
@@ -214,8 +214,8 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
-                    <button type="submit" class="btn btn-primary">Simpan</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Save</button>
                 </div>
             </form>
         </div>
@@ -260,7 +260,7 @@
                         <?= form_error('username', '<small class="text-danger pl-3">', '</small>') ?>
                     </div>
                     <div class="mb-3">
-                        <label for="gender" class="form-label">Jenis Kelamin</label>
+                        <label for="gender" class="form-label">Gender</label>
                         <select class="form-select <?= (form_error('gender')) ? 'is-invalid' : '' ?>" name="gender" id="gender">
                             <option value="" disabled selected>Pilih Gender</option>
                             <option value="Laki-laki">Laki-laki</option>
@@ -272,24 +272,24 @@
                         <?= form_error('gender', '<small class="text-danger pl-3">', '</small>') ?>
                     </div>
                     <div class="mb-3">
-                        <label for="birthday" class="form-label">Tanggal Lahir</label>
-                        <input type="date" class="form-control <?= (form_error('birthday')) ? 'is-invalid' : '' ?>" id="birthday" name="birthday" placeholder="Tanggal Lahir" value="<?= set_value('birthday') ?>">
+                        <label for="birthday" class="form-label">Birthday</label>
+                        <input type="date" class="form-control <?= (form_error('birthday')) ? 'is-invalid' : '' ?>" id="birthday" name="birthday" placeholder="Birthday" value="<?= set_value('birthday') ?>">
                         <div class="form-control-icon">
                             <i class="bi bi-shield-lock"></i>
                         </div>
                         <?= form_error('birthday', '<small class="text-danger pl-3">', '</small>') ?>
                     </div>
                     <div class="mb-3">
-                        <label for="phone_number" class="form-label">Nomor Telepon</label>
-                        <input type="number" class="form-control <?= (form_error('phone_number')) ? 'is-invalid' : '' ?>" id="phone_number" name="phone_number" placeholder="Nomor Telepon" value="<?= set_value('phone_number') ?>">
+                        <label for="phone_number" class="form-label">Phone Number</label>
+                        <input type="number" class="form-control <?= (form_error('phone_number')) ? 'is-invalid' : '' ?>" id="phone_number" name="phone_number" placeholder="Phone Number" value="<?= set_value('phone_number') ?>">
                         <div class="form-control-icon">
                             <i class="bi bi-shield-lock"></i>
                         </div>
                         <?= form_error('phone_number', '<small class="text-danger pl-3">', '</small>') ?>
                     </div>
                     <div class="mb-3">
-                        <label for="address" class="form-label">Alamat</label>
-                        <textarea class="form-control <?= (form_error('address')) ? 'is-invalid' : '' ?>" id="address" name="address" rows="3" placeholder="Alamat"><?= set_value('address') ?></textarea>
+                        <label for="address" class="form-label">Address</label>
+                        <textarea class="form-control <?= (form_error('address')) ? 'is-invalid' : '' ?>" id="address" name="address" rows="3" placeholder="Address"><?= set_value('address') ?></textarea>
                         <div class="form-control-icon">
                             <i class="bi bi-shield-lock"></i>
                         </div>
@@ -298,7 +298,7 @@
                     <div class="mb-3">
                         <label for="">Role</label>
                         <select class="form-select" name="role_id" id="role_id">
-                            <option value="">Pilih Role</option>
+                            <option value="">Choose Role</option>
                             <?php foreach ($role as $r) : ?>
                                 <option value="<?= $r['id'] ?>"><?= $r['role'] ?></option>
                             <?php endforeach ?>
@@ -306,7 +306,7 @@
                     </div>
                     <div class="mb-3 row">
                         <div class="col-sm-6 mb-3 mb-sm-0">
-                            <label for="password1" class="form-label">Kata Sandi</label>
+                            <label for="password1" class="form-label">Password</label>
                             <input type="password" class="form-control <?= (form_error('password1')) ? 'is-invalid' : '' ?>" id="password1" name="password1" placeholder="Password">
                             <?= form_error('password1', '<small class="bi bi-shield-lockdanger pl-3">', '</small>') ?>
                             <div class="form-control-icon">
@@ -314,8 +314,8 @@
                             </div>
                         </div>
                         <div class="col-sm-6">
-                            <label for="password2" class="form-label">Konfirmasi Kata Sandi</label>
-                            <input type="password" class="form-control <?= (form_error('password2')) ? 'is-invalid' : '' ?>" id="password2" name="password2" placeholder="Konfirmasi Kata Sandi">
+                            <label for="password2" class="form-label">Confirmation Password</label>
+                            <input type="password" class="form-control <?= (form_error('password2')) ? 'is-invalid' : '' ?>" id="password2" name="password2" placeholder="Konfirmasi Password">
                             <div class="form-control-icon">
                                 <i class="bi bi-shield-lock"></i>
                             </div>
@@ -324,8 +324,8 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
-                    <button type="submit" class="btn btn-primary">Simpan</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Save</button>
                 </div>
             </form>
         </div>

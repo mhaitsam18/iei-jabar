@@ -11,7 +11,7 @@
             <div class="card">
                 <div class="card-body">
                     <div class="d-flex justify-content-between align-items-baseline mb-2">
-                        <h6 class="card-title mb-0">Projects</h6>
+                        <h6 class="card-title mb-0">Article</h6>
                         <div class="flash-data" data-flashdata="<?= $this->session->flashdata('flash'); ?>" data-objek="Data User"></div>
                         <?= $this->session->flashdata('message'); ?>
                         <div class="dropdown mb-2">
@@ -19,7 +19,7 @@
                                 <i class="icon-lg text-muted pb-3px" data-feather="more-horizontal"></i>
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton7">
-                                <a class="dropdown-item d-flex align-items-center" href="javascript:;"><i data-feather="eye" class="icon-sm me-2"></i> <span class="">Tambah</span></a>
+                                <a class="dropdown-item d-flex align-items-center" href="javascript:;"><i data-feather="eye" class="icon-sm me-2"></i> <span class="">Add</span></a>
                             </div>
                         </div>
                         <div class="float-end"><a href="<?= base_url('Artikel/create') ?>" class="btn btn-primary btn-sm">Tambah Artikel</a></div>
@@ -28,11 +28,11 @@
                         <table class="table table-hover mb-0" id="dataTableExample">
                             <thead>
                                 <tr>
-                                    <th class="pt-0">Tanggal</th>
-                                    <th class="pt-0">Admin</th>
-                                    <th class="pt-0">Judul</th>
+                                    <th class="pt-0">Date</th>
+                                    <th class="pt-0">Author</th>
+                                    <th class="pt-0">Title</th>
                                     <th class="pt-0">Status</th>
-                                    <th class="pt-0">Aksi</th>
+                                    <th class="pt-0">Action</th>
                                 </tr>
                             </thead>
                             <tbody>

@@ -34,8 +34,8 @@
                 <div class="form-group position-relative has-icon-left mb-4">
                     <select class="form-control" name="gender" id="gender">
                         <option value="" disabled selected>Select Gender</option>
-                        <option value="Laki-laki">Laki-laki</option>
-                        <option value="Perempuan">Perempuan</option>
+                        <option value="Laki-laki">Male</option>
+                        <option value="Perempuan">Female</option>
                     </select>
                     <div class="form-control-icon">
                         <i class="bi bi-shield-lock"></i>

@@ -5,7 +5,7 @@
 				<a href="<?= base_url() ?>"><img src="<?= base_url('/assets/img/logo/sidebar-logo.png') ?>" style="height: 100px;" alt="Logo"></a>
 			</div>
 			<h1 class="auth-title">Log in.</h1>
-			<p class="auth-subtitle mb-5">Silahkan Log in</p>
+			<p class="auth-subtitle mb-5">Please Log in</p>
 			<form action="<?= base_url('auth/') ?>" method="post">
 				<div class="flash-data" data-flashdata="<?= $this->session->flashdata('flash'); ?>" data-objek="Data User"></div>
 				<?= $this->session->flashdata('message'); ?>
