@@ -70,13 +70,15 @@
 								<i class="icon-md <?= hearticon($article['id'], $user['id']) ?>" data-feather="heart" id="love"></i>
 								<p class="d-none d-md-block ms-2">Like</p>
 							</a>
-						<?php endif; ?>
-						<?php if ($user) : ?>
 							<a href="javascript:;" class="d-flex align-items-center text-muted me-4 comment-button">
 								<i class="icon-md" data-feather="message-square"></i>
 								<p class="d-none d-md-block ms-2">Comment</p>
 							</a>
-						<?php else: ?>
+						<?php else : ?>
+							<a href="<?= base_url('auth') ?>" class="d-flex align-items-center text-muted me-4">
+								<i class="icon-md" data-feather="heart"></i>
+								<p class="d-none d-md-block ms-2">Like</p>
+							</a>
 							<a href="<?= base_url('auth') ?>" class="d-flex align-items-center text-muted me-4">
 								<i class="icon-md" data-feather="message-square"></i>
 								<p class="d-none d-md-block ms-2">Comment</p>
