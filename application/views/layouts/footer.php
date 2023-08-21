@@ -151,10 +151,12 @@
 	}
 	const error = $('.flash-data').data('error');
 	if (error) {
-		//'Data ' + 
+		// Menghapus tag HTML menggunakan strip_tags
+		const cleanedError = error.replace(/<\/?p>/g, '');
+
 		Swal.fire({
 			title: 'Failed',
-			text: error,
+			text: cleanedError, // Menggunakan pesan yang telah dibersihkan
 			icon: 'error'
 		});
 	}
