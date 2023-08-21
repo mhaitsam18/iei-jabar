@@ -4,6 +4,11 @@
             <h4 class="mb-3 mb-md-0"><?= $title ?></h4>
         </div>
         <div class="d-flex align-items-center flex-wrap text-nowrap">
+            <?php if ($user) : ?>
+                <div class="d-block my-2">
+                    <button type="button" class="btn <?= fishlike($fish['id'], $user['id']) ?> float-end like-button" data-fish-id="<?= $fish['id'] ?>"><i data-feather="thumbs-up"></i></button>
+                </div>
+            <?php endif; ?>
         </div>
     </div>
 
@@ -109,7 +114,7 @@
                                 <div class="card-body">
                                     <h5 class="card-title"><?= $article['title'] ?></h5>
                                     <p class="card-text"><?= $article['excerpt'] ?></p>
-                                    <p class="card-text"><a href="<?= base_url('member/article/detail/'. $article['id']) ?>" class="btn btn-primary">See More</a></p>
+                                    <p class="card-text"><a href="<?= base_url('member/article/detail/' . $article['id']) ?>" class="btn btn-primary">See More</a></p>
                                 </div>
                             </div>
                         </div>
@@ -138,10 +143,28 @@
                             if (button.hasClass('btn-outline-success')) {
                                 // Tombol like sebelumnya belum ditekan, ubah menjadi tombol unlike
                                 button.removeClass('btn-outline-success').addClass('btn-success');
+                                var like = 'Like in successfully';
                             } else {
                                 // Tombol like sebelumnya telah ditekan, ubah menjadi tombol like
                                 button.removeClass('btn-success').addClass('btn-outline-success');
+                                var like = 'Unlike in successfully';
                             }
+                            const Toast = Swal.mixin({
+                                toast: true,
+                                position: 'top-end',
+                                showConfirmButton: false,
+                                timer: 3000,
+                                timerProgressBar: true,
+                                didOpen: (toast) => {
+                                    toast.addEventListener('mouseenter', Swal.stopTimer)
+                                    toast.addEventListener('mouseleave', Swal.resumeTimer)
+                                }
+                            })
+
+                            Toast.fire({
+                                icon: 'success',
+                                title: like
+                            })
                         } else {
                             alert('Failed to like fish: ' + response.message);
                         }
