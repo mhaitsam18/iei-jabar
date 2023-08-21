@@ -12,6 +12,23 @@ class User extends CI_Controller
         date_default_timezone_set('Asia/Jakarta');
     }
 
+	public function validate_birthday_date($birthday)
+	{
+		// Convert input birthday to timestamp
+		$birthday_timestamp = strtotime($birthday);
+
+		// Get today's date
+		$today = strtotime(date('Y-m-d'));
+
+		// Compare birthday with today's date
+		if ($birthday_timestamp > $today) {
+			$this->form_validation->set_message('validate_birthday_date', 'Birth Day cannot be in the future.');
+			return FALSE;
+		} else {
+			return TRUE;
+		}
+	}
+
 
     public function index()
     {
@@ -22,8 +39,11 @@ class User extends CI_Controller
         $this->form_validation->set_rules('gender', 'Gender', 'trim|required');
         // $this->form_validation->set_rules('place_of_birth', 'Place of birth', 'trim|required');
         $this->form_validation->set_rules('birthday', 'Birth day', 'trim|required');
+
+		// Custom validation callback function
+		$this->form_validation->set_rules('birthday', 'Birth Day', 'callback_validate_birthday_date');
         $this->form_validation->set_rules('phone_number', 'Phone Number', 'trim|required');
-        $this->form_validation->set_rules('Address', 'Address', 'trim|required');
+        $this->form_validation->set_rules('address', 'Address', 'trim|required');
         if ($this->form_validation->run() ==  false) {
             $this->load->view('layouts/header-member', $data);
             $this->load->view('layouts/topbar-member', $data);

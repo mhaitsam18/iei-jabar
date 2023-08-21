@@ -40,6 +40,23 @@ class Auth extends CI_Controller {
 		}
 	}
 
+	public function validate_birthday_date($birthday)
+	{
+		// Convert input birthday to timestamp
+		$birthday_timestamp = strtotime($birthday);
+
+		// Get today's date
+		$today = strtotime(date('Y-m-d'));
+
+		// Compare birthday with today's date
+		if ($birthday_timestamp > $today) {
+			$this->form_validation->set_message('validate_birthday_date', 'Birth Day cannot be in the future.');
+			return FALSE;
+		} else {
+			return TRUE;
+		}
+	}
+
 	public function registration()
 	{
 		if ($this->session->userdata('username')) {
@@ -62,6 +79,10 @@ class Auth extends CI_Controller {
 		$this->form_validation->set_rules('gender','Gander', 'required|trim');
 		// $this->form_validation->set_rules('place_of_birth','Place of Birth', 'required|trim');
 		$this->form_validation->set_rules('birthday','Birth Day', 'required|trim');
+
+		// Custom validation callback function
+		$this->form_validation->set_rules('birthday', 'Birth Day', 'callback_validate_birthday_date');
+
 		$this->form_validation->set_rules('phone_number','Phone Number', 'required|trim');
 		$this->form_validation->set_rules('address','Address', 'required|trim');
 		// 

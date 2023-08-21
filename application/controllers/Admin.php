@@ -15,6 +15,23 @@ class Admin extends CI_Controller {
 		date_default_timezone_set('Asia/Jakarta');
 	}
 
+	public function validate_birthday_date($birthday)
+	{
+		// Convert input birthday to timestamp
+		$birthday_timestamp = strtotime($birthday);
+
+		// Get today's date
+		$today = strtotime(date('Y-m-d'));
+
+		// Compare birthday with today's date
+		if ($birthday_timestamp > $today) {
+			$this->form_validation->set_message('validate_birthday_date', 'Birth Day cannot be in the future.');
+			return FALSE;
+		} else {
+			return TRUE;
+		}
+	}
+
 	public function index()
 	{
 		$data['title'] = "Dashboard";
@@ -113,6 +130,9 @@ class Admin extends CI_Controller {
 		// $this->form_validation->set_rules('role_id','Role', 'required|trim');
 		$this->form_validation->set_rules('gender', 'Gander', 'required|trim');
 		$this->form_validation->set_rules('birthday', 'Birth Day', 'required|trim');
+
+		// Custom validation callback function
+		$this->form_validation->set_rules('birthday', 'Birth Day', 'callback_validate_birthday_date');
 		$this->form_validation->set_rules('phone_number', 'Phone Number', 'required|trim');
 		$this->form_validation->set_rules('address', 'Address', 'required|trim');
 		// 
