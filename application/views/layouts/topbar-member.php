@@ -1,12 +1,12 @@
 <div class="horizontal-menu" style="border-color: #2F216C;">
-    <nav class="navbar top-navbar" style="background-color: #2F216C;">
-        <div class="container-fluid">
-            <div class="navbar-content">
-                <a href="#" class="sidebar-brand">
-                    <img src="<?= base_url('/assets/img/logo/sidebar-logo.png') ?>">
-                </a>
-                <ul class="navbar-nav">
-                    <!-- <li class="nav-item dropdown">
+	<nav class="navbar top-navbar" style="background-color: #2F216C;">
+		<div class="container-fluid">
+			<div class="navbar-content">
+				<a href="#" class="sidebar-brand">
+					<img src="<?= base_url('/assets/img/logo/sidebar-logo.png') ?>">
+				</a>
+				<ul class="navbar-nav">
+					<!-- <li class="nav-item dropdown">
                         <a class="text-light nav-link dropdown-toggle" href="#" id="appsDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i data-feather="grid"></i>
                         </a>
@@ -42,7 +42,7 @@
                             </div>
                         </div>
                     </li> -->
-                    <!-- <li class="nav-item dropdown">
+					<!-- <li class="nav-item dropdown">
                         <a class="text-light nav-link dropdown-toggle" href="#" id="messageDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i data-feather="mail"></i>
                         </a>
@@ -118,7 +118,7 @@
                             </div>
                         </div>
                     </li> -->
-                    <!-- <li class="nav-item dropdown">
+					<!-- <li class="nav-item dropdown">
                         <a class="text-light nav-link dropdown-toggle" href="#" id="notificationDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i data-feather="bell"></i>
                             <div class="indicator">
@@ -182,13 +182,13 @@
                             </div>
                         </div>
                     </li> -->
-					<?php if(!$user): ?>
+					<?php if (!$user) : ?>
 						<li class="nav-item dropdown me-3">
 							<a class="text-light nav-link" href="<?= base_url('auth') ?>">
 								Login
 							</a>
 						</li>
-					<?php else: ?>
+					<?php else : ?>
 						<li class="nav-item dropdown">
 							<a class="text-light nav-link dropdown-toggle" href="#" id="profileDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 								<img class="wd-30 ht-30 rounded-circle" src="<?= base_url('assets/img/' . $user['image'])  ?>" alt="profile">
@@ -220,51 +220,55 @@
 							</div>
 						</li>
 					<?php endif; ?>
-                </ul>
-                <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="horizontal-menu-toggle">
-                    <i data-feather="menu"></i>
-                </button>
-            </div>
-        </div>
-    </nav>
-    <nav class="bottom-navbar" style="background-color: #2F216C;">
-        <div class="container">
-            <ul class="nav page-navigation">
-                <li class="nav-item">
-                    <a class="text-light nav-link" href="<?= base_url('member/home') ?>">
-                        <i class="link-icon" data-feather="box"></i>
-                        <span class="menu-title">Home</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="text-light nav-link" href="<?= base_url('Gallery') ?>">
-                        <i class="link-icon" data-feather="box"></i>
-                        <span class="menu-title">Gallery</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="text-light nav-link" href="<?= base_url('member/article') ?>">
-                        <i class="link-icon" data-feather="box"></i>
-                        <span class="menu-title">Article</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="text-light nav-link" href="<?= base_url('member/aboutus') ?>">
-                        <i class="link-icon" data-feather="box"></i>
-                        <span class="menu-title">About Us</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="text-light nav-link" href="<?= base_url('member/contactus') ?>">
-                        <i class="link-icon" data-feather="box"></i>
-                        <span class="menu-title">Contact Us</span>
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </nav>
+				</ul>
+				<button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="horizontal-menu-toggle">
+					<i data-feather="menu"></i>
+				</button>
+			</div>
+		</div>
+	</nav>
+	<nav class="bottom-navbar" style="background-color: #2F216C;">
+		<div class="container">
+			<ul class="nav page-navigation">
+				<li class="nav-item">
+					<a class="text-light nav-link" href="<?= base_url('member/home') ?>">
+						<i class="link-icon" data-feather="box"></i>
+						<span class="menu-title">Home</span>
+					</a>
+				</li>
+				<li class="nav-item">
+					<a class="text-light nav-link" href="<?= base_url('Gallery') ?>">
+						<i class="link-icon" data-feather="box"></i>
+						<span class="menu-title">Gallery</span>
+					</a>
+				</li>
+				<li class="nav-item">
+					<a class="text-light nav-link" href="<?= base_url('member/article') ?>">
+						<i class="link-icon" data-feather="box"></i>
+						<span class="menu-title">Article</span>
+					</a>
+				</li>
+				<li class="nav-item">
+					<a class="text-light nav-link" href="<?= base_url('member/aboutus') ?>">
+						<i class="link-icon" data-feather="box"></i>
+						<span class="menu-title">About Us</span>
+					</a>
+				</li>
+				<li class="nav-item">
+					<a class="text-light nav-link" href="<?= base_url('member/contactus') ?>">
+						<i class="link-icon" data-feather="box"></i>
+						<span class="menu-title">Contact Us</span>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</nav>
 </div>
 <!-- partial -->
 
 <div class="page-wrapper">
-    <div class="flash-data" data-success="<?= $this->session->flashdata('success') ?>" data-error="<?= $this->session->flashdata('error') ?>" data-warning="<?= $this->session->flashdata('warning') ?>"></div>
+	<div class="flash-data" data-success="<?= $this->session->flashdata('success') ?>" data-error="<?= $this->session->flashdata('error') ?>" data-warning="<?= $this->session->flashdata('warning') ?>"></div>
+
+	<?php if (validation_errors()) : ?>
+		<div class="flash-data" data-error="There is an error"></div>
+	<?php endif ?>

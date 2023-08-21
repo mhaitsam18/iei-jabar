@@ -91,7 +91,7 @@
 	// 	var src = image.getAttribute("src");
 	// 	var alt = image.getAttribute("alt");
 	// 	image.outerHTML = '<img src="' + src + '" alt="' + alt + '">';
-	});
+	// });
 </script>
 
 

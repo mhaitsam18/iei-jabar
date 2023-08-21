@@ -22,7 +22,7 @@
 							</div>
 						</div>
 					</div>
-					<?= form_error('name', '<div class="alert alert-danger" role="alert">', '</div>'); ?>
+					<!-- <?= form_error('name', '<div class="alert alert-danger" role="alert">', '</div>'); ?> -->
 					<div class="flash-data" data-flashdata="<?= $this->session->flashdata('flash'); ?>" data-objek="avatar"></div>
 					<?= $this->session->flashdata('message'); ?>
 					<div class="table-responsive">

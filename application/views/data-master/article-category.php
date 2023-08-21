@@ -12,11 +12,11 @@
 			<div class="card">
 				<div class="card-body">
 
-					<?php if (validation_errors()) : ?>
+					<!-- <?php if (validation_errors()) : ?>
 						<div class="alert alert-danger" role="alert">
 							<?= validation_errors(); ?>
 						</div>
-					<?php endif ?>
+					<?php endif ?> -->
 					<div class="d-flex justify-content-between align-items-baseline mb-2">
 						<h6 class="card-title mb-0"><?= $title ?></h6>
 						<div class="dropdown mb-2">

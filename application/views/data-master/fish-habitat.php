@@ -20,8 +20,8 @@
                             </div>
                         </div>
                     </div>
-                    <?= form_error('fish_id', '<div class="alert alert-danger" role="alert">', '</div>'); ?>
-                    <?= form_error('habitat', '<div class="alert alert-danger" role="alert">', '</div>'); ?>
+                    <!-- <?= form_error('fish_id', '<div class="alert alert-danger" role="alert">', '</div>'); ?>
+                    <?= form_error('habitat', '<div class="alert alert-danger" role="alert">', '</div>'); ?> -->
                     <div class="flash-data" data-flashdata="<?= $this->session->flashdata('flash'); ?>" data-objek="fish habitat"></div>
                     <?= $this->session->flashdata('message'); ?>
                     <div class="table-responsive">

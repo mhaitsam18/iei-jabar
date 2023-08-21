@@ -5,11 +5,11 @@
 			<h4 class="mb-3 mb-md-0"><?= $title ?></h4>
 		</div>
 	</div>
-	<?php if (validation_errors()) : ?>
+	<!-- <?php if (validation_errors()) : ?>
 		<div class="alert alert-danger" role="alert">
 			<?= validation_errors(); ?>
 		</div>
-	<?php endif ?>
+	<?php endif ?> -->
 	<div class="flash-data" data-flashdata="<?= $this->session->flashdata('flash'); ?>" data-objek="Data User"></div>
 	<?= $this->session->flashdata('message'); ?>
 	<div class="row">

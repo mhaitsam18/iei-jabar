@@ -25,11 +25,11 @@
 						</div>
 					</div>
 
-					<?php if (validation_errors()) : ?>
+					<!-- <?php if (validation_errors()) : ?>
 						<div class="alert alert-danger" role="alert">
 							<?= validation_errors(); ?>
 						</div>
-					<?php endif ?>
+					<?php endif ?> -->
 					<div class="flash-data" data-flashdata="<?= $this->session->flashdata('flash'); ?>" data-objek="genus"></div>
 					<?= $this->session->flashdata('message'); ?>
 					<div class="table-responsive">

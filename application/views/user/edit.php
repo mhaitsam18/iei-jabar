@@ -14,7 +14,6 @@
 					<!-- Page Heading -->
 					<?= $this->session->flashdata('message'); ?>
 					<div class="flash-data" data-flashdata="<?= $this->session->flashdata('flash'); ?>" data-objek="Profil"></div>
-					<?= form_error('password', '<div class="alert alert-danger" role="alert">', '</div>'); ?>
 					<div class="row">
 						<div class="col-lg-8">
 							<form action="<?= base_url('user/edit') ?>" method="post" enctype="multipart/form-data">
