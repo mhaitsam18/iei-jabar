@@ -267,8 +267,4 @@
 <!-- partial -->
 
 <div class="page-wrapper">
-	<div class="flash-data" data-success="<?= $this->session->flashdata('success') ?>" data-error="<?= $this->session->flashdata('error') ?>" data-warning="<?= $this->session->flashdata('warning') ?>"></div>
-
-	<?php if (validation_errors()) : ?>
-		<div class="flash-data" data-error="There is an error"></div>
-	<?php endif ?>
+	<div class="flash-data" data-success="<?= $this->session->flashdata('success') ?>" data-error="<?php if (validation_errors()) : ?>There is an error<?php endif ?>" data-warning="<?= $this->session->flashdata('warning') ?>"></div>
