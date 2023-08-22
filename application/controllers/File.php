@@ -18,9 +18,26 @@ class File extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/userguide3/general/urls.html
 	 */
-	public function index()
+	public function index($folder = null)
 	{
-		$this->load->view('welcome_message');
+		if (!empty($_FILES['thumbnail']['name'])) {
+			$config['upload_path'] = "./assets/img/$folder/";
+			$config['allowed_types'] = 'jpg|jpeg|png';
+			$config['max_size'] = '4096';
+
+			// Generate random file name
+			$config['file_name'] = uniqid();
+
+			$this->load->library('upload', $config);
+		}
+		if ($this->upload->do_upload('thumbnail')) {
+			$file_name = "$folder/" . $this->upload->data('file_name');
+			echo $file_name;
+		} else {
+			$error = $this->upload->display_errors();
+			// Handle error
+			return $error;
+		}
 	}
 
 	public function avatar()
@@ -48,6 +65,27 @@ class File extends CI_Controller {
 	{
 		if (!empty($_FILES['thumbnail']['name'])) {
 			$config['upload_path'] = './assets/img/artikel/';
+			$config['allowed_types'] = 'jpg|jpeg|png';
+			$config['max_size'] = '4096';
+
+			// Generate random file name
+			$config['file_name'] = uniqid();
+
+			$this->load->library('upload', $config);
+		}
+		if ($this->upload->do_upload('thumbnail')) {
+			$file_name = $this->upload->data('file_name');
+			echo $file_name;
+		} else {
+			$error = $this->upload->display_errors();
+			// Handle error
+			return $error;
+		}
+	}
+	public function article()
+	{
+		if (!empty($_FILES['thumbnail']['name'])) {
+			$config['upload_path'] = './assets/img/article/';
 			$config['allowed_types'] = 'jpg|jpeg|png';
 			$config['max_size'] = '4096';
 
@@ -133,6 +171,27 @@ class File extends CI_Controller {
 	{
 		if (!empty($_FILES['file']['name'])) {
 			$config['upload_path'] = './assets/img/ordo/';
+			$config['allowed_types'] = 'jpg|jpeg|png';
+			$config['max_size'] = '4096';
+
+			// Generate random file name
+			$config['file_name'] = uniqid();
+
+			$this->load->library('upload', $config);
+		}
+		if ($this->upload->do_upload('file')) {
+			$file_name = 'ordo/'.$this->upload->data('file_name');
+			echo $file_name;
+		} else {
+			$error = $this->upload->display_errors();
+			// Handle error
+			return $error;
+		}
+	}
+	public function order()
+	{
+		if (!empty($_FILES['file']['name'])) {
+			$config['upload_path'] = './assets/img/order/';
 			$config['allowed_types'] = 'jpg|jpeg|png';
 			$config['max_size'] = '4096';
 

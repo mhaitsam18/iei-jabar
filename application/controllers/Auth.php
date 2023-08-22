@@ -381,37 +381,6 @@ class Auth extends CI_Controller {
 		}
 	}
 
-	public function forgotPassword2()
-	{
-		if ($this->session->userdata('username')) {
-			redirect('user');
-		}
-		$this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email');
-		if ($this->form_validation->run() == false) {
-			$data['title'] = 'Forgot Password';
-			$data['page'] = 'auth/forgot-password-2';
-			$this->load->view('layouts/auth_main', $data);
-		} else{
-			$email = $this->input->post('email');
-			$user = $this->db->get_where('user', ['email' => $email, 'is_active' => 1])->row_array();
-			if ($user) {
-				$pertanyaan_keamanan = $this->db->get_where('pertanyaan_keamanan', ['id_user' => $user['id']])->row_array();
-				if ($pertanyaan_keamanan) {
-					redirect('auth/question/'.$pertanyaan_keamanan['id']);
-				} else{
-					$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
-						Sorry, Your account does not have a security question!
-						</div>');	
-					redirect('auth/forgotPassword2');
-				}
-			} else{
-				$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
-					Email is not registered or not verified!
-					</div>');
-					redirect('auth/forgotPassword2');
-			}
-		}
-	}
 
 	public function question($id = '')
 	{
